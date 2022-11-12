@@ -1,0 +1,28 @@
+.header {
+  color: white;
+}
+
+.feature-icon {
+  height: 150px;
+}
+.sm-image {
+  height: 45px;
+}
+
+.swt-background {
+  background-color: #265B80;
+}
+
+.carousel-caption-top {
+  top: 0;
+  bottom: auto;
+}
+
+.partner-logos {
+  height: 150px;
+}
+
+.feature-photos {
+  height: 400px;
+
+}
