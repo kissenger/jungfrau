@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ParallaxDirective } from './shared/directives/parallax.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParallaxDirective
   ],
   imports: [
     BrowserModule,

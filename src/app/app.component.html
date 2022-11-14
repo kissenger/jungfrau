@@ -1,3 +1,8 @@
+
+<!--------------------------------------------------------------
+                      HEADER
+---------------------------------------------------------------->
+
 <header>
   <nav class="navbar bg-white navbar-expand-md fixed-top p-0 m-0 border-bottom">
     <div class="header container-fluid p-0 mx-5">
@@ -27,196 +32,217 @@
 
 <main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<!--------------------------------------------------------------
+                      CAROUSEL
+---------------------------------------------------------------->
 
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div appParallax [factor]="4" >
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <a href="#about">
+            <img src="../assets/photos/post-snorkeling-child-cropped.jpg" class="d-block w-100" alt="Child walking up beach after snorkeling">
+          </a>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Welcome to Snorkelology</h1>
+              <p>Discover the wonders of British snorkelling for all the family</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <a href="#book">
+            <img src="../assets/photos/drone-woman-snorkeling.jpg" class="d-block w-100" alt="Aerial photo of woman snorkeling in UK waters">
+          </a>
+
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Best Snorkelling Adventures in Britain  </h1>
+              <p>Our new book out soon!</p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <a href="#partners">
+            <img src="../assets/photos/shagging-crabs.jpg" class="d-block w-100" alt="Underwater photo of crabs...umm...cuddling">
+          </a>
+
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1>Learn more about British snorkelling</h1>
+              <p>Find out more about the wonderful individuals and organisations that are helping us explore British snorkelling </p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
 
-    <div class="carousel-inner">
+  </div> <!-- /parallax-->
 
-      <div class="carousel-item active">
-        <a href="#about">
-          <img src="../assets/photos/post-snorkeling-child-cropped.jpg" class="d-block w-100" alt="Child walking up beach after snorkeling">
-        </a>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Welcome to Snorkelology</h1>
-            <p>Discover the wonders of British snorkelling for all the family</p>
-          </div>
+<!--------------------------------------------------------------
+                          FEATURES
+---------------------------------------------------------------->
+
+  <div class=" bg-white marketing m-0 w-100">
+
+    <div class="container">
+
+      <!------------------------->
+      <!-- FEATURE 1: ABOUT US -->
+      <!------------------------->
+      <a id="about"> </a>
+      <div class="row bg-white featurette py-5">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">What is Snorkelology?</h2>
+          <p></p>
+          <p class="lead">
+            Hello and welcome to Snorkelology - a website for anyone interested in British snorkelling.
+          </p>
+          <p class="lead">
+            We are Emma and Gordon, and we launched this site as a way to reach others who want to find out and share information
+            about snorkelling in around our wonderful coastline.  We are both keen outdoor enthusiasts who use our spare time running, swimming,
+            cyling, climbing, skiing and ... planning our next adventures!  Before we had  children we were enthusiastic SCUBA divers, both
+            achieving instuctor standard and enjoying undersea adventures together around the world.
+          </p>
+          <p class="lead">
+            With our children now rapidly approaching their teens we are keen to introduce them to the undersea world, and there is
+            no better family adventure than British snorkelling!  With the boom in open water (or 'wild') swimming we are keen to share
+            the simple pleasure of taking that one step further - with the addition of some cheap and simple kit we can all share
+            the rich and diverse natural marine environment awaiting us on our doorstep.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img src="../assets/photos/woman-staring.jpg" class="d-block w-100" alt="Woman Happy after Snorkelling">
+
         </div>
       </div>
 
-      <div class="carousel-item">
-        <a href="#book">
-          <img src="../assets/photos/drone-woman-snorkeling.jpg" class="d-block w-100" alt="Aerial photo of woman snorkeling in UK waters">
-        </a>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Best Snorkelling Adventures in Britain  </h1>
-            <p>Our new book out soon!</p>
-            <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
-          </div>
+      <!------------------------->
+      <!--    ABOUT THE BOOK   -->
+      <!------------------------->
+      <a id="book"> </a>
+      <div class="row bg-white featurette py-5">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">Snorkelling Adventures in Britain </h2>
+          <p class="lead">We are excited to anounce that we have partnered with Wild Things Publishing
+            to release our first book with the working
+            title "Wild Swimming Marine Explorer: Best Snorkelling and Underwater Adventures in Britain"
+          </p>
+          <p class="lead">
+            The book will be packed with information on the best sites to snorkel across Britain, complimented with inspiring
+            photography, clear site finding advice and vital tips to get you started. Follow our blog as we discover more about
+            the challenges of writing your first book with two young children in tow...
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img src="../assets/photos/post-snokelling-wares.jpg" class="d-block w-100" alt="Children on the beach after a snorkel">
         </div>
       </div>
 
-      <div class="carousel-item">
-        <a href="#partners">
-          <img src="../assets/photos/shagging-crabs.jpg" class="d-block w-100" alt="Underwater photo of crabs...umm...cuddling">
-        </a>
-
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>Learn more about British snorkelling</h1>
-            <p>Find out more about the wonderful individuals and organisations that are helping us explore British snorkelling </p>
-            <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
-          </div>
+      <!------------------------->
+      <!--    GET IN TOUCH     -->
+      <!------------------------->
+      <a id="contact"> </a>
+      <div class="row featurette py-5">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">Tell us about your snorkelling adventures</h2>
+          <p></p>
+          <p class="lead">
+            We'd love to hear about your best British snorkelling experiences, and about those very special sites you'd like to see in print.
+            What did you see?  What made the experience so special?
+          </p>
+          <p class="lead">
+            You can get in touch using email, twitter or instagram just use the links at the top of the page - it would be great to hear from you.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img src="../assets/photos/girl-snorkelling-cropped.JPG" class="d-block w-100" alt="Wild Things Publishing Logo">
         </div>
       </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </div>
 
+  <!--------------------------------------------------------------
+                      UUNDERSEA PHOTOS
+  ---------------------------------------------------------------->
+  <div appParallax [factor]="7" >
+    <!-- <div class="photos w-100"> -->
+      <img src="../assets/photos/scorpionfish.JPG" class="photos w-100" alt="Wild Things Publishing Logo">
+    <!-- </div> -->
+  </div>
 
-  <!-- This will hold three latest blog posts
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
+  <!--------------------------------------------------------------
+                      FRIENDS AND PARTNERS
+  ---------------------------------------------------------------->
+  <div class=" bg-white marketing m-0 w-100 ">
 
-  <div class="container marketing px-0">
+    <div class="container">
+      <a id="partners"></a>
+      <div class="container px-4 py-5" id="featured-3">
+        <h2 class="featurette-heading fw-normal lh-1">Other wonderful snorkellers...</h2>
 
-    <!-- START THE FEATURETTES -->
-    <!-- <hr class="featurette-divider py-3"> -->
+        <!------------------------->
+        <!--        ROW 1        -->
+        <!------------------------->
+        <div class="row g-4 py-3 row-cols-1 row-cols-lg-4">
 
-    <!-- ABOUT US -->
-    <a id="about"> </a>
-    <div class="row featurette py-5">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">What is Snorkelology?</h2>
-        <!-- <span class="text-muted">Who are we and why are we here?</span></h2> -->
-        <p></p>
-        <p class="lead">
-          Hello and welcome to Snorkelology - a website for anyone interested in British snorkelling.
-        </p>
-        <p class="lead">
-          We are Emma and Gordon, and we launched this site as a way to reach others who want to find out and share information
-          about snorkelling in around our wonderful coastline.  We are both keen outdoor enthusiasts who use our spare time running, swimming,
-          cyling, climbing, skiing and ... planning our next adventures!  Before we had  children we were enthusiastic SCUBA divers, both
-          achieving instuctor standard and enjoying undersea adventures together around the world.
-        </p>
-        <p class="lead">
-          With our children now rapidly approaching their teens we are keen to introduce them to the undersea world, and there is
-          no better family adventure than British snorkelling!  With the boom in open water (or 'wild') swimming we are keen to share
-          the simple pleasure of taking that one step further - with the addition of some cheap and simple kit we can all share
-          the rich and diverse natural marine environment awaiting us on our doorstep.
-        </p>
-      </div>
-      <div class="col-md-5">
-        <img src="../assets/photos/woman-staring.jpg" class="d-block w-100" alt="Woman Happy after Snorkelling">
-
-      </div>
-    </div>
-
-    <!-- <hr class="featurette-divider"> -->
-
-    <!-- ABOUT THE BOOK -->
-    <a id="book"> </a>
-    <div class="row featurette py-5">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Snorkelling Adventures in Britain </h2>
-        <p class="lead">We are excited to anounce that we have partnered with Wild Things Publishing
-          to release our first book with the working
-          title "Wild Swimming Marine Explorer: Best Snorkelling and Underwater Adventures in Britain"
-        </p>
-        <p class="lead">
-          The book will be packed with information on the best sites to snorkel across Britain, complimented with inspiring
-          photography, clear site finding advice and vital tips to get you started. Follow our blog as we discover more about
-          the challenges of writing your first book with two young children in tow...
-        </p>
-
-      </div>
-      <div class="col-md-5 order-md-1">
-        <img src="../assets/photos/post-snokelling-wares.jpg" class="d-block w-100" alt="Children on the beach after a snorkel">
-      </div>
-    </div>
-
-    <!-- <hr class="featurette-divider"> -->
-
-    <!-- GET IN TOUCH -->
-    <a id="contact"> </a>
-    <div class="row featurette py-5">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">Tell us about your snorkelling adventures</h2>
-        <p></p>
-        <p class="lead">
-          We'd love to hear about your best British snorkelling experiences, and about those very special sites you'd like to see in print.
-          What did you see?  What made the experience so special?
-        </p>
-        <p class="lead">
-          You can get in touch using email, twitter or instagram just use the links at the top of the page - it would be great to hear from you.
-        </p>
-      </div>
-      <div class="col-md-5">
-        <img src="../assets/photos/girl-snorkelling-cropped.JPG" class="d-block w-100" alt="Wild Things Publishing Logo">
-      </div>
-    </div>
-
-    <!-- <hr class="featurette-divider"> -->
-    <!-- /END THE FEATURETTES -->
-
-
-    <a id="partners"></a>
-    <div class="container px-4 py-5" id="featured-3">
-      <h2 class="featurette-heading fw-normal lh-1">Other wonderful snorkellers...</h2>
-      <div class="row g-4 py-3 row-cols-1 row-cols-lg-4">
-
-        <div class="feature col p-1">
-          <div class="h-100 p-2">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
-              <a href="https://wildthingspublishing.com/">
-                <img src="../assets/logos/wild-things-publishing.jpg" class="d-block partner-logos" alt="Wild Things Publishing Logo">
-              </a>
+          <div class="feature col p-1">
+            <div class="h-100 p-2">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
+                <a href="https://wildthingspublishing.com/">
+                  <img src="../assets/logos/wild-things-publishing.jpg" class="d-block partner-logos" alt="Wild Things Publishing Logo">
+                </a>
+              </div>
+              Wild Things Publishing are the inspiration and driving force behind an ever-growing number of Wild books - inspiring and beautiful
+              guides for explorers of all kinds.
             </div>
-            Wild Things Publishing are the inspiration and driving force behind an ever-growing number of Wild books - inspiring and beautiful
-            guides for explorers of all kinds.
-          </div>
-        </div>
-
-        <div class="feature col p-1">
-          <div class="h-100 p-2">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
-              <a href="https://jenandsimbenson.co.uk/">
-                <img src="../assets/logos/wild-running-jacket-cover.jpg" class="d-block partner-logos" alt="Wild Running by Jen and Sim Benson">
-              </a>
-            </div>
-            Jen and Sim write inspiring, award-winning guide-books - plus, they have been super helpful in getting our book-writing
-            adventure started, so check them out.
-          </div>
-        </div>
-
-        <div class="feature col p-1">
-          <div class="h-100 p-2">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
-              <a href="https://www.sealalliance.org/">
-                <img src="../assets/logos/seal-alliance.png" class="d-block partner-logos" alt="Seal Alliance Logo">
-              </a>
-            </div>
-            Words here ...
           </div>
 
-        </div>
+          <div class="feature col p-1">
+            <div class="h-100 p-2">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
+                <a href="https://jenandsimbenson.co.uk/">
+                  <img src="../assets/logos/wild-running-jacket-cover.jpg" class="d-block partner-logos" alt="Wild Running by Jen and Sim Benson">
+                </a>
+              </div>
+              Jen and Sim write inspiring, award-winning guide-books - plus, they have been super helpful in getting our book-writing
+              adventure started, so check them out.
+            </div>
+          </div>
 
+          <div class="feature col p-1">
+            <div class="h-100 p-2">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
+                <a href="https://www.sealalliance.org/">
+                  <img src="../assets/logos/seal-alliance.png" class="d-block partner-logos" alt="Seal Alliance Logo">
+                </a>
+              </div>
+              Words here ...
+            </div>
+          </div>
 
           <div class="feature col p-1">
             <div class="h-100 p-2">
@@ -227,31 +253,32 @@
               </div>
               Words here ...
             </div>
-
           </div>
 
-
-      </div>
-
-      <div class="row g-4 py-3 row-cols-1 row-cols-lg-4">
-
-        <div class="feature col p-1">
-          <div class="h-100 p-2">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
-              <a href="https://www.bsac.com/training/learn-to-snorkel/">
-                <img src="../assets/logos/bsac-logo.png" class="d-block partner-logos" alt="British Sub Aqua Club Logo">
-              </a>
-            </div>
-            The British Sub-Aqua Club (BSAC) are a volunteer led organisation with local diving and snorkelling clubs meeting regularly around the
-            country - a great place to start your snorkelling journey.
-          </div>
         </div>
 
-      </div>
-    </div>
+        <!------------------------->
+        <!--        ROW 2        -->
+        <!------------------------->
+        <div class="row g-4 py-3 row-cols-1 row-cols-lg-4">
 
-    <!-- <hr class="featurette-divider"> -->
-  </div><!-- /.container -->
+          <div class="feature col p-1">
+            <div class="h-100 p-2">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-2 w-100">
+                <a href="https://www.bsac.com/training/learn-to-snorkel/">
+                  <img src="../assets/logos/bsac-logo.png" class="d-block partner-logos" alt="British Sub Aqua Club Logo">
+                </a>
+              </div>
+              The British Sub-Aqua Club (BSAC) are a volunteer led organisation with local diving and snorkelling clubs meeting regularly around the
+              country - a great place to start your snorkelling journey.
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- /partners -->
+
+    </div><!-- /container -->
+  </div><!-- /marketing -->
 
 
     <!-- FOOTER -->
@@ -264,3 +291,4 @@
   </footer>
 
 </main>
+<!-- </div> -->
