@@ -1,0 +1,64 @@
+
+
+.carousel-photo {
+  max-height: 650px;
+}
+
+
+/* This keeps the marketing container above the carousel; needed otherwise its lost under the
+photos when parallax scrolling */
+.marketing {
+  position: relative;
+  z-index:99;
+}
+
+.partner-logos {
+  height: 100px;
+}
+
+.bg-scottish-wildlife-trust {
+  background-color: #265B80;
+}
+.btn.btn-primary {
+  border-radius: 500;
+}
+.parallax-window {
+  height: 80vh;
+
+}
+.parallax-photo {
+  /* position: absolute; */
+  height: 100vh;
+  /* width: 100vw; */
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../assets/photos/scorpionfish2.JPG");
+  background-attachment: fixed;
+  /* top: 0px; */
+
+  /* height: 1000px; */
+}
+/*
+.feature-icon {
+  height: 150px;
+}
+
+
+
+.carousel-caption-top {
+  top: 0;
+  bottom: auto;
+}
+
+
+
+
+.feature-photos {
+  height: 400px;
+
+}
+
+
+
+
+ */
