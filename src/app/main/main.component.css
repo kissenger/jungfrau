@@ -18,7 +18,7 @@ photos when parallax scrolling */
 }
 
 .partner-logos {
-  height: 100px;
+  max-height: 100px;
   max-width: 200px;
 }
 
@@ -26,6 +26,10 @@ photos when parallax scrolling */
   /* display: inline-block; */
   width: 225px;
   height: 300px;
+}
+
+.partner-card-icon {
+  height: 110px;
 }
 
 .bg-scottish-wildlife-trust {
