@@ -19,3 +19,21 @@ a {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
+.btn-default {
+  /* font-family: Raleway-SemiBold; */
+  font-size: 13px;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 1px solid white;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.25);;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-default:hover {
+  color: #FFF;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid white
+}
