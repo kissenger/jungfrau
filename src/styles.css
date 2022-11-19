@@ -11,14 +11,14 @@ a {
 }
 
 /* dont allow text selection */
-* {
+/* * {
   -webkit-touch-callout: none;
     -webkit-user-select: none;
      -khtml-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-}
+} */
 
 .btn-default {
   font-size: 13px;
@@ -36,3 +36,4 @@ a {
   background: rgba(255,255,255,0.75);
   border: 1px solid white
 }
+
