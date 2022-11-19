@@ -2,6 +2,7 @@
 /* create space for header bar */
 body {
   padding-top: 75px;
+  color: #566F70;
 }
 
 /* when a is used as anchor tag, apply a scroll margin equal to the header height */
@@ -11,17 +12,15 @@ a {
 
 /* dont allow text selection */
 * {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .btn-default {
-  /* font-family: Raleway-SemiBold; */
   font-size: 13px;
   color: white;
   letter-spacing: 1px;

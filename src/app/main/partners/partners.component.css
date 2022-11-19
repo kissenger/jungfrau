@@ -1,0 +1,24 @@
+
+
+
+.partner-logos {
+  max-height: 100px;
+  max-width: 200px;
+}
+
+.partner-card {
+  /* display: inline-block; */
+  width: 225px;
+  height: 300px;
+}
+
+.partner-card-icon {
+  height: 110px;
+}
+
+.bg-scottish-wildlife-trust {
+  background-color: #265B80;
+}
+.btn.btn-primary {
+  border-radius: 500;
+}

@@ -1,3 +1,18 @@
-.header {
+.navbar {
   height: 75px;
+
 }
+
+.navbar-brand {
+  color: #566F70;
+
+}
+.navbar-collapse {
+  height: 75px;
+
+}
+
+/* li:after {
+  content: '\00B7';
+  position: absolute;
+} */

@@ -1,0 +1,7 @@
+
+/* This keeps the marketing container above the carousel; needed otherwise its lost under the
+photos when parallax scrolling */
+.marketing {
+  position: relative;
+  z-index:99;
+}

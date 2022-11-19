@@ -8,6 +8,10 @@ import { BlogComponent } from './blog/blog.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { CarouselComponent } from './main/carousel/carousel.component';
+import { FeaturesComponent } from './main/features/features.component';
+import { PartnersComponent } from './main/partners/partners.component';
+import { FaqComponent } from './main/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { FooterComponent } from './footer/footer.component';
     BlogComponent,
     MainComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent,
+    FeaturesComponent,
+    PartnersComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,

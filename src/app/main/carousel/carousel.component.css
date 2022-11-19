@@ -1,0 +1,8 @@
+.carousel-photo {
+  max-height: 650px;
+  min-height: 240px;
+}
+.carousel-caption-top {
+  top: 0;
+  bottom: auto;
+}
