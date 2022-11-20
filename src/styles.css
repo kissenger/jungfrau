@@ -37,6 +37,10 @@ a {
   border: 1px solid white
 }
 
+.parallax-window {
+  height: 80vh;
+}
+
 .parallax-photo-scorpion {
   height: 100vh;
   background-size: cover;
@@ -53,7 +57,7 @@ a {
   background-attachment: fixed;
 }
 
-.parallax-photo-dogpaws {
+.parallax-photo-anenome {
   height: 100vh;
   background-size: cover;
   background-position: center;
