@@ -37,3 +37,34 @@ a {
   border: 1px solid white
 }
 
+.parallax-photo-scorpion {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/scorpionfish2.JPG");
+  background-attachment: fixed;
+}
+
+.parallax-photo-forest {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/uw-forest-scene.jpg");
+  background-attachment: fixed;
+}
+
+.parallax-photo-dogpaws {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/anenome2.jpg");
+  background-attachment: fixed;
+}
+
+.parallax-photo-sitting {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/sitting.jpg");
+  background-attachment: fixed;
+}

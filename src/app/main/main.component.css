@@ -3,21 +3,7 @@
   height: 80vh;
 }
 
-.parallax-photo-scorpion {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-image: url("../../assets/photos/scorpionfish2.JPG");
-  background-attachment: fixed;
-}
 
-.parallax-photo-forest {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-image: url("../../assets/photos/uw-forest-scene.jpg");
-  background-attachment: fixed;
-}
 
 /* .modal-header-bg {
   background: rgba(0,0,0,0.5);
