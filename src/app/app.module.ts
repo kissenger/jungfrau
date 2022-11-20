@@ -12,7 +12,6 @@ import { CarouselComponent } from './main/carousel/carousel.component';
 import { FeaturesComponent } from './main/features/features.component';
 import { PartnersComponent } from './main/partners/partners.component';
 import { FaqComponent } from './main/faq/faq.component';
-import { BetaPopupComponent } from './shared/components/beta-popup/beta-popup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { BetaPopupComponent } from './shared/components/beta-popup/beta-popup.co
     FeaturesComponent,
     PartnersComponent,
     FaqComponent,
-    BetaPopupComponent
   ],
   imports: [
     BrowserModule,

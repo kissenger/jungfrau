@@ -5,3 +5,22 @@ photos when parallax scrolling */
   position: relative;
   z-index:99;
 }
+.parallax-window {
+  height: 80vh;
+}
+
+.parallax-photo-scorpion {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../assets/photos/dogpaws.jpg");
+  background-attachment: fixed;
+}
+
+.parallax-photo-forest {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../assets/photos/sitting.jpg");
+  background-attachment: fixed;
+}

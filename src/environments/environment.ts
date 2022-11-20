@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  showBetaPopup: true
+  showBetaPopup: false
 };
 
 /*
