@@ -18,3 +18,16 @@
   background-image: url("../../assets/photos/uw-forest-scene.jpg");
   background-attachment: fixed;
 }
+
+.modal-dialog {
+  display:block;
+}
+
+/* .modal-header-bg {
+  background: rgba(0,0,0,0.5);
+} */
+
+
+/* .popup-img {
+  border-radius: 5px 5px 0px 0px;
+} */
