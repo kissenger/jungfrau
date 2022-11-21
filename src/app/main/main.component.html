@@ -1,0 +1,91 @@
+
+
+<!------------------------------------------>
+<!--    MODEL POPUP FOR BETA SITE         -->
+<!------------------------------------------>
+
+<!-- Button is clicked in the ts on page load -->
+<button #betaPopupBtn type="button" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#betaPopup">
+</button>
+
+<!-- Modal definition -->
+<div class="modal fade" id="betaPopup" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header m-0 p-2">
+        <h3 class="modal-title w-100 text-center" id="exampleModalLiveLabel">Welcome to Snorkelology</h3>
+        <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <img src="../../assets/photos/scorpionfish-photographed-while-snorkelling-in-cornwall.jpg" class="popup-img" alt="Photo of a scorpionfish taken in a snorkel in British waters">
+      <div class="modal-body">
+
+        <p class="">
+          This is our 'beta' site, where we try out content and code updates before sharing them with the world.
+          If you've landed here by accident, you probably want to head over to our <a href="https://www.snorkelology.co.uk">live site</a>.
+        </p>
+        <p class="">
+          However, if this is where you intended to be then grab your mask and snorkel, forage around and let us know what you think...
+        </p>
+      </div>
+      <div class="modal-footer m-0 p-2">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+
+
+  <div data-bs-spy="scroll" data-bs-target="#snNavbar" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+
+<!------------------------->
+<!--    Carousel         -->
+<!------------------------->
+
+    <!-- Parallax effect on carousel is disabled ... -->
+    <!-- <div appParallax [factor]="6" > -->
+    <app-carousel></app-carousel>
+    <!-- </div> -->
+
+<!------------------------->
+<!--    FEATURES         -->
+<!------------------------->
+
+    <app-features></app-features>
+
+<!------------------------->
+<!--    BACKGROUND PIC   -->
+<!------------------------->
+
+    <div class="parallax-window m-0 p-0">
+      <div class="parallax-photo-scorpion m-0 p-0">
+      </div>
+    </div>
+
+<!------------------------->
+<!--    FAQs             -->
+<!------------------------->
+
+    <app-faq></app-faq>
+
+<!------------------------->
+<!--    BACKGROUND PIC   -->
+<!------------------------->
+
+    <div class="parallax-window m-0 p-0">
+      <div class="parallax-photo-forest m-0 p-0">
+      </div>
+    </div>
+
+<!------------------------->
+<!--    PARTNERS         -->
+<!------------------------->
+
+    <app-partners></app-partners>
+
+  </div>
+
+</main>

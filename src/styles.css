@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* create space for header bar */
+body {
+  padding-top: 75px;
+  color: #566F70;
+}
+
+/* when a is used as anchor tag, apply a scroll margin equal to the header height */
+a {
+  scroll-margin-top: 75px;
+}
+
+/* dont allow text selection */
+* {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.btn-default {
+  font-size: 13px;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 1px solid white;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.25);;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-default:hover {
+  color: #FFF;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid white
+}
+
+.parallax-window {
+  height: 80vh;
+}
+
+.parallax-photo-scorpion {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/scorpionfish-photographed-while-snorkelling-in-cornwall.jpg");
+  background-attachment: fixed;
+}
+
+.parallax-photo-forest {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/seaweed-scene-snorkelling-britain.jpg");
+  background-attachment: fixed;
+}
+
+.parallax-photo-anenome {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/snakelocks-anenome-in-photographed-in-scotland.jpg");
+  background-attachment: fixed;
+}
+
+.parallax-photo-sitting {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("src/assets/photos/child-in-snorkelling-gear-scotland.jpg");
+  background-attachment: fixed;
+}

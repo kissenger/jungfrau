@@ -1,89 +1,15 @@
-<main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-    <div class="carousel-inner">
-
-      <div class="carousel-item active">
-        <a href="#about">
-          <img src="../assets/photos/post-snorkeling-child-cropped.jpg" class="d-block w-100" alt="Child walking up beach after snorkeling">
-        </a>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Welcome to Snorkelology</h1>
-            <p>Our new website will be launched soon!</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <a href="#book">
-          <img src="../assets/photos/drone-woman-snorkeling.jpg" class="d-block w-100" alt="Aerial photo of woman snorkeling in UK waters">
-        </a>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Best Snorkelling Adventures in Britain  </h1>
-            <p>Showcasing the best of British snorkelling.</p>
-            <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <!-- <a href="#partners"> -->
-          <img src="../assets/photos/shagging-crabs.jpg" class="d-block w-100" alt="Underwater photo of crabs...umm...cuddling">
-        <!-- </a> -->
-
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>Get Involved</h1>
-            <p>Explore the marine environment on your doorstep</p>
-            <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
+<!--------------------------------------------------------------
+                      HEADER
+---------------------------------------------------------------->
 
 
+<div class="container-fluid m-0 p-0">
 
-    <!-- FOOTER -->
-    <a id="footer"></a>
-    <footer class="container">
-    <div class="footer-content d-inline-flex align-items-center justify-content-center w-100 h-100 py-2 m-0">
-      <!-- <div class="flex-grow-1">
-        &copy; Snorkelology 2022, All Rights Reserved
-      </div> -->
-      <a href="https://twitter.com/snorkelology">
-        <img src="../assets/logos/twitter.png" class="sm-image py-1 px-3">
-      </a>
+  <app-header></app-header>
 
-      <a href="https://www.instagram.com/snorkelology/">
-        <img src="../assets/logos/instagram.png" class="sm-image py-1 px-3">
-      </a>
+  <router-outlet> </router-outlet>
 
-      <img src="../assets/logos/email.png" class="sm-image py-1 px-3" title="hello@snorkelology.co.uk (click to copy to  your clipboard)">
-    </div>
-    <div class="d-inline-flex align-items-center justify-content-center w-100 h-100 p-0 m-0">
-        &copy; Snorkelology 2022, All Rights Reserved
-    </div>
-    <!-- <p>&middot; &copy; 2017–2022 Snorkelology, All Rights Reseverved &middot;</p> -->
-  </footer>
-</main>
+  <app-footer></app-footer>
+
+</div>

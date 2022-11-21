@@ -1,0 +1,38 @@
+/* .navbar-height {
+  height: 75px !important;
+
+} */
+
+/* .collapse {
+  position: relative;
+  top: 50px;
+} */
+
+.navbar-brand {
+  color: #566F70;
+
+}
+.navbar {
+  height: 75px;
+
+}
+
+/* This is a fix to get the menu items centred, but cocks up the hamburger so needs to only apply above lg breakpoint */
+/* @media (min-width: 992px) {
+  .nav-width-50 {
+    max-width: 50vw;
+  }
+} */
+
+.navbar-toggler:focus {
+  box-shadow:none !important;
+}
+.sm-image {
+  height: 30px;
+}
+
+
+/* li:after {
+  content: '\00B7';
+  position: absolute;
+} */
