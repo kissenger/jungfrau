@@ -19,7 +19,6 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -49,7 +48,11 @@
               ],
               "outputHashing": "all",
               "index": "src/index/prod/index.html",
-              "outputPath": "dist/prod"
+              "outputPath": "dist/prod",
+              "styles": [
+                "src/styles.css",
+                "src/styles-block-text-select.css"
+              ]
             },
             "beta": {
               "budgets": [
