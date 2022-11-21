@@ -13,12 +13,22 @@ a {
 /* dont allow text selection */
 * {
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
+/* this doesnt work with media queries: https://bholmes.dev/blog/alternative-to-css-variable-media-queries/ */
+/* left here for quick reference of bootstrap breakpoints tho: https://getbootstrap.com/docs/5.0/layout/breakpoints/*/
+/* * {
+  --bootstrap-breakpoint-sm: 576;
+  --bootstrap-breakpoint-md: 768;
+  --bootstrap-breakpoint-lg: 992;
+  --bootstrap-breakpoint-xl: 1200;
+  --bootstrap-breakpoint-xxl: 1400;
+} */
 
 .btn-default {
   font-size: 13px;
