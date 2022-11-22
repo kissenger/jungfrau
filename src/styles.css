@@ -47,38 +47,50 @@ a {
   border: 1px solid white
 }
 
-.parallax-window {
+/* .parallax-window {
   height: 80vh;
+} */
+
+
+/* attempt to fix safari ios fixed background issue  */
+/* https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios */
+@supports ( -webkit-touch-callout : none) {
+  .fixed-background {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment:scroll
+  }
 }
 
-.parallax-photo-scorpion {
-  height: 100vh;
+@supports not ( -webkit-touch-callout : none) {
+  .fixed-background {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+/* .fixed-background {
+  height: 80vh;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+} */
+
+.fixed-background-scorpion {
   background-image: url("src/assets/photos/scorpionfish-photographed-while-snorkelling-in-cornwall.jpg");
-  background-attachment: fixed;
 }
 
-.parallax-photo-forest {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+.fixed-background-forest {
   background-image: url("src/assets/photos/seaweed-scene-snorkelling-britain.jpg");
-  background-attachment: fixed;
 }
 
-.parallax-photo-anenome {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+.fixed-background-anenome {
   background-image: url("src/assets/photos/snakelocks-anenome-in-photographed-in-scotland.jpg");
-  background-attachment: fixed;
 }
 
-.parallax-photo-sitting {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+.fixed-background-sitting {
   background-image: url("src/assets/photos/child-in-snorkelling-gear-scotland.jpg");
-  background-attachment: fixed;
 }
