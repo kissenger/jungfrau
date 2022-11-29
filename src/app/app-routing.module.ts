@@ -1,11 +1,13 @@
 import { MainComponent } from './main/main.component';
-import { BlogComponent } from './blog/blog.component';
+import { NewsListComponent } from 'src/app/news/news-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArticleComponent } from 'src/app/news/article/article.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
-  { path: 'blog', component: BlogComponent},
+  { path: 'news', component: NewsListComponent},
+  { path: 'news/:id', component: ArticleComponent},
 
 ];
 

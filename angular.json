@@ -19,7 +19,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/app/news/article/content/"
             ],
             "styles": [
               "src/styles.css"
@@ -116,7 +117,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/app/news/article/content/"
             ],
             "styles": [
               "src/styles.css"
