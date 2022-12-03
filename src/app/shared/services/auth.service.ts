@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 export class AuthService {
 
-  private MAX_AGE = 60 * 60 * 24 * 365 * 10;  // 31 days
+  private MAX_AGE = 60 * 60 * 24 * 365 * 10;  // 10 years
   private COOKIE_LAST_VISIT = '__snork-new';
 
   constructor(
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   public setVisitTime() {
-    document.cookie = `${this.COOKIE_LAST_VISIT}=${new Date()}; path=/`;
+    document.cookie = `${this.COOKIE_LAST_VISIT}=${new Date()}; max-age=${this.MAX_AGE}; path=/`;
   }
 
   private get lastVisitTime() {
