@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-// import {bootstrap } from '../../../node_modules/';
+import { AuthService } from '../shared/services/auth.service';;
 
 @Component({
   selector: 'app-main',
@@ -11,17 +11,20 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
 
-  public showBetaPopup = environment.showBetaPopup;
-
-  constructor() { }
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit(): void {
 
+
+    window.onbeforeunload = () => {
+      // this.auth.setVisitTime();
+    }
   }
 
   ngAfterViewInit() {
-    if ( this.showBetaPopup ) {
-      console.log('fire');
+    if ( environment.showBetaPopup ) {
       this.betaPopupBtn.nativeElement.click();
     }
   }

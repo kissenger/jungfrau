@@ -13,6 +13,7 @@ import { FeaturesComponent } from 'src/app/main/features/features.component';
 import { PartnersComponent } from 'src/app/main/partners/partners.component';
 import { FaqComponent } from 'src/app/main/faq/faq.component';
 import { ArticleComponent } from 'src/app/news/article/article.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { ArticleComponent } from 'src/app/news/article/article.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

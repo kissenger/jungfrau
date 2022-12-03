@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  showBetaPopup: false
+  showBetaPopup: false,
+  lastContentUpdate: '2022-12-03T17:27:00-00:00'
 };
 
 /*
