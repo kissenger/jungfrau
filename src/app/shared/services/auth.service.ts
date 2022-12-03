@@ -14,10 +14,9 @@ export class AuthService {
 
 
   public get isNewContent() {
-    console.log(<string>this.lastVisitTime)
     const lastContentUpate = Date.parse(environment.lastContentUpdate);
     const lastVisit = Date.parse(<string>this.lastVisitTime);
-    if (this.lastVisitTime) {
+    if (lastVisit) {
       return lastContentUpate > lastVisit;
     } else {
       return true;
