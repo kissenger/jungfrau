@@ -19,10 +19,10 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe( async (urlParams) => {
-      console.log(urlParams);
       this.articleName = urlParams['id'];
     });
 
+    // injects html from linked source into the page
     fetch(`./app/news/article/content/${this.articleName}.html`)
       .then( res => res.text() )
       .then(data => {

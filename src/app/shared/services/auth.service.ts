@@ -12,6 +12,9 @@ export class AuthService {
   constructor(
   ) {}
 
+
+  // New content cookie to detect if tehre is new content
+
   public get isNewContent() {
     const lastContentUpate = Date.parse(environment.lastContentUpdate);
     const lastVisit = Date.parse(<string>this.lastVisitTime);
@@ -20,7 +23,6 @@ export class AuthService {
     } else {
       return true;
     }
-
   }
 
   public setVisitTime() {
@@ -36,6 +38,7 @@ export class AuthService {
   }
 
 
+  // Beta session cookie to allow popup to appear only once per session
 
   public get isBetaSessionSet() {
     return !!this.fetchCookie(this.COOKIE_BETA);
@@ -47,12 +50,11 @@ export class AuthService {
 
 
   private fetchCookie(cookieName: string) {
-    // console.log(document.cookie?.split('; ').find(row => row.startsWith(cookieName))?.split('=')[1]);
     return <string> document.cookie?.split('; ').find(row => row.startsWith(cookieName))?.split('=')[1];
   }
 
-  private deleteCookie(cookieName: string) {
-    document.cookie = `${cookieName}=; path=/`;
-  }
+  // private deleteCookie(cookieName: string) {
+  //   document.cookie = `${cookieName}=; path=/`;
+  // }
 
 }
