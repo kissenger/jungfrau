@@ -1,6 +1,11 @@
 .carousel-photo {
-  max-height: 650px;
+  /* max-height: 650px; */
   min-height: 240px;
+}
+
+.carousel-item {
+  max-height: 80vh;
+  overflow: hidden;
 }
 
 
