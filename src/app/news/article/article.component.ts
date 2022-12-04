@@ -7,7 +7,7 @@ import { DomSanitizer} from '@angular/platform-browser';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit  {
 
   public articleHTML: any;
   private articleName!: string;
@@ -18,6 +18,11 @@ export class ArticleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // this is a really horrible hack - the twttr function needs to be called after the page is loaded, but cant get it
+    // to work with ngAfterViewInit, so resorting to a hack...
+    setTimeout(()=>{ (<any>window).twttr.widgets.load(); }, 100)
+
     this.route.params.subscribe( async (urlParams) => {
       this.articleName = urlParams['id'];
     });

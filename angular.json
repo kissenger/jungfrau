@@ -22,9 +22,6 @@
               "src/assets",
               "src/app/news/article/content/"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
             "scripts": []
           },
           "configurations": {
@@ -76,7 +73,10 @@
               ],
               "outputHashing": "all",
               "index": "src/index/beta/index.html",
-              "outputPath": "dist/beta"
+              "outputPath": "dist/beta",
+              "styles": [
+                "src/styles.css"
+              ]
             },
             "development": {
               "buildOptimizer": false,
