@@ -7,11 +7,10 @@ export class AuthService {
 
   private MAX_AGE = 60 * 60 * 24 * 365 * 10;  // 10 years
   private COOKIE_LAST_VISIT = '__snork-new';
+  private COOKIE_BETA = '__snork-beta';
 
   constructor(
   ) {}
-
-
 
   public get isNewContent() {
     const lastContentUpate = Date.parse(environment.lastContentUpdate);
@@ -35,6 +34,17 @@ export class AuthService {
       return null;
     }
   }
+
+
+
+  public get isBetaSessionSet() {
+    return !!this.fetchCookie(this.COOKIE_BETA);
+  }
+
+  public setBetaSession() {
+    document.cookie = `${this.COOKIE_BETA}=true; path=/`;
+  }
+
 
   private fetchCookie(cookieName: string) {
     // console.log(document.cookie?.split('; ').find(row => row.startsWith(cookieName))?.split('=')[1]);

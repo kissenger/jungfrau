@@ -8,12 +8,10 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  // public isNewContent = this.auth.isNewContent;
   constructor(
     public auth: AuthService) { }
 
   ngOnInit(): void {
-    console.log(this.auth.isNewContent)
   }
 
 }

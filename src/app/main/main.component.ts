@@ -16,15 +16,11 @@ export class MainComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-
-
-    window.onbeforeunload = () => {
-      // this.auth.setVisitTime();
-    }
   }
 
   ngAfterViewInit() {
-    if ( environment.showBetaPopup ) {
+    if ( !this.auth.isBetaSessionSet && environment.showBetaPopup ) {
+      this.auth.setBetaSession();
       this.betaPopupBtn.nativeElement.click();
     }
   }
