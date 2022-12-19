@@ -85,7 +85,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "index": "src/index/prod/index.html",
+              "index": "src/index/beta/index.html",
               "styles": [
                 "src/styles.css"
               ]
