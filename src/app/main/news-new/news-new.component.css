@@ -1,0 +1,15 @@
+.news-container {
+  overflow-x: auto;
+  /* margin-left: -15px; */
+
+}
+
+.news-item {
+  width: 380px;
+  height: 450px;
+}
+
+.blog-card-picture-container {
+  height: 200px;
+  overflow: hidden;
+}

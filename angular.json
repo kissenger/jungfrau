@@ -85,7 +85,10 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "index": "src/index/prod/index.html"
+              "index": "src/index/prod/index.html",
+              "styles": [
+                "src/styles.css"
+              ]
             }
           },
           "defaultConfiguration": "production"

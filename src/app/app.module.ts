@@ -14,6 +14,7 @@ import { PartnersComponent } from 'src/app/main/partners/partners.component';
 import { FaqComponent } from 'src/app/main/faq/faq.component';
 import { ArticleComponent } from 'src/app/news/article/article.component';
 import { AuthService } from './shared/services/auth.service';
+import { NewsNewComponent } from './main/news-new/news-new.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthService } from './shared/services/auth.service';
     FeaturesComponent,
     PartnersComponent,
     FaqComponent,
-    ArticleComponent
+    ArticleComponent,
+    NewsNewComponent
   ],
   imports: [
     BrowserModule,
