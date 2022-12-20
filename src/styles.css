@@ -2,11 +2,12 @@
 /* create space for header bar */
 body {
   padding-top: 75px;
+
   color: #566F70;
 }
 
 /* when a is used as anchor tag, apply a scroll margin equal to the header height */
-a {
+.anchor {
   scroll-margin-top: 75px;
 }
 
