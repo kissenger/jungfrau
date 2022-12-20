@@ -18,7 +18,6 @@
       </div>
       <img src="../../assets/photos/scorpionfish-photographed-while-snorkelling-in-cornwall.jpg" class="popup-img" alt="Photo of a scorpionfish taken in a snorkel in British waters">
       <div class="modal-body">
-
         <p class="">
           This is our 'beta' site, where we try out content and code updates before sharing them with the world.
           If you've landed here by accident, you probably want to head over to our <a href="https://www.snorkelology.co.uk">live site</a>.
@@ -37,51 +36,32 @@
 
 <main>
 
-
-
   <div data-bs-spy="scroll" data-bs-target="#snNavbar" data-bs-offset="0" class="scrollspy-example" tabindex="0">
 
 <!------------------------->
 <!--    Carousel         -->
 <!------------------------->
 
-    <!-- Parallax effect on carousel is disabled ... -->
-    <!-- <div appParallax [factor]="6" > -->
+    <div id="home" class="anchor"></div>
     <app-carousel></app-carousel>
-    <!-- </div> -->
 
-<!------------------------->
-<!--    FEATURES         -->
-<!------------------------->
+    <div id="news" class="anchor"></div>
+    <app-news></app-news>
+    <div class="fixed-background fixed-background-scorpion m-0 p-0"></div>
 
-    <app-features></app-features>
+    <div id="about" class="anchor"></div>
+    <app-about></app-about>
+    <div class="fixed-background fixed-background-anenome m-0 p-0"></div>
 
-<!------------------------->
-<!--    BACKGROUND PIC   -->
-<!------------------------->
+    <div id="book" class="anchor"></div>
+    <app-book></app-book>
+    <div class="fixed-background fixed-background-forest m-0 p-0"></div>
 
-    <!-- <div class="fixed-background-container"> -->
-      <div class="fixed-background fixed-background-scorpion m-0 p-0">
-      </div>
-    <!-- </div> -->
-
-<!------------------------->
-<!--    FAQs             -->
-<!------------------------->
-
+    <div id="faq" class="anchor"></div>
     <app-faq></app-faq>
+    <div class="fixed-background fixed-background-sitting m-0 p-0"></div>
 
-<!------------------------->
-<!--    BACKGROUND PIC   -->
-<!------------------------->
-
-    <div class="fixed-background fixed-background-forest m-0 p-0">
-    </div>
-
-<!------------------------->
-<!--    PARTNERS         -->
-<!------------------------->
-
+    <div id="partners" class="anchor"></div>
     <app-partners></app-partners>
 
   </div>

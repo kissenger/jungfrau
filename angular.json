@@ -20,7 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/app/news/article/content/"
+              "src/app/main/10-news/article/content"
             ],
             "scripts": []
           },
@@ -85,7 +85,10 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "index": "src/index/prod/index.html"
+              "index": "src/index/beta/index.html",
+              "styles": [
+                "src/styles.css"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -118,7 +121,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/app/news/article/content/"
+              "src/app/main/10-news/article/content"
             ],
             "styles": [
               "src/styles.css"

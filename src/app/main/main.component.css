@@ -1,4 +1,4 @@
-
-/* ------------------------------------------------------------------------------------- */
-/* ALL PARALLAX WINDOW CSS IS IN src/styles.css TO AVOID DUPLICATION BETWEEN CSS MODULES */
-/* ------------------------------------------------------------------------------------- */
+ /* needed for safari */
+.popup-img {
+  height: 350px;
+}
