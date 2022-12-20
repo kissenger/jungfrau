@@ -6,7 +6,7 @@ body {
   color: #566F70;
 }
 
-/* when a is used as anchor tag, apply a scroll margin equal to the header height */
+/* when div is used as anchor tag, apply a scroll margin equal to the header height */
 .anchor {
   scroll-margin-top: 75px;
 }

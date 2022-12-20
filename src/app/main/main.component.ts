@@ -20,7 +20,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     // detect when scrolling past news article
     window.addEventListener("scroll", () => {
       var elementTarget = <HTMLElement>document.getElementById("news");
-      if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight)) {
+      if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight - 80)) {
         this.auth.setVisitTime();
       }
     });
