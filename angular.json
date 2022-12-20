@@ -20,7 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/app/news/article/content/"
+              "src/app/main/10-news/article/content"
             ],
             "scripts": []
           },
@@ -121,7 +121,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/app/news/article/content/"
+              "src/app/main/10-news/article/content"
             ],
             "styles": [
               "src/styles.css"

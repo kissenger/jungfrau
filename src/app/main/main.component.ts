@@ -16,6 +16,15 @@ export class MainComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
+
+    // detect when scrolling past news article
+    window.addEventListener("scroll", () => {
+      var elementTarget = <HTMLElement>document.getElementById("news");
+      if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight)) {
+        this.auth.setVisitTime();
+      }
+    });
+
   }
 
   ngAfterViewInit() {
@@ -23,6 +32,8 @@ export class MainComponent implements OnInit, AfterViewInit {
       this.auth.setBetaSession();
       this.betaPopupBtn.nativeElement.click();
     }
+
+
   }
 
 }

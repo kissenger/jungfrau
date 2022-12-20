@@ -28,12 +28,13 @@ export class ArticleComponent implements OnInit  {
     });
 
     // injects html from linked source into the page
-    fetch(`./app/news/article/content/${this.articleName}.html`)
+    // dont forget this folder needs to be listed as an asset in angular.json
+    fetch(`./app/main/10-news/article/content/${this.articleName}.html`)
       .then( res => res.text() )
       .then(data => {
       // https://stackoverflow.com/questions/57796276/angular-7-inject-static-html-file-into-middle-of-component-view
       // https://stackoverflow.com/questions/63998467/angular-multiple-templates-in-one-component-based-on-id-with-template-store
-      this.articleHTML = this.sanitizer.bypassSecurityTrustHtml(data);;
+      this.articleHTML = this.sanitizer.bypassSecurityTrustHtml(data);
     })
 
   }
