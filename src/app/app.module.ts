@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
-import { ParallaxDirective } from 'src/app/shared/directives/parallax.directive';
 import { MainComponent } from 'src/app/main/main.component';
 import { HeaderComponent } from 'src/app/header/header.component';
 import { FooterComponent } from 'src/app/footer/footer.component';
@@ -19,7 +18,6 @@ import { NewsComponent } from 'src/app/main/10-news/news.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ParallaxDirective,
     MainComponent,
     HeaderComponent,
     FooterComponent,
