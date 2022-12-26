@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -8,10 +9,23 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(
-    public auth: AuthService) { }
+  // private dataSubs = new Subscription;
+  public isNewsPage = false;
 
-  ngOnInit(): void {
+  constructor(
+    public auth: AuthService,
+    private router: Router
+  ) {
+    router.events.subscribe( e => {
+      if (e instanceof NavigationEnd) {
+        this.isNewsPage = this.router.url.includes('news/');
+      }
+    })
   }
+
+  ngOnInit() {
+
+  }
+
 
 }

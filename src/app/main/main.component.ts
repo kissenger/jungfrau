@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../shared/services/auth.service';;
 
@@ -10,12 +11,14 @@ import { AuthService } from '../shared/services/auth.service';;
 export class MainComponent implements OnInit, AfterViewInit {
 
   @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
+  private dataSubs = new Subscription;
 
   constructor(
     private auth: AuthService
   ) { }
 
   ngOnInit(): void {
+
 
     // detect when scrolling past news article
     window.addEventListener("scroll", () => {
@@ -24,8 +27,10 @@ export class MainComponent implements OnInit, AfterViewInit {
         this.auth.setVisitTime();
       }
     });
-
   }
+
+
+
 
   ngAfterViewInit() {
     if ( !this.auth.isBetaSessionSet && environment.showBetaPopup ) {
