@@ -2,25 +2,123 @@
 /* create space for header bar */
 body {
   padding-top: 75px;
-
   color: #566F70;
+  line-height: 1.7;
 }
+
 
 /* when div is used as anchor tag, apply a scroll margin equal to the header height */
 .anchor {
   scroll-margin-top: 75px;
 }
 
-/* dont allow text selection */
-/* * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.blockquote {
+  border-left: 2px #566F70 solid !important;
+  margin: 0em 0em 0em 0em !important;   /* margin is reqd if display is not inline-block, in which case border with p collapses*/
+  padding: 0em 1em 0em 1em !important;
+  display: flex;
+  /* border: 1px black dotted; */
+}
+
+p.lead {
+  margin: 1.5em 0em 1.5em 0em !important;
+  padding: 0em !important;
+  /* display: inline-block; */
+
+}
+
+/* <style>
+  .banner-img-container {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+  }
+  .banner-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+</style>
+
+<img src="./assets/photos/drone-view-of-snorkelling-reef-cornwall-england-britain.jpg" class="banner-img-lg d-none d-md-block w-100"
+  alt="drone view of snorkelling reef in Cornwall, England">
+<div class="banner-img-container d-block d-md-none">
+  <img src="./assets/photos/drone-view-of-snorkelling-reef-cornwall-england-britain.jpg" class="banner-img-sm h-100"
+    alt="drone view of snorkelling reef in Cornwall, England">
+</div> */
+
+
+
+/* NEWS ARTICLE BANNER IMAGE */
+.news-banner-div {
+  height: auto;
+}
+
+.news-banner-img {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .news-banner-div {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .news-banner-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+  }
+
+
+}
+
+/* NEWS ARTICLE CONTENT IMAGES */
+
+.news-image-right {
+  width: 33vw;
+  margin: 0em 0em 1.5em 1.5em;
+  display: block;
+  float: right;
+}
+
+.news-image-left {
+  width: 33vw;
+  margin: 0em 1.5em 1.5em 0em;
+  display: block;
+  float: left;
+}
+
+@media (max-width: 768px) {
+
+  .news-image-right,
+  .news-image-left {
+    width: 100%;
+    padding: 0em;
+    display: inline-block;
+  }
+
+}
+
+/*
+
+.content-image-sm {
+  width: 100vw;
+  margin: 1.5em 0em 1.5em 0em;
 } */
 
+
+
+/* dont allow tex
 /* this doesnt work with media queries: https://bholmes.dev/blog/alternative-to-css-variable-media-queries/ */
 /* left here for quick reference of bootstrap breakpoints tho: https://getbootstrap.com/docs/5.0/layout/breakpoints/*/
 /* * {

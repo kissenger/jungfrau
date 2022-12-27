@@ -1,3 +1,6 @@
+
+
+
 .news-container {
   overflow-x: auto;
   /* margin-left: -15px; */
@@ -24,9 +27,9 @@
   /* border: 1px black solid; */
 }
 
-svg { transition: margin-left .3s }
+.chevron-nav { transition: margin-left .3s }
 
-a:hover svg{
+.icon-link:hover .chevron-nav{
   margin-left: 8px;
 }
 
