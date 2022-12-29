@@ -88,6 +88,7 @@ p.lead {
 /* CARDS */
 
 .news-card {
+  min-width: 320px;
   width: 320px;
   height: 450px;
 }
@@ -101,7 +102,7 @@ p.lead {
   display: flex;
   flex-direction: column;
   margin: 1.5em 1.5em 1.5em 1em;
-  padding: 0em 1em 0em 1em;
+  padding: 0em 0em 0em 0em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
   border-radius: 5px;
   border: none;
@@ -110,6 +111,10 @@ p.lead {
 .card:hover {
   box-shadow: 0 6px 12px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.2);
   cursor: pointer;
+}
+
+.card-content {
+  padding: 0em 1em 0em 1em;
 }
 
 .card-img {
