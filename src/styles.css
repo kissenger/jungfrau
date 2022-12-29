@@ -27,30 +27,6 @@ p.lead {
 
 }
 
-/* <style>
-  .banner-img-container {
-    height: 500px;
-    overflow: hidden;
-    position: relative;
-  }
-  .banner-img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-
-</style>
-
-<img src="./assets/photos/drone-view-of-snorkelling-reef-cornwall-england-britain.jpg" class="banner-img-lg d-none d-md-block w-100"
-  alt="drone view of snorkelling reef in Cornwall, England">
-<div class="banner-img-container d-block d-md-none">
-  <img src="./assets/photos/drone-view-of-snorkelling-reef-cornwall-england-britain.jpg" class="banner-img-sm h-100"
-    alt="drone view of snorkelling reef in Cornwall, England">
-</div> */
-
-
 
 /* NEWS ARTICLE BANNER IMAGE */
 .news-banner-div {
@@ -85,7 +61,7 @@ p.lead {
 /* NEWS ARTICLE CONTENT IMAGES */
 
 .news-image-right {
-  width: 33vw;
+  width: 50%;
   margin: 0em 0em 1.5em 1.5em;
   display: block;
   float: right;
@@ -108,6 +84,63 @@ p.lead {
   }
 
 }
+
+/* CARDS */
+
+.news-card {
+  width: 320px;
+  height: 450px;
+}
+
+.partner-card {
+  width: 225px;
+  height: 300px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 1.5em 1.5em 1em;
+  padding: 0em 1em 0em 1em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  border: none;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.card-img {
+  border-radius: 0px;
+  border: 0px;
+  overflow: hidden;
+  margin: 1em 0em 1em 0em;
+  padding: 0em 0em 0em 0em;
+  width: 100%;
+  /* display: inline-flex;
+  justify-content: center; */
+}
+
+.partner-card-img {
+  /* border: 1px red solid; */
+  object-fit: contain;
+  max-height: 100px;
+
+  /* max-width: 90%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0em 1em 0em;
+  padding: 0em 1em 0em 1em;
+  /* aspect-ratio: auto; */
+}
+
+.news-card-img {
+  height: 200px;
+}
+
 
 /*
 

@@ -9,56 +9,55 @@
 
   <div class="container py-5">
 
-    <h2 class="fw-normal">News Updates</h2>
+    <h2 class="fw-normal">News</h2>
 
-    <div class="news-container d-flex d-inline-block">
+    <p class="lead">
+      We periodically write short news articles to flex our writing muscles and give some details about recent snorkelling
+      adventures.  Check back regularly for updates!
+    </p>
+
+    <div class="news-list-container d-flex d-inline-block">
 
 <!-- NEWS ITEM -->
-      <div class="news-item mx-0 my-4 d-flex flex-column">
-        <div class="blog-card-picture-container d-inline-flex justify-content-center w-100 m-0 p-0">
-          <a href="news/snorkelling-wales-in-winter" aria-label="Read news article" class="h-100">
-            <img src="../../assets/photos/woman-snorkelling-wales-britain-winter.jpg" class="d-block h-100" alt="alt text">
-          </a>
-        </div>
-        <div>
-          <h3 class="fw-normal my-3">Winter snorkelling</h3>
-          <span class="muted">17th Dec 2022</span>
-          <p class="my-3">
-            Emma reflects on a recent research trip to West Wales for the book, and her experience of the wonderful
-            world of winter snorkelling...
-          </p>
-        </div>
-        <a href="news/snorkelling-wales-in-winter" class="icon-link d-inline-flex align-items-center">
-          Read More
-          <svg class="bi chevron-nav" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+    <!-- <a href="news/snorkelling-wales-in-winter" aria-label="Read news article" class="h-100"> -->
+      <div class="card news-card" (click)="nav.navigateTo('news/snorkelling-wales-in-winter')">
+
+        <img src="../../assets/photos/woman-snorkelling-wales-britain-winter.jpg"
+          class="card-img"
+          alt="woman snorkelling in Wales in mid-winter">
+
+        <h3 class="fw-normal my-3">
+          Winter snorkelling
+        </h3>
+        <span class="muted">
+          17th Dec 2022
+        </span>
+        <p class="my-3">
+          Emma reflects on a recent research trip to West Wales for the book, and her experience of the wonderful
+          world of winter snorkelling...
+        </p>
+
       </div>
 
 <!-- NEWS ITEM -->
-      <div class="news-item m-4 d-flex flex-column">
-        <div class="blog-card-picture-container d-inline-flex justify-content-center w-100 m-0 p-0">
-          <a href="news/the-journey-so-far" aria-label="Read news article" class="h-100">
-            <img src="../../assets/photos/drone-view-of-snorkelling-reef-cornwall-england-britain.jpg" class="d-block h-100" alt="aerial view of a cornish snorkelling reef britain">
-          </a>
-        </div>
-        <div class="">
-          <h3 class="fw-normal my-3">The journey so far</h3>
-          <span class="muted">26th Nov 2022</span>
-          <!-- <div class="my-2">
-            <a href="https://twitter.com/intent/tweet?url=https://snorkelology.co.uk/news/the-journey-so-far&text=Check out this article from snorkelology: "
-            class="twitter-share-button" data-show-count="false" >
-              Tweet
-            </a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div> -->
+
+      <div class="card news-card" (click)="nav.navigateTo('news/the-journey-so-far')">
+
+        <img src="../../assets/photos/drone-view-of-snorkelling-reef-cornwall-england-britain.jpg"
+          class="card-img"
+          alt="aerial view of a cornish snorkelling reef britain">
+
+          <h3 class="fw-normal my-3">
+            The journey so far
+          </h3>
+          <span class="muted">
+            26th Nov 2022
+          </span>
           <p class="my-3">
             In our first news update, Emma gives the background to how Snorkelology came about and what we hope to achieve.  Dig in
             and as always we welcome your feedback!
           </p>
-        </div>
-        <a href="news/the-journey-so-far" class="icon-link d-inline-flex align-items-center">
-          Read More
-          <svg class="bi chevron-nav" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+
       </div>
 
 

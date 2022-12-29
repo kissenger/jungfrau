@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavService } from 'src/app/shared/services/nav.service';
 
 @Component({
   selector: 'app-partners',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnersComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public nav: NavService
+
+  ) { }
 
   ngOnInit(): void {
   }

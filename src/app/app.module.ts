@@ -13,6 +13,7 @@ import { PartnersComponent } from 'src/app/main/50-partners/partners.component';
 import { FaqComponent } from 'src/app/main/40-faq/faq.component';
 import { ArticleComponent } from 'src/app/main/10-news/article/article.component';
 import { AuthService } from './shared/services/auth.service';
+import { NavService } from './shared/services/nav.service';
 import { NewsComponent } from 'src/app/main/10-news/news.component';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NewsComponent } from 'src/app/main/10-news/news.component';
     AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    NavService
   ],
   bootstrap: [AppComponent]
 })
