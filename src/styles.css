@@ -38,7 +38,7 @@ p.lead {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
 
   .news-banner-div {
     height: 500px;
@@ -51,8 +51,8 @@ p.lead {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
   }
 
 
@@ -123,7 +123,7 @@ p.lead {
   overflow: hidden;
   margin: 1em 0em 1em 0em;
   padding: 0em 0em 0em 0em;
-  width: 100%;
+  /* width: 100%; */
   /* display: inline-flex;
   justify-content: center; */
 }
@@ -216,18 +216,55 @@ p.lead {
   background-attachment: fixed;
 } */
 
-.fixed-background-scorpion {
-  background-image: url("src/assets/photos/scorpionfish-photographed-while-snorkelling-in-cornwall.jpg");
+/* ----------------------------------------------------- */
+@media (min-width: 768px) {
+  .fixed-background-scorpion {
+    background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall.webp");
+  }
 }
 
-.fixed-background-forest {
-  background-image: url("src/assets/photos/seaweed-scene-snorkelling-britain.jpg");
+@media (max-width: 768px) {
+  .fixed-background-scorpion {
+    background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall-sm.webp");
+  }
+}
+/* ----------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .fixed-background-forest {
+    background-image: url("src/assets/photos/static/seaweed-scene-snorkelling-britain.webp");
+  }
 }
 
-.fixed-background-anenome {
-  background-image: url("src/assets/photos/snakelocks-anenome-in-photographed-in-scotland.jpg");
+@media (max-width: 768px) {
+  .fixed-background-forest {
+    background-image: url("src/assets/photos/static/seaweed-scene-snorkelling-britain-sm.webp");
+  }
+}
+/* ----------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .fixed-background-anenome {
+    background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland.webp");
+  }
 }
 
-.fixed-background-sitting {
-  background-image: url("src/assets/photos/child-in-snorkelling-gear-scotland.jpg");
+@media (max-width: 768px) {
+  .fixed-background-anenome {
+    background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland-sm.webp");
+  }
+}
+
+/* ----------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .fixed-background-sitting {
+    background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland.webp");
+  }
+}
+
+@media (max-width: 768px) {
+  .fixed-background-sitting {
+    background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland-sm.webp");
+  }
 }

@@ -1,4 +1,11 @@
  /* needed for safari */
 .popup-img {
   height: 350px;
+  width: 645px;
+  /* width: 350px; */
+  /* align-items: center; */
+}
+
+.img-container {
+  overflow: hidden;
 }
