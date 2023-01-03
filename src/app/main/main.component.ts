@@ -11,7 +11,6 @@ import { AuthService } from '../shared/services/auth.service';;
 export class MainComponent implements OnInit, AfterViewInit {
 
   @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
-  private dataSubs = new Subscription;
 
   constructor(
     private auth: AuthService
