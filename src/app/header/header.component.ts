@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private el: ElementRef
   ) {
     router.events.subscribe( e => {
       if (e instanceof NavigationEnd) {
@@ -24,8 +26,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 
+  onMenuClick() {
+    // close menu
+    document.getElementById("snNavbar")?.classList.remove("show");
+  }
 }

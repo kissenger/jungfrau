@@ -2,7 +2,7 @@
 
 <header>
 
-  <nav class="d-flex flex-row navbar navbar-height navbar-expand-lg navbar-white bg-white fixed-top shadow" id="snNavbar">
+  <nav class="d-flex flex-row navbar navbar-height navbar-expand-lg navbar-white bg-white fixed-top shadow">
 
     <div class="d-flex px-4 h-100">
 
@@ -27,30 +27,30 @@
     </div>
 
 
-    <div *ngIf="!isNewsPage" class="h-100 collapse navbar-collapse bg-white p-0 m-0 justify-content-end" id="snNavbar">
+    <div *ngIf="!isNewsPage" class="h-100 collapse navbar-collapse bg-white p-0 m-0 justify-content-end" id="snNavbar" (click)="onMenuClick()">
       <ul class=" navbar-nav m-0 p-0 mb-lg-0 align-items-end align-items-lg-center bg-white px-5">
         <li class="nav-item m-0">
           <a class="nav-link py-0 px-1 mx-2 active" aria-current="page" href="#home">Home</a>
         </li>
         <li class="d-none d-lg-inline">&middot;</li>
         <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2 " href="#about">About</a>
+          <a class="nav-link py-0 px-1 mx-2" href="#about" >About</a>
         </li>
         <li class="d-none d-lg-inline">&middot;</li>
         <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2 " href="#news">News <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span></a>
+          <a class="nav-link py-0 px-1 mx-2" href="#news">News <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span></a>
         </li>
         <li class="d-none d-lg-inline">&middot;</li>
         <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2 " href="#book">Book</a>
+          <a class="nav-link py-0 px-1 mx-2" href="#book">Book</a>
         </li>
         <li class="d-none d-lg-inline">&middot;</li>
         <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2 " href="#faq">FAQs</a>
+          <a class="nav-link py-0 px-1 mx-2" href="#faq">FAQs</a>
         </li>
         <li class="d-none d-lg-inline">&middot;</li>
         <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2 " href="#partners">Friends</a>
+          <a class="nav-link py-0 px-1 mx-2" href="#partners">Friends</a>
         </li>
       </ul>
 
