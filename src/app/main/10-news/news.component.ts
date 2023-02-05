@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
+import { NavService } from 'src/app/shared/services/nav.service';
 
 @Component({
   selector: 'app-news',
@@ -9,10 +10,12 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class NewsComponent implements OnInit {
 
   constructor(
+    public nav: NavService
   ) { }
 
   ngOnInit(): void {
 
   }
+
 
 }

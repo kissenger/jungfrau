@@ -10,3 +10,8 @@ photos when parallax scrolling */
   position: relative;
   z-index:99;
 }
+/*
+blockquote {
+  border-color: #566F70 !important;
+  border-width: 2px !important;
+} */

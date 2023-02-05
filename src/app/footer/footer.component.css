@@ -1,3 +1,7 @@
 .sm-image {
   height: 35px;
 }
+
+.email-logo:hover {
+  cursor: pointer;
+}

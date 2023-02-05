@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticleComponent } from 'src/app/main/10-news/article/article.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent},
-  { path: 'news/:id', component: ArticleComponent},
+  { path: '', component: MainComponent, data: {callingPage: 'main'}},
+  { path: 'news/:id', component: ArticleComponent, data: {callingPage: 'news'}},
 
 ];
 

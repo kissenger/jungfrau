@@ -2,25 +2,161 @@
 /* create space for header bar */
 body {
   padding-top: 75px;
-
   color: #566F70;
+  line-height: 1.7;
 }
+
 
 /* when div is used as anchor tag, apply a scroll margin equal to the header height */
 .anchor {
   scroll-margin-top: 75px;
 }
 
-/* dont allow text selection */
-/* * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.blockquote {
+  border-left: 2px #566F70 solid !important;
+  margin: 0em 0em 0em 0em !important;   /* margin is reqd if display is not inline-block, in which case border with p collapses*/
+  padding: 0em 1em 0em 1em !important;
+  display: flex;
+  /* border: 1px black dotted; */
+}
+
+p.lead {
+  margin: 1.5em 0em 1.5em 0em !important;
+  padding: 0em !important;
+  /* display: inline-block; */
+
+}
+
+
+/* NEWS ARTICLE BANNER IMAGE */
+.news-banner-div {
+  height: auto;
+}
+
+.news-banner-img {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+
+  .news-banner-div {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .news-banner-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 100%;
+  }
+
+
+}
+
+/* NEWS ARTICLE CONTENT IMAGES */
+
+.news-image-right {
+  width: 50%;
+  margin: 0em 0em 1.5em 1.5em;
+  display: block;
+  float: right;
+}
+
+.news-image-left {
+  width: 33vw;
+  margin: 0em 1.5em 1.5em 0em;
+  display: block;
+  float: left;
+}
+
+@media (max-width: 768px) {
+
+  .news-image-right,
+  .news-image-left {
+    width: 100%;
+    padding: 0em;
+    display: inline-block;
+  }
+
+}
+
+/* CARDS */
+
+.news-card {
+  min-width: 320px;
+  width: 320px;
+  height: 450px;
+}
+
+.partner-card {
+  width: 225px;
+  height: 300px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 1.5em 1.5em 1em;
+  padding: 0em 0em 0em 0em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  border: none;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.card-content {
+  padding: 0em 1em 0em 1em;
+}
+
+.card-img {
+  border-radius: 0px;
+  border: 0px;
+  overflow: hidden;
+  margin: 1em 0em 1em 0em;
+  padding: 0em 0em 0em 0em;
+  /* width: 100%; */
+  /* display: inline-flex;
+  justify-content: center; */
+}
+
+.partner-card-img {
+  /* border: 1px red solid; */
+  object-fit: contain;
+  max-height: 100px;
+
+  /* max-width: 90%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0em 1em 0em;
+  padding: 0em 1em 0em 1em;
+  /* aspect-ratio: auto; */
+}
+
+.news-card-img {
+  height: 200px;
+}
+
+
+/*
+
+.content-image-sm {
+  width: 100vw;
+  margin: 1.5em 0em 1.5em 0em;
 } */
 
+
+
+/* dont allow tex
 /* this doesnt work with media queries: https://bholmes.dev/blog/alternative-to-css-variable-media-queries/ */
 /* left here for quick reference of bootstrap breakpoints tho: https://getbootstrap.com/docs/5.0/layout/breakpoints/*/
 /* * {
@@ -81,18 +217,55 @@ body {
   background-attachment: fixed;
 } */
 
-.fixed-background-scorpion {
-  background-image: url("src/assets/photos/scorpionfish-photographed-while-snorkelling-in-cornwall.jpg");
+/* ----------------------------------------------------- */
+@media (min-width: 768px) {
+  .fixed-background-scorpion {
+    background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall.webp");
+  }
 }
 
-.fixed-background-forest {
-  background-image: url("src/assets/photos/seaweed-scene-snorkelling-britain.jpg");
+@media (max-width: 768px) {
+  .fixed-background-scorpion {
+    background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall-sm.webp");
+  }
+}
+/* ----------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .fixed-background-forest {
+    background-image: url("src/assets/photos/static/seaweed-scene-snorkelling-britain.webp");
+  }
 }
 
-.fixed-background-anenome {
-  background-image: url("src/assets/photos/snakelocks-anenome-in-photographed-in-scotland.jpg");
+@media (max-width: 768px) {
+  .fixed-background-forest {
+    background-image: url("src/assets/photos/static/seaweed-scene-snorkelling-britain-sm.webp");
+  }
+}
+/* ----------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .fixed-background-anenome {
+    background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland.webp");
+  }
 }
 
-.fixed-background-sitting {
-  background-image: url("src/assets/photos/child-in-snorkelling-gear-scotland.jpg");
+@media (max-width: 768px) {
+  .fixed-background-anenome {
+    background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland-sm.webp");
+  }
+}
+
+/* ----------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .fixed-background-sitting {
+    background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland.webp");
+  }
+}
+
+@media (max-width: 768px) {
+  .fixed-background-sitting {
+    background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland-sm.webp");
+  }
 }

@@ -1,18 +1,9 @@
 
-.partner-card {
-  width: 225px;
-  height: 300px;
-}
-
-.partner-card-logo-container {
-  height: 110px;
-}
-
-.partner-card-logo-picture {
-  max-height: 100px;
-  max-width: 200px;
-}
 
 .bg-scottish-wildlife-trust {
   background-color: #265B80;
+}
+.bsac-logo {
+  /* max-height:70px; */
+  padding: 0.5em 0em 0.5em 0em;
 }

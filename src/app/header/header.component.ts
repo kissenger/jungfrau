@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+
 
 @Component({
   selector: 'app-header',
@@ -8,10 +10,27 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(
-    public auth: AuthService) { }
+  // private dataSubs = new Subscription;
+  public isNewsPage = false;
 
-  ngOnInit(): void {
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    private el: ElementRef
+  ) {
+    router.events.subscribe( e => {
+      if (e instanceof NavigationEnd) {
+        this.isNewsPage = this.router.url.includes('news/');
+      }
+    })
   }
 
+  ngOnInit() {
+  }
+
+
+  onMenuClick() {
+    // close menu
+    document.getElementById("snNavbar")?.classList.remove("show");
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../shared/services/auth.service';;
 
@@ -17,15 +18,20 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-    // detect when scrolling past news article
+    // detect when scrolling past news article so cookie can be set
     window.addEventListener("scroll", () => {
       var elementTarget = <HTMLElement>document.getElementById("news");
-      if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight - 80)) {
-        this.auth.setVisitTime();
+      if (elementTarget) {
+        if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight - 80)) {
+          this.auth.setVisitTime();
+        }
       }
-    });
 
+    });
   }
+
+
+
 
   ngAfterViewInit() {
     if ( !this.auth.isBetaSessionSet && environment.showBetaPopup ) {

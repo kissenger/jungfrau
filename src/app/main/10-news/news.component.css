@@ -1,18 +1,10 @@
-.news-container {
+
+
+
+.news-list-container {
   overflow-x: auto;
-  /* margin-left: -15px; */
-
 }
 
-.news-item {
-  width: 320px;
-  height: 450px;
-}
-
-.blog-card-picture-container {
-  height: 200px;
-  overflow: hidden;
-}
 
 .bi {
   /* vertical-align: -.5em; */
@@ -24,12 +16,3 @@
   /* border: 1px black solid; */
 }
 
-svg { transition: margin-left .3s }
-
-a:hover svg{
-  margin-left: 8px;
-}
-
-.icon-link {
-  width: fit-content;
-}

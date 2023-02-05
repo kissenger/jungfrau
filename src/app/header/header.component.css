@@ -15,3 +15,33 @@
 .sm-image {
   height: 30px;
 }
+
+
+
+/* .header-nav { transition: width .3s } */
+
+.nav-link {
+  border-bottom: 2px transparent solid;
+  transition: border-bottom 0.3s linear 0.05s;
+  color: #566F70;
+
+}
+.nav-link:hover {
+  color: #566F70;
+  border-bottom: 2px #566F70 solid;
+}
+
+.nav-link.active{
+  color: #566F70;
+  border-bottom: 2px #566F70 solid;
+}
+
+/* .nav-item:hover .svg_box{
+  width: 100px;
+  height: 25px;
+} */
+
+/* #box {
+  fill: orange;
+  stroke: black;
+} */
