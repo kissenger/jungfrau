@@ -1,0 +1,58 @@
+
+
+.title {
+  height: 0px;
+}
+
+.sticky-parent {
+  height: 300vh;
+  /* border: 1px blue solid; */
+}
+
+.sticky-child {
+  overflow: visible;
+  position: sticky;
+  /* padding-top: 75px; */
+  top: 75px;
+  height: 100vh;
+  /* border: 1px solid red; */
+}
+
+
+.insta {
+  position: relative;
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 600px;
+  max-height: 600px;
+  /* padding-right: 100px; */
+  /* margin-top: 20px; */
+  /* max-height: 80vh; */
+  /* border: 1px solid red; */
+  overflow: hidden;
+
+}
+
+.insta-spacer {
+  width: 50px;
+}
+
+
+.insta-photo {
+  width: 100%;
+  object-fit: contain;
+}
+
+
+.insta-link {
+  color: #009AF7;
+  font-weight: 550;
+}
+.insta-link:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color:  #566F70;
+}
