@@ -1,4 +1,8 @@
 
+:host {
+  --line-height: 1.7;
+  /* --nLines: 2; */
+}
 
 .title {
   height: 0px;
@@ -19,12 +23,12 @@
 }
 
 
-.insta {
+.insta-post {
   position: relative;
   min-width: 400px;
   max-width: 400px;
-  min-height: 600px;
-  max-height: 600px;
+  /* min-height: 600px;
+  max-height: 600px; */
   /* padding-right: 100px; */
   /* margin-top: 20px; */
   /* max-height: 80vh; */
@@ -33,15 +37,30 @@
 
 }
 
-.insta-spacer {
-  width: 50px;
+.insta-post-missing {
+  min-height: 400px;
+  max-height: 400px;
 }
-
 
 .insta-photo {
   width: 100%;
   object-fit: contain;
 }
+
+.caption-box {
+  line-height: var(--line-height);
+  display: -webkit-box;
+
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.insta-spacer {
+  width: 50px;
+}
+
+
 
 
 .insta-link {

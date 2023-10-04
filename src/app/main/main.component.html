@@ -49,10 +49,11 @@
 
     <div class="fixed-background fixed-background-scorpion m-0 p-0"></div>
 
-    <div id="feed" class="anchor"></div>
-    <app-feed></app-feed>
-
-    <div class="fixed-background fixed-background-sitting m-0 p-0"></div>
+    <div *ngIf="[this.data.instaLoadSuccess]">
+      <div id="feed" class="anchor"></div>
+      <app-feed></app-feed>
+      <div class="fixed-background fixed-background-sitting m-0 p-0"></div>
+    </div>
 
     <div id="book" class="anchor"></div>
     <app-book></app-book>

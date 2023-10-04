@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   showBetaPopup: true,
-  lastContentUpdate: '2022-12-19T17:27:00-00:00',
   PROTOCOL: 'http',
   FRONTEND_URL: 'localhost:4200',
   BACKEND_URL: 'localhost:3000/api',
+  INSTA_TESTER_TOKEN: 'IGQWRQQ3lGQXRUSnlwdFBUZAlJIcC1HRVhVbDBxUlhtcGxjZA0RjR0plM05LcllORzhNcjRQMndZANW5UTEVJSy1pa1I3d1MzRTNWei1ERTRlWGRaOHp2WEtIMHVHT1dHRzlJN2diZAHAxT2h5ekVrN2Y5VElkMi1hQlUZD',
 };
 
 /*

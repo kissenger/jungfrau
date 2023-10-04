@@ -28,7 +28,7 @@ p.lead {
 }
 
 
-/* dont allow tex
+/* dont allow text
 /* this doesnt work with media queries: https://bholmes.dev/blog/alternative-to-css-variable-media-queries/ */
 /* left here for quick reference of bootstrap breakpoints tho: https://getbootstrap.com/docs/5.0/layout/breakpoints/*/
 /* * {

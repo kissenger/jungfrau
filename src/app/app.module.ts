@@ -15,10 +15,11 @@ import { PartnersComponent } from 'src/app/main/50-partners/partners.component';
 import { FaqComponent } from 'src/app/main/40-faq/faq.component';
 import { AuthService } from './shared/services/auth.service';
 import { NavService } from './shared/services/nav.service';
-import { AdminComponent } from 'src/app/admin/admin.component';
 import { FeedComponent } from 'src/app/main/15-feed/feed.component';
 import { HttpService } from './shared/services/http.service';
 import { TruncPipe } from './shared/pipes/trunc.pipe';
+import { ScreenSizeService } from './shared/services/screen-size.service';
+import { DataService } from './shared/services/data.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,6 @@ import { TruncPipe } from './shared/pipes/trunc.pipe';
     BookComponent,
     PartnersComponent,
     FaqComponent,
-    AdminComponent,
     FeedComponent,
     TruncPipe
   ],
@@ -45,7 +45,9 @@ import { TruncPipe } from './shared/pipes/trunc.pipe';
     AuthService,
     NavService,
     HttpService,
-    TruncPipe
+    TruncPipe,
+    ScreenSizeService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

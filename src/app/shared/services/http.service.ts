@@ -8,20 +8,17 @@ import { Post } from '../types';
 
 export class HttpService {
 
-  private backendURL = `${environment.PROTOCOL}://${environment.BACKEND_URL}`;
+  // private backendURL = `${environment.PROTOCOL}://${environment.BACKEND_URL}`;
 
   constructor(
     private http: HttpClient
     ) {
   }
 
-  savePost(post: Post) {
-    return this.http.post<any>(`${this.backendURL}/save-post/`, post);
-  }
 
-
-  getInstaPosts(qty: number) {
-    return this.http.get<any>(`${this.backendURL}/get-insta-posts/${qty}`);
+  getInstaPosts() {
+    return this.http
+      .get<any>(`https://graph.instagram.com/v18.0/me/media?fields=media_url,caption,timestamp,permalink&access_token=${environment.INSTA_TESTER_TOKEN}`)
   }
 
 

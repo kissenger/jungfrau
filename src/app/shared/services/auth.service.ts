@@ -15,15 +15,15 @@ export class AuthService {
 
   // New content cookie to detect if tehre is new content
 
-  public get isNewContent() {
-    const lastContentUpate = Date.parse(environment.lastContentUpdate);
-    const lastVisit = Date.parse(<string>this.lastVisitTime);
-    if (lastVisit) {
-      return lastContentUpate > lastVisit;
-    } else {
-      return true;
-    }
-  }
+  // public get isNewContent() {
+  //   const lastContentUpate = Date.parse(environment.lastContentUpdate);
+  //   const lastVisit = Date.parse(<string>this.lastVisitTime);
+  //   if (lastVisit) {
+  //     return lastContentUpate > lastVisit;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
   public setVisitTime() {
     document.cookie = `${this.COOKIE_LAST_VISIT}=${new Date()}; max-age=${this.MAX_AGE}; path=/`;
