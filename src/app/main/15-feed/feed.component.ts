@@ -20,7 +20,6 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
   public instaFeed: Array<{caption: string, media_url: string, permalink: string}> = []
   private qty = 5;
   public nLines = 0;
-  // public windowWidth: number;
 
   constructor(
     private http: HttpService,
