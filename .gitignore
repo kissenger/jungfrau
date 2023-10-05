@@ -9,7 +9,7 @@
 # GST
 /nodejs/node_modules
 /nodejs/.env
-/src/environments
+/src/environments/
 
 # Node
 /node_modules
