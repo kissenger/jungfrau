@@ -98,9 +98,12 @@
   /* -webkit-line-clamp: 0; */
   -webkit-box-orient: vertical;
   overflow: hidden;
-  * {
-    display: inline;
+
 }
+
+.caption-box > p {
+  margin: 0px;
+  display: inline;
 }
 
 @media (min-width: 576px) {
