@@ -1,10 +1,7 @@
-export type Post = {
-  postDate: Date | undefined,
-  postedBy: string,
-  postContent?: string,
-  postTitle: string,
-  instaLink?: string,
-  instaHtmlLink?: string
-}
+export type PartnerCards = Array<{
+  link: string,
+  logo: string,
+  alt: string,
+  caption: string
+}>
 
-export type Posts = Array<Post>;

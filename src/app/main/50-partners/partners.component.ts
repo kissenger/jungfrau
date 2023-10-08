@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 import { NavService } from 'src/app/shared/services/nav.service';
+import { PartnerCards } from 'src/app/shared/types';
 
 @Component({
   selector: 'app-partners',
@@ -8,12 +10,16 @@ import { NavService } from 'src/app/shared/services/nav.service';
 })
 export class PartnersComponent implements OnInit {
 
-  constructor(
-    public nav: NavService
+  public partnerCards: PartnerCards | undefined = undefined;
 
+  constructor(
+    public nav: NavService,
+    public data: DataService
   ) { }
 
   ngOnInit(): void {
+    this.partnerCards = this.data.partnerCardsRandomised;
+    console.log(this.partnerCards);
   }
 
 }

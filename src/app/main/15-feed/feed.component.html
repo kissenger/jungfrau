@@ -1,10 +1,11 @@
 
 <div class="bg-white marketing m-0 w-100">
-  <div class="container">
+  <!-- <div class="container"> -->
 
     <div *ngIf="this.data.instaLoadSuccess" class="sticky-parent" #stickyParent>
-      <div class="sticky-child d-flex" #stickyChild>
-        <div class="scroll-box py-4" id="scrollBox" #scrollBox>
+      <div class="sticky-child d-flex " #stickyChild>
+        <div class="scroll-box py-4 d-flex flex-column border" id="scrollBox" #scrollBox>
+  <!-- <div class="container"> -->
 
           <h2 class="fw-normal mb-4">Latest Updates</h2>
 
@@ -13,18 +14,18 @@
 
               <div *ngFor="let item of instaFeed; let i = index" class="d-flex d-inline-block">
 
-                <a href="{{item.permalink}}" class="insta-post d-flex flex-column border rounded shadow-sm">
+                <a href="{{item.permalink}}" class="insta-post d-flex flex-column border rounded shadow-sm ">
 
                   <!-- IMAGE -->
                   <img src="{{item.media_url}}" class="insta-photo">
 
                   <!-- CAPTION -->
-                  <div [style.-webkit-line-clamp]="nLines" class="caption-box border-bottom p-2" #captionBox>
+                  <div [style.-webkit-line-clamp]="nLines" class="caption-box p-2 mb-auto" #captionBox>
                       {{item.caption}}
                   </div>
 
                   <!-- FOOTER -->
-                  <div class="insta-footer d-flex flex-row p-2">
+                  <div class="insta-footer d-flex flex-row p-2 border-top">
                     <span class="insta-link small flex-grow-1">View the full post on Instagram</span>
                     <svg width="20px" height="20px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -43,6 +44,7 @@
               <!-- SPACER -->
               <div *ngIf="i < (instaFeed.length)" class="insta-spacer"> &nbsp;
               </div>
+            <!-- </div> -->
 
             </div>  <!--*ngFor -->
 
@@ -64,5 +66,5 @@
       </div>
     </div>
 
-  </div>
+  <!-- </div> -->
 </div>

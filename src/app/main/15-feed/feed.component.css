@@ -11,30 +11,79 @@
 .sticky-parent {
   height: 300vh;
   /* border: 1px blue solid; */
+  overflow: clip;
 }
 
 .sticky-child {
   overflow: visible;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
   position: sticky;
-  /* padding-top: 75px; */
   top: 75px;
   height: 100vh;
   /* border: 1px solid red; */
+
 }
 
 
-.insta-post {
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  /* min-height: 600px;
-  max-height: 600px; */
-  /* padding-right: 100px; */
-  /* margin-top: 20px; */
-  /* max-height: 80vh; */
-  /* border: 1px solid red; */
-  overflow: hidden;
+/* These media queries replicate the bootstrapo containers to get the margin on the left correct inside the
+   scroll-box. See https://getbootstrap.com/docs/5.0/layout/containers for dimensions  */
+@media (max-width: 576px) {
+  .scroll-box {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 576px) {
+  .scroll-box {
+    padding-left: calc((100vw - 540px)/2);
+    padding-right: calc((100vw - 540px)/2);
+  }
+}
+@media (min-width: 768px) {
+  .scroll-box {
+    padding-left: calc((100vw - 720px)/2);
+    padding-right: calc((100vw - 720px)/2);
+  }
+}
+@media (min-width: 992px) {
+  .scroll-box {
+    padding-left: calc((100vw - 960px)/2);
+    padding-right: calc((100vw - 960px)/2);
+  }
+}
+@media (min-width: 1200px) {
+  .scroll-box {
+    padding-left: calc((100vw - 1140px)/2);
+    padding-right: calc((100vw - 1140px)/2);
+  }
+}
+@media (min-width: 1400px) {
+  .scroll-box {
+    padding-left: calc((100vw - 1320px)/2);
+    padding-right: calc((100vw - 1320px)/2);
+  }
+}
 
+
+@media (min-width: 576px) {
+  .insta-post {
+    position: relative;
+    min-width: 400px;
+    max-width: 400px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 576px) {
+  .insta-post {
+    position: relative;
+    min-width: 80vw;
+    max-width: 80vw;
+    overflow: clip;
+  }
 }
 
 .insta-post-missing {
@@ -56,11 +105,16 @@
   overflow: hidden;
 }
 
-.insta-spacer {
-  width: 50px;
+@media (min-width: 576px) {
+  .insta-spacer {
+    width: 50px;
+  }
 }
-
-
+@media (max-width: 576px) {
+  .insta-spacer {
+    width: 5vw;
+  }
+}
 
 
 .insta-link {

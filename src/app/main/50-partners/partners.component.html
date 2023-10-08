@@ -8,88 +8,22 @@
 
     <div class="d-flex justify-content-evenly flex-wrap">
 
-<!-- Partner Card -->
+      <div *ngFor="let card of partnerCards">
+        <div class="card partner-card" (click)="nav.navigateTo(card.link)">
 
-      <div class="card partner-card" (click)="nav.navigateTo('https://wildthingspublishing.com')">
+          <picture>
+            <source type="image/webp" srcset="../assets/logos/{{card.logo}}.webp">
+            <img src="../assets/logos/{{card.logo}}.jpg" class="card-img partner-card-img" alt="{{card.alt}}">
+          </picture>
 
-        <picture>
-          <source type="image/webp" srcset="../assets/logos/wild-things-publishing.webp">
-          <img src="../assets/logos/wild-things-publishing.jpg" class="card-img partner-card-img" alt="Wild Things Publishing Logo">
-        </picture>
+          <div class="card-content">
+            {{card.caption}}
+          </div>
 
-        <div class="card-content">
-          Wild Things Publishing publish inspiring and beautiful guide books for explorers of all kinds.
-        </div>
-
-      </div>
-
-<!-- Partner Card -->
-
-      <div class="card partner-card" (click)="nav.navigateTo('https://jenandsimbenson.co.uk/')">
-
-        <picture>
-          <source type="image/webp" srcset="../assets/logos/wild-running-jacket-cover.webp">
-          <img src="../assets/logos/wild-running-jacket-cover.jpg" class="card-img partner-card-img" alt="Wild Running by Jen and Sim Benson">
-        </picture>
-
-        <div class="card-content">
-          Jen and Sim write award-winning guide-books complimented with beautiful photography, and are super lovely people to boot!
-        </div>
-
-      </div>
-
-<!-- Partner Card -->
-
-      <div class="card partner-card" (click)="nav.navigateTo('https://www.sealalliance.org/')">
-
-        <picture>
-          <source type="image/webp" srcset="../assets/logos/seal-alliance.webp">
-          <img src="../assets/logos/seal-alliance.png" class="card-img partner-card-img" alt="Seal Alliance Logo">
-        </picture>
-
-        <div class="card-content">
-          The Seal Alliance are dedicated to protecting seals and their habitats - we are working together to promote responsible snorkelling.
-        </div>
-
-      </div>
-
-<!-- Partner Card -->
-
-      <div class="card partner-card" (click)="nav.navigateTo('https://scottishwildlifetrust.org.uk/')">
-
-        <!-- Cant get the webp version to look good  -->
-        <!-- <picture>
-          <source type="image/webp" srcset="../assets/logos/swt.webp"> -->
-          <img src="../assets/logos/swt.png" class="card-img partner-card-img bg-scottish-wildlife-trust" alt="Scottoch Wildlife Trust Logo">
-        <!-- </picture> -->
-
-        <div class="card-content">
-          The Scottish Wildlife Trust are also great believers in snorkelling as a fantasic way to explore our coastal waters.
-        </div>
-
-      </div>
-
-<!-- Partner Card -->
-
-      <div class="card partner-card" (click)="nav.navigateTo('https://www.bsac.com/training/learn-to-snorkel/')">
-
-        <picture>
-          <source type="image/webp" srcset="../assets/logos/bsac-logo.webp">
-          <img src="../assets/logos/bsac-logo.png" class="card-img partner-card-img bsac-logo" alt="British Sub Aqua Club Logo">
-        </picture>
-
-        <div class="card-content">
-          The British Sub-Aqua Club (BSAC) offer training to suit all needs; a great place to start your snorkelling journey.
         </div>
       </div>
 
-      <!--
-        For any further cards limit the number on mobile to prevent endless scroll
-        Use d-none d-md-block
-        https://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
-       -->
     </div>
-
-  </div>
+    </div>
 
 </div>

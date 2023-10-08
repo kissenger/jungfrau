@@ -20,40 +20,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-    // detect when scrolling past news article so cookie can be set
-    // window.addEventListener("scroll", () => {
-    //   var elementTarget = <HTMLElement>document.getElementById("main-container");
-
-      // console.log(elementTarget.scrollTop)
-      // if ( window.scrollY > 1000 ) {
-      //   window.scrollTo(0,1000);
-
-      // } else {
-      //   var elementTarget = <HTMLElement>document.getElementById("news");
-      //   if (elementTarget) {
-      //     if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight - 80)) {
-      //       this.auth.setVisitTime();
-      //     }
-      //   }
-      // }
-
-    // });
-
-  //   window.addEventListener("scroll", (e) => {
-  //     console.log(window.scrollY)
-  //       if ( window.scrollY > 1000 ) {
-
-  //         window.scrollTo(0,1000)
-
-  //         console.log(document.body.scrollTop);
-  //         return false;
-  //       }
-  //       return true
-
-  //   },{ passive: false })
   }
-
-
 
 
   ngAfterViewInit() {
