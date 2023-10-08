@@ -98,6 +98,9 @@
   /* -webkit-line-clamp: 0; */
   -webkit-box-orient: vertical;
   overflow: hidden;
+  * {
+    display: inline;
+}
 }
 
 @media (min-width: 576px) {
