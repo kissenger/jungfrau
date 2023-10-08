@@ -94,7 +94,9 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
     // move the scroll-box left and right according to screen position
     const dScroll = this.stickyParent?.nativeElement.getBoundingClientRect().bottom - this.stickyChild?.nativeElement.getBoundingClientRect().bottom;
     const scrollPosition = this.dWidth * (1 - dScroll / this.dHeight);
-    this.renderer.setStyle(this.scrollBox?.nativeElement, 'transform', `translate3d(${scrollPosition < 0 ? 0 : -scrollPosition}px, 0, 0)`);
+    if (scrollPosition){
+      this.renderer.setStyle(this.scrollBox?.nativeElement, 'transform', `translate3d(${scrollPosition < 0 ? 0 : -scrollPosition}px, 0, 0)`);
+    }
   }
 
   setCookie() {

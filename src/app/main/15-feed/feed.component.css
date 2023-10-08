@@ -11,11 +11,12 @@
 .sticky-parent {
   height: 300vh;
   /* border: 1px blue solid; */
-  overflow: clip;
+  /* overflow: clip; */
+  overflow: visible;
 }
 
 .sticky-child {
-  overflow: visible;
+  overflow: hidden;
   position: -webkit-sticky;
   position: -moz-sticky;
   position: -o-sticky;
@@ -71,8 +72,8 @@
 @media (min-width: 576px) {
   .insta-post {
     position: relative;
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 300px;
+    max-width: 300px;
     overflow: hidden;
   }
 }
