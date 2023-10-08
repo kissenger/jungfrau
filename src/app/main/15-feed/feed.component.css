@@ -95,8 +95,7 @@
 .caption-box {
   line-height: var(--line-height);
   display: -webkit-box;
-
-  -webkit-line-clamp: 0;
+  /* -webkit-line-clamp: 0; */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
