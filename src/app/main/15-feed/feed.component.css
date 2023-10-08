@@ -69,28 +69,23 @@
 }
 
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) { */
   .insta-post {
     position: relative;
     min-width: 300px;
     max-width: 300px;
     overflow: hidden;
   }
-}
+/* } */
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .insta-post {
     position: relative;
     min-width: 80vw;
     max-width: 80vw;
     overflow: clip;
   }
-}
-
-.insta-post-missing {
-  min-height: 400px;
-  max-height: 400px;
-}
+} */
 
 .insta-photo {
   width: 100%;
