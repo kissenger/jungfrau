@@ -74,6 +74,8 @@
     position: relative;
     min-width: 300px;
     max-width: 300px;
+    /* min-width: 40vh;
+    min-width: 40vh; */
     overflow: hidden;
   }
 /* } */
@@ -93,12 +95,12 @@
 }
 
 .caption-box {
-  line-height: var(--line-height);
+  /* line-height: var(--line-height); */
   display: -webkit-box;
   /* -webkit-line-clamp: 0; */
   -webkit-box-orient: vertical;
   overflow: hidden;
-
+  /* height: 50px; */
 }
 
 .caption-box > p {

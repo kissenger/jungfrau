@@ -1,9 +1,10 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
+import { HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-feed',
@@ -17,11 +18,14 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
   @ViewChild('stickyChild') stickyChild: ElementRef | undefined;
   @ViewChild('captionBox') captionBox: ElementRef | undefined;
 
+  @HostBinding('style.-webkit-line-clamp') nLines: number = 1;
+
   private httpSubs: Subscription | undefined;
   private screenSizeSubs: Subscription | undefined;
   public instaFeed: Array<{caption: string, media_url: string, permalink: string, timestamp: string}> = []
   private qty = 5;
-  public nLines = 0;
+  // public nLines = 0;
+  public captBoxHeight = 0;
   private dWidth = 0;
   private dHeight = 0;
 
@@ -31,12 +35,12 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
     private screenSize: ScreenSizeService,
     public data: DataService,
     private auth: AuthService,
-    private changeDetection: ChangeDetectorRef
+    private changeDetection: ChangeDetectorRef,
+    private zone: NgZone
     ) {
-    this.nLines = this.getCaptionBoxLines();
 
       this.screenSizeSubs = this.screenSize.resize.subscribe( () => {
-        this.getDimensions();
+        this.getStickyDimensions();
       });
 
       this.httpSubs = this.http.getInstaPosts().subscribe({
@@ -53,40 +57,40 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
 
   ngOnInit(): void {
 
-    window.addEventListener("touchmove", (e) => {
-      this.horizontalScroll();
-      this.setCookie();
-    });
-
-
-    window.addEventListener("scroll", (e) => {
-      this.horizontalScroll();
-      this.setCookie();
-    });
   }
 
-  ngAfterViewChecked() {
-    this.nLines = this.getCaptionBoxLines();
+  ngAfterViewChecked(): void {
+
+    this.zone.runOutsideAngular(() => {
+      ['scroll', 'touchmove'].forEach( (evt) => {
+        window.addEventListener(evt, (e)=> {
+          this.horizontalScroll();
+          this.setCookie();
+        });
+      });
+    });
+
+    this.getCaptionBoxLines();
+    this.getStickyDimensions();
+
     this.changeDetection.detectChanges();
-    this.getDimensions();
-
   }
 
-  getDimensions() {
+  getStickyDimensions() {
     // get available space for vertical and horizontal scrolling based on layout
     this.dHeight = this.stickyParent?.nativeElement.offsetHeight - this.stickyChild?.nativeElement.offsetHeight;
-    this.dWidth = this.scrollBox?.nativeElement.offsetWidth - this.stickyParent?.nativeElement.offsetWidth ;
+    this.dWidth = this.scrollBox?.nativeElement.offsetWidth - this.stickyParent?.nativeElement.offsetWidth;
   }
 
   getCaptionBoxLines() {
     // determine number of lines of caption to allow based on screen height
     if (this.captionBox && this.stickyChild) {
       const cssLineHeight = getComputedStyle(<HTMLElement>this.captionBox.nativeElement).getPropertyValue("line-height");
-      const lineHight = parseFloat(cssLineHeight.substring(0, cssLineHeight.length-2));
+      const lineHeight = parseFloat(cssLineHeight.substring(0, cssLineHeight.length-2));
       const boxHeight = window.innerHeight - (this.captionBox.nativeElement.getBoundingClientRect().top - this.stickyChild.nativeElement.getBoundingClientRect().top) -75 - 100;
-      return Math.floor(boxHeight/lineHight);
-    } else {
-      return 0;
+      this.nLines = Math.floor(boxHeight/lineHeight);
+
+      console.log(cssLineHeight, boxHeight, this.nLines)
     }
   }
 
