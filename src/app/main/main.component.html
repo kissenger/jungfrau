@@ -16,10 +16,7 @@
         <h3 class="modal-title w-100 text-center" id="exampleModalLiveLabel">Welcome to Snorkelology</h3>
         <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="img-container ">
-        <img src="../../assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall-sm.webp"
-          class="popup-img" alt="Photo of a scorpionfish taken in a snorkel in British waters">
-      </div>
+
       <div class="modal-body">
         <p class="">
           This is our 'beta' site, where we try out content and code updates before sharing them with the world.
@@ -39,8 +36,8 @@
 
 <main>
 
-  <div data-bs-spy="scroll" data-bs-target="#snNavbar" data-bs-offset="0">
-
+  <!-- <div data-bs-spy="scroll" data-bs-target="#snNavbar" data-bs-offset="0" id="main-container"> -->
+<div id="main-container">
     <div id="home" class="anchor"></div>
     <app-carousel></app-carousel>
 
@@ -52,8 +49,14 @@
 
     <div id="about" class="anchor"></div>
     <app-about></app-about>
-    <div class="fixed-background fixed-background-sitting m-0 p-0"></div>
 
+    <div class="fixed-background fixed-background-scorpion m-0 p-0"></div>
+
+    <div *ngIf="[this.data.instaLoadSuccess]">
+      <div id="feed" class="anchor"></div>
+      <app-feed></app-feed>
+      <div class="fixed-background fixed-background-sitting m-0 p-0"></div>
+    </div>
 
     <div id="book" class="anchor"></div>
     <app-book></app-book>

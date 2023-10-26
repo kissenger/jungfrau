@@ -8,21 +8,32 @@ export class AuthService {
   private MAX_AGE = 60 * 60 * 24 * 365 * 10;  // 10 years
   private COOKIE_LAST_VISIT = '__snork-new';
   private COOKIE_BETA = '__snork-beta';
+  private _lastInstaPost: number | undefined = undefined;
 
   constructor(
   ) {}
 
 
+  set lastInstaPost(value: string) {
+    this._lastInstaPost = Date.parse(value);
+  }
+
   // New content cookie to detect if tehre is new content
 
   public get isNewContent() {
-    const lastContentUpate = Date.parse(environment.lastContentUpdate);
-    const lastVisit = Date.parse(<string>this.lastVisitTime);
-    if (lastVisit) {
-      return lastContentUpate > lastVisit;
-    } else {
+    // no last insta date so return false, as there is no new content
+    if (!this._lastInstaPost) {
+      return false;
+    }
+    // console.log(this._lastInstaPost)
+
+    // no last visit time so assume this is first visit, so providing there is an instapost, its new content
+    if (!this.lastVisitTime) {
       return true;
     }
+
+    return this._lastInstaPost > this.lastVisitTime;
+
   }
 
   public setVisitTime() {
@@ -31,7 +42,7 @@ export class AuthService {
 
   private get lastVisitTime() {
     try {
-      return this.fetchCookie(this.COOKIE_LAST_VISIT);
+      return Date.parse(<string>this.fetchCookie(this.COOKIE_LAST_VISIT));
     } catch {
       return null;
     }

@@ -1,0 +1,134 @@
+
+:host {
+  --line-height: 1.7;
+  /* --nLines: 2; */
+}
+
+.title {
+  height: 0px;
+}
+
+.sticky-parent {
+  height: 300vh;
+  /* border: 1px blue solid; */
+  /* overflow: clip; */
+  overflow: visible;
+}
+
+.sticky-child {
+  overflow: hidden;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky;
+  top: 75px;
+  height: 100vh;
+  /* border: 1px solid red; */
+
+}
+
+
+/* These media queries replicate the bootstrapo containers to get the margin on the left correct inside the
+   scroll-box. See https://getbootstrap.com/docs/5.0/layout/containers for dimensions  */
+@media (max-width: 576px) {
+  .scroll-box {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 576px) {
+  .scroll-box {
+    padding-left: calc((100vw - 540px)/2);
+    padding-right: calc((100vw - 540px)/2);
+  }
+}
+@media (min-width: 768px) {
+  .scroll-box {
+    padding-left: calc((100vw - 720px)/2);
+    padding-right: calc((100vw - 720px)/2);
+  }
+}
+@media (min-width: 992px) {
+  .scroll-box {
+    padding-left: calc((100vw - 960px)/2);
+    padding-right: calc((100vw - 960px)/2);
+  }
+}
+@media (min-width: 1200px) {
+  .scroll-box {
+    padding-left: calc((100vw - 1140px)/2);
+    padding-right: calc((100vw - 1140px)/2);
+  }
+}
+@media (min-width: 1400px) {
+  .scroll-box {
+    padding-left: calc((100vw - 1320px)/2);
+    padding-right: calc((100vw - 1320px)/2);
+  }
+}
+
+
+/* @media (min-width: 576px) { */
+  .insta-post {
+    position: relative;
+    min-width: 300px;
+    max-width: 300px;
+    /* min-width: 40vh;
+    min-width: 40vh; */
+    overflow: hidden;
+  }
+/* } */
+
+/* @media (max-width: 576px) {
+  .insta-post {
+    position: relative;
+    min-width: 80vw;
+    max-width: 80vw;
+    overflow: clip;
+  }
+} */
+
+.insta-photo {
+  width: 100%;
+  object-fit: contain;
+}
+
+.caption-box {
+  /* line-height: var(--line-height); */
+  display: -webkit-box;
+  /* -webkit-line-clamp: 0; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* height: 50px; */
+}
+
+.caption-box > p {
+  margin: 0px;
+  display: inline;
+}
+
+@media (min-width: 576px) {
+  .insta-spacer {
+    width: 50px;
+  }
+}
+@media (max-width: 576px) {
+  .insta-spacer {
+    width: 5vw;
+  }
+}
+
+
+.insta-link {
+  color: #009AF7;
+  font-weight: 550;
+}
+.insta-link:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color:  #566F70;
+}

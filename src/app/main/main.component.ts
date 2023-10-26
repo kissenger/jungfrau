@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../shared/services/auth.service';;
+import { AuthService } from '../shared/services/auth.service';import { DataService } from '../shared/services/data.service';
+;
 
 @Component({
   selector: 'app-main',
@@ -13,24 +14,13 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    public data: DataService,
   ) { }
 
   ngOnInit(): void {
 
-    // detect when scrolling past news article so cookie can be set
-    window.addEventListener("scroll", () => {
-      var elementTarget = <HTMLElement>document.getElementById("news");
-      if (elementTarget) {
-        if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight - 80)) {
-          this.auth.setVisitTime();
-        }
-      }
-
-    });
   }
-
-
 
 
   ngAfterViewInit() {

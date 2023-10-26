@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+import { DataService } from '../shared/services/data.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private el: ElementRef
+    public data: DataService,
+
   ) {
     router.events.subscribe( e => {
       if (e instanceof NavigationEnd) {

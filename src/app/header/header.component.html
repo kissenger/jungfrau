@@ -36,10 +36,20 @@
         <li class="nav-item">
           <a class="nav-link py-0 px-1 mx-2" href="#about" >About</a>
         </li>
+<<<<<<< HEAD
         <!-- <li class="d-none d-lg-inline">&middot;</li> -->
         <!-- <li class="nav-item">
           <a class="nav-link py-0 px-1 mx-2" href="#news">News <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span></a>
         </li> -->
+=======
+
+        <li *ngIf="[this.data.instaLoadSuccess]" class="d-none d-lg-inline">&middot;</li>
+        <li *ngIf="[this.data.instaLoadSuccess]" class="nav-item">
+          <!-- <a class="nav-link py-0 px-1 mx-2" href="#feed">Feed <span class="badge bg-secondary">New</span></a> -->
+          <a class="nav-link py-0 px-1 mx-2" href="#feed">Feed <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span></a>
+        </li>
+
+>>>>>>> beta
         <li class="d-none d-lg-inline">&middot;</li>
         <li class="nav-item">
           <a class="nav-link py-0 px-1 mx-2" href="#book">Book</a>
