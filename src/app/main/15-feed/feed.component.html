@@ -4,7 +4,7 @@
 
     <div *ngIf="this.data.instaLoadSuccess" class="sticky-parent" #stickyParent>
       <div class="sticky-child d-flex " #stickyChild>
-        <div class="scroll-box py-4 d-flex flex-column border" id="scrollBox" #scrollBox>
+        <div class="scroll-box py-4 d-flex flex-column border"  #scrollBox>
   <!-- <div class="container"> -->
 
           <h2 class="fw-normal mb-4">Latest Updates</h2>
@@ -12,6 +12,7 @@
             <!-- SHOW INSTA POSTS IF SUCCESSFULLY RETRIEVED -->
             <div class="d-flex d-inline-block">
 
+              <!-- <div id="feed" class="anchor"></div> -->
               <div *ngFor="let item of instaFeed; let i = index" class="d-flex d-inline-block">
 
                 <a href="{{item.permalink}}" class="insta-post d-flex flex-column border rounded shadow-sm ">
