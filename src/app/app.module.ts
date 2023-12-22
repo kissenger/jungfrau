@@ -20,6 +20,7 @@ import { HttpService } from './shared/services/http.service';
 import { TruncPipe } from './shared/pipes/trunc.pipe';
 import { ScreenSizeService } from './shared/services/screen-size.service';
 import { DataService } from './shared/services/data.service';
+import { PrivacyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DataService } from './shared/services/data.service';
     PartnersComponent,
     FaqComponent,
     FeedComponent,
+    PrivacyComponent,
     TruncPipe
   ],
   imports: [

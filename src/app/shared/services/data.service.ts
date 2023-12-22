@@ -43,7 +43,7 @@ export class DataService {
     link: 'https://www.alphamarinephoto.com',
     logo: 'alphamarine',
     alt: 'Alphamarine Logo',
-    caption: 'Alphamarine supplied our u/w camera housing, and supported our developing underwater skills with guidance and advise.'
+    caption: 'Alphamarine supplied our u/w camera housing, and supported our developing underwater skills with guidance and advice.'
   },
   {
     link: 'https://www.wildlifetrusts.org',

@@ -1,4 +1,4 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -18,7 +18,7 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
   @ViewChild('stickyChild') stickyChild: ElementRef | undefined;
   @ViewChild('captionBox') captionBox: ElementRef | undefined;
 
-  @HostBinding('style.-webkit-line-clamp') nLines: number = 1;
+  @HostBinding('style.-webkit-line-clamp') nLines?: number;
 
   private httpSubs: Subscription | undefined;
   private screenSizeSubs: Subscription | undefined;
@@ -50,7 +50,8 @@ export class FeedComponent implements OnInit, OnDestroy, AfterViewChecked{
           this.auth.lastInstaPost = this.instaFeed[0].timestamp;
         },
         error: (error: any) => {
-          console.log(`Fetch instagram posts failed with code ${error.status} and error: '${error.error}'`)
+          console.log(`Fetch instagram posts failed with code ${error.status} and error: '${error.error.error}'`);
+          console.log(error);
         }});
       ;
      }
