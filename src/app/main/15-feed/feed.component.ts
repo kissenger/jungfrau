@@ -25,11 +25,12 @@ export class FeedComponent implements OnInit, OnDestroy {
   this.httpSubs = this.http.getInstaPosts().subscribe({
     next: (result: any) => {
       this.instaFeed = result.data.map( (m: any) => m).filter( (m: any) => m.media_type != "VIDEO").slice(0, this.maxInstaPosts);
-      // console.log(this.instaFeed);
+      console.log(this.instaFeed);
       this.data.instaLoadSuccess = true;
       this.auth.lastInstaPost = this.instaFeed[0].timestamp;
     },
     error: (error: any) => {
+      this.data.instaLoadSuccess = false;
       console.log(`Fetch instagram posts failed with code ${error.status} and error: '${error.error.error}'`);
       console.log(error);
     }});

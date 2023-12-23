@@ -1,4 +1,9 @@
 
+:root {
+  --header-height: 75px;
+}
+
+
 .html-link {
   color: #009AF7;
   /* font-weight: 550; */
@@ -15,7 +20,7 @@ a {
 
 /* create space for header bar */
 body {
-  padding-top: 75px;
+  padding-top: var(--header-height);
   color: #566F70;
   line-height: 1.7;
 }
@@ -23,7 +28,7 @@ body {
 
 /* when div is used as anchor tag, apply a scroll margin equal to the header height */
 .anchor {
-  scroll-margin-top: 75px;
+  scroll-margin-top: var(--header-height);
 }
 
 .blockquote {
@@ -128,7 +133,7 @@ p.lead {
     height: 80vh;
     background-size: cover;
     background-position: center;
-    background-attachment:scroll
+    background-attachment: scroll
   }
 }
 
@@ -136,18 +141,12 @@ p.lead {
   .fixed-background {
     height: 80vh;
     background-size: cover;
-    background-position: center;
+    background-position-y: var(--header-height);
+    background-position-x: center;
     background-attachment: fixed;
   }
 }
 
-
-/* .fixed-background {
-  height: 80vh;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-} */
 
 /* ----------------------------------------------------- */
 @media (min-width: 768px) {
