@@ -168,13 +168,17 @@
         "serve-ssr": {
           "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "configurations": {
+            "beta": {
+              "browserTarget": "beta:build:development",
+              "serverTarget": "beta:server:development"
+            },
             "development": {
               "browserTarget": "jungfrau:build:development",
               "serverTarget": "jungfrau:server:development"
             },
             "production": {
-              "browserTarget": "jungfrau:build:production",
-              "serverTarget": "jungfrau:server:production"
+              "browserTarget": "prod:build:production",
+              "serverTarget": "prod:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -187,9 +191,13 @@
             ]
           },
           "configurations": {
+            "beta": {
+              "browserTarget": "beta:build:production",
+              "serverTarget": "beta:server:production"
+            },
             "production": {
-              "browserTarget": "jungfrau:build:production",
-              "serverTarget": "jungfrau:server:production"
+              "browserTarget": "prod:build:production",
+              "serverTarget": "prod:server:production"
             },
             "development": {
               "browserTarget": "jungfrau:build:development",
