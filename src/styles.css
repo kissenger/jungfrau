@@ -1,4 +1,18 @@
 
+.html-link {
+  color: #009AF7;
+  /* font-weight: 550; */
+}
+.html-link:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
 /* create space for header bar */
 body {
   padding-top: 75px;

@@ -19,7 +19,7 @@ export class PartnersComponent implements OnInit {
 
   ngOnInit(): void {
     this.partnerCards = this.data.partnerCardsRandomised;
-    console.log(this.partnerCards);
+    // console.log(this.partnerCards);
   }
 
 }

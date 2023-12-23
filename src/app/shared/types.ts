@@ -5,3 +5,10 @@ export type PartnerCards = Array<{
   caption: string
 }>
 
+export type InstaFeed = Array<{
+  caption: string,
+  media_url: string,
+  media_type: string,
+  permalink: string,
+  timestamp: string
+}>

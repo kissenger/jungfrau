@@ -1,7 +1,7 @@
 import { MainComponent } from './main/main.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrivacyComponent } from './privacy-policy/privacy-policy.component';
+import { PrivacyComponent } from './main/99-privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
