@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,7 +13,6 @@ import { AboutUsComponent } from 'src/app/main/20-about/about.component';
 import { BookComponent } from 'src/app/main/30-book/book.component';
 import { PartnersComponent } from 'src/app/main/50-partners/partners.component';
 import { FaqComponent } from 'src/app/main/40-faq/faq.component';
-import { AuthService } from './shared/services/auth.service';
 import { NavService } from './shared/services/nav.service';
 import { FeedComponent } from 'src/app/main/15-feed/feed.component';
 import { HttpService } from './shared/services/http.service';
@@ -44,12 +43,12 @@ import { PrivacyComponent } from './main/99-privacy-policy/privacy-policy.compon
     HttpClientModule
   ],
   providers: [
-    AuthService,
     NavService,
     HttpService,
     TruncPipe,
     ScreenSizeService,
-    DataService
+    DataService,
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })

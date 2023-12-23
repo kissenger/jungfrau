@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../shared/services/auth.service';
 import { DataService } from '../shared/services/data.service';
 
 @Component({
@@ -13,7 +12,6 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
 
   constructor(
-    private auth: AuthService,
     public data: DataService,
   ) { }
 
@@ -23,10 +21,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
-    if ( !this.auth.isBetaSessionSet && environment.showBetaPopup ) {
-      this.auth.setBetaSession();
-      this.betaPopupBtn.nativeElement.click();
-    }
+
 
 
   }

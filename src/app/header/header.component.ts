@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { AuthService } from '../shared/services/auth.service';
 import { DataService } from '../shared/services/data.service';
 
 
@@ -15,7 +14,6 @@ export class HeaderComponent implements OnInit {
   public isNewsPage = false;
 
   constructor(
-    public auth: AuthService,
     private router: Router,
     public data: DataService,
 

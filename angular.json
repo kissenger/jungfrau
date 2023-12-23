@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/prod",
+            "outputPath": "dist/jungfrau/browser",
             "index": "src/index/prod/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -128,6 +128,75 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/jungfrau/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "beta": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.beta.ts"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "jungfrau:build:development",
+              "serverTarget": "jungfrau:server:development"
+            },
+            "production": {
+              "browserTarget": "jungfrau:build:production",
+              "serverTarget": "jungfrau:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jungfrau:build:production",
+              "serverTarget": "jungfrau:server:production"
+            },
+            "development": {
+              "browserTarget": "jungfrau:build:development",
+              "serverTarget": "jungfrau:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
