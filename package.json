@@ -8,8 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run jungfrau:serve-ssr",
-    "serve:ssr": "node dist/jungfrau/server/main.js",
-    "build:ssr": "ng build && ng run jungfrau:server",
+    "serve-beta:ssr": "node dist/beta/server/main.js",
+    "serve-prod:ssr": "node dist/prod/server/main.js",
+    "build-beta:ssr": "ng build --configuration beta && ng run jungfrau:server:beta",
+    "build-prod:ssr": "ng build --configuration production && ng run jungfrau:server:production",
     "prerender": "ng run jungfrau:prerender"
   },
   "private": true,
