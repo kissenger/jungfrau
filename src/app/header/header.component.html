@@ -37,8 +37,8 @@
           <a class="nav-link py-0 px-1 mx-2" href="#about" >About</a>
         </li>
 
-        <li *ngIf="[this.data.instaLoadSuccess]" class="d-none d-lg-inline">&middot;</li>
-        <li *ngIf="[this.data.instaLoadSuccess]" class="nav-item">
+        <li *ngIf="this.data.instaLoadSuccess" class="d-none d-lg-inline">&middot;</li>
+        <li *ngIf="this.data.instaLoadSuccess" class="nav-item">
           <!-- <a class="nav-link py-0 px-1 mx-2" href="#feed">Feed <span class="badge bg-secondary">New</span></a> -->
           <a class="nav-link py-0 px-1 mx-2" href="#feed">Feed </a>
         </li>

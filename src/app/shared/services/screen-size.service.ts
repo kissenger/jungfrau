@@ -10,6 +10,10 @@ export class ScreenSizeService {
   constructor() {
   }
 
+  // get isLandscape() {
+  //   return this.width > this.height;
+  // }
+
   get width() {
     return window.innerWidth;
   }
@@ -17,6 +21,8 @@ export class ScreenSizeService {
   get height() {
     return window.innerHeight;
   }
+
+  // public isMobile = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   public resize = new Observable((observer) => {
     window.addEventListener('resize', () => {

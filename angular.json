@@ -85,6 +85,7 @@
               "sourceMap": true,
               "namedChunks": true,
               "index": "src/index/beta/index.html",
+              "outputPath": "dist/beta/browser",
               "styles": [
                 "src/styles.css"
               ]
@@ -118,9 +119,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/app/main/10-news/article/content"
+              "src/assets"
+
             ],
             "styles": [
               "src/styles.css"
@@ -164,7 +164,7 @@
               "sourceMap": true,
               "extractLicenses": false,
               "vendorChunk": true,
-              "outputPath": "dist/dev/server",
+              "outputPath": "dist/beta/server",
               "main": "server-dev.ts",
               "tsConfig": "tsconfig.server-dev.json"
             }

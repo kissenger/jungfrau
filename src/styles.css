@@ -126,77 +126,82 @@ p.lead {
 } */
 
 
+
+/* STATIC BACKGROUND PICS */
+
+.static-img {
+  background-size: cover;
+  background-position-x: center;
+}
+
+/* @media (orientation: landscape) { .static-img { height: 80vh; background-position-y: var(--header-height);} } */
+@media (orientation: landscape) { .static-img { height: 80vh; } }
+/* @media (orientation: portrait)  { .static-img { height: 60vh; background-position-y: var(--header-height); } } */
+@media (orientation: portrait)  { .static-img { height: 60vh; } }
+
 /* attempt to fix safari ios fixed background issue  */
 /* https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios */
-@supports ( -webkit-touch-callout : none) {
-  .fixed-background {
-    height: 80vh;
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll
-  }
-}
-
-@supports not ( -webkit-touch-callout : none) {
-  .fixed-background {
-    height: 80vh;
-    background-size: cover;
-    background-position-y: var(--header-height);
-    background-position-x: center;
-    background-attachment: fixed;
-  }
-}
+@supports ( -webkit-touch-callout : none)     { .static-img { background-attachment: scroll; } }
+@supports not ( -webkit-touch-callout : none) { .static-img { background-attachment: fixed;  } }
 
 
 /* ----------------------------------------------------- */
-@media (min-width: 768px) {
-  .fixed-background-scorpion {
+@media (min-width: 768px)  {
+  .static-img-scorpion {
     background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall.webp");
+    background-position-y: var(--header-height);
   }
 }
 
-@media (max-width: 768px) {
-  .fixed-background-scorpion {
+@media (max-width: 768px) or (pointer: coarse) {
+  .static-img-scorpion {
     background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall-sm.webp");
+    background-position-y: center;
   }
 }
 /* ----------------------------------------------------- */
 
 @media (min-width: 768px) {
-  .fixed-background-forest {
-    background-image: url("src/assets/photos/static/seaweed-scene-snorkelling-britain.webp");
+  .static-img-crabs {
+    background-image: url("src/assets/photos/static/cudding-crabs-snorkelling-scotland-britain.webp");
+    background-position-y: var(--header-height);
   }
 }
 
-@media (max-width: 768px) {
-  .fixed-background-forest {
-    background-image: url("src/assets/photos/static/seaweed-scene-snorkelling-britain-sm.webp");
+@media (max-width: 768px) or (pointer: coarse) {
+  .static-img-crabs {
+    background-image: url("src/assets/photos/static/cudding-crabs-snorkelling-scotland-britain-sm.webp");
+    background-position-y: center;
   }
 }
 /* ----------------------------------------------------- */
 
 @media (min-width: 768px) {
-  .fixed-background-anenome {
+  .static-img-anenome {
     background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland.webp");
+    background-position-y: var(--header-height);
   }
 }
 
 @media (max-width: 768px) {
-  .fixed-background-anenome {
+  .static-img-anenome {
     background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland-sm.webp");
+    background-position-y: center;
   }
 }
 
 /* ----------------------------------------------------- */
 
 @media (min-width: 768px) {
-  .fixed-background-sitting {
+  .static-img-sitting {
     background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland.webp");
+    background-position-y: var(--header-height);
   }
 }
 
 @media (max-width: 768px) {
-  .fixed-background-sitting {
+  .static-img-sitting {
     background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland-sm.webp");
+    background-position-y: center;
   }
 }

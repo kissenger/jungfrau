@@ -7,7 +7,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 
 export class DataService {
 
-  private _instLoadSuccess = false;
+  private _instLoadSuccess = true;
   private _instTimestamp: string = '';
 
   get instaLoadSuccess() {

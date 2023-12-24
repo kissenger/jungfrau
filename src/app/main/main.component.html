@@ -44,27 +44,26 @@
 
       <div id="about" class="anchor">
         <app-about></app-about>
-        <div class="fixed-background fixed-background-scorpion m-0 p-0"></div>
+        <!-- <div [ngClass]="isLandscape ? 'fixed-background-landscape' : 'fixed-background-portait'" class="fixed-background-scorpion m-0 p-0"></div> -->
+        <div class="static-img static-img-scorpion m-0 p-0"></div>
       </div>
 
 
       <div id="feed" class="anchor">
-        <!-- <div *ngIf="[this.data.instaLoadSuccess]"> -->
-        <div *ngIf="false">
-
+        <div *ngIf="this.data.instaLoadSuccess">
           <app-feed></app-feed>
-          <div class="fixed-background fixed-background-sitting m-0 p-0"></div>
+          <div class="static-img static-img-sitting m-0 p-0"></div>
         </div>
       </div>
 
       <div id="book" class="anchor">
         <app-book></app-book>
-        <div class="fixed-background fixed-background-forest m-0 p-0"></div>
+        <div class="static-img static-img-crabs m-0 p-0"></div>
       </div>
 
       <div id="faq" class="anchor">
         <app-faq></app-faq>
-        <div class="fixed-background fixed-background-anenome m-0 p-0"></div>
+        <div class="static-img static-img-anenome m-0 p-0"></div>
       </div>
 
       <div id="partners" class="anchor">
