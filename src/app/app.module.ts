@@ -48,7 +48,7 @@ import { PrivacyComponent } from './main/99-privacy-policy/privacy-policy.compon
     TruncPipe,
     ScreenSizeService,
     DataService,
-    // provideClientHydration()
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })

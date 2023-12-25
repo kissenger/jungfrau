@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/services/data.service';
 
 
@@ -10,20 +9,11 @@ import { DataService } from '../shared/services/data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  // private dataSubs = new Subscription;
-  public isNewsPage = false;
+
 
   constructor(
-    private router: Router,
     public data: DataService,
-
-  ) {
-    router.events.subscribe( e => {
-      if (e instanceof NavigationEnd) {
-        this.isNewsPage = this.router.url.includes('news/');
-      }
-    })
-  }
+  ) {}
 
   ngOnInit() {
   }
