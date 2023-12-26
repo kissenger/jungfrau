@@ -19,11 +19,10 @@ export class FeedComponent implements OnInit, OnDestroy {
     private http: HttpService,
     public data: DataService,
   ) {
-console.log('blah')
   this.httpSubs = this.http.getInstaPosts().subscribe({
     next: (result: any) => {
       this.instaFeed = result.data.map( (m: any) => m).filter( (m: any) => m.media_type != "VIDEO").slice(0, this.maxInstaPosts);
-      console.log(this.instaFeed);
+      // console.log(this.instaFeed);
       this.data.instaLoadSuccess = true;
     },
     error: (error: any) => {

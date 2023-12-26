@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
@@ -45,10 +45,15 @@ import { PrivacyComponent } from './main/99-privacy-policy/privacy-policy.compon
   providers: [
     NavService,
     HttpService,
+    provideHttpClient(withFetch()),
     TruncPipe,
     ScreenSizeService,
     DataService,
-    provideClientHydration()
+    provideClientHydration(
+      withHttpTransferCacheOptions({
+        includePostRequests: true,
+      }),
+    ),
   ],
   bootstrap: [AppComponent]
 })
