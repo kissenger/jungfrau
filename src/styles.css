@@ -1,13 +1,36 @@
 
 :root {
-  --header-height: 75px;
+  --header-height: 100px;
+  --scaleRatioImg: 1;
+  --scaleRatioWindow: 1;
 }
 
+/* ===================================================
+                  Global styling
+ ===================================================*/
+
+body {
+  color: #566F70;
+  line-height: 1.7;
+}
+
+/* create space for header bar */
+.header-spacer {
+  padding-top: var(--header-height);
+  border: 1px green dotted;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+body, html {
+  overflow-y: hidden;
+}
 
 .html-link {
   color: #009AF7;
-  /* font-weight: 550; */
 }
+
 .html-link:hover {
   text-decoration: underline;
 }
@@ -16,35 +39,118 @@ a {
   text-decoration: none;
 }
 
-
-
-/* create space for header bar */
-body {
-  padding-top: var(--header-height);
-  color: #566F70;
-  line-height: 1.7;
-}
-
-
-/* when div is used as anchor tag, apply a scroll margin equal to the header height */
 .anchor {
   scroll-margin-top: var(--header-height);
 }
 
 .blockquote {
   border-left: 2px #566F70 solid !important;
-  margin: 0em 0em 0em 0em !important;   /* margin is reqd if display is not inline-block, in which case border with p collapses*/
+/* margin is reqd if display is not inline-block, in which case border with p collapses*/
+  margin: 0em 0em 0em 0em !important;
   padding: 0em 1em 0em 1em !important;
   display: flex;
-  /* border: 1px black dotted; */
 }
 
 p.lead {
   margin: 1.5em 0em 1.5em 0em !important;
   padding: 0em !important;
-  /* display: inline-block; */
-
 }
+
+/* ===================================================
+                  Feed padding
+ to replicate bootstrap container padding outside of container
+ ===================================================*/
+
+ @media (max-width: 576px) {
+  :root{ --container-width: 100vw; }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  :root{ --container-width: 540px; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  :root{ --container-width: 720px; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  :root{ --container-width: 960px; }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  :root{ --container-width: 1140px; }
+}
+@media (min-width: 1400px) {
+  :root{ --container-width: 1140px; }
+}
+
+.feed-padding {
+  padding-inline: calc( (100vw - var(--container-width) ) / 2 );
+}
+
+/* ===================================================
+                  Parallax Classes
+ note that all classes beneath parallax-mater need 'transform-style: preserve-3d'
+ ===================================================*/
+
+/* https://stackoverflow.com/questions/45414515/apply-class-to-every-routed-component-in-angular */
+router-outlet + * {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.parallax-master {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  perspective: 300px;
+  perspective-origin: 50% 50%;
+}
+
+.parallax-intermediate {
+  position: relative;
+  transform-style: preserve-3d;
+}
+/* <div [ngStyle]="{'height': 'calc( 1px * '+this.image.windowScaleRatio+'* 0.8)'}" class="parallax-window"> */
+
+@media (max-width: 767px) {
+  :root{
+    --img-width: 400;
+    --img-height: 533;
+    --aspect-ratio: calc( var(--img-width) / var(--img-height));
+  }
+}
+@media (min-width: 768px) {
+  :root{
+    --img-width: 2500;
+    --img-height: 1350;
+    --aspect-ratio: calc( var(--img-height) / var(--img-width));
+  }
+}
+
+.parallax-window {
+/* Height of the window is calculated by javascript in component main.component.ts */
+/* 0.85 factor sizes the window just smaller than the image height to allow for parallax effect */
+  height: calc( 100vw * var(--aspect-ratio) * 0.85 );
+  position: relative;
+  transform-style: preserve-3d;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red;; */
+}
+
+.parallax-layer {
+  position: absolute;
+  z-index: 99;
+/* Width of the image is calculated by javascript in component main.component.ts */
+/* transform: translateZ(-200px) scale( calc( var(--scaleRatioImg) * 500 / 300)); */
+/* NB this is now done in the component through NgStyle */
+  transform-style: preserve-3d;
+}
+
+/* ===================================================
+                  Partner Cards
+ ===================================================*/
 
 .partner-card {
   width: 225px;
@@ -66,43 +172,30 @@ p.lead {
   overflow: hidden;
   margin: 1em 0em 1em 0em;
   padding: 0em 0em 0em 0em;
-  /* width: 100%; */
-  /* display: inline-flex;
-  justify-content: center; */
 }
 
 .partner-card-img {
-  /* border: 1px red solid; */
   object-fit: contain;
   max-height: 100px;
-
-  /* max-width: 90%; */
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1em 0em 1em 0em;
   padding: 0em 1em 0em 1em;
-  /* aspect-ratio: auto; */
 }
+
 .card:hover {
   box-shadow: 0 6px 12px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.2);
   cursor: pointer;
 }
 
-
 .card-content {
   padding: 0em 1em 0em 1em;
 }
-/* dont allow text
-/* this doesnt work with media queries: https://bholmes.dev/blog/alternative-to-css-variable-media-queries/ */
-/* left here for quick reference of bootstrap breakpoints tho: https://getbootstrap.com/docs/5.0/layout/breakpoints/*/
-/* * {
-  --bootstrap-breakpoint-sm: 576;
-  --bootstrap-breakpoint-md: 768;
-  --bootstrap-breakpoint-lg: 992;
-  --bootstrap-breakpoint-xl: 1200;
-  --bootstrap-breakpoint-xxl: 1400;
-} */
+
+/* ===================================================
+                  Carousel buttons
+ ===================================================*/
 
 .btn-default {
   font-size: 13px;
@@ -119,89 +212,4 @@ p.lead {
   color: #FFF;
   background: rgba(255,255,255,0.75);
   border: 1px solid white
-}
-
-/* .parallax-window {
-  height: 80vh;
-} */
-
-
-
-/* STATIC BACKGROUND PICS */
-
-.static-img {
-  background-size: cover;
-  background-position-x: center;
-}
-
-/* @media (orientation: landscape) { .static-img { height: 80vh; background-position-y: var(--header-height);} } */
-@media (orientation: landscape) { .static-img { height: 80vh; } }
-/* @media (orientation: portrait)  { .static-img { height: 60vh; background-position-y: var(--header-height); } } */
-@media (orientation: portrait)  { .static-img { height: 60vh; } }
-
-/* attempt to fix safari ios fixed background issue  */
-/* https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios */
-@supports ( -webkit-touch-callout : none)     { .static-img { background-attachment: scroll; } }
-@supports not ( -webkit-touch-callout : none) { .static-img { background-attachment: fixed;  } }
-
-
-/* ----------------------------------------------------- */
-@media (min-width: 768px)  {
-  .static-img-scorpion {
-    background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall.webp");
-    background-position-y: var(--header-height);
-  }
-}
-
-@media (max-width: 768px) or (pointer: coarse) {
-  .static-img-scorpion {
-    background-image: url("src/assets/photos/static/scorpionfish-photographed-while-snorkelling-in-cornwall-sm.webp");
-    background-position-y: center;
-  }
-}
-/* ----------------------------------------------------- */
-
-@media (min-width: 768px) {
-  .static-img-crabs {
-    background-image: url("src/assets/photos/static/cudding-crabs-snorkelling-scotland-britain.webp");
-    background-position-y: var(--header-height);
-  }
-}
-
-@media (max-width: 768px) or (pointer: coarse) {
-  .static-img-crabs {
-    background-image: url("src/assets/photos/static/cudding-crabs-snorkelling-scotland-britain-sm.webp");
-    background-position-y: center;
-  }
-}
-/* ----------------------------------------------------- */
-
-@media (min-width: 768px) {
-  .static-img-anenome {
-    background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland.webp");
-    background-position-y: var(--header-height);
-  }
-}
-
-@media (max-width: 768px) {
-  .static-img-anenome {
-    background-image: url("src/assets/photos/static/snakelocks-anenome-in-photographed-in-scotland-sm.webp");
-    background-position-y: center;
-  }
-}
-
-/* ----------------------------------------------------- */
-
-@media (min-width: 768px) {
-  .static-img-sitting {
-    background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland.webp");
-    background-position-y: var(--header-height);
-  }
-}
-
-@media (max-width: 768px) {
-  .static-img-sitting {
-    background-image: url("src/assets/photos/static/child-in-snorkelling-gear-scotland-sm.webp");
-    background-position-y: center;
-  }
 }

@@ -15,3 +15,17 @@ blockquote {
   border-color: #566F70 !important;
   border-width: 2px !important;
 } */
+
+.content-image {
+  position: sticky;
+  /* top: 0px; */
+  /* overflow: scroll; */
+
+
+}
+
+.content {
+  overflow: hidden;
+
+  top: 0px;
+}

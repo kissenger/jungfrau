@@ -1,18 +1,18 @@
 
-
-
-:host {
+:root {
   --line-height: 1.7;
   --lines: 4;
 }
 
-
-
-.feed-container {
-  /* height: 500px; */
-  /* max-width: 750px; */
+.scroll-x {
   overflow-x: scroll;
 }
+
+
+/* ===================================================
+                  Insta post styling
+ ===================================================*/
+
 
 .insta-post-container:nth-child(1) {
   margin-left: 0px;
@@ -25,15 +25,16 @@
   max-width: 300px;
   overflow: hidden;
   margin: 10px;
+
+}
+
+.insta-photo-container {
+  position: relative;
+  height: 300px;
+  width: 300px;
 }
 
 .insta-photo {
-  /* width: 100%; */
-  /* aspect-ratio: 1; */
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 300px;
-  max-height: 300px;
   object-fit: cover;
 }
 
@@ -49,17 +50,6 @@
 .caption-box > p {
   margin: 0px;
   display: inline;
-}
-
-@media (min-width: 576px) {
-  .insta-spacer {
-    width: 50px;
-  }
-}
-@media (max-width: 576px) {
-  .insta-spacer {
-    width: 5vw;
-  }
 }
 
 a {

@@ -5,21 +5,23 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
-import { MainComponent } from 'src/app/main/main.component';
+import { MainComponent } from 'src/app/pages/main/main.component';
 import { HeaderComponent } from 'src/app/header/header.component';
 import { FooterComponent } from 'src/app/footer/footer.component';
-import { CarouselComponent } from 'src/app/main/00-carousel/carousel.component';
-import { AboutUsComponent } from 'src/app/main/20-about/about.component';
-import { BookComponent } from 'src/app/main/30-book/book.component';
-import { PartnersComponent } from 'src/app/main/50-partners/partners.component';
-import { FaqComponent } from 'src/app/main/40-faq/faq.component';
-import { NavService } from './shared/services/nav.service';
-import { FeedComponent } from 'src/app/main/15-feed/feed.component';
-import { HttpService } from './shared/services/http.service';
-import { TruncPipe } from './shared/pipes/trunc.pipe';
-import { ScreenSizeService } from './shared/services/screen-size.service';
-import { DataService } from './shared/services/data.service';
-import { PrivacyComponent } from './main/99-privacy-policy/privacy-policy.component';
+import { CarouselComponent } from 'src/app/pages/main/carousel/carousel.component';
+import { AboutUsComponent } from 'src/app/pages/main/about/about.component';
+import { BookComponent } from 'src/app/pages/main/book/book.component';
+import { PartnersComponent } from 'src/app/pages/main/partners/partners.component';
+import { FaqComponent } from 'src/app/pages/main/faq/faq.component';
+import { NavService } from 'src/app/shared/services/nav.service';
+import { FeedComponent } from 'src/app/pages/main/feed/feed.component';
+import { HttpService } from 'src/app/shared/services/http.service';
+import { TruncPipe } from 'src/app/shared/pipes/trunc.pipe';
+import { ScreenService } from 'src/app/shared/services/screen.service';
+import { ImageService } from 'src/app/shared/services/image.service';
+import { DataService } from 'src/app/shared/services/data.service';
+import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,14 +42,16 @@ import { PrivacyComponent } from './main/99-privacy-policy/privacy-policy.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgOptimizedImage
   ],
   providers: [
     NavService,
     HttpService,
     provideHttpClient(withFetch()),
     TruncPipe,
-    ScreenSizeService,
+    ScreenService,
+    ImageService,
     DataService,
     provideClientHydration(
       withHttpTransferCacheOptions({

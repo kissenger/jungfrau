@@ -1,0 +1,187 @@
+
+
+<!------------------------------------------>
+<!--    MODEL POPUP FOR BETA SITE         -->
+<!------------------------------------------>
+
+<!-- Button is clicked in the ts on page load -->
+<button #betaPopupBtn type="button" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#betaPopup">
+</button>
+
+<!-- Modal definition -->
+<div class="modal fade" id="betaPopup" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header m-0 p-2">
+        <h3 class="modal-title w-100 text-center" id="exampleModalLiveLabel">Welcome to Snorkelology</h3>
+        <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="">
+          This is our 'beta' site, where we try out content and code updates before sharing them with the world.
+          If you've landed here by accident, you probably want to head over to our <a href="https://snorkelology.co.uk">live site</a>.
+        </p>
+        <p class="">
+          However, if this is where you intended to be then grab your mask and snorkel, forage around and let us know what you think...
+        </p>
+      </div>
+      <div class="modal-footer m-0 p-2">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------------------------------------------>
+<!--    CONTENT                           -->
+<!------------------------------------------>
+
+<main class="parallax-intermediate header-spacer" >
+
+  <div class="parallax-intermediate" data-bs-spy="scroll" data-bs-target="#snNavbar" data-bs-offset="0" id="main-container">
+
+    <!-- ------------------ -->
+    <!-- Carousel section   -->
+    <!-- ------------------ -->
+
+    <div class="anchor" id="home">
+      <app-carousel></app-carousel>
+    </div>
+
+    <!-- ------------------ -->
+    <!-- About section      -->
+    <!-- ------------------ -->
+
+    <div class="anchor parallax-intermediate" id="about">
+      <app-about></app-about>
+
+      <div class="parallax-window">
+        <!-- Dont try to move the ngStyle logic to the CSS - it doesnt work. Really. Don't -->
+        <img
+          *ngIf="this.screen.widthDescriptor=='small'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/scorpionfish-photographed-while-snorkelling-in-cornwall')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Underwater photo of Scorpionfish taken while snorkelling in Cornwall"
+        />
+        <img
+          *ngIf="this.screen.widthDescriptor=='large'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/scorpionfish-photographed-while-snorkelling-in-cornwall')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Underwater photo of Scorpionfish taken while snorkelling in Cornwall"
+        />
+      </div>
+    </div>
+
+    <!-- ----------------- -->
+    <!-- Instagram section -->
+    <!-- ----------------- -->
+
+    <div class="anchor parallax-intermediate" id="feed" *ngIf="this.data.instaLoadSuccess">
+
+      <app-feed></app-feed>
+
+      <div class="parallax-window">
+        <img
+          *ngIf="this.screen.widthDescriptor=='small'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/child-in-snorkelling-gear-scotland')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Photo of child sitting on a rock in snorkelling gear, looking out to sea"
+        />
+        <img
+          *ngIf="this.screen.widthDescriptor=='large'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/child-in-snorkelling-gear-scotland')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Photo of child sitting on a rock in snorkelling gear, looking out to sea"
+        />
+      </div>
+
+    </div>
+
+    <!-- ----------------- -->
+    <!-- Book Section      -->
+    <!-- ----------------- -->
+
+    <div class="anchor parallax-intermediate" id="book">
+
+      <app-book></app-book>
+
+      <div class="parallax-window">
+        <img
+          *ngIf="this.screen.widthDescriptor=='small'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/cuddling-crabs-snorkelling-scotland-britain')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
+        />
+        <img
+          *ngIf="this.screen.widthDescriptor=='large'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/cuddling-crabs-snorkelling-scotland-britain')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
+        />
+      </div>
+
+    </div>
+
+    <!-- ----------------- -->
+    <!-- FAQs Section      -->
+    <!-- ----------------- -->
+
+    <div class="anchor parallax-intermediate" id="faq">
+
+      <app-faq></app-faq>
+
+      <div class="parallax-window">
+        <img
+          *ngIf="this.screen.widthDescriptor=='small'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/snakelocks-anenome-in-photographed-in-scotland')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
+        />
+        <img
+          *ngIf="this.screen.widthDescriptor=='large'"
+          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
+          class="parallax-layer"
+          [ngSrc]="image.imgPath('static/snakelocks-anenome-in-photographed-in-scotland')"
+          [width]="image.width"
+          [height]="image.height"
+          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
+        />
+      </div>
+    </div>
+
+    <!-- ----------------- -->
+    <!-- Partners Section  -->
+    <!-- ----------------- -->
+
+    <div class="anchor" id="partners">
+
+      <app-partners></app-partners>
+
+    </div>
+
+  </div>
+
+</main>

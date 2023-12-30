@@ -12,11 +12,14 @@
 
     <div class="carousel-item active">
 
-      <picture>
-        <source type="image/webp" media="(max-width: 576px)" srcset="../assets/photos/carousel/child-walking-beach-after-snorkelling-in-yorkshire-england-britain-sm.webp">
-        <source type="image/webp" media="(min-width: 576px)" srcset="../assets/photos/carousel/child-walking-beach-after-snorkelling-in-yorkshire-england-britain.webp">
-        <img class="w-100 carousel-photo" alt="Child walking up beach after a wonderful experience snorkelling in Britain">
-      </picture>
+      <div class="carousel-img-container">
+        <img
+          class="carousel-img"
+          ngSrc="../../../assets/photos/carousel/child-walking-beach-after-snorkelling-in-yorkshire-england-britain.webp"
+          alt="photo showing child walking up a beach holding snorkelling gear with blue-green sea behind"
+          fill
+          priority/>
+      </div>
 
       <div class="container">
         <div class="carousel-caption text-start">
@@ -29,11 +32,13 @@
 
     <div class="carousel-item">
 
-      <picture>
-        <source media="(max-width: 576px)" srcset="../assets/photos/carousel/drone-photo-woman-snorkelling-chesil-cove-sm.webp">
-        <source media="(min-width: 576px)" srcset="../assets/photos/carousel/drone-photo-woman-snorkelling-chesil-cove.webp">
-        <img class="w-100 carousel-photo" alt="Aerial photo of a woman snorkelling in British sea">
-      </picture>
+      <div class="carousel-img-container">
+        <img
+          class="carousel-img"
+          ngSrc="../../../assets/photos/carousel/drone-photo-woman-snorkelling-chesil-cove.webp"
+          alt="photo showing drone view of woman snorkelling in Chesil Cove, Dorset, with wonderful visibility"
+          fill />
+      </div>
 
       <div class="container">
         <div class="carousel-caption">
@@ -46,20 +51,20 @@
 
     <div class="carousel-item">
 
-      <picture>
-        <source media="(max-width: 576px)" srcset="../assets/photos/carousel/children-rock-pool-snorkelling-in-cornwall-britain-sm.webp">
-        <source media="(min-width: 576px)" srcset="../assets/photos/carousel/children-rock-pool-snorkelling-in-cornwall-britain.webp">
-        <img class="w-100 carousel-photo" alt="Children rock pooling snorkelling in cornwall Britain">
-      </picture>
-
-      <!-- <div class="container"> -->
-        <div class="carousel-caption carousel-caption-darkbg">
-          <h1>Learn more about British snorkelling</h1>
-          <p>Check our our feed to keep up to date...</p>
-          <p><a class="btn btn-default" href="#feed">Catch up with the latest happenings</a></p>
-        </div>
+      <div class="carousel-img-container">
+        <img
+          class="carousel-img w-100 h-100"
+          ngSrc="../../../assets/photos/carousel/children-rock-pool-snorkelling-in-cornwall-britain.webp"
+          alt="photo showing children pointing at marine life while snrokelling in a rock pool"
+          fill />
       </div>
-    <!-- </div> -->
+
+      <div class="carousel-caption carousel-caption-darkbg">
+        <h1>Learn more about British snorkelling</h1>
+        <p>Check our our feed to keep up to date...</p>
+        <p><a class="btn btn-default" href="#feed">Catch up with the latest happenings</a></p>
+      </div>
+    </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

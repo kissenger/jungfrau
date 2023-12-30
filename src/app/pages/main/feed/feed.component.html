@@ -1,16 +1,22 @@
 
 
-<div class="bg-white marketing m-0 w-100">
-  <div class="container" *ngIf="this.data.instaLoadSuccess">
+<div *ngIf="this.data.instaLoadSuccess" class="bg-white marketing m-0 w-100">
+  <!-- <div class="container" > -->
     <div class="row bg-white py-5">
       <div class="col-md-7 w-100">
-      <h2 class="fw-normal">Latest Happenings</h2>
-        <div class="d-flex inline-block py-2 px-0 m-0 feed-container" #feedContainer>
-          <div *ngFor="let item of instaFeed; let i = index">
+      <h2 class="fw-normal feed-padding">Latest Happenings</h2>
+        <div class="d-flex inline-block py-2 my-0 scroll-x feed-padding" #feedContainer>
+          <div *ngFor="let item of instaFeed; let i = index" class="insta-post-container">
 
-            <a href="{{item.permalink}}" class="insta-post-container d-flex flex-column border rounded shadow-sm ">
+            <a href="{{item.permalink}}" class="d-flex flex-column border rounded shadow-sm ">
 
-              <img src="{{item.media_url}}" class="insta-photo">
+              <div class="insta-photo-container">
+                <img
+                  class="insta-photo"
+                  ngSrc="{{item.media_url}}"
+                  alt="{{item.caption}}"
+                  fill>
+              </div>
 
               <div [style.-webkit-line-clamp]="4" class="caption-box m-2" #captionBox>
                   <p>{{item.caption}}</p>
@@ -47,5 +53,5 @@
         </div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </div>

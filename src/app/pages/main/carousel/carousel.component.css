@@ -1,0 +1,58 @@
+
+.carousel-item {
+  max-height: 80vh;
+  overflow: hidden;
+
+}
+
+
+@media (max-width: 576px) {
+  .carousel-caption-sm-top {
+    top: 0;
+    bottom: auto;
+  }
+}
+
+.carousel-caption-top {
+  top: 0;
+  bottom: auto;
+}
+
+.carousel-caption {
+  left: 0px;
+  width: 100%;
+  padding: 0px 15% 20px 15%;
+  /* margin: 0px;
+  padding: 0px; */
+}
+
+.carousel-caption-darkbg {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.carousel-img-container {
+  /* max-height: 100%; */
+  width: 100%;
+  position: relative;
+  min-height: 600px;
+  max-height: 800px;
+  /* min-height: 240px; */
+  /* height: 400px; */
+  /* position: sticky; */
+  /* background-color: #009AF7; */
+  /* top: 0px;
+  right: 0px; */
+  /* height: 100%;
+  width: 100%; */
+
+}
+
+.carousel-img {
+  /* position: fixed; */
+  object-fit: cover;
+  object-position: center;
+  min-height: 600px;
+  max-height: 650px;
+  /* position: relative; */
+
+}
