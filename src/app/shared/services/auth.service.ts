@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment';
 
 @Injectable()
 
@@ -7,7 +7,7 @@ export class AuthService {
 
   private MAX_AGE = 60 * 60 * 24 * 365 * 10;  // 10 years
   private COOKIE_LAST_VISIT = 'sn-feed-view-time';
-  private COOKIE_BETA = '__snork-beta';
+  // private COOKIE_BETA = '__snork-beta';
   private _lastInstaPost: number | undefined = undefined;
 
   constructor(
@@ -28,11 +28,11 @@ export class AuthService {
     // console.log(this._lastInstaPost)
 
     // no last visit time so assume this is first visit, so providing there is an instapost, its new content
-    if (!this.lastVisitTime) {
-      return true;
+    if (this.lastVisitTime) {
+      return this._lastInstaPost > this.lastVisitTime;
     }
 
-    return this._lastInstaPost > this.lastVisitTime;
+    return false;
 
   }
 
@@ -51,13 +51,13 @@ export class AuthService {
 
   // Beta session cookie to allow popup to appear only once per session
 
-  public get isBetaSessionSet() {
-    return !!this.fetchCookie(this.COOKIE_BETA);
-  }
+  // public get isBetaSessionSet() {
+  //   return !!this.fetchCookie(this.COOKIE_BETA);
+  // }
 
-  public setBetaSession() {
-    document.cookie = `${this.COOKIE_BETA}=true; path=/`;
-  }
+  // public setBetaSession() {
+  //   document.cookie = `${this.COOKIE_BETA}=true; path=/`;
+  // }
 
 
   private fetchCookie(cookieName: string) {
