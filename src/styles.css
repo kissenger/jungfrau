@@ -1,6 +1,6 @@
 
 :root {
-  --header-height: 100px;
+  --navbar-height: 100px;
   --scaleRatioImg: 1;
   --scaleRatioWindow: 1;
 }
@@ -16,8 +16,8 @@ body {
 
 /* create space for header bar */
 .header-spacer {
-  padding-top: var(--header-height);
-  border: 1px green dotted;
+  padding-top: var(--navbar-height);
+  /* border: 1px green dotted; */
 }
 
 html {
@@ -40,7 +40,7 @@ a {
 }
 
 .anchor {
-  scroll-margin-top: var(--header-height);
+  scroll-margin-top: var(--navbar-height);
 }
 
 .blockquote {
@@ -61,7 +61,7 @@ p.lead {
  to replicate bootstrap container padding outside of container
  ===================================================*/
 
- @media (max-width: 576px) {
+@media (max-width: 576px) {
   :root{ --container-width: 100vw; }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -95,14 +95,24 @@ router-outlet + * {
   transform-style: preserve-3d;
 }
 
-.parallax-master {
+.scrolly {
   height: 100vh;
+  /* border: 2px red dashed; */
+  /* scrollbar-gutter: stable; */
+  overflow: hidden;
+}
+
+.parallax-master {
+  /* height: 100vh; */
+  height: 100vh;
+  /* height: 300vh; */
   width: 100%;
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
   perspective: 300px;
   perspective-origin: 50% 50%;
+  /* border: 2px blue dashed; */
 }
 
 .parallax-intermediate {

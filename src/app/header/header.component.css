@@ -1,25 +1,82 @@
-header {
-  position: relative;
+
+/* header { */
+  /* transform: translateX(0); */
+/* } */
+
+.spacer {
+  /* width: 20px; */
+  height: var(--navbar-height);
+  overflow: hidden;
+  scrollbar-gutter: true;
+  scrollbar-gutter: stable;
+  /* background-color: aqua; */
+  pointer-events: none;
 }
+
+@media (pointer: coarse) {
+  .spacer {
+    width: 0px;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0px;
+  z-index: 99;
+  /* background-color: red; */
+  height: var(--navbar-height);
+  /* Required to avoid overlapping scrollbar */
+  /* scrollbar-gutter: stable; */
+  overflow-y: visible;
+  pointer-events: none;
+  /* Allow grabbing toolbar in header section */
+  /* pointer-events: none; */
+}
+
+/* .subheader {
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+} */
+
 
 .navbar-brand {
   color: #566F70;
 
 }
+
+#snNavbar {
+  scrollbar-gutter: stable;
+  z-index: 999;
+}
+
+/* .navbar-nav {
+  z-index: 999;
+
+} */
+
 .navbar {
-  height: 75px;
+  /* --navbar-height is defined in styles.css */
+  height: var(--navbar-height);
+  pointer-events: auto;
+  overflow-y: visible;
 
 }
 
 .navbar-toggler:focus {
-  box-shadow:none !important;
+  box-shadow: none !important;
 }
 
 .sm-image {
   height: 30px;
 }
 
-
+.nav-item {
+  margin: 0px !important;
+  padding: 0px !important;
+}
 
 /* .header-nav { transition: width .3s } */
 
@@ -27,7 +84,12 @@ header {
   border-bottom: 2px transparent solid;
   transition: border-bottom 0.3s linear 0.05s;
   color: #566F70;
-
+  margin: 6px 6px 6px 6px;
+  padding: 0px 5px 0px 5px !important;
+  /* width: 70px; */
+  /* margin: 0px;
+  padding: 10px;
+  border-bottom: 1px rgba(86,111,112,0.5) solid; */
 }
 .nav-link:hover {
   color: #566F70;
@@ -38,6 +100,7 @@ header {
   color: #566F70;
   border-bottom: 2px #566F70 solid;
 }
+
 
 /* .nav-item:hover .svg_box{
   width: 100px;

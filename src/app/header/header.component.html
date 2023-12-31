@@ -2,7 +2,10 @@
 
 <header>
 
-  <nav class="d-flex flex-row navbar navbar-height navbar-expand-lg navbar-white bg-white fixed-top shadow">
+  <div class="header d-flex flex-row">
+    <div class="flex-grow-1">
+
+  <nav class="navbar navbar-expand-md navbar-white bg-white d-flex flex-row w-100 shadow">
 
     <div class="d-flex px-4 h-100">
 
@@ -13,52 +16,57 @@
       </a>
     </div>
 
-    <div class="flex-grow-1"> </div>
 
     <button class="navbar-toggler mx-4 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#snNavbar" aria-controls="snNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
 
-    <div class="h-100 collapse navbar-collapse bg-white p-0 m-0 justify-content-end" id="snNavbar" (click)="onMenuClick()">
+    <div class="collapse navbar-collapse align-items-end bg-white justify-content-end rounded-bottom" id="snNavbar">
 
-      <ul class=" navbar-nav m-0 p-0 mb-lg-0 align-items-end align-items-lg-center bg-white px-5">
+      <ul class="navbar-nav align-items-center">
 
-        <li class="nav-item m-0">
-          <a class="nav-link py-0 px-1 mx-2 active" aria-current="page" href="#home">Home</a>
+        <li class="nav-item text-center">
+          <a class="nav-link active" aria-current="page" href="#home">Home</a>
         </li>
 
-        <li class="d-none d-lg-inline">&middot;</li>
+        <li class="d-none d-md-inline">&middot;</li>
 
-        <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2" href="#about" >About</a>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="#about" >About</a>
         </li>
 
-        <li *ngIf="this.data.instaLoadSuccess" class="d-none d-lg-inline">&middot;</li>
+        <li *ngIf="this.data.instaLoadSuccess" class="d-none d-md-inline">&middot;</li>
 
-        <li *ngIf="this.data.instaLoadSuccess" class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2" href="#feed">Feed </a>
+        <li *ngIf="this.data.instaLoadSuccess" class="nav-item text-center">
+          <a class="nav-link" href="#feed">Feed </a>
         </li>
 
-        <li class="d-none d-lg-inline">&middot;</li>
+        <li class="d-none d-md-inline">&middot;</li>
 
-        <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2" href="#book">Book</a>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="#book">Book</a>
         </li>
 
-        <li class="d-none d-lg-inline">&middot;</li>
+        <li class="d-none d-md-inline">&middot;</li>
 
-        <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2" href="#faq">FAQs</a>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="#faq">FAQs</a>
         </li>
 
-        <li class="d-none d-lg-inline">&middot;</li>
+        <li class="d-none d-md-inline">&middot;</li>
 
-        <li class="nav-item">
-          <a class="nav-link py-0 px-1 mx-2" href="#partners">Friends</a>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="#partners">Friends</a>
         </li>
       </ul>
     </div>
   </nav>
+    </div>
+    <div class="spacer">
 
+    </div>
+
+
+</div>
 </header>

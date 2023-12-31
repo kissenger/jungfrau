@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  host: {class: 'parallax-intermediate'}
+  // host: {class: 'parallax-intermediate'}
 })
 
 export class AppComponent {
