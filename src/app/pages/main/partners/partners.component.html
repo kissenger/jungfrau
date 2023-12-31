@@ -1,5 +1,4 @@
 
-
 <div class="bg-white marketing m-0 w-100">
 
   <div class="container px-0 py-5">
@@ -9,12 +8,16 @@
     <div class="d-flex justify-content-evenly flex-wrap">
 
       <div *ngFor="let card of partnerCards">
-        <div class="card partner-card" (click)="nav.navigateTo(card.link)">
 
-          <picture>
-            <source type="image/webp" srcset="../assets/logos/{{card.logo}}.webp">
-            <img src="../assets/logos/{{card.logo}}.jpg" class="card-img partner-card-img" alt="{{card.alt}}">
-          </picture>
+        <div class="card partner-card align-items-center p-2" (click)="nav.navigateTo(card.link)">
+
+          <img
+            [ngSrc]="card.imgPath"
+            [height]="card.height"
+            [width]="card.width"
+            class="partner-card-img"
+            [alt]="card.alt"
+          />
 
           <div class="card-content">
             {{card.caption}}

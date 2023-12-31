@@ -1,6 +1,8 @@
 export type PartnerCards = Array<{
   link: string,
-  logo: string,
+  imgPath: string,
+  height: string,
+  width: string,
   alt: string,
   caption: string
 }>

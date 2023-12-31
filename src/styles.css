@@ -178,22 +178,24 @@ router-outlet + * {
   border-radius: 5px;
   border: none;
 }
-.card-img {
+
+/* .card-img {
   border-radius: 0px;
   border: 0px;
   overflow: hidden;
   margin: 1em 0em 1em 0em;
   padding: 0em 0em 0em 0em;
-}
+} */
 
 .partner-card-img {
   object-fit: contain;
   max-height: 100px;
+  max-width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1em 0em 1em 0em;
-  padding: 0em 1em 0em 1em;
+  margin: 1em;
+  /* padding: 0em 1em 0em 1em; */
 }
 
 .card:hover {
@@ -202,7 +204,7 @@ router-outlet + * {
 }
 
 .card-content {
-  padding: 0em 1em 0em 1em;
+  padding: 0em 0.5em 0em 0.5em;
 }
 
 /* ===================================================
