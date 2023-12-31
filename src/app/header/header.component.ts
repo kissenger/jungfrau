@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,19 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-
+  public showMenu: boolean = false;
 
   constructor(
     public data: DataService,
-    public auth: AuthService
-  ) {}
+    public auth: AuthService,
+    private router: Router
+  ) {
+    router.events.subscribe( e => {
+      if (e instanceof NavigationEnd) {
+        this.showMenu = !this.router.url.includes('privacy-policy');
+      }
+    })
+  }
 
   ngOnInit() {
   }
