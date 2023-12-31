@@ -39,7 +39,10 @@
         <li *ngIf="this.data.instaLoadSuccess" class="d-none d-md-inline">&middot;</li>
 
         <li *ngIf="this.data.instaLoadSuccess" class="nav-item text-center">
-          <a class="nav-link" href="#feed">Feed </a>
+          <a class="nav-link" href="#feed">
+            Feed
+            <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span>
+          </a>
         </li>
 
         <li class="d-none d-md-inline">&middot;</li>

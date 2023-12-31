@@ -16,12 +16,12 @@ import { FaqComponent } from 'src/app/pages/main/faq/faq.component';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { FeedComponent } from 'src/app/pages/main/feed/feed.component';
 import { HttpService } from 'src/app/shared/services/http.service';
-import { TruncPipe } from 'src/app/shared/pipes/trunc.pipe';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
 import { NgOptimizedImage } from '@angular/common';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import { NgOptimizedImage } from '@angular/common';
     FaqComponent,
     FeedComponent,
     PrivacyComponent,
-    TruncPipe
   ],
   imports: [
     BrowserModule,
@@ -49,10 +48,10 @@ import { NgOptimizedImage } from '@angular/common';
     NavService,
     HttpService,
     provideHttpClient(withFetch()),
-    TruncPipe,
     ScreenService,
     ImageService,
     DataService,
+    AuthService,
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,

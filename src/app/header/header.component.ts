@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public data: DataService,
+    public auth: AuthService
   ) {}
 
   ngOnInit() {

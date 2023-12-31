@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 // import { environment } from 'src/environments/environment';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';

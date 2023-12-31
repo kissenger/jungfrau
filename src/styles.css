@@ -12,6 +12,7 @@
 body {
   color: #566F70;
   line-height: 1.7;
+  min-height: 100%;
 }
 
 /* create space for header bar */
