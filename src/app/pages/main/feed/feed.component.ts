@@ -56,7 +56,7 @@ export class FeedComponent implements OnInit, OnDestroy {
 
   intersectHandler(intersect: Array<IntersectionObserverEntry>) {
     if (!this.isCookieSet && intersect[0].isIntersecting === true) {
-      console.log(this.auth)
+      // console.log(this.auth)
       this.auth.setVisitTime();
       this.isCookieSet = true;
     }
