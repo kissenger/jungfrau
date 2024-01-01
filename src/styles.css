@@ -1,9 +1,17 @@
 
 :root {
-  --navbar-height: 100px;
+  --navbar-height: 60px;
   --scaleRatioImg: 1;
   --scaleRatioWindow: 1;
 }
+/*
+@media (max-width: 767px) {
+  :root{  --navbar-height: 60px; }
+}
+@media (min-width: 768px) {
+  :root{  --navbar-height: 60px; }
+} */
+
 
 /* ===================================================
                   Global styling
@@ -66,23 +74,35 @@ p.lead {
  to replicate bootstrap container padding outside of container
  ===================================================*/
 
-@media (max-width: 576px) {
-  :root{ --container-width: 100vw; }
+@media (max-width: 575px) {
+  :root{ --container-width: calc(100vw - 20px); }
+  .parallax-window{ height: 70vh; }
+  .carousel-img-container{ height: 50vh; }
 }
 @media (min-width: 576px) and (max-width: 767px) {
   :root{ --container-width: 540px; }
+  .parallax-window { height: 50vh; }
+  .carousel-img-container{ height: 50vh; }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   :root{ --container-width: 720px; }
+  .parallax-window { height: 50vh; }
+  .carousel-img-container{ height: 60vh; }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   :root{ --container-width: 960px; }
+  .parallax-window { height: 60vh; }
+  .carousel-img-container{ height: 70vh; }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {
   :root{ --container-width: 1140px; }
+  .parallax-window { height: 70vh; }
+  .carousel-img-container{ height: 80vh; }
 }
 @media (min-width: 1400px) {
-  :root{ --container-width: 1140px; }
+  :root{ --container-width: 1320px; }
+  .parallax-window { height: 80vh; }
+  .carousel-img-container{ height: 80vh; }
 }
 
 .feed-padding {
@@ -125,27 +145,9 @@ router-outlet + * {
   position: relative;
   transform-style: preserve-3d;
 }
-/* <div [ngStyle]="{'height': 'calc( 1px * '+this.image.windowScaleRatio+'* 0.8)'}" class="parallax-window"> */
-
-@media (max-width: 767px) {
-  :root{
-    --img-width: 400;
-    --img-height: 533;
-    --aspect-ratio: calc( var(--img-width) / var(--img-height));
-  }
-}
-@media (min-width: 768px) {
-  :root{
-    --img-width: 2500;
-    --img-height: 1350;
-    --aspect-ratio: calc( var(--img-height) / var(--img-width));
-  }
-}
 
 .parallax-window {
-/* Height of the window is calculated by javascript in component main.component.ts */
-/* 0.85 factor sizes the window just smaller than the image height to allow for parallax effect */
-  height: calc( 100vw * var(--aspect-ratio) * 0.85 );
+/* height is determine above, in media qeuries */
   position: relative;
   transform-style: preserve-3d;
   z-index: 99;

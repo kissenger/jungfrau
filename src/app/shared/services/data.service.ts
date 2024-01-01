@@ -99,32 +99,32 @@ export class DataService {
       fname: "scorpionfish-photographed-while-snorkelling-in-cornwall",
       extension: "webp",
       altText: "blah blah",
-      portrait: {height: 533, width: 400 },
-      landscape: {height: 1350, width: 2500}
+      portrait: {height: 740, width: 400},
+      landscape: {height: 1333, width: 2000}
     },
     "cuddlingcrabs": {
       basePath: "assets/photos/static/",
       fname: "cuddling-crabs-snorkelling-scotland-britain",
       extension: "webp",
       altText: "Photo of two crabs having a cuddle underwater, taken in Scotland",
-      portrait: {height: 533, width: 400 },
-      landscape: {height: 1350, width: 2500}
+      portrait: {height: 740, width: 400 },
+      landscape: {height: 1333, width: 2000}
     },
     "sittingchild": {
       basePath: "assets/photos/static/",
       fname: "child-in-snorkelling-gear-scotland",
       extension: "webp",
       altText: "Photo of child sitting on a rock in snorkelling gear, looking out to sea",
-      portrait: {height: 533, width: 400 },
-      landscape: {height: 1350, width: 2500}
+      portrait: {height: 700, width: 400 },
+      landscape: {height: 1333, width: 2000}
     },
     "anemone": {
       basePath: "assets/photos/static/",
-      fname: "snakelocks-anenome-in-photographed-in-scotland",
+      fname: "dahlia-anemone-snorkelling-dorset-britain",
       extension: "webp",
-      altText: "Photo of a Snakelocks Anemone taken while snorkelling in Britain",
-      portrait: {height: 533, width: 400 },
-      landscape: {height: 1350, width: 2500}
+      altText: "Photo of a Snakelocks Anemone taken while snorkelling in Dorset, Britain",
+      portrait: {height: 700, width: 400 },
+      landscape: {height: 1333, width: 2000}
     },
     "youtube": {
       href: "https://www.youtube.com/channel/UCahtVWtV4eBCqFPVSfgdpbg",
@@ -152,7 +152,47 @@ export class DataService {
       altText: "Click to send us an email",
       height: 40,
       width: 40
-    }
+    },
+    "content-woman": {
+      basePath: "assets/photos/content/",
+      fname: "woman-staring-out-to-sea-holding-snorkelling-gear",
+      extension: "webp",
+      altText: "Woman looking out to sea holding snorkelling gear in Britain",
+      height: 600,
+      width: 600
+    },
+    "content-kids": {
+      basePath: "assets/photos/content/",
+      fname: "children-showing-their-snorkelling-finds-scotland-britain",
+      extension: "webp",
+      altText: "Children shows off their finds after snorkelling in Scotland",
+      height: 600,
+      width: 600
+    },
+    "carousel-child": {
+      basePath: "assets/photos/carousel/",
+      fname: "child-walking-beach-after-snorkelling-in-yorkshire-england-britain",
+      extension: "webp",
+      altText: "Photo of child walking up a beach holding snorkelling gear with blue-green sea behind",
+      portrait: {height: 740, width: 400 },
+      landscape: {height: 1333, width: 2000}
+    },
+    "carousel-drone": {
+      basePath: "assets/photos/carousel/",
+      fname: "drone-photo-woman-snorkelling-chesil-cove",
+      extension: "webp",
+      altText: "Photo showing drone view of woman snorkelling in Chesil Cove, Dorset, with wonderful visibility",
+      portrait: {height: 740, width: 400 },
+      landscape: {height: 1333, width: 2000}
+    },
+    "carousel-kids": {
+      basePath: "assets/photos/carousel/",
+      fname: "children-rock-pool-snorkelling-in-cornwall-britain",
+      extension: "webp",
+      altText: "Photo showing children pointing at marine life while snorkelling in a rock pool",
+      portrait: {height: 740, width: 400 },
+      landscape: {height: 1333, width: 2000}
+    },
   }
 
 

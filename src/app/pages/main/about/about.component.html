@@ -15,6 +15,7 @@
         </blockquote>
 
         <p class="lead">
+
           We had our first exposure to the wonders of British sea life through SCUBA diving.  Then came the challenge of babies and our
           water-based forays became more family focussed, with sneaky swims on family beach days.
           It was these quick dips with nothing but a pair of goggles which reminded us that you don't need lots of kit to explore the beautiful
@@ -25,9 +26,16 @@
 
         </p>
       </div>
-      <div class="col-md-5 d-block content h-100">
-        <img class="content-img" src="../assets/photos/content/woman-staring-out-to-sea-holding-snorkelling-gear.webp" class="w-100" alt="Woman smiling after great snorkel experience in Britain">
-      </div>
+      <div class="col-md-5">
+
+        <img class="content-img"
+          [ngSrc]="images.img('content-woman').path"
+          [alt]="images.img('content-woman').altText"
+          [width]="images.img('content-woman').width"
+          [height]="images.img('content-woman').width"
+          priority
+        />
+
     </div>
   </div>
 </div>

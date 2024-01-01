@@ -15,7 +15,6 @@ export class FooterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.images.img('youtube'));
     this.fullYear = new Date().getFullYear();
   }
 

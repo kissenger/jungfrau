@@ -3,7 +3,9 @@
   <div class="container">
     <div class="row bg-white py-5">
       <div class="col-md-7 order-md-2">
+
         <h2 class="fw-normal">Snorkelling Adventures in Britain </h2>
+
         <p class="lead">
           Snorkelling is the perfect family adventure for people who love the water and the natural world.  It is free and accessible
           to people of all ages and abilities, but there is a skill in selecting safe sites with abundant underwater life.
@@ -16,15 +18,18 @@
           photography, clear site finding advice and vital tips to get you started.
         </p>
       </div>
+
       <div class="col-md-5 order-md-1">
-        <img
-          ngSrc="../assets/photos/content/children-showing-their-snorkelling-finds-scotland-britain.webp"
-          height="600"
-          width="600"
-          class="content-img"
-          alt="Children showing some underwater finds after a snorkel in Scotland"
+
+        <img class="content-img"
+          [ngSrc]="images.img('content-kids').path"
+          [alt]="images.img('content-kids').altText"
+          [width]="images.img('content-kids').width"
+          [height]="images.img('content-kids').width"
         />
+
       </div>
+
     </div>
   </div>
 </div>

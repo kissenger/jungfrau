@@ -1,8 +1,4 @@
 
-:root {
-  --line-height: 1.7;
-  --lines: 4;
-}
 
 .scroll-x {
   overflow-x: scroll;
@@ -40,11 +36,11 @@
 
 .caption-box {
   padding: 0px;
-  line-height: var(--line-height);
+  /* line-height: var(--line-height); */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: calc(var(--line-height) * (1em * var(--lines)) + 2px)
+  /* height: calc(var(--line-height) * (1em * var(--lines)) + 2px) */
 }
 
 .caption-box > p {

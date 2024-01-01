@@ -15,11 +15,23 @@
       <div class="carousel-img-container">
         <img
           class="carousel-img"
+          [ngSrc]="images.img('carousel-child').path"
+          [alt]="images.img('carousel-child').altText"
+          priority
+          fill
+        />
+      </div>
+
+<!--
+
+      <div class="carousel-img-container">
+        <img
+          class="carousel-img"
           ngSrc="../../../assets/photos/carousel/child-walking-beach-after-snorkelling-in-yorkshire-england-britain.webp"
           alt="photo showing child walking up a beach holding snorkelling gear with blue-green sea behind"
           fill
           priority/>
-      </div>
+      </div> -->
 
       <div class="container">
         <div class="carousel-caption text-start">
@@ -35,9 +47,10 @@
       <div class="carousel-img-container">
         <img
           class="carousel-img"
-          ngSrc="../../../assets/photos/carousel/drone-photo-woman-snorkelling-chesil-cove.webp"
-          alt="photo showing drone view of woman snorkelling in Chesil Cove, Dorset, with wonderful visibility"
-          fill />
+          [ngSrc]="images.img('carousel-drone').path"
+          [alt]="images.img('carousel-drone').altText"
+          fill
+        />
       </div>
 
       <div class="container">
@@ -53,10 +66,11 @@
 
       <div class="carousel-img-container">
         <img
-          class="carousel-img w-100 h-100"
-          ngSrc="../../../assets/photos/carousel/children-rock-pool-snorkelling-in-cornwall-britain.webp"
-          alt="photo showing children pointing at marine life while snrokelling in a rock pool"
-          fill />
+          class="carousel-img"
+          [ngSrc]="images.img('carousel-kids').path"
+          [alt]="images.img('carousel-kids').altText"
+          fill
+        />
       </div>
 
       <div class="carousel-caption carousel-caption-darkbg">

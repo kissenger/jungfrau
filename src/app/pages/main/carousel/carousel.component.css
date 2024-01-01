@@ -1,5 +1,6 @@
 
 .carousel-item {
+  height: auto;
   max-height: 80vh;
   overflow: hidden;
 
@@ -31,28 +32,17 @@
 }
 
 .carousel-img-container {
-  /* max-height: 100%; */
   width: 100%;
   position: relative;
-  min-height: 600px;
-  max-height: 800px;
-  /* min-height: 240px; */
-  /* height: 400px; */
-  /* position: sticky; */
-  /* background-color: #009AF7; */
-  /* top: 0px;
-  right: 0px; */
-  /* height: 100%;
-  width: 100%; */
-
+  /* height is controlled in the media queries in styles.css */
+  /* min-height: 600px;
+  max-height: 800px; */
 }
 
 .carousel-img {
   /* position: fixed; */
   object-fit: cover;
   object-position: center;
-  min-height: 600px;
-  max-height: 650px;
   /* position: relative; */
 
 }

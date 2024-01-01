@@ -5,7 +5,13 @@
     <div class="row bg-white py-5">
       <div class="col-md-7 w-100">
       <h2 class="fw-normal feed-padding">Latest Happenings</h2>
-        <div class="d-flex inline-block py-2 my-0 scroll-x feed-padding" #feedContainer>
+      <p class="feed-padding">
+        <span class="lead">
+          Our instagram feed allows us to share our progress as we explore the British coastline for snorkelling opportunities,
+          why not follow along?
+        </span>
+      </p>
+        <div class="d-flex inline-block my-0 scroll-x feed-padding" #feedContainer>
           <div *ngFor="let item of instaFeed; let i = index" class="insta-post-container">
 
             <a href="{{item.permalink}}" class="d-flex flex-column border rounded shadow-sm ">
@@ -18,7 +24,7 @@
                   fill />
               </div>
 
-              <div [style.-webkit-line-clamp]="4" class="caption-box m-2" #captionBox>
+              <div [style.-webkit-line-clamp]="6" class="caption-box m-2" #captionBox>
                   <p>{{item.caption}}</p>
               </div>
 

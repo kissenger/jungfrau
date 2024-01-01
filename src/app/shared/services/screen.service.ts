@@ -11,10 +11,10 @@ export class ScreenService {
   private widthThreshold = 768;
 
   get deviceOrientation() {
-    if (window.innerWidth > window.innerHeight) {
-      return 'landscape';
-    } else {
+    if (window.innerHeight / window.innerWidth > 1.4 ) {
       return 'portrait';
+    } else {
+      return 'landscape';
     }
   }
 
@@ -33,6 +33,10 @@ export class ScreenService {
 
   get height() {
     return window.innerHeight;
+  }
+
+  get aspectRatio() {
+    return this.height / this.width;
   }
 }
 

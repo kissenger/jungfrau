@@ -11,8 +11,9 @@ Carousel Images:
 - SMALL 1:1 90% 750px
 
 Static Images:
-- LARGE 1.85:1 90% 2500px
-- SMALL 1:1 90% 750px
+- LANDSCAPE 2x3 / 4x4 100% quality jpeg with 2000px resolution short edge
+- PORTRAIT 1:1.85 100% quality jpeg with 400px resolution short edge
+
 
 News Banner Images:
 - LARGE 2.35:1 90% 2500px
@@ -20,4 +21,4 @@ News Banner Images:
 - XSMALL 2.35 90% 750px
 
 Content Images:
-- ONE SIZE 1:1 90% 750px
+- ONE SIZE 1:1 90% 600px
