@@ -34,14 +34,24 @@
   object-fit: cover;
 }
 
+:root {
+  --lines: 5;
+  --line-height: 1.7;
+}
 .caption-box {
   padding: 0px;
   /* line-height: var(--line-height); */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  /* height: calc(var(--line-height) * (1em * var(--lines)) + 2px) */
+  /* background-color: aquamarine; */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  /* height: calc(1em * var(--line-height) * var(--lines)) */
+  /* min-height: 100px; */
 }
+
+/* .caption-box {
+
+} */
 
 .caption-box > p {
   margin: 0px;

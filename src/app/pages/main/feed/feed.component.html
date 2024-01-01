@@ -12,9 +12,10 @@
         </span>
       </p>
         <div class="d-flex inline-block my-0 scroll-x feed-padding" #feedContainer>
+
           <div *ngFor="let item of instaFeed; let i = index" class="insta-post-container">
 
-            <a href="{{item.permalink}}" class="d-flex flex-column border rounded shadow-sm ">
+            <a href="{{item.permalink}}" class="d-flex flex-column border rounded shadow-sm h-100">
 
               <div class="insta-photo-container">
                 <img
@@ -24,9 +25,11 @@
                   fill />
               </div>
 
-              <div [style.-webkit-line-clamp]="6" class="caption-box m-2" #captionBox>
+              <!-- <div class="m-2" #captionBox> -->
+                <div [style.-webkit-line-clamp]="6" class="caption-box flex-grow-1 m-2" #captionBox>
                   <p>{{item.caption}}</p>
-              </div>
+                </div>
+              <!-- </div> -->
 
               <div class="insta-footer d-flex flex-row p-2 border-top">
                 <span class="html-link small flex-grow-1">View the full post on Instagram</span>
