@@ -56,26 +56,21 @@
       <app-about></app-about>
 
       <div class="parallax-window">
-        <!-- Dont try to move the ngStyle logic to the CSS - it doesnt work. Really. Don't -->
-        <img
-          *ngIf="this.screen.widthDescriptor=='small'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/scorpionfish-photographed-while-snorkelling-in-cornwall')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Underwater photo of Scorpionfish taken while snorkelling in Cornwall"
-        />
-        <img
-          *ngIf="this.screen.widthDescriptor=='large'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/scorpionfish-photographed-while-snorkelling-in-cornwall')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Underwater photo of Scorpionfish taken while snorkelling in Cornwall"
-        />
+        <div class="parallax-layer testdiv"
+          [ngStyle]="{
+            'height': images.img('scorpionfish').height+'px',
+            'width': images.img('scorpionfish').width+'px',
+            'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('scorpionfish')+' * 500 / 300))' }"
+          >
+            <img
+              class="parallax-layer"
+              [ngSrc]="images.img('scorpionfish').path"
+              [alt]="images.img('scorpionfish').altText"
+              fill
+            />
+        </div>
       </div>
+
     </div>
 
     <!-- ----------------- -->
@@ -87,26 +82,20 @@
       <app-feed></app-feed>
 
       <div class="parallax-window">
-        <img
-          *ngIf="this.screen.widthDescriptor=='small'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/child-in-snorkelling-gear-scotland')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Photo of child sitting on a rock in snorkelling gear, looking out to sea"
-        />
-        <img
-          *ngIf="this.screen.widthDescriptor=='large'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/child-in-snorkelling-gear-scotland')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Photo of child sitting on a rock in snorkelling gear, looking out to sea"
-        />
+        <div class="parallax-layer testdiv"
+          [ngStyle]="{
+            'height': images.img('cuddlingcrabs').height+'px',
+            'width': images.img('cuddlingcrabs').width+'px',
+            'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('cuddlingcrabs')+' * 500 / 300))' }"
+          >
+            <img
+              class="parallax-layer"
+              [ngSrc]="images.img('cuddlingcrabs').path"
+              [alt]="images.img('cuddlingcrabs').altText"
+              fill
+            />
+        </div>
       </div>
-
     </div>
 
     <!-- ----------------- -->
@@ -118,24 +107,19 @@
       <app-book></app-book>
 
       <div class="parallax-window">
-        <img
-          *ngIf="this.screen.widthDescriptor=='small'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/cuddling-crabs-snorkelling-scotland-britain')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
-        />
-        <img
-          *ngIf="this.screen.widthDescriptor=='large'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/cuddling-crabs-snorkelling-scotland-britain')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
-        />
+        <div class="parallax-layer testdiv"
+          [ngStyle]="{
+            'height': images.img('sittingchild').height+'px',
+            'width': images.img('sittingchild').width+'px',
+            'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('sittingchild')+' * 500 / 300))' }"
+          >
+            <img
+              class="parallax-layer"
+              [ngSrc]="images.img('sittingchild').path"
+              [alt]="images.img('sittingchild').altText"
+              fill
+            />
+        </div>
       </div>
 
     </div>
@@ -149,24 +133,19 @@
       <app-faq></app-faq>
 
       <div class="parallax-window">
-        <img
-          *ngIf="this.screen.widthDescriptor=='small'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/snakelocks-anenome-in-photographed-in-scotland')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
-        />
-        <img
-          *ngIf="this.screen.widthDescriptor=='large'"
-          [ngStyle]="{'transform': 'translateZ(-200px) scale( calc( '+this.image.imgScaleRatio+' * 500 / 300))'}"
-          class="parallax-layer"
-          [ngSrc]="image.imgPath('static/snakelocks-anenome-in-photographed-in-scotland')"
-          [width]="image.width"
-          [height]="image.height"
-          alt="Photo of two crabs having a cuddle underwater, taken in Scotland"
-        />
+        <div class="parallax-layer testdiv"
+          [ngStyle]="{
+            'height': images.img('anemone').height+'px',
+            'width': images.img('anemone').width+'px',
+            'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('anemone')+' * 500 / 300))' }"
+          >
+            <img
+              class="parallax-layer"
+              [ngSrc]="images.img('anemone').path"
+              [alt]="images.img('anemone').altText"
+              fill
+            />
+        </div>
       </div>
     </div>
 

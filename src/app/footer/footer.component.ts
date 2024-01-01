@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/shared/services/image.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,11 +10,13 @@ export class FooterComponent implements OnInit {
 
   public fullYear?: number;
 
-  constructor() { }
+  constructor(
+    public images: ImageService
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.images.img('youtube'));
     this.fullYear = new Date().getFullYear();
-
   }
 
 }

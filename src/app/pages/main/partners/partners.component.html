@@ -9,14 +9,14 @@
 
       <div *ngFor="let card of partnerCards">
 
-        <div class="card partner-card align-items-center p-2" (click)="nav.navigateTo(card.link)">
+        <div class="card partner-card align-items-center p-2" (click)="nav.navigateTo(card.href!)">
 
           <img
-            [ngSrc]="card.imgPath"
+            [ngSrc]="card.fname"
             [height]="card.height"
             [width]="card.width"
             class="partner-card-img"
-            [alt]="card.alt"
+            [alt]="card.altText"
           />
 
           <div class="card-content">

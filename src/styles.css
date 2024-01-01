@@ -57,6 +57,10 @@ p.lead {
   padding: 0em !important;
 }
 
+.content-img {
+  width: 100%;
+  height: auto;
+}
 /* ===================================================
                   Feed padding
  to replicate bootstrap container padding outside of container

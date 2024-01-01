@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ScreenService } from './screen.service';
+import { DataService } from './data.service';
 
 
 @Injectable({
@@ -8,35 +9,32 @@ import { ScreenService } from './screen.service';
 
 export class ImageService {
 
-  private imgSizes = {
-    small: { width: 400, height: 533 },
-    large: { width: 2500, height: 1350 }
-  };
-
   constructor(
-    private screen: ScreenService
+    private screen: ScreenService,
+    private data: DataService
   ) {
   }
 
-  imgPath(fname: string) {
-    return `assets/photos/${fname}-${this.screen.widthDescriptor}.webp`;
+// sn = img shortname
+// return info required for given image
+  img(sn: string) {
+    let img = this.data.staticImages[sn];
+    let dor: 'portrait' | 'landscape' = this.screen.deviceOrientation;
+    return {
+      path: img[dor] ? `${img.basePath}${img.fname}-${dor}.${img.extension}` : `${img.basePath}${img.fname}.${img.extension}`,
+      altText: img.altText,
+      width: img[dor] ? img[dor]!.width : img.width,
+      height: img[dor] ? img[dor]!.height : img.height,
+      href: img.href ? img.href : '',
+    }
   }
 
-  get width() {
-    return this.imgSizes[this.screen.widthDescriptor].width;
+  imgScaleRatio(sn: string) {
+    let img = this.data.staticImages[sn];
+    let dor: 'portrait' | 'landscape' = this.screen.deviceOrientation;
+    return window.innerWidth / img[dor]!.width;
   }
 
-  get height() {
-    return this.imgSizes[this.screen.widthDescriptor].height;
-  }
-
-  get imgScaleRatio() {
-    return window.innerWidth / this.width;
-  }
-
-  // get windowScaleRatio() {
-  //   return window.innerWidth * this.height / this.width;
-  // }
 
 
 

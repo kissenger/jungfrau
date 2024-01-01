@@ -1,37 +1,56 @@
 
-<footer class="d-flex flex-column w-100 border-top p-3">
+<footer class="d-flex flex-column w-100 border-top py-3">
 
-  <div class="d-flex flex-row justify-content-center">
+  <div class="d-flex flex-row justify-content-center ">
 
-    <a href="https://www.youtube.com/channel/UCahtVWtV4eBCqFPVSfgdpbg" aria-label="Click to see our you tube channel" >
+    <a [href]="images.img('youtube').href" aria-label="Click to see our YouTube channel" >
       <div class="logo-container m-2">
-        <img ngSrc="../../assets/logos/youtube.webp" alt="Click to see our you tube channel" width="40" height="40" />
+        <img
+          [ngSrc]="images.img('youtube').path"
+          [alt]="images.img('youtube').altText"
+          [width]="images.img('youtube').width"
+          [height]="images.img('youtube').height"
+        />
       </div>
     </a>
 
-    <a href="https://www.instagram.com/snorkelology/" aria-label="Click to see our instagram feed" >
+    <a [href]="images.img('instagram').href" aria-label="Click to see our instagram feed" >
       <div class="logo-container m-2">
-        <img ngSrc="../../assets/logos/instagram.webp" alt="Click to see our instagram feed" width="40" height="40" />
+        <img
+          [ngSrc]="images.img('instagram').path"
+          [alt]="images.img('instagram').altText"
+          [width]="images.img('instagram').width"
+          [height]="images.img('instagram').height"
+        />
       </div>
     </a>
 
-    <a href="mailto:snorkelology@gmail.com" aria-label="Click to send us an email" >
+    <a [href]="images.img('email').href" aria-label="Click to send us an email" >
       <div class="logo-container m-2">
-        <img ngSrc="../../assets/logos/email.webp" alt="Click to send us an email" width="40" height="40" />
+        <img
+          [ngSrc]="images.img('email').path"
+          [alt]="images.img('email').altText"
+          [width]="images.img('email').width"
+          [height]="images.img('email').height"
+        />
       </div>
     </a>
-  </div>
 
-  <!-- bigger screens -->
-  <div class="d-none d-sm-block text-center">
-    &copy; Snorkelology 2022-{{fullYear}} &middot; All Rights Reserved  &middot; <a href="privacy-policy" class="html-link">Privacy Policy</a> <br />
   </div>
+  <div>
 
-  <!-- smaller screens -->
-  <div class="d-block d-sm-none text-center">
-    &copy; Snorkelology 2022-{{fullYear}} <br />
-    All Rights Reserved <br />
-    <a href="privacy-policy" class="html-link">Privacy Policy</a>
-  </div>
+    <!-- bigger screens -->
+    <div class="d-none d-sm-block text-center">
+      &copy; Snorkelology 2022-{{fullYear}} &middot; All Rights Reserved  &middot; <a href="privacy-policy" class="html-link">Privacy Policy</a> <br />
+    </div>
+
+    <!-- smaller screens -->
+    <div class="d-block d-sm-none text-center">
+      &copy; Snorkelology 2022-{{fullYear}} <br />
+      All Rights Reserved <br />
+      <a href="privacy-policy" class="html-link">Privacy Policy</a>
+    </div>
+
+    </div>
 
 </footer>

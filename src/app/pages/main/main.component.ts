@@ -17,11 +17,12 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
 
   public widthDescriptor? = '';
+  public deviceOrientation? = '';
 
   constructor(
     public data: DataService,
     public screen: ScreenService,
-    public image: ImageService
+    public images: ImageService
   ) {
 
   }
@@ -39,8 +40,13 @@ export class MainComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
+    console.log(this.images.imgScaleRatio('scorpionfish'));
+    // this.widthDescriptor = this.screen.widthDescriptor;
+    this.deviceOrientation = this.screen.deviceOrientation;
     window.addEventListener('resize', () => {
-      this.widthDescriptor = this.screen.widthDescriptor;
+      // this.widthDescriptor = this.screen.widthDescriptor;
+      this.deviceOrientation = this.screen.deviceOrientation;
+      console.log(this.deviceOrientation);
     })
   }
 
