@@ -19,6 +19,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .collapse {
+    border-bottom: 1px #DEE2E6 solid;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
