@@ -10,6 +10,8 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+
+
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -24,6 +26,8 @@
             "scripts": []
           },
           "configurations": {
+
+
             "production": {
               "budgets": [
                 {
@@ -51,6 +55,9 @@
                 "src/styles-block-text-select.css"
               ]
             },
+
+
+
             "beta": {
               "budgets": [
                 {
@@ -77,6 +84,9 @@
                 "src/styles.css"
               ]
             },
+
+
+
             "development": {
               "buildOptimizer": false,
               "optimization": false,
