@@ -118,14 +118,9 @@ p.lead {
 router-outlet + * {
   position: relative;
   transform-style: preserve-3d;
+  /* display: flex; */
 }
 
-.scrolly {
-  height: 100vh;
-  /* border: 2px red dashed; */
-  /* scrollbar-gutter: stable; */
-  overflow: hidden;
-}
 
 .parallax-master {
   /* height: 100vh; */
