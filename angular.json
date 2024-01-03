@@ -20,12 +20,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/assets"
-            ],
+
             "scripts": []
           },
           "configurations": {
+
+
 
 
             "production": {
@@ -53,8 +53,19 @@
               "styles": [
                 "src/styles.css",
                 "src/styles-block-text-select.css"
+              ],
+              "assets": [
+                "src/assets",
+                "src/favicon",
+                {
+                  "glob": "robots.txt",
+                  "input": "src/robots/prod",
+                  "output": "/"
+                }
               ]
             },
+
+
 
 
 
@@ -82,8 +93,18 @@
               "outputPath": "dist/beta/browser",
               "styles": [
                 "src/styles.css"
+              ],
+              "assets": [
+                "src/assets",
+                "src/favicon",
+                {
+                  "glob": "robots.txt",
+                  "input": "src/robots/beta",
+                  "output": "/"
+                }
               ]
             },
+
 
 
 
@@ -101,8 +122,14 @@
               ]
             }
           },
+
+
+
           "defaultConfiguration": "development"
         },
+
+
+
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
