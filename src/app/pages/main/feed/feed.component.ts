@@ -42,7 +42,7 @@ export class FeedComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    // listens for intersection of feed container with the scren, and sets cookie
+    // listens for intersection of feed container with the screen, and sets cookie
     window.addEventListener( "load", (event) => {
       let feedElement = document.querySelector("#feedContainer");
       let observer = new IntersectionObserver( (io) => { this.intersectHandler(io); }, {root: null, threshold: 0.9});

@@ -55,19 +55,21 @@
     <div class="anchor parallax-intermediate" id="about">
       <app-about></app-about>
 
-      <div class="parallax-window">
+      <div class="parallax-window" id="windowOne">
         <!-- Calculation for scale required to fit image after transformZ -->
         <!-- https://stackoverflow.com/questions/11313783/i-think-css3-transform-translatez-is-equal-to-scale-by-some-means -->
         <!-- scaleFactor = perspective / perspective + transformZ -->
         <!-- scaleFactor = 300 / (300 + -300) = 300/600 -->
         <!-- imgScaleRatio gets image to 1:1 without transformZ -->
-        <div class="parallax-layer"
+        <div
+          class="parallax-layer"
           [ngStyle]="{
             'height': images.img('scorpionfish').height+'px',
             'width': images.img('scorpionfish').width+'px',
             'transform': 'translateZ(-800px) scale( calc( '+images.imgScaleRatio('scorpionfish')+' * 1100 / 300))' }"
           >
             <img
+              id="windowOneImage"
               class="parallax-layer"
               [ngSrc]="images.img('scorpionfish').path"
               [alt]="images.img('scorpionfish').altText"
@@ -86,7 +88,7 @@
 
       <app-feed></app-feed>
 
-      <div class="parallax-window">
+      <div class="parallax-window" id="windowTwo">
         <div class="parallax-layer"
           [ngStyle]="{
             'height': images.img('cuddlingcrabs').height+'px',
@@ -94,6 +96,7 @@
             'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('cuddlingcrabs')+' * 500 / 300))' }"
           >
             <img
+              id="windowTwoImage"
               class="parallax-layer"
               [ngSrc]="images.img('cuddlingcrabs').path"
               [alt]="images.img('cuddlingcrabs').altText"
@@ -111,7 +114,7 @@
 
       <app-book></app-book>
 
-      <div class="parallax-window">
+      <div class="parallax-window" id="windowThree">
         <div class="parallax-layer"
           [ngStyle]="{
             'height': images.img('sittingchild').height+'px',
@@ -119,6 +122,7 @@
             'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('sittingchild')+' * 500 / 300))' }"
           >
             <img
+              id="windowThreeImage"
               class="parallax-layer"
               [ngSrc]="images.img('sittingchild').path"
               [alt]="images.img('sittingchild').altText"
@@ -137,7 +141,7 @@
 
       <app-faq></app-faq>
 
-      <div class="parallax-window">
+      <div class="parallax-window" id="windowFour">
         <div class="parallax-layer"
           [ngStyle]="{
             'height': images.img('anemone').height+'px',
@@ -145,6 +149,7 @@
             'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('anemone')+' * 500 / 300))' }"
           >
             <img
+              id="windowFourImage"
               class="parallax-layer"
               [ngSrc]="images.img('anemone').path"
               [alt]="images.img('anemone').altText"

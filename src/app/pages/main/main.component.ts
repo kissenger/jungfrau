@@ -36,29 +36,31 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   }
 
-  ngOnInit(): void {}
 
-  // ngOnInit(): void {
+  ngOnInit(): void {
 
-  //   // listens for intersection of feed container with the scren, and sets cookie
-  //   window.addEventListener( "load", (event) => {
-  //     let feedElement = document.querySelector("#feedContainer");
-  //     let observer = new IntersectionObserver( (io) => { this.intersectHandler(io); }, {root: null, threshold: 0.9});
-  //     if (feedElement) {
-  //       observer.observe(feedElement);
-  //     }
-  //   },
-  //     false,
-  //   );
-  // }
+    // listens for intersection of parallax-window with screen and shows/hides parallax images accordingly
+    // this is the only way to fix the overlapping background images in all circumstances that i can think of...
+    window.addEventListener( "load", (event) => {
+      let observer = new IntersectionObserver( (io) => { this.intersectHandler(io); }, {root: null, threshold: 0});
+      observer.observe(document.querySelector("#windowOne")!);
+      observer.observe(document.querySelector("#windowTwo")!);
+      observer.observe(document.querySelector("#windowThree")!);
+      observer.observe(document.querySelector("#windowFour")!);
+    },
+      false,
+    );
+  }
 
-  // intersectHandler(intersect: Array<IntersectionObserverEntry>) {
-  //   if (!this.isCookieSet && intersect[0].isIntersecting === true) {
-  //     // console.log(this.auth)
-  //     this.auth.setVisitTime();
-  //     this.isCookieSet = true;
-  //   }
-  // }
+  intersectHandler(intersect: Array<IntersectionObserverEntry>) {
+    intersect.forEach( (i) => {
+      if (i.isIntersecting === true) {
+        document.getElementById(`${i.target.id}Image`)!.style.visibility = "visible";
+      } else {
+        document.getElementById(`${i.target.id}Image`)!.style.visibility = "hidden";
+      }
+    })
+  }
 
   ngAfterViewInit() {
     this.deviceOrientation = this.screen.deviceOrientation;
