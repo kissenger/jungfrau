@@ -57,6 +57,11 @@
                 "src/assets",
                 "src/favicon",
                 {
+                  "glob": "*",
+                  "input": "src/app/pages/articles/content",
+                  "output": "assets/content"
+                },
+                {
                   "glob": "robots.txt",
                   "input": "src/robots/prod",
                   "output": "/"
@@ -97,6 +102,11 @@
                 "src/assets",
                 "src/favicon",
                 {
+                  "glob": "*",
+                  "input": "src/app/pages/articles/content",
+                  "output": "assets/content"
+                },
+                {
                   "glob": "robots.txt",
                   "input": "src/robots/beta",
                   "output": "/"
@@ -117,7 +127,12 @@
               "index": "src/index/beta/index.html",
               "outputPath": "dist/beta/browser",
               "assets": [
-                "src/assets"
+                "src/assets",
+                {
+                  "glob": "*",
+                  "input": "src/app/pages/articles/content",
+                  "output": "assets/content"
+                }
               ],
               "styles": [
                 "src/styles.css"

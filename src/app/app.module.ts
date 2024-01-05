@@ -22,6 +22,7 @@ import { DataService } from 'src/app/shared/services/data.service';
 import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
 import { NgOptimizedImage } from '@angular/common';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ArticlesComponent } from 'src/app/pages/articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
     FaqComponent,
     FeedComponent,
     PrivacyComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,
