@@ -13,6 +13,52 @@
 } */
 
 
+.adsense-right {
+  width: 250px;
+  background-color: greenyellow;
+}
+
+.adsense-content {
+  margin: 0px;
+  width: 100%;
+  height: 100px;
+  background-color: greenyellow;
+}
+
+.content-img-lead {
+  height: 400px;
+  width: 100%;
+}
+
+/* NEWS ARTICLE CONTENT IMAGES */
+
+/* .content-image-right {
+  width: 50%;
+  padding-bottom: 50%;
+  margin: 0em 0em 1.5em 1.5em;
+  display: block;
+  float: right;
+}
+
+.content-image-left {
+  width: 33vw;
+  min-height: 250px;
+  margin: 0em 1.5em 1.5em 0em;
+  display: block;
+  float: left;
+}
+
+@media (max-width: 768px) {
+
+  .news-image-right,
+  .news-image-left {
+    width: 100%;
+    padding: 0em;
+    display: inline-block;
+  }
+
+} */
+
 /* ===================================================
                   Global styling
  ===================================================*/
@@ -25,7 +71,7 @@ body {
 
 /* create space for header bar */
 .header-spacer {
-  padding-top: var(--navbar-height);
+  margin-top: var(--navbar-height);
   /* border: 1px green dotted; */
 }
 
