@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { HttpService } from 'src/app/shared/services/http.service';
+import { NavService } from 'src/app/shared/services/nav.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { InstaFeed } from 'src/app/shared/types';
 
@@ -24,6 +25,7 @@ export class FeedComponent implements OnInit, OnDestroy {
     public data: DataService,
     public screen: ScreenService,
     public auth: AuthService,
+    public navigate: NavService,
   ) {
     this.httpSubs = this.http.getInstaPosts().subscribe({
       next: (result: any) => {

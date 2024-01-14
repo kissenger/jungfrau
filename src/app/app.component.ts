@@ -1,8 +1,9 @@
 import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
-import { Component, Injector, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Injector, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
 import { createApplication } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { ExternalLinkComponent } from './shared/components/external-link/external-link.component';
+import { isPlatformBrowser } from '@angular/common';
 
 
 
@@ -23,9 +24,11 @@ export class AppComponent implements OnInit{
     public subscribe: SubscribeComponent,
     private injector: Injector
   ) {
-    const el = createCustomElement(ExternalLinkComponent, {injector});
-    // Register the custom element with the browser.
-    customElements.define('external-link', el);
+    if (isPlatformBrowser(PLATFORM_ID)) {
+      const el = createCustomElement(ExternalLinkComponent, {injector});
+      // Register the custom element with the browser.
+      customElements.define('external-link', el);
+    }
   }
 
   ngOnInit(): void {

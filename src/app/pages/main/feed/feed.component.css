@@ -1,7 +1,14 @@
 
 
-.scroll-x {
+.insta-feed-container {
   overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+}
+
+.insta-feed-container > a {
+  text-decoration: none;
+  color:  #566F70;
 }
 
 
@@ -16,49 +23,41 @@
 }
 
 .insta-post-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
   max-width: 300px;
   overflow: hidden;
   margin: 10px;
-
 }
 
-.insta-photo-container {
-  position: relative;
+.insta-post-container:hover {
+  cursor: pointer;
+}
+
+.insta-photo {
   height: 300px;
   width: 300px;
 }
 
-.insta-photo {
+.insta-photo > img {
   object-fit: cover;
 }
 
-:root {
-  --lines: 5;
-  --line-height: 1.7;
-}
-.caption-box {
+.insta-caption-box {
   padding: 0px;
-  /* line-height: var(--line-height); */
   overflow: hidden;
-  /* background-color: aquamarine; */
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--insta-box-lines);
   display: -webkit-box;
-  /* height: calc(1em * var(--line-height) * var(--lines)) */
-  /* min-height: 100px; */
+  min-height: calc( var(--line-height) * var(--insta-box-lines));
 }
 
-/* .caption-box {
-
-} */
-
-.caption-box > p {
+.insta-caption-box > p {
   margin: 0px;
   display: inline;
 }
 
-a {
-  text-decoration: none;
-  color:  #566F70;
+.insta-footer {
+  justify-content: self-end;
 }

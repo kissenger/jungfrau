@@ -58,10 +58,9 @@
   z-index: 999;
 }
 
-/* .navbar-nav {
-  z-index: 999;
-
-} */
+.navbar-brand:hover {
+  cursor: pointer;
+}
 
 .navbar {
   /* --navbar-height is defined in styles.css */

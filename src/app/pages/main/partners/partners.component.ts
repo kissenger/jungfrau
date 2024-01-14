@@ -13,7 +13,7 @@ export class PartnersComponent implements OnInit {
   public partnerCards?: Array<ImageDescriptor>;
 
   constructor(
-    public nav: NavService,
+    public navigate: NavService,
     public data: DataService
   ) { }
 

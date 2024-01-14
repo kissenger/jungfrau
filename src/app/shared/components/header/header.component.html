@@ -8,12 +8,11 @@
   <nav class="navbar navbar-expand-md navbar-white bg-white d-flex flex-row w-100 shadow">
 
     <div class="d-flex px-4 h-100">
-
-      <a class="align-self-center navbar-brand m-0 p-0" href="#">
+      <div class="align-self-center navbar-brand m-0 p-0" (click)="scroll.to('home')">
         <h3 class="m-0 p-0">
           /'Snor&middot;kel&middot;ology/
         </h3>
-      </a>
+      </div>
     </div>
 
 
@@ -54,7 +53,7 @@
         <li class="d-none d-md-inline">&middot;</li>
 
         <li class="nav-item text-center">
-          <a class="nav-link" (click)="scroll.to('feed')">Feed</a>
+          <a class="nav-link" (click)="scroll.to('faq')">FAQ</a>
         </li>
 
         <li class="d-none d-md-inline">&middot;</li>
