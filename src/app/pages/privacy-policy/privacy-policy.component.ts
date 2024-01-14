@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavService } from 'src/app/shared/services/nav.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -9,6 +10,7 @@ export class PrivacyComponent implements OnInit {
 
 
   constructor(
+    public navigate: NavService
   ) { }
 
   ngOnInit(): void {

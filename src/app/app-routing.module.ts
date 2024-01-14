@@ -7,7 +7,7 @@ import { CanYouSnorkelInBritainComponent } from './pages/content/can-you-snorkel
 const routes: Routes = [
   { path: '', component: MainComponent},
   { path: 'privacy-policy', component: PrivacyComponent },
-  { path: 'snorkelling', redirectTo: 'snorkelling/can-you-snorkel-in-britain', pathMatch: 'full'},
+  { path: 'snorkelling', redirectTo: 'snorkelling/can-you-snorkel-in-britain', pathMatch: 'full', data: {shouldReuse: false}},
   { path: 'snorkelling/can-you-snorkel-in-britain', component: CanYouSnorkelInBritainComponent},
   // { path: '**', redirectTo: '', pathMatch: 'full'}
 
@@ -16,11 +16,11 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
-      anchorScrolling: 'enabled',
-      useHash: false,
+      scrollPositionRestoration: 'top',
+      // anchorScrolling: 'enabled',
+      // useHash: false,
       // enableTracing: true,
-      onSameUrlNavigation: 'reload'
+      // onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })

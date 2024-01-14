@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
+import { NavService } from '../../services/nav.service';
 // import { MailingListComponent } from '../shared/components/mailing-list.component';
 
 @Component({
@@ -18,7 +19,7 @@ export class FooterComponent implements OnInit {
 
   constructor(
     public images: ImageService,
-    // public modal: MailingListComponent
+    public navigate: NavService
   ) { }
 
   ngOnInit(): void {

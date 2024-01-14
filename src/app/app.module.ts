@@ -27,6 +27,7 @@ import { ImageService } from 'src/app/shared/services/image.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ScrollService } from './shared/services/scroll.service';
 import { NavService } from './shared/services/nav.service';
+import { BaseRouteReuseStrategy, RouteReuseStrategy } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,9 @@ import { NavService } from './shared/services/nav.service';
     AuthService,
     ScrollService,
     SubscribeComponent,
+    // {
+    //   provide: RouteReuseStrategy(shouldDetach(true)),
+    //   shouldDetach: true},
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,

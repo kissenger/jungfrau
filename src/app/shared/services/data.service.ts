@@ -98,7 +98,7 @@ export class DataService {
       basePath: "assets/photos/static/",
       fname: "scorpionfish-photographed-while-snorkelling-in-cornwall",
       extension: "webp",
-      altText: "blah blah",
+      altText: "Photo of a Scorpionfish taking while snorkelling in Cornwall, Britain",
       portrait: {height: 740, width: 400},
       landscape: {height: 1333, width: 2000}
     },
