@@ -7,8 +7,8 @@
   /* width: 20px; */
   height: var(--navbar-height);
   overflow: hidden;
-  scrollbar-gutter: true;
-  scrollbar-gutter: stable;
+  /* scrollbar-gutter: true;
+  scrollbar-gutter: stable; */
   /* background-color: aqua; */
   pointer-events: none;
 }
@@ -26,10 +26,10 @@
 }
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  right: 0px;
+  right: 0;
   z-index: 99;
   /* background-color: red; */
   height: var(--navbar-height);
@@ -54,7 +54,7 @@
 }
 
 #snNavbar {
-  scrollbar-gutter: stable;
+  /* scrollbar-gutter: stable; */
   z-index: 999;
 }
 
@@ -67,7 +67,7 @@
   /* --navbar-height is defined in styles.css */
   height: var(--navbar-height);
   pointer-events: auto;
-  overflow-y: visible;
+  /* overflow-y: visible; */
 
 }
 
@@ -100,6 +100,7 @@
 .nav-link:hover {
   color: #566F70;
   border-bottom: 2px #566F70 solid;
+  text-decoration: none;
 }
 
 .nav-link.active{

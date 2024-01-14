@@ -1,17 +1,13 @@
 
 
-<div class="container-fluid h-100 m-0 p-0" id="app-container">
+
+<div #container class="parallax header-spacer">
 
   <app-header></app-header>
 
-  <div class="parallax-master" data-bs-spy="scroll" data-bs-target="#snNavbar" data-bs-offset="0">
+  <!-- css styles are applied to route-outlet in styles.css -->
+  <router-outlet></router-outlet>
 
-    <router-outlet> </router-outlet>
-
-
-
-  </div>
-
-
+  <app-footer> </app-footer>
 
 </div>

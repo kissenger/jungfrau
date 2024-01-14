@@ -1,8 +1,8 @@
 
 
-<header>
+<header class="header d-flex flex-row">
 
-  <div class="header d-flex flex-row">
+  <!-- <div class="header d-flex flex-row"> -->
     <div class="flex-grow-1">
 
   <nav class="navbar navbar-expand-md navbar-white bg-white d-flex flex-row w-100 shadow">
@@ -27,20 +27,20 @@
       <ul class="navbar-nav align-items-center me-md-3">
 
         <li class="nav-item text-center">
-          <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          <!-- <a class="nav-link active" aria-current="page" href="#home">Home</a> -->
+          <a class="nav-link" (click)="scroll.to('home')">Home</a>
         </li>
 
         <li class="d-none d-md-inline">&middot;</li>
 
         <li class="nav-item text-center">
-          <a class="nav-link" href="#about" >About</a>
+          <a class="nav-link" (click)="scroll.to('about')">About</a>
         </li>
 
         <li *ngIf="this.data.instaLoadSuccess" class="d-none d-md-inline">&middot;</li>
 
         <li *ngIf="this.data.instaLoadSuccess" class="nav-item text-center">
-          <a class="nav-link" href="#feed">
-            Feed
+          <a class="nav-link" (click)="scroll.to('feed')">Feed
             <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span>
           </a>
         </li>
@@ -48,34 +48,30 @@
         <li class="d-none d-md-inline">&middot;</li>
 
         <li class="nav-item text-center">
-          <a class="nav-link" href="#book">Book</a>
+          <a class="nav-link" (click)="scroll.to('book')">Book</a>
         </li>
 
         <li class="d-none d-md-inline">&middot;</li>
 
         <li class="nav-item text-center">
-          <a class="nav-link" href="#faq">FAQs</a>
+          <a class="nav-link" (click)="scroll.to('feed')">Feed</a>
         </li>
 
         <li class="d-none d-md-inline">&middot;</li>
 
         <li class="nav-item text-center">
-          <a class="nav-link" href="#partners">Friends</a>
+          <a class="nav-link" (click)="scroll.to('partners')">Friends</a>
+
         </li>
 
-        <li class="d-none d-md-inline">&middot;</li>
-
-        <li class="nav-item text-center">
-          <a class="nav-link" href="content/test-article">test</a>
-        </li>
       </ul>
     </div>
   </nav>
     </div>
-    <div class="spacer">
+    <!-- <div class="spacer">
 
-    </div>
+    </div> -->
 
 
-</div>
+<!-- </div> -->
 </header>

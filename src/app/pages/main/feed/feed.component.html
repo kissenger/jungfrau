@@ -25,14 +25,14 @@
                   fill />
               </div>
 
-              <!-- <div class="m-2" #captionBox> -->
-                <div [style.-webkit-line-clamp]="6" class="caption-box flex-grow-1 m-2" #captionBox>
-                  <p>{{item.caption}}</p>
-                </div>
-              <!-- </div> -->
+              <div [style.-webkit-line-clamp]="6" class="caption-box flex-grow-1 m-2" #captionBox>
+                <p>{{item.caption}}</p>
+              </div>
 
               <div class="insta-footer d-flex flex-row p-2 border-top">
-                <span class="html-link small flex-grow-1">View the full post on Instagram</span>
+                <div class="small flex-grow-1">
+                  <app-external-link link="{{item.permalink}}" text="View the full post on Instagram"></app-external-link>
+                </div>
                 <svg width="20px" height="20px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g transform="translate(-511.000000, -20.000000)" fill="#000000">
@@ -58,7 +58,11 @@
                 height="45"
                 width="45"
                 alt="Instagram logo">
-              <div class="html-link">See more on Instagram</div>
+              <!-- <a class="nav-link" routerLink="./" fragment="book" skipLocationChange>Book</a> -->
+              <!-- <div class="extern">See more on Instagram</div> -->
+              <!-- <div class="small flex-grow-1"> -->
+                <app-external-link link="https://www.instagram.com/snorkelology/" text="See more on Instagram"></app-external-link>
+              <!-- </div>               -->
             </a>
           </div>
         </div>

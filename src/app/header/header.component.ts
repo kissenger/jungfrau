@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
+import { ScrollService } from 'src/app/shared/services/scroll.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     public data: DataService,
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    public scroll: ScrollService
   ) {
     router.events.subscribe( e => {
       if (e instanceof NavigationEnd) {
@@ -33,4 +35,6 @@ export class HeaderComponent implements OnInit {
     // close menu
     document.getElementById("snNavbar")?.classList.remove("show");
   }
+
+
 }

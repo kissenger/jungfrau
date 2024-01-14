@@ -1,40 +1,27 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
-// import { environment } from 'src/environments/environment';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
-import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
-// import { NgOptimizedImage } from '@angular/common'
+import { environment } from 'src/environments/environment';
+import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
+
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
-  // EXAMPLE image loader, needs some refinement to work for this project
-  // providers: [{
-  //   provide: IMAGE_LOADER,
-  //     useValue: (config: ImageLoaderConfig) => {
-  //       console.log(config);
-  //       return `${config.src}-${config.width}.webp`;
-  //     }
-  // }]
+  styleUrls: ['./main.component.css']
 })
 
 export class MainComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('betaPopupBtn') betaPopupBtn!: ElementRef;
-
   public widthDescriptor? = '';
   public deviceOrientation? = '';
-
 
   constructor(
     public data: DataService,
     public screen: ScreenService,
     public images: ImageService
-  ) {
-
-  }
+  ) {}
 
 
   ngOnInit(): void {
@@ -59,16 +46,17 @@ export class MainComponent implements OnInit, AfterViewInit {
       } else {
         document.getElementById(`${i.target.id}Image`)!.style.visibility = "hidden";
       }
-    })
+    });
   }
 
   ngAfterViewInit() {
     this.deviceOrientation = this.screen.deviceOrientation;
     window.addEventListener('resize', () => {
       this.deviceOrientation = this.screen.deviceOrientation;
-    })
-  }
+    });
 
+
+  }
 
 }
 

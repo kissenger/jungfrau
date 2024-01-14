@@ -12,6 +12,14 @@
   :root{  --navbar-height: 60px; }
 } */
 
+.modal-backdrop {
+  z-index: 1040 !important;
+  display: none;
+}
+.modal-content {
+  margin: 2px auto;
+  z-index: 9999 !important;
+}
 
 .adsense-right {
   width: 250px;
@@ -23,11 +31,6 @@
   width: 100%;
   height: 100px;
   background-color: greenyellow;
-}
-
-.content-img-lead {
-  height: 400px;
-  width: 100%;
 }
 
 /* NEWS ARTICLE CONTENT IMAGES */
@@ -63,35 +66,28 @@
                   Global styling
  ===================================================*/
 
-body {
-  color: #566F70;
-  line-height: 1.7;
-  min-height: 100%;
-}
-
-/* create space for header bar */
-.header-spacer {
-  margin-top: var(--navbar-height);
-  /* border: 1px green dotted; */
+ * {
+  transform-style: preserve-3d !important;
 }
 
 html {
-  scroll-behavior: smooth !important;
-}
-body, html {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
-.html-link {
+body {
+  color: #566F70;
+  line-height: 1.7;
+  overflow: hidden;
+}
+
+a, .html-link {
+  text-decoration: none;
   color: #009AF7;
 }
 
-.html-link:hover {
+a:hover, .html-link:hover {
   text-decoration: underline;
-}
-
-a {
-  text-decoration: none;
+  cursor: pointer;
 }
 
 .anchor {
@@ -160,57 +156,45 @@ p.lead {
  note that all classes beneath parallax-mater need 'transform-style: preserve-3d'
  ===================================================*/
 
+
+
 /* https://stackoverflow.com/questions/45414515/apply-class-to-every-routed-component-in-angular */
 router-outlet + * {
+  /* transform-style: preserve-3d; */
   position: relative;
-  transform-style: preserve-3d;
-  /* display: flex; */
 }
 
 
-.parallax-master {
-  /* height: 100vh; */
-  height: 100vh;
-  /* height: 300vh; */
-  width: 100%;
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+.parallax {
   perspective: 300px;
   perspective-origin: 50% 50%;
-  /* border: 2px blue dashed; */
-}
-
-.parallax-intermediate {
-  position: relative;
-  transform-style: preserve-3d;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .parallax-window {
 /* height is determine above, in media qeuries */
   position: relative;
-  transform-style: preserve-3d;
-  z-index: 99;
+  /* transform-style: preserve-3d; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
-  /* border: 1px solid red; */
-  z-index: 1;
+  /* z-index: 4; */
+  /* z-index: 9999; */
 
+  z-index: -1;
 }
 
 .parallax-layer {
   position: absolute;
-  z-index: 9999;
+  /* transform-style: preserve-3d !important; */
 /* Width of the image is calculated by javascript in component main.component.ts */
 /* transform: translateZ(-200px) scale( calc( var(--scaleRatioImg) * 500 / 300)); */
 /* NB this is now done in the component through NgStyle */
-  transform-style: preserve-3d;
   visibility: hidden;
+  z-index: -1;
 
-  /* clip-path: circle(50%); */
 }
 
 /* ===================================================
@@ -220,7 +204,33 @@ router-outlet + * {
 .partner-card {
   width: 225px;
   height: 320px;
+  position: relative;
 }
+
+.partner-card-external-icon {
+  /* height: 2em; */
+  /* width: 2em; */
+  position: absolute;
+  top: 0px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 5px;
+  opacity: 0;
+  /* background-color: red; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  z-index: 99;
+  /* border: 1px red solid; */
+}
+
+.partner-card-external-icon:hover {
+  opacity: 1;
+  -webkit-transition: opacity .25s ease-in-out .0s;
+  transition: opacity .25s ease-in-out .0s;
+  }
+
 
 .card {
   display: flex;
@@ -231,14 +241,6 @@ router-outlet + * {
   border-radius: 5px;
   border: none;
 }
-
-/* .card-img {
-  border-radius: 0px;
-  border: 0px;
-  overflow: hidden;
-  margin: 1em 0em 1em 0em;
-  padding: 0em 0em 0em 0em;
-} */
 
 .partner-card-img {
   object-fit: contain;

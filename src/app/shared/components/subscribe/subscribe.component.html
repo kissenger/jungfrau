@@ -1,0 +1,33 @@
+
+
+<div class="sn-modal-container" id="sn-modal-container" (click)="hide($event)">
+  <div class="d-flex flex-column sn-modal-border p-3" id="sn-modal-border">
+    <div class="flex-grow-1">
+
+      <div class="sn-modal-img">logo placeholder</div>
+    </div>
+    <form>
+      <div class="">
+        <label for="exampleInputEmail1" class="form-label lead py-2">Join our email list to receive book updates...</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [ngClass]="{'form-control-danger': notValidEmail()}"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          [(ngModel)]="email"
+          placeholder="Email address"
+          required
+        >
+        <button class="my-1 w-100 btn btn-primary" id="sn-modal-btn" type="submit" (click)="hide($event)">Subscribe</button>
+
+        <div id="emailHelp" class="text-center form-text small">We will never share your email with anyone else.<br>
+          <a class="html-link" href="privacy-policy">Privacy policy</a>
+        </div>
+
+      </div>
+      </form>
+  </div>
+</div>
+

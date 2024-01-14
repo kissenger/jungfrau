@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { NgOptimizedImage } from '@angular/common';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
@@ -13,16 +14,19 @@ import { AboutUsComponent } from 'src/app/pages/main/about/about.component';
 import { BookComponent } from 'src/app/pages/main/book/book.component';
 import { PartnersComponent } from 'src/app/pages/main/partners/partners.component';
 import { FaqComponent } from 'src/app/pages/main/faq/faq.component';
-import { NavService } from 'src/app/shared/services/nav.service';
 import { FeedComponent } from 'src/app/pages/main/feed/feed.component';
+import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
+import { ExternalLinkComponent } from 'src/app/shared/components/external-link/external-link.component';
+import { CanYouSnorkelInBritainComponent } from 'src/app/pages/content/can-you-snorkel-in-britain/can-you-snorkel-in-britain.component';
+
 import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { DataService } from 'src/app/shared/services/data.service';
-import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
-import { NgOptimizedImage } from '@angular/common';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { ArticlesComponent } from 'src/app/pages/articles/articles.component';
+import { ScrollService } from './shared/services/scroll.service';
+import { NavService } from './shared/services/nav.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { ArticlesComponent } from 'src/app/pages/articles/articles.component';
     FaqComponent,
     FeedComponent,
     PrivacyComponent,
-    ArticlesComponent
+    SubscribeComponent,
+    ExternalLinkComponent,
+    CanYouSnorkelInBritainComponent
   ],
   imports: [
     BrowserModule,
@@ -46,14 +52,19 @@ import { ArticlesComponent } from 'src/app/pages/articles/articles.component';
     HttpClientModule,
     NgOptimizedImage
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   providers: [
-    NavService,
     HttpService,
     provideHttpClient(withFetch()),
     ScreenService,
+    NavService,
     ImageService,
     DataService,
     AuthService,
+    ScrollService,
+    SubscribeComponent,
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,
@@ -62,4 +73,12 @@ import { ArticlesComponent } from 'src/app/pages/articles/articles.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+//   constructor(
+//     private injector: Injector
+//     ) {}
+//   ngDoBootstrap() {
+//     const el = createCustomElement(ExternalLinkComponent, {injector: this.injector});
+//     customElements.define('external-link', el);
+//   }
+// }
