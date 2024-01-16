@@ -3,6 +3,7 @@ import { BrowserModule, provideClientHydration, withHttpTransferCacheOptions } f
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
+import { RouteReuseStrategy } from '@angular/router';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
@@ -25,9 +26,9 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { DataService } from 'src/app/shared/services/data.service';
-import { ScrollService } from './shared/services/scroll.service';
-import { NavService } from './shared/services/nav.service';
-import { BaseRouteReuseStrategy, RouteReuseStrategy } from '@angular/router';
+import { ScrollService } from 'src/app/shared/services/scroll.service';
+import { NavService } from 'src/app/shared/services/nav.service';
+import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { BaseRouteReuseStrategy, RouteReuseStrategy } from '@angular/router';
   ],
   providers: [
     HttpService,
+    { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
     provideHttpClient(withFetch()),
     ScreenService,
     NavService,

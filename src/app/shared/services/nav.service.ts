@@ -19,6 +19,7 @@ export class NavService {
       console.log(link)
       window.location.href = link;
     } else {
+      this.router.routeReuseStrategy.shouldReuseRoute = function() { return false; };
       this.router.navigate([link]);
     }
   }

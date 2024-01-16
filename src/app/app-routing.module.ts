@@ -20,7 +20,7 @@ const routes: Routes = [
       // anchorScrolling: 'enabled',
       // useHash: false,
       // enableTracing: true,
-      // onSameUrlNavigation: 'reload'
+      onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })
