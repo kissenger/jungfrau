@@ -3,15 +3,16 @@
 
   <div class="container px-0 py-5">
 
-    <h2 class="fw-normal p-3">Our friends and partners...</h2>
+    <h2 class=" p-3">Our friends and partners...</h2>
 
     <div class="d-flex justify-content-evenly flex-wrap">
 
       <div *ngFor="let card of partnerCards">
 
         <div class="card partner-card align-items-center p-2" (click)="navigate.to(card.href!)">
-            <div class="partner-card-external-icon">
-              <svg
+
+          <div class="external-link-overlay">
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               aria-hidden="true"
@@ -20,13 +21,13 @@
               height="1em"
               preserveAspectRatio="xMidYMid meet"
               viewBox="0 0 20 20">
-              <path d="M9 3h8v8l-2-1V6.92l-5.6 5.59l-1.41-1.41L14.08 5H10zm3 12v-3l2-2v7H3V6h8L9 8H5v7h7z" fill="#009AF7"/>
+              <path d="M9 3h8v8l-2-1V6.92l-5.6 5.59l-1.41-1.41L14.08 5H10zm3 12v-3l2-2v7H3V6h8L9 8H5v7h7z" fill="#566F70"/>
             </svg>
           </div>
 
           <img [ngSrc]="card.fname" [height]="card.height" [width]="card.width" class="partner-card-img" [alt]="card.altText" />
 
-          <div class="card-content">
+          <div class="partner-card-text">
             {{card.caption}}
           </div>
 

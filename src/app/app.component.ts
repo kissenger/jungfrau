@@ -1,6 +1,5 @@
 import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
 import { Component, Injector, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
-import { createApplication } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { ExternalLinkComponent } from './shared/components/external-link/external-link.component';
 import { isPlatformBrowser } from '@angular/common';

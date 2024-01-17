@@ -39,3 +39,5 @@ export type ImageDescriptor = {
     landscape?: { height: number, width: number},
     portrait?: { height: number, width: number},
 }
+
+export type DeviceOrientation = 'landscape' | 'portrait';

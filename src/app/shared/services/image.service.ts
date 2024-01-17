@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ScreenService } from './screen.service';
 import { DataService } from './data.service';
+import { DeviceOrientation } from '../types';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class ImageService {
 // return info required for given image
   img(sn: string) {
     let img = this.data.staticImages[sn];
-    let dor: 'portrait' | 'landscape' = this.screen.deviceOrientation;
+    let dor: DeviceOrientation = this.screen.deviceOrientation;
     return {
       path: img[dor] ? `${img.basePath}${img.fname}-${dor}.${img.extension}` : `${img.basePath}${img.fname}.${img.extension}`,
       altText: img.altText,

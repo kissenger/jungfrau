@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
-import { ScrollService } from 'src/app/shared/services/scroll.service';
+import { NavService } from 'src/app/shared/services/nav.service';
 
 @Component({
   selector: 'app-carousel',
@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
 
   constructor(
     public images: ImageService,
-    public scroll: ScrollService
+    public navigate: NavService
   ) { }
 
   ngOnInit(): void {

@@ -1,58 +1,55 @@
 
-<footer class="d-flex flex-column w-100 border-top py-3 mb-3 mt-1">
+<footer>
 
-  <div class="d-flex flex-row justify-content-center ">
+  <div class="footer-container">
 
-    <a [href]="images.img('youtube').href" aria-label="Click to see our YouTube channel" >
-      <div class="logo-container m-2">
-        <img
-          [ngSrc]="images.img('youtube').path"
-          [alt]="images.img('youtube').altText"
-          [width]="images.img('youtube').width"
-          [height]="images.img('youtube').height"
-        />
-      </div>
+    <a class="footer-logo" (click)="navigate.to(images.img('youtube').href)" aria-label="Click to see our YouTube channel" >
+      <img
+        [ngSrc]="images.img('youtube').path"
+        [alt]="images.img('youtube').altText"
+        [width]="images.img('youtube').width"
+        [height]="images.img('youtube').height"
+      />
     </a>
 
-    <a [href]="images.img('instagram').href" aria-label="Click to see our instagram feed" >
-      <div class="logo-container m-2">
-        <img
-          [ngSrc]="images.img('instagram').path"
-          [alt]="images.img('instagram').altText"
-          [width]="images.img('instagram').width"
-          [height]="images.img('instagram').height"
-        />
-      </div>
+    <a class="footer-logo" (click)="navigate.to(images.img('instagram').href)" aria-label="Click to see our instagram feed" >
+      <img
+        [ngSrc]="images.img('instagram').path"
+        [alt]="images.img('instagram').altText"
+        [width]="images.img('instagram').width"
+        [height]="images.img('instagram').height"
+      />
     </a>
 
-    <a [href]="images.img('email').href" aria-label="Click to send us an email" >
-      <div class="logo-container m-2">
-        <img
-          [ngSrc]="images.img('email').path"
-          [alt]="images.img('email').altText"
-          [width]="images.img('email').width"
-          [height]="images.img('email').height"
-        />
-      </div>
+    <a class="footer-logo" (click)="navigate.to(images.img('email').href)" aria-label="Click to send us an email" >
+      <img
+        [ngSrc]="images.img('email').path"
+        [alt]="images.img('email').altText"
+        [width]="images.img('email').width"
+        [height]="images.img('email').height"
+      />
     </a>
 
   </div>
+
   <div>
 
-    <!-- bigger screens -->
-    <div class="d-none d-sm-block text-center">
-      &copy; Snorkelology 2022-{{fullYear}} &middot; All Rights Reserved  &middot;
-      <a class="html-link" (click)="navigate.to('privacy-policy')">Privacy Policy</a> <br />
+    <div class="footer-text">
+
+      <div *ngIf="screen.widthDescriptor==='large'">
+        &copy; Snorkelology 2022-{{fullYear}} &middot; All Rights Reserved  &middot;
+        <a class="html-link" (click)="navigate.to('privacy-policy')">Privacy Policy</a> <br />
+      </div>
+
+      <div *ngIf="screen.widthDescriptor==='small'">
+        &copy; Snorkelology 2022-{{fullYear}} <br />
+        All Rights Reserved <br />
+        <a class="html-link" (click)="navigate.to('privacy-policy')">Privacy Policy</a>
+      </div>
+
     </div>
 
-    <!-- smaller screens -->
-    <div class="d-block d-sm-none text-center">
-      &copy; Snorkelology 2022-{{fullYear}} <br />
-      All Rights Reserved <br />
-      <a href="privacy-policy" class="html-link">Privacy Policy</a>
-    </div>
 
-
-    </div>
+  </div>
 
 </footer>

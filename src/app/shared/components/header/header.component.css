@@ -1,15 +1,9 @@
 
-/* header { */
-  /* transform: translateX(0); */
-/* } */
 
 .spacer {
   /* width: 20px; */
   height: var(--navbar-height);
   overflow: hidden;
-  /* scrollbar-gutter: true;
-  scrollbar-gutter: stable; */
-  /* background-color: aqua; */
   pointer-events: none;
 }
 
@@ -31,22 +25,10 @@
   left: 0;
   right: 0;
   z-index: 99;
-  /* background-color: red; */
   height: var(--navbar-height);
-  /* Required to avoid overlapping scrollbar */
-  /* scrollbar-gutter: stable; */
   overflow-y: visible;
   pointer-events: none;
-  /* Allow grabbing toolbar in header section */
-  /* pointer-events: none; */
 }
-
-/* .subheader {
-  width: 100%;
-  height: 100px;
-  background-color: blue;
-} */
-
 
 .navbar-brand {
   color: #566F70;
@@ -88,7 +70,6 @@
 .nav-link {
   border-bottom: 2px transparent solid;
   transition: border-bottom 0.3s linear 0.05s;
-  color: #566F70;
   margin: 6px 6px 6px 6px;
   padding: 0px 5px 0px 5px !important;
   /* width: 70px; */
@@ -97,13 +78,11 @@
   border-bottom: 1px rgba(86,111,112,0.5) solid; */
 }
 .nav-link:hover {
-  color: #566F70;
   border-bottom: 2px #566F70 solid;
   text-decoration: none;
 }
 
 .nav-link.active{
-  color: #566F70;
   border-bottom: 2px #566F70 solid;
 }
 

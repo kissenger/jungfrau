@@ -6,11 +6,6 @@
   flex-direction: row;
 }
 
-.insta-feed-container > a {
-  text-decoration: none;
-  color:  #566F70;
-}
-
 .insta-post-container {
   display: flex;
   flex-direction: column;
@@ -45,6 +40,8 @@
   -webkit-line-clamp: var(--insta-box-lines);
   display: -webkit-box;
   min-height: calc( var(--line-height) * var(--insta-box-lines));
+  font-size: smaller;
+
 }
 
 .insta-caption-box > p {
@@ -54,4 +51,5 @@
 
 .insta-footer {
   justify-content: self-end;
+  font-size: smaller;
 }

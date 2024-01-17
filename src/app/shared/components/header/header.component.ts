@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { ScrollService } from 'src/app/shared/services/scroll.service';
+import { NavService } from 'src/app/shared/services/nav.service';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     public data: DataService,
     public auth: AuthService,
     private router: Router,
-    public scroll: ScrollService
+    public navigate: NavService
   ) {
     router.events.subscribe( e => {
       if (e instanceof NavigationEnd) {

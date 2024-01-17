@@ -26,7 +26,6 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { DataService } from 'src/app/shared/services/data.service';
-import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy';
 
@@ -66,11 +65,7 @@ import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy
     ImageService,
     DataService,
     AuthService,
-    ScrollService,
     SubscribeComponent,
-    // {
-    //   provide: RouteReuseStrategy(shouldDetach(true)),
-    //   shouldDetach: true},
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,
@@ -80,11 +75,3 @@ import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-//   constructor(
-//     private injector: Injector
-//     ) {}
-//   ngDoBootstrap() {
-//     const el = createCustomElement(ExternalLinkComponent, {injector: this.injector});
-//     customElements.define('external-link', el);
-//   }
-// }

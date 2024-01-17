@@ -1,5 +1,5 @@
+import { NavService } from 'src/app/shared/services/nav.service';
 import { Component } from '@angular/core';
-import { ScrollService } from 'src/app/shared/services/scroll.service';
 
 @Component({
   selector: 'app-article',
@@ -9,6 +9,6 @@ import { ScrollService } from 'src/app/shared/services/scroll.service';
 
 export class CanYouSnorkelInBritainComponent  {
   constructor(
-    public scroll: ScrollService
+    public navigate: NavService
   ) { }
 }

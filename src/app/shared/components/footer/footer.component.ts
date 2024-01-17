@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ScreenService } from 'src/app/shared/services/screen.service';
+import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from '../../services/nav.service';
 // import { MailingListComponent } from '../shared/components/mailing-list.component';
@@ -12,20 +13,14 @@ export class FooterComponent implements OnInit {
 
   public fullYear?: number;
 
-
-  // @ViewChild('bottoms') bottoms!: ElementRef;
-
-
-
   constructor(
     public images: ImageService,
-    public navigate: NavService
+    public navigate: NavService,
+    public screen: ScreenService
   ) { }
 
   ngOnInit(): void {
     this.fullYear = new Date().getFullYear();
   }
-
-
 
 }

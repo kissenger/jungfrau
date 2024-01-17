@@ -1,9 +1,6 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
-import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
-import { environment } from 'src/environments/environment';
-import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
 
 
 @Component({
@@ -12,14 +9,10 @@ import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscrib
   styleUrls: ['./main.component.css']
 })
 
-export class MainComponent implements OnInit, AfterViewInit {
-
-  public widthDescriptor? = '';
-  public deviceOrientation? = '';
+export class MainComponent implements OnInit {
 
   constructor(
     public data: DataService,
-    public screen: ScreenService,
     public images: ImageService
   ) {}
 
@@ -47,15 +40,6 @@ export class MainComponent implements OnInit, AfterViewInit {
         document.getElementById(`${i.target.id}Image`)!.style.visibility = "hidden";
       }
     });
-  }
-
-  ngAfterViewInit() {
-    this.deviceOrientation = this.screen.deviceOrientation;
-    window.addEventListener('resize', () => {
-      this.deviceOrientation = this.screen.deviceOrientation;
-    });
-
-
   }
 
 }
