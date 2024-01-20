@@ -1,46 +1,42 @@
+<div *ngIf="this.data.instaLoadSuccess" class="feed-container">
 
-<div  id="feedContainer">
-<div *ngIf="this.data.instaLoadSuccess" class="bg-white marketing m-0 w-100">
-  <!-- <div class="container" > -->
-    <div class="row bg-white py-5">
-      <div class="col-md-7 w-100">
+  <div class="feed-padding">
+    <h2>Latest Happenings</h2>
+    <p>
+      Our instagram feed allows us to share our progress as we explore the British coastline for snorkelling opportunities,
+      why not follow along?
+    </p>
+  </div>
 
-        <h2 class="feed-padding">Latest Happenings</h2>
+  <div #feedContainer class="feed-padding insta-feed">
 
-        <p class="feed-padding">
-            Our instagram feed allows us to share our progress as we explore the British coastline for snorkelling opportunities,
-            why not follow along?
-        </p>
+    <div class="insta-post" *ngFor="let item of instaFeed" (click)="navigate.to(item.permalink)">
+      <div class="insta-photo">
+        <img
+          ngSrc="{{item.media_url}}"
+          alt="{{item.caption}}"
+          fill
+        />
+      </div>
 
-        <div #feedContainer class="mt-0 pb-3 insta-feed-container feed-padding">
+      <span class="insta-caption-box" #captionBox>{{item.caption}}</span>
+      <span class="insta-footer">
+        <app-external-link link="{{item.permalink}}" text="View the full post on Instagram"></app-external-link>
+      </span>
+    </div>
 
-          <div *ngFor="let item of instaFeed; let i = index" class="insta-post-container border rounded shadow-sm" (click)="navigate.to(item.permalink)">
-
-            <div class="insta-photo">
-              <img class="rounded-top" ngSrc="{{item.media_url}}" alt="{{item.caption}}" fill />
-            </div>
-
-            <div class="insta-caption-box mx-2 mt-1 mb-auto" #captionBox>
-              <p>{{item.caption}}</p>
-            </div>
-
-            <div class="insta-footer text-center px-2 m-2 pb-2 w-100">
-              <app-external-link link="{{item.permalink}}" text="View the full post on Instagram"></app-external-link>
-            </div>
-
-          </div>  <!--*ngFor -->
-
-          <!-- SEE MORE BOX -->
-          <div class="insta-post-container d-flex align-items-center justify-content-center">
-            <div (click)="navigate.to('https://www.instagram.com/snorkelology/')" class="d-flex flex-column align-items-center justify-content-center">
-              <img
-                ngSrc="../assets/logos/instagram.webp" class="image m-2" height="45" width="45" alt="Instagram logo">
-                <app-external-link link="https://www.instagram.com/snorkelology/" text="See more on Instagram"></app-external-link>
-              </div>
-          </div>
-        </div>
+    <div class="insta-post">
+      <div class="insta-more" (click)="navigate.to('https://www.instagram.com/snorkelology/')">
+        <img
+          ngSrc="../assets/logos/instagram.webp"
+          class="image"
+          height="45"
+          width="45"
+          alt="Instagram logo"
+        />
+        <app-external-link link="https://www.instagram.com/snorkelology/" text="See more on Instagram"></app-external-link>
       </div>
     </div>
-  <!-- </div> -->
-</div>
+
+  </div>
 </div>

@@ -1,44 +1,39 @@
 
-<div class="bg-white marketing m-0 w-100">
-  <div class="container">
-    <div class="row bg-white py-5">
-      <div class="col-md-7 order-md-2">
+<div class="dynamic-container">
+  <div class="main-content-grid">
+    <div class="grid-position-right">
 
-        <h2>Snorkelling Adventures in Britain </h2>
+      <h2>Snorkelling Adventures in Britain </h2>
 
-        <p>
-          Snorkelling is the perfect family adventure for people who love the water and the natural world.  It is free and accessible
-          to people of all ages and abilities, but there is a skill in selecting safe sites with abundant underwater life.
-        </p>
+      <p>
+        Snorkelling is the perfect family adventure for people who love the water and the natural world.  It is free and accessible
+        to people of all ages and abilities, but there is a skill in selecting safe sites with abundant underwater life.
+      </p>
 
-        <p class="blockquote">
-          We are working with <app-external-link text="Wild Things Publishing" link="https://wildthingspublishing.com/"></app-external-link>
-          to release a book all about Snorkelling around our stunning British coastline.
-        </p>
+      <p class="blockquote">
+        We are working with <app-external-link text="Wild Things Publishing" link="https://wildthingspublishing.com/"></app-external-link>
+        to release a book all about Snorkelling around our stunning British coastline.
+      </p>
 
-        <p>
-          The book will be packed with information on the best sites to snorkel across Britain, complimented with inspiring
-          photography, clear site finding advice and vital tips to get you started.  While there is no publication date yet
-          decided, we are hoping for release around the spring of 2025, so watch this space...
-        </p>
+      <p>
+        The book will be packed with information on the best sites to snorkel across Britain, complimented with inspiring
+        photography, clear site finding advice and vital tips to get you started.  While there is no publication date yet
+        decided, we are hoping for release around the spring of 2025, so watch this space...
+      </p>
 
-        <p>
-          <span (click)="subscribe.show()" class="w-100 text-center html-link">Subscribe to our mailing list to get book updates </span>
-        </p>
-
-      </div>
-
-      <div class="col-md-5 order-md-1">
-
-        <img class="content-img"
-          [ngSrc]="images.img('content-kids').path"
-          [alt]="images.img('content-kids').altText"
-          [width]="images.img('content-kids').width"
-          [height]="images.img('content-kids').width"
-        />
-
-      </div>
+      <p>
+        <span (click)="subscribe.show()" class="html-link">Subscribe to our mailing list to get book updates </span>
+      </p>
 
     </div>
+
+    <img class="main-content-image grid-position-left"
+      [ngSrc]="images.img('content-kids').path"
+      [alt]="images.img('content-kids').altText"
+      [width]="images.img('content-kids').width"
+      [height]="images.img('content-kids').width"
+    />
+
   </div>
 </div>
+

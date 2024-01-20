@@ -4,7 +4,7 @@ import { ImageService } from 'src/app/shared/services/image.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['../main.component.css']
 })
 export class AboutUsComponent implements OnInit {
 

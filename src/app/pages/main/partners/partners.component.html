@@ -1,15 +1,12 @@
+<div class="dynamic-container">
 
-<div class="bg-white marketing m-0 w-100">
+  <h2>Our friends and partners...</h2>
 
-  <div class="container px-0 py-5">
-
-    <h2 class=" p-3">Our friends and partners...</h2>
-
-    <div class="d-flex justify-content-evenly flex-wrap">
+    <div class="partner-card-container">
 
       <div *ngFor="let card of partnerCards">
 
-        <div class="card partner-card align-items-center p-2" (click)="navigate.to(card.href!)">
+        <div class="partner-card" (click)="navigate.to(card.href!)">
 
           <div class="external-link-overlay">
             <svg
@@ -34,7 +31,6 @@
         </div>
       </div>
 
-    </div>
     </div>
 
 </div>

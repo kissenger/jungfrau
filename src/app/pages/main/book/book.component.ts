@@ -6,7 +6,7 @@ import { NavService } from 'src/app/shared/services/nav.service';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['../main.component.css']
 })
 export class BookComponent implements OnInit {
 
