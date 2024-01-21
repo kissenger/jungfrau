@@ -13,8 +13,6 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s, visibility 0.5s;
-  /* -webkit-transition: opacity 0.5s; */
-  /* display: none; */
 
 }
 

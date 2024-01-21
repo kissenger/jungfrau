@@ -28,6 +28,7 @@ import { ImageService } from 'src/app/shared/services/image.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy';
+import { ScrollspyService } from './shared/services/scrollspy.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy
     ImageService,
     DataService,
     AuthService,
+    ScrollspyService,
     SubscribeComponent,
     provideClientHydration(
       withHttpTransferCacheOptions({

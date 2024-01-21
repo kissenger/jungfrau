@@ -3,6 +3,7 @@ import { Component, Injector, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef }
 import { createCustomElement } from '@angular/elements';
 import { ExternalLinkComponent } from './shared/components/external-link/external-link.component';
 import { isPlatformBrowser } from '@angular/common';
+import { ScrollspyService } from './shared/services/scrollspy.service';
 
 
 
@@ -21,7 +22,8 @@ export class AppComponent implements OnInit{
 
   constructor(
     public subscribe: SubscribeComponent,
-    private injector: Injector
+    private injector: Injector,
+    // private scrollSpy: ScrollspyService
   ) {
     if (isPlatformBrowser(PLATFORM_ID)) {
       const el = createCustomElement(ExternalLinkComponent, {injector});

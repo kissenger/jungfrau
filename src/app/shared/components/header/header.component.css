@@ -37,10 +37,10 @@ header {
   display: inline;
   padding: 0.25em;
   border-bottom: 2px transparent solid;
-  transition: border-bottom 0.3s linear 0.05s;
+  transition: border-bottom 0.5s ease-in-out;
 }
 
-.menu > li:hover {
+.menu > li:hover, .menu > li.active {
   cursor: pointer;
   border-bottom: 2px var(--text-colour) solid;
 }
@@ -71,7 +71,7 @@ header {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 100%;
+    top: 98%;
     left: 0;
     right: 0;
     background-color: white;

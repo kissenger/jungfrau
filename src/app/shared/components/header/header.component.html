@@ -5,7 +5,7 @@
       <h2 class="zero-margin"> /'Snor&middot;kel&middot;ology/ </h2>
     </div>
 
-    <svg *ngIf="enableMenu" class="hamburger" viewBox="-55 -55 110 110" height="1.6rem" width="1.8rem" fill=var(--text-colour)  (click)="onMenuClick()">
+    <svg *ngIf="enableMenu" id="hamburger" class="hamburger" viewBox="-55 -55 110 110" height="1.6rem" width="1.8rem" fill=var(--text-colour) (click)="onHamburgerClick()">
       <rect x="-50" y="-50" width="100" height="100" fill="#FFFFFF" rx="10" stroke="var(--text-colour)" stroke-width="6">
         <animate begin="click" id="startAnimation" />
       </rect>
@@ -20,21 +20,21 @@
       </line>
     </svg>
 
-    <ul *ngIf="enableMenu" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''">
+    <ul *ngIf="enableMenu" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
 
-      <li (click)="navigate.scrollTo('about')">About</li>
+      <li [ngClass]="activeAnchor === 'about' ? 'active' : ''" (click)="onMenuItemClick('about')">About</li>
 
       <span *ngIf="this.data.instaLoadSuccess" class="middot">&middot;</span>
-      <li *ngIf="this.data.instaLoadSuccess" (click)="navigate.scrollTo('feed')">Feed</li>
+      <li [ngClass]="activeAnchor === 'feed' ? 'active' : ''" *ngIf="this.data.instaLoadSuccess" (click)="onMenuItemClick('feed')">Feed</li>
 
       <span class="middot">&middot;</span>
-      <li (click)="navigate.scrollTo('book')">Book</li>
+      <li [ngClass]="activeAnchor === 'book' ? 'active' : ''" (click)="onMenuItemClick('book')">Book</li>
 
       <span class="middot">&middot;</span>
-      <li (click)="navigate.scrollTo('faq')">Explore</li>
+      <li [ngClass]="activeAnchor === 'faq' ? 'active' : ''" (click)="onMenuItemClick('faq')">Explore</li>
 
       <span class="middot">&middot;</span>
-      <li (click)="navigate.scrollTo('partners')">Friends</li>
+      <li [ngClass]="activeAnchor === 'partners' ? 'active' : ''" (click)="onMenuItemClick('partners')">Friends</li>
 
     </ul>
   </nav>

@@ -27,12 +27,12 @@ export class NavService {
 
       // if routing internally, wait for nav to complete and then scroll to top of screen
       this.router.navigate([link]).then( () => {
-        console.log(this.router.lastSuccessfulNavigation);
-        document.getElementById('container')?.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth'
-        });
+        // console.log(this.router.lastSuccessfulNavigation);
+        // document.getElementById('container')?.scrollTo({
+        //   top: 0,
+        //   left: 0,
+        //   behavior: 'smooth'
+        // });
       })
     }
   }

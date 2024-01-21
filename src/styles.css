@@ -100,9 +100,8 @@ body {
   color: var(--text-colour);
   line-height: var(--line-height);
   overflow: hidden;
-  scroll-behavior: smooth;
   width: 100vw;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   margin: 0;
   padding: 0;
 }
@@ -236,7 +235,7 @@ router-outlet + * {
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
-  border: blue 1px dotted;
+  /* border: blue 1px dotted; */
 }
 
 .parallax-window {
@@ -275,7 +274,7 @@ router-outlet + * {
   border: 1px solid white;
   border-radius: 40px;
   background: rgba(255,255,255,0.25);
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-default:hover {
