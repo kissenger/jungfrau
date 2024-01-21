@@ -3,7 +3,8 @@ import { DataService } from 'src/app/shared/services/data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { NavService } from 'src/app/shared/services/nav.service';
-import { ScrollspyService } from '../../services/scrollspy.service';
+import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
+import { ScreenService } from 'src/app/shared/services/screen.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
     public auth: AuthService,
     private router: Router,
     public navigate: NavService,
-    public scrollSpy: ScrollspyService
+    public scrollSpy: ScrollspyService,
+    private screen: ScreenService
   ) {
     router.events.subscribe( e => {
       if (e instanceof NavigationEnd) {
@@ -32,6 +34,12 @@ export class HeaderComponent implements OnInit {
     this.scrollSpy.anchorChange.subscribe( (activeAnchor) => {
       this.activeAnchor = activeAnchor;
     });
+    window.addEventListener('resize', (event) => {
+      if (this.screen.widthDescriptor === 'large') {
+        this.showDropdownMenu = false;
+      }
+    });
+
   }
 
   ngOnInit() {

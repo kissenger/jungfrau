@@ -11,23 +11,19 @@ export class ScrollspyService {
   constructor() {
 
     window.addEventListener( "load", (event) => {
-      let observer = new IntersectionObserver( (io) => { this.anchorHandler(io); }, {root: null, threshold: 0.2});
-      document.querySelectorAll(".anchor").forEach ( anchor => {
+      let observer = new IntersectionObserver( (io: Array<IntersectionObserverEntry>) => { this.anchorHandler(io) }, {root: null, threshold: 0.2});
+      document.querySelectorAll(".anchor").forEach( (anchor: Element) => {
         observer.observe(anchor);
       })
     },
       false,
     );
-
   }
 
-  anchorHandler(anchor: any) {
-    anchor.forEach( (i:any) => {
-      if (i.isIntersecting === true) {
-        this.anchorChange.emit(i.target.id);
-      }
+  anchorHandler(anchor: Array<IntersectionObserverEntry>) {
+    anchor.filter( (a: IntersectionObserverEntry) => a.isIntersecting).forEach( (i: IntersectionObserverEntry) => {
+      this.anchorChange.emit(i.target.id);
     })
   }
-
 
 }
