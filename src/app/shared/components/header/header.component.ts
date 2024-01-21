@@ -12,7 +12,8 @@ import { NavService } from 'src/app/shared/services/nav.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public showMenu: boolean = false;
+  public enableMenu: boolean = false;
+  public showDropdownMenu: boolean = false;
 
   constructor(
     public data: DataService,
@@ -22,7 +23,7 @@ export class HeaderComponent implements OnInit {
   ) {
     router.events.subscribe( e => {
       if (e instanceof NavigationEnd) {
-        this.showMenu = !this.router.url.includes('privacy-policy');
+        this.enableMenu = !this.router.url.includes('privacy-policy');
       }
     })
   }
@@ -30,11 +31,18 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-
   onMenuClick() {
-    // close menu
-    document.getElementById("snNavbar")?.classList.remove("show");
+    this.showDropdownMenu = !this.showDropdownMenu;
+    this.toggleAnimationDirection();
   }
 
+  toggleAnimationDirection() {
+    document.querySelectorAll("animate").forEach(anim => {
+      let from = anim.getAttribute("from");
+      let to   = anim.getAttribute("to");
+      anim.setAttribute('from', to!);
+      anim.setAttribute('to', from!);
+    });
+  }
 
 }

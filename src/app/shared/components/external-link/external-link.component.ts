@@ -20,7 +20,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   `,
   styles: [
     ".ext-link {display: inline-flex; flex-direction: row;}",
-    "svg {display: inline; width: 1em; height: 1em;  vertical-align: top;}"
+    // "svg {display: inline; width: 1em; height: 1em;  vertical-align: top;}"
   ],
   encapsulation: ViewEncapsulation.None,
 })

@@ -10,8 +10,9 @@
   --link-colour: #009AF7;
   --border-colour: #DEE2E6;
 
-  --box-shadow-no-hover: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
-  --box-shadow-hover: 0 6px 12px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.2);
+  --box-shadow-no-hover: 0 3px 6px lightgrey;
+  --box-shadow-hover: 0 6px 12px lightgrey;
+  --box-shadow-bottom-only: 0 3px 6px -6px grey, 0 3px 6px -6px grey;
 
 }
 /*
@@ -114,6 +115,14 @@ h2 {
 h4 {
   margin: 1.5rem 0 0.5rem 0;
   font-weight: 400;
+}
+
+.zero-margin {
+  margin: 0;
+}
+
+.zero-padding {
+  padding: 0;
 }
 
 p {

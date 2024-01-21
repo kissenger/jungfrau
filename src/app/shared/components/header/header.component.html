@@ -1,75 +1,41 @@
+<header>
+  <nav class="menubar">
 
-
-<header class="header d-flex flex-row">
-
-  <!-- <div class="header d-flex flex-row"> -->
-    <div class="flex-grow-1">
-
-  <nav class="navbar navbar-expand-md navbar-white bg-white d-flex flex-row w-100 shadow">
-
-    <div class="d-flex px-4 h-100">
-      <div class="align-self-center navbar-brand m-0 p-0" (click)="navigate.to('/')">
-        <h3 class="m-0 p-0">
-          /'Snor&middot;kel&middot;ology/
-        </h3>
-      </div>
+    <div class="brandbox" (click)="navigate.to('/')">
+      <h2 class="zero-margin"> /'Snor&middot;kel&middot;ology/ </h2>
     </div>
 
+    <svg *ngIf="enableMenu" class="hamburger" viewBox="-55 -55 110 110" height="1.6rem" width="1.8rem" fill=var(--text-colour)  (click)="onMenuClick()">
+      <rect x="-50" y="-50" width="100" height="100" fill="#FFFFFF" rx="10" stroke="var(--text-colour)" stroke-width="6">
+        <animate begin="click" id="startAnimation" />
+      </rect>
+      <line x1="-20" y1="-20" x2="20" y2="-20" stroke=var(--text-colour) stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none">
+        <animate attributeName="y2" from="20" to="-20" dur="0.5s" begin="startAnimation.begin" fill="freeze"></animate>
+      </line>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke=var(--text-colour) stroke-width="6" stroke-linecap="round" pointer-events="none">
+        <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="startAnimation.begin" fill="freeze"></animate>
+      </line>
+      <line x1="-20" y1="20" x2="20" y2="20" stroke=var(--text-colour) stroke-width="6" stroke-linecap="round" pointer-events="none">
+        <animate attributeName="y2" from="-20" to="20" dur="0.5s" begin="startAnimation.begin" fill="freeze"></animate>
+      </line>
+    </svg>
 
-    <button *ngIf="showMenu" class="navbar-toggler mx-4 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#snNavbar" aria-controls="snNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <ul *ngIf="enableMenu" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''">
 
+      <li (click)="navigate.scrollTo('about')">About</li>
 
-    <div *ngIf="showMenu" class="collapse navbar-collapse align-items-end bg-white justify-content-end rounded-bottom" id="snNavbar"  (click)="onMenuClick()">
+      <span *ngIf="this.data.instaLoadSuccess" class="middot">&middot;</span>
+      <li *ngIf="this.data.instaLoadSuccess" (click)="navigate.scrollTo('feed')">Feed</li>
 
-      <ul class="navbar-nav align-items-center me-md-3">
+      <span class="middot">&middot;</span>
+      <li (click)="navigate.scrollTo('book')">Book</li>
 
-        <!-- <li class="nav-item text-center">
-          <a class="nav-link" (click)="navigate.scrollTo('home')">Home</a>
-        </li>
+      <span class="middot">&middot;</span>
+      <li (click)="navigate.scrollTo('faq')">Explore</li>
 
-        <li class="d-none d-md-inline">&middot;</li> -->
+      <span class="middot">&middot;</span>
+      <li (click)="navigate.scrollTo('partners')">Friends</li>
 
-        <li class="nav-item text-center">
-          <a class="nav-link" (click)="navigate.scrollTo('about')">About</a>
-        </li>
-
-        <li *ngIf="this.data.instaLoadSuccess" class="d-none d-md-inline">&middot;</li>
-
-        <li *ngIf="this.data.instaLoadSuccess" class="nav-item text-center">
-          <a class="nav-link" (click)="navigate.scrollTo('feed')">Feed
-            <span *ngIf="auth.isNewContent" class="badge bg-secondary">New</span>
-          </a>
-        </li>
-
-        <li class="d-none d-md-inline">&middot;</li>
-
-        <li class="nav-item text-center">
-          <a class="nav-link" (click)="navigate.scrollTo('book')">Book</a>
-        </li>
-
-        <li class="d-none d-md-inline">&middot;</li>
-
-        <li class="nav-item text-center">
-          <a class="nav-link" (click)="navigate.scrollTo('faq')">Explore</a>
-        </li>
-
-        <li class="d-none d-md-inline">&middot;</li>
-
-        <li class="nav-item text-center">
-          <a class="nav-link" (click)="navigate.scrollTo('partners')">Friends</a>
-        </li>
-
-
-      </ul>
-    </div>
+    </ul>
   </nav>
-    </div>
-    <!-- <div class="spacer">
-
-    </div> -->
-
-
-<!-- </div> -->
 </header>
