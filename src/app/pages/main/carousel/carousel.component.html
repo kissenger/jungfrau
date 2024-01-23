@@ -1,6 +1,73 @@
 
+<div class="slideshow-container">
+  <div class="slideshow" id="slideshow">
+    <div class="slide" id="slide1">
+      <img
+        [ngSrc]="images.img('carousel-child').path"
+        [alt]="images.img('carousel-child').altText"
+        priority
+        fill
+      />
+    </div>
+    <div class="slide" id="slide2">
+      <img
+        [ngSrc]="images.img('carousel-drone').path"
+        [alt]="images.img('carousel-drone').altText"
+        priority
+        fill
+      />
+    </div>
+    <div class="slide" id="slide3">
+      <img
+        [ngSrc]="images.img('carousel-kids').path"
+        [alt]="images.img('carousel-kids').altText"
+        priority
+        fill
+        />
+    </div>
+    <div class="slide" id="slide4">
+      <img
+        [ngSrc]="images.img('carousel-child').path"
+        [alt]="images.img('carousel-child').altText"
+        priority
+        fill
+      />
+    </div>
+  </div>
 
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="overlay" id="overlay">
+    <svg class="arrow left" viewBox="-20 -30 40 60" height="40px" width="20px" opacity="0.5" (click)="onClick(false)">
+      <animate attributeName="opacity" from="0.5" to="1" dur="0.25s" begin="mouseover" fill="freeze"></animate>
+      <animate attributeName="opacity" from="1" to="0.5" dur="0.25s" begin="mouseout" fill="freeze"></animate>
+      <line x1="10" y1="-20" x2="-10" y2="0" stroke="white" stroke-width="4" opacity="1" stroke-linecap="round" pointer-events="none" />
+      <line x1="-10" y1="0" x2="10" y2="20" stroke="white" stroke-width="4" opacity="1" stroke-linecap="round" pointer-events="none" />
+    </svg>
+
+    <svg class="arrow right" viewBox="-20 -30 40 60" height="40px" width="20px" opacity="0.5" (click)="onClick(true)">
+      <animate attributeName="opacity" from="0.5" to="1" dur="0.25s" begin="mouseover" fill="freeze"></animate>
+      <animate attributeName="opacity" from="1" to="0.5" dur="0.25s" begin="mouseout" fill="freeze"></animate>
+      <line x1="-10" y1="-20" x2="10" y2="0" stroke="white" stroke-width="4" opacity="1" stroke-linecap="round" pointer-events="none" />
+      <line x1="10" y1="0" x2="-10" y2="20" stroke="white" stroke-width="4" opacity="1" stroke-linecap="round" pointer-events="none" />
+    </svg>
+  </div>
+
+
+
+    <!-- <div class="overlay">
+      <button class="slideshow-btn-left">
+        <svg class="arrow" viewBox="-15 -25 30 50" height="40px" width="20px">
+          <rect x1="-10" y1="-20" width="20" height="40" fill="black" />
+          <line x1="10" y1="-20" x2="-10" y2="0" stroke="black" stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none" />
+          <line x1="-10" y1="0" x2="10" y2="20" stroke=var(--text-colour) stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none" />
+        </svg>
+      </button>
+      <button class="slideshow-btn-right">      </button>
+    </div> -->
+
+</div>
+
+
+<!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
 
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -21,17 +88,6 @@
           fill
         />
       </div>
-
-<!--
-
-      <div class="carousel-img-container">
-        <img
-          class="carousel-img"
-          ngSrc="../../../assets/photos/carousel/child-walking-beach-after-snorkelling-in-yorkshire-england-britain.webp"
-          alt="photo showing child walking up a beach holding snorkelling gear with blue-green sea behind"
-          fill
-          priority/>
-      </div> -->
 
       <div class="container">
         <div class="carousel-caption text-start">
@@ -90,4 +146,4 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</div>
+</div> -->
