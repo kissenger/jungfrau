@@ -10,7 +10,7 @@ import { AppComponent } from 'src/app/app.component';
 import { MainComponent } from 'src/app/pages/main/main.component';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
-import { CarouselComponent } from 'src/app/pages/main/carousel/carousel.component';
+import { CarouselComponent } from 'src/app/pages/main/slideshow/slideshow.component';
 import { AboutUsComponent } from 'src/app/pages/main/about/about.component';
 import { BookComponent } from 'src/app/pages/main/book/book.component';
 import { PartnersComponent } from 'src/app/pages/main/partners/partners.component';

@@ -1,0 +1,75 @@
+
+<div class="slideshow-container">
+  <div class="slideshow" id="slideshow">
+
+    <!-- slide 1 -->
+
+    <div class="slide" id="slide1">
+      <img
+        [ngSrc]="images.img('carousel-child').path"
+        [alt]="images.img('carousel-child').altText"
+        priority
+        fill
+      />
+      <div class="slideshow-textbox-outer">
+        <div class="slideshow-textbox-inner">
+          <h1 class="zero-margin">Welcome to Snorkelology</h1>
+          <p class="zero-margin">Discover the wonders of British snorkelling for all the family</p>
+          <button class="slideshow-button" (click)="navigate.scrollTo('about')">About Snorkelology</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- slide 2 -->
+
+    <div class="slide">
+      <img
+        [ngSrc]="images.img('carousel-drone').path"
+        [alt]="images.img('carousel-drone').altText"
+        priority
+        fill
+      />
+      <div class="slideshow-textbox-outer">
+        <div class="slideshow-textbox-inner middle">
+          <h1 class="zero-margin">Snorkelling in Britain</h1>
+          <p class="zero-margin">Marine Explorers - our new book about snorkelling in Britain</p>
+          <button class="slideshow-button" (click)="navigate.scrollTo('book')">Find out more</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- slide 3 -->
+
+    <div class="slide">
+      <img
+        [ngSrc]="images.img('carousel-kids').path"
+        [alt]="images.img('carousel-kids').altText"
+        priority
+        fill
+        />
+        <div class="slideshow-textbox-outer">
+          <div class="slideshow-textbox-inner middle">
+            <h1 class="zero-margin">Learn about British snorkelling</h1>
+            <p class="zero-margin">Explore our content to discover a fascinating underwater world</p>
+            <button class="slideshow-button" (click)="navigate.scrollTo('faq')">Explore our articles</button>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <svg class="arrow left" viewBox="-20 -30 40 60" height="40px" width="20px" opacity="0.6" (click)="onClick(false)">
+    <animate attributeName="opacity" from="0.6" to="1" dur="0.25s" begin="mouseover" fill="freeze"></animate>
+    <animate attributeName="opacity" from="1" to="0.6" dur="0.25s" begin="mouseout" fill="freeze"></animate>
+    <line x1="10" y1="-20" x2="-10" y2="0" stroke="white" stroke-width="6" opacity="1" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="20" stroke="white" stroke-width="6" opacity="1" stroke-linecap="round"/>
+  </svg>
+
+  <svg class="arrow right" viewBox="-20 -30 40 60" height="40px" width="20px" opacity="0.6" (click)="onClick(true)">
+    <animate attributeName="opacity" from="0.6" to="1" dur="0.25s" begin="mouseover" fill="freeze"></animate>
+    <animate attributeName="opacity" from="1" to="0.6" dur="0.25s" begin="mouseout" fill="freeze"></animate>
+    <line x1="-10" y1="-20" x2="10" y2="0" stroke="white" stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none" />
+    <line x1="10" y1="0" x2="-10" y2="20" stroke="white" stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none" />
+  </svg>
+
+</div>

@@ -3,9 +3,9 @@ import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  selector: 'app-slideshow',
+  templateUrl: './slideshow.component.html',
+  styleUrls: ['./slideshow.component.css']
 })
 export class CarouselComponent implements OnInit {
 
@@ -20,20 +20,30 @@ export class CarouselComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     window.addEventListener( "load", (event) => {
+
       this.slideshowElement = document.getElementById('slideshow')!;
-      this.overlayElement = document.getElementById('overlay')!;
-      this.overlayElement!.addEventListener('mouseover', (e) => {
+
+      // duplicate slide 1 and add as a child of slideshow
+      let slide1 = document.getElementById("slide1")!.cloneNode(true);
+      this.slideshowElement.appendChild(slide1);
+
+      console.log(this.slideshowElement.getBoundingClientRect())
+
+      this.slideshowElement.addEventListener('mousemove', (e) => {
         this.mouseOver = true;
-        console.log(this.mouseOver)
-
-      });
-      this.overlayElement!.addEventListener('mouseout', (e) => {
-
-        this.mouseOver = false;
-        console.log(this.mouseOver)
-
+        console.log(true);
       })
+      this.slideshowElement.addEventListener('mouseout', (e) => {
+        this.mouseOver = false;
+        console.log(false);
+      })
+      // disable autoscroll if mouse is over slideshow
+      // this.slideshowElement = document.getElementById('slideshow')!;
+      // this.overlayElement = document.getElementById('overlay')!;
+      // this.overlayElement!.addEventListener('mouseover', (e) => { this.mouseOver = true; });
+      // this.overlayElement!.addEventListener('mouseout', (e) => {  this.mouseOver = false; })
     }, false );
 
     setInterval( () => {
