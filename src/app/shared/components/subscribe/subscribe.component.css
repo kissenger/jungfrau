@@ -1,8 +1,5 @@
-.modal {
-  z-index: 100000;
-}
 
-.sn-modal-container {
+.subscribe-background {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -13,13 +10,13 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s, visibility 0.5s;
-
 }
 
-.sn-modal-border {
+.subscribe-container {
   z-index: 100001;
   position: absolute;
   margin: auto;
+  padding: 1rem;
   z-index: 10000;
   top: 0; left: 0; bottom: 0; right: 0;
   width: 400px;
@@ -29,9 +26,16 @@
   background-color: white;
   border-radius: 5px;
   pointer-events: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.sn-modal-img {
+.subscribe-logo {
+  justify-self: center;
+  flex-grow: 1;
+}
+
+.subscribe-logo > img {
   height: 150px;
   width: 150px;
   color: white;
@@ -41,7 +45,25 @@
 .btn {
   pointer-events: auto;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 1rem 0 1rem 0;
+
+}
+.form-control {
+  margin-right: 1em;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  /* line-height: 2rem; */
+}
 .form-control-danger {
   border-color: #e06c6c;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(224, 108, 108, 0.5);
+}
+
+label {
+  font-weight: 400;
 }

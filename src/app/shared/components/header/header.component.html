@@ -22,19 +22,19 @@
 
     <ul *ngIf="enableMenu" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
 
-      <li [ngClass]="activeAnchor === 'about' ? 'active' : ''" (click)="onMenuItemClick('about')">About</li>
+      <li [ngClass]="activeAnchor === 'about' ? 'active' : ''" (click)="onMenuItemClick('about')" role="link">About</li>
 
       <span *ngIf="this.data.instaLoadSuccess" class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'feed' ? 'active' : ''" *ngIf="this.data.instaLoadSuccess" (click)="onMenuItemClick('feed')">Feed</li>
+      <li [ngClass]="activeAnchor === 'feed' ? 'active' : ''" *ngIf="this.data.instaLoadSuccess" (click)="onMenuItemClick('feed')" role="link">Feed</li>
 
       <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'book' ? 'active' : ''" (click)="onMenuItemClick('book')">Book</li>
+      <li [ngClass]="activeAnchor === 'book' ? 'active' : ''" (click)="onMenuItemClick('book')" role="link">Book</li>
 
       <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'faq' ? 'active' : ''" (click)="onMenuItemClick('faq')">Explore</li>
+      <li [ngClass]="activeAnchor === 'faq' ? 'active' : ''" (click)="onMenuItemClick('faq')" role="link">Explore</li>
 
       <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'partners' ? 'active' : ''" (click)="onMenuItemClick('partners')">Friends</li>
+      <li [ngClass]="activeAnchor === 'partners' ? 'active' : ''" (click)="onMenuItemClick('partners')" role="link">Friends</li>
 
     </ul>
   </nav>

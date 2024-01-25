@@ -4,7 +4,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-external-link',
   template: `
-    <div class="ext-link html-link" (click)="navigate.to(link)">{{text}}
+    <div class="ext-link html-link" (click)="navigate.to(link)" role="link">{{text}}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"

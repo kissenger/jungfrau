@@ -18,9 +18,7 @@ export class MainComponent implements OnInit {
   ) {
 
     this.scrollSpy.windowChange.subscribe( (changedWindow) => {
-      console.log(changedWindow)
       document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
-
     })
   }
 

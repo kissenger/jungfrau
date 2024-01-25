@@ -71,11 +71,12 @@ header {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 98%;
+    top: 100%;
     left: 0;
     right: 0;
     background-color: white;
     border-bottom: 1px var(--border-colour) solid;
+    border-top: none;
     border-radius: 0 0 5px 5px;
     box-shadow: var(--box-shadow-bottom-only);
     padding: 0;

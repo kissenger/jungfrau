@@ -10,7 +10,7 @@
 
   <div #feedContainer class="feed-padding insta-feed">
 
-    <div class="insta-post" *ngFor="let item of instaFeed" (click)="navigate.to(item.permalink)">
+    <div class="insta-post" *ngFor="let item of instaFeed" (click)="navigate.to(item.permalink)" role="link">
       <div class="insta-photo">
         <img
           ngSrc="{{item.media_url}}"
@@ -26,7 +26,7 @@
     </div>
 
     <div class="insta-post">
-      <div class="insta-more" (click)="navigate.to('https://www.instagram.com/snorkelology/')">
+      <div class="insta-more" (click)="navigate.to('https://www.instagram.com/snorkelology/')" role="link">
         <img
           ngSrc="../assets/logos/instagram.webp"
           class="image"

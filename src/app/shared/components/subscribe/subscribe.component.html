@@ -1,33 +1,36 @@
 
 
-<div class="sn-modal-container" id="sn-modal-container" (click)="hide($event)">
-  <div class="d-flex flex-column sn-modal-border p-3" id="sn-modal-border">
-    <div class="flex-grow-1">
-
-      <div class="sn-modal-img">logo placeholder</div>
+<div class="subscribe-background" id="subscribe" (click)="hide($event)">
+  <div class="subscribe-container" >
+    <div class="subscribe-logo">
+      <img />
     </div>
     <form>
       <div>
-        <label for="exampleInputEmail1" class="form-label py-2">Join our email list to receive book updates...</label>
-        <input
+        <label for="emailInput">Join our email list for book updates...</label>
+
+        <div class="form-container">
+          <input
           type="email"
           class="form-control"
           name="email"
           [ngClass]="{'form-control-danger': notValidEmail()}"
-          id="exampleInputEmail1"
+          id="emailInput"
           aria-describedby="emailHelp"
           [(ngModel)]="email"
           placeholder="Email address"
           required
         >
-        <button class="my-1 w-100 btn btn-primary" id="sn-modal-btn" type="submit" (click)="hide($event)">Subscribe</button>
+        <button class="subscribe-button" type="submit" (click)="hide($event)">Subscribe</button>
+        </div>
 
-        <div id="emailHelp" class="text-center form-text small">We will never share your email with anyone else.<br>
-          <a class="html-link" href="privacy-policy">Privacy policy</a>
+
+        <div id="emailHelp" class=" small-text">
+          We will never share your email with anyone else.<br />
+          <span class="html-link small-text" href="privacy-policy">Privacy policy</span>
         </div>
 
       </div>
-      </form>
-  </div>
+    </form>
 </div>
 

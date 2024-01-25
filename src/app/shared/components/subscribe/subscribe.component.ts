@@ -16,16 +16,16 @@ export class SubscribeComponent implements OnInit {
   }
 
   show() {
-    document.getElementById('sn-modal-container')!.style.opacity = "1";
-    document.getElementById('sn-modal-container')!.style.visibility = "visible";
-    document.getElementById('sn-modal-container')!.style.pointerEvents = "auto";
+    document.getElementById('subscribe')!.style.opacity = "1";
+    document.getElementById('subscribe')!.style.visibility = "visible";
+    document.getElementById('subscribe')!.style.pointerEvents = "auto";
   }
 
   hide(event: any) {
-    if (event.target.id === 'sn-modal-container' || event.target.id === 'sn-modal-btn') {
-      document.getElementById('sn-modal-container')!.style.opacity = "0";
-      document.getElementById('sn-modal-container')!.style.visibility = "hidden";
-      document.getElementById('sn-modal-container')!.style.pointerEvents = "none";
+    if (event.target.id === 'container' || event.target.id === 'sn-modal-btn') {
+      document.getElementById('container')!.style.opacity = "0";
+      document.getElementById('container')!.style.visibility = "hidden";
+      document.getElementById('container')!.style.pointerEvents = "none";
     }
   }
 

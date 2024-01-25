@@ -1,6 +1,6 @@
 
 :root {
-  --navbar-height: 60px;
+  --navbar-height: 80px;
   --scaleRatioImg: 1;
   --scaleRatioWindow: 1;
   --line-height: 1.7;
@@ -96,6 +96,10 @@ html {
   /* font-size is set in media queries */
 }
 
+.small-text {
+  font-size: 1rem;
+}
+
 body {
   color: var(--text-colour);
   line-height: var(--line-height);
@@ -104,7 +108,7 @@ body {
   /* border: 1px red solid; */
   margin: 0;
   padding: 0;
-  font-size: 20px;
+  font-size: 1.3rem;
 }
 
 h1 {
@@ -187,41 +191,41 @@ p {
   :root{ --container-width: calc(100vw - 20px); }
   html {font-size: 14px;}
   .parallax-window{ height: 70vh; }
-  .carousel-img-container{ height: 70vh; }
+  .slideshow{ height: 70vh; }
 }
 @media (min-width: 576px) and (max-width: 767px) {
   /* .dynamic-container { width: 540px } */
   html {font-size: 14px;}
   :root{ --container-width: 540px; }
   .parallax-window { height: 50vh; }
-  .carousel-img-container{ height: 50vh; }
+  .slideshow{ height: 50vh; }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   /* .dynamic-container { width: 720px } */
   html {font-size: 16px;}
   :root{ --container-width: 720px; }
   .parallax-window { height: 70vh; }
-  .carousel-img-container{ height: 70vh; }
+  .slideshow{ height: 70vh; }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   /* .dynamic-container { width: 992px } */
   html {font-size: 16px;}
   :root{ --container-width: 960px; }
   .parallax-window { height: 70vh; }
-  .carousel-img-container{ height: 70vh; }
+  .slideshow{ height: 80vh; }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {
   /* .dynamic-container { width: 1140px } */
   html {font-size: 16px;}
   :root{ --container-width: 1140px; }
   .parallax-window { height: 70vh; }
-  .carousel-img-container{ height: 70vh; }
+  .slideshow{ height: 80vh; }
 }
 @media (min-width: 1400px) {
   html {font-size: 16px;}
   :root{ --container-width: 1320px; }
   .parallax-window { height: 80vh; }
-  .carousel-img-container{ height: 80vh; }
+  .slideshow{ height: 80vh; }
 }
 
 
