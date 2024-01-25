@@ -5,13 +5,15 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
   providedIn: 'root'
 })
 
+
+
 /*
   Watches the intersections of divs with screen in order to enable menu scrollspy, and parallax window image fix
 */
 
 export class ScrollspyService {
-  @Output() public anchorChange = new EventEmitter<string>();
-  @Output() public pWindowChange = new EventEmitter<string>();
+  @Output() public anchorChange = new EventEmitter<{id: string, active: boolean}>();
+  @Output() public windowChange = new EventEmitter<{id: string, active: boolean}>();
 
   constructor() {
     window.addEventListener( "load", (event) => {
@@ -21,15 +23,12 @@ export class ScrollspyService {
   }
 
   intersectHandler(element: Array<IntersectionObserverEntry>) {
-    element
-      .filter( (a: IntersectionObserverEntry) => a.isIntersecting)
-      .forEach( (i: IntersectionObserverEntry) => {
-        if (i.target.className === 'anchor' && i.intersectionRatio > 0.2) {
-          this.anchorChange.emit(i.target.id);
-        } else if (i.target.className === 'parallax-window') {
-          this.pWindowChange.emit(i.target.id);
-        }
+    element.forEach( (elem) => {
+      if ( elem.target.className === 'anchor') {
+        this.anchorChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0.2})
+      } else if ( elem.target.className === 'parallax-window') {
+        this.windowChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0})
+      }
     })
   }
-
 }

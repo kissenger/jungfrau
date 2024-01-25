@@ -16,10 +16,11 @@ export class MainComponent implements OnInit {
     public images: ImageService,
     private scrollSpy: ScrollspyService
   ) {
-    this.scrollSpy.pWindowChange.subscribe( (activeWindow) => {
-      document.querySelectorAll('.parallax-window').forEach( (window) => {
-        document.getElementById(`${window.id}Image`)!.style.visibility = window.id === activeWindow ? "visible" : "hidden";
-      })
+
+    this.scrollSpy.windowChange.subscribe( (changedWindow) => {
+      console.log(changedWindow)
+      document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
+
     })
   }
 

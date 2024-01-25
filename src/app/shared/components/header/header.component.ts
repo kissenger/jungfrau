@@ -31,8 +31,10 @@ export class HeaderComponent implements OnInit {
         this.enableMenu = !this.router.url.includes('privacy-policy');
       }
     })
-    this.scrollSpy.anchorChange.subscribe( (activeAnchor) => {
-      this.activeAnchor = activeAnchor;
+    this.scrollSpy.anchorChange.subscribe( (anchorChange) => {
+      if (anchorChange.active) {
+        this.activeAnchor = anchorChange.id;
+      }
     });
     window.addEventListener('resize', (event) => {
       if (this.screen.widthDescriptor === 'large') {

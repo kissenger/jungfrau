@@ -29,21 +29,12 @@ export class CarouselComponent implements OnInit {
       let slide1 = document.getElementById("slide1")!.cloneNode(true);
       this.slideshowElement.appendChild(slide1);
 
-      console.log(this.slideshowElement.getBoundingClientRect())
+      // inhibit autoscrill if mouse is over the slideshow (or arrow) element(s)
+      Array.from(document.getElementsByClassName('overlay')).forEach( (elem) => {
+        elem.addEventListener('mousemove', (e) => { this.mouseOver = true;  });
+        elem.addEventListener('mouseout', (e) =>  { this.mouseOver = false; });
+      })
 
-      this.slideshowElement.addEventListener('mousemove', (e) => {
-        this.mouseOver = true;
-        console.log(true);
-      })
-      this.slideshowElement.addEventListener('mouseout', (e) => {
-        this.mouseOver = false;
-        console.log(false);
-      })
-      // disable autoscroll if mouse is over slideshow
-      // this.slideshowElement = document.getElementById('slideshow')!;
-      // this.overlayElement = document.getElementById('overlay')!;
-      // this.overlayElement!.addEventListener('mouseover', (e) => { this.mouseOver = true; });
-      // this.overlayElement!.addEventListener('mouseout', (e) => {  this.mouseOver = false; })
     }, false );
 
     setInterval( () => {
