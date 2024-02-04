@@ -3,7 +3,6 @@ import { ScreenService } from './screen.service';
 import { DataService } from './data.service';
 import { DeviceOrientation } from '../types';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,8 +12,7 @@ export class ImageService {
   constructor(
     private screen: ScreenService,
     private data: DataService
-  ) {
-  }
+  ) {}
 
 // sn = img shortname
 // return info required for given image
@@ -41,8 +39,8 @@ export class ImageService {
 
     //IMPORTANT - upper threshold should portrait/landscape threshold in screen.service.ts
     if (ar > 0.7 && ar < 1.4) { factor = 1.4 };
-    let dor: 'portrait' | 'landscape' = this.screen.deviceOrientation;
-    return window.innerWidth / img[dor]!.width * factor ;
+    let dor: DeviceOrientation = this.screen.deviceOrientation;
+    return this.screen.width / img[dor]!.width * factor ;
   }
 
 

@@ -20,10 +20,14 @@ header {
   align-items: center;
   height: 100%;
   /* border: 1px blue solid; */
-  padding-inline: 0.5em;
+  padding-inline: 0;
+  /* background-color: #264144; */
 }
 
-
+.brandbox {
+  margin-top: 1em;
+  ;
+}
 .brandbox:hover {
   cursor: pointer;
 }
@@ -34,6 +38,7 @@ header {
 }
 
 .menu > li {
+  /* color: white; */
   display: inline;
   padding: 0.25em;
   border-bottom: 2px transparent solid;
@@ -42,6 +47,7 @@ header {
 
 .menu > li:hover, .menu > li.active {
   cursor: pointer;
+  /* border-bottom: 2px white solid; */
   border-bottom: 2px var(--text-colour) solid;
 }
 

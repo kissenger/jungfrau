@@ -1,19 +1,30 @@
 import 'zone.js/node';
 
+// import {} from 'domino';
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import * as express from 'express';
-import { existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import AppServerModule from './src/main.server';
+import { createWindow } from 'domino';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
+  // const server = express();
+  // const distFolder = join(process.cwd(), 'dist/beta/browser');
+  // const indexHtml = existsSync(join(distFolder, 'index.original.html'))
+  //   ? join(distFolder, 'index.original.html')
+  //   : join(distFolder, 'index.html');
+
   const server = express();
   const distFolder = join(process.cwd(), 'dist/beta/browser');
-  const indexHtml = existsSync(join(distFolder, 'index.original.html'))
-    ? join(distFolder, 'index.original.html')
-    : join(distFolder, 'index.html');
+  const indexHtml =  join(distFolder, 'index.html');
+
+  const template = readFileSync(indexHtml).toString();
+  const window = createWindow(template);
+  (global.window as any) = window;
+  global.document = window.document;
 
   const commonEngine = new CommonEngine();
 

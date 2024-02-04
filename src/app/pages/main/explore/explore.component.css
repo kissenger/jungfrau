@@ -1,0 +1,10 @@
+.article-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.article-box-new {
+  width: 300px;
+}

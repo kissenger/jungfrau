@@ -7,13 +7,26 @@ export type PartnerCards = Array<{
   caption: string
 }>
 
-export type InstaFeed = Array<{
+export type UIPost = {
   caption: string,
   media_url: string,
-  media_type: string,
+  media_type?: string,
   permalink: string,
-  timestamp: string
-}>
+  timestamp: string,
+  header?: string,
+  category: 'Article' | 'Instagram'
+
+}
+
+// export type ArticlePost = {
+//   text: string,
+//   link: string,
+//   timestamp: string,
+//   header: string,
+//   category: 'Article'
+// }
+
+
 
 // type Image = {
 //     fname: "xxxxxxx",
@@ -41,3 +54,4 @@ export type ImageDescriptor = {
 }
 
 export type DeviceOrientation = 'landscape' | 'portrait';
+export type WidthDescriptor = 'large' | 'small';

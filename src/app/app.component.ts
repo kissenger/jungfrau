@@ -1,9 +1,10 @@
 import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
 import { Component, Injector, OnInit, PLATFORM_ID, ViewChild, ViewContainerRef } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { ExternalLinkComponent } from './shared/components/external-link/external-link.component';
+import { ExtLinkComponent } from './shared/components/ext-link/ext-link.component';
 import { isPlatformBrowser } from '@angular/common';
-import { ScrollspyService } from './shared/services/scrollspy.service';
+// import { ScrollspyService } from './shared/services/scrollspy.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -23,16 +24,18 @@ export class AppComponent implements OnInit{
   constructor(
     public subscribe: SubscribeComponent,
     private injector: Injector,
+    private route: ActivatedRoute
     // private scrollSpy: ScrollspyService
   ) {
     if (isPlatformBrowser(PLATFORM_ID)) {
-      const el = createCustomElement(ExternalLinkComponent, {injector});
+      const el = createCustomElement(ExtLinkComponent, {injector});
       // Register the custom element with the browser.
-      customElements.define('external-link', el);
+      customElements.define('ext-link', el);
     }
   }
 
   ngOnInit(): void {
+
     this.container.createComponent(SubscribeComponent);
     // this.subscribe.show();
   }

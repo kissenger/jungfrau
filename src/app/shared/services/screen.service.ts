@@ -1,31 +1,39 @@
-import { Injectable } from '@angular/core';
-import { DeviceOrientation } from '../types';
-
+import { Injectable, NgZone, OnDestroy } from '@angular/core';
+import { DeviceOrientation, WidthDescriptor } from '../types';
+import { ViewportRuler } from '@angular/cdk/scrolling';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ScreenService {
+export class ScreenService implements OnDestroy{
 
-  private _screenWidth: number | undefined;
-  private _screenHeight: number | undefined;
+  private _screenWidth: number = 0;
+  private _screenHeight: number = 0;
   private _widthThreshold = 768;
   private _deviceOrientation: DeviceOrientation = 'portrait';
-  private _widthDescriptor = 'large';
+  private _widthDescriptor: WidthDescriptor = 'large';
   private _aspectRatio = 0;
+  private viewportChangeSubs: Subscription | undefined;
 
-  constructor() {
-    this.update();
-    window.addEventListener('resize', (event) => { this.update()});
+  constructor(
+    private viewportRuler: ViewportRuler,
+    private ngZone: NgZone
+  ) {
+    this.onResize();
+    this.viewportChangeSubs = this.viewportRuler.change(200).subscribe(() => {
+      this.ngZone.run(() => this.onResize())
+    });
   }
 
-  update() {
-    this._screenWidth = window.innerWidth;
-    this._screenHeight = window.innerHeight;
-    this._deviceOrientation = (window.innerHeight / window.innerWidth) > 1.4 ? 'portrait' : 'landscape';
-    this._widthDescriptor = (window.innerWidth < this._widthThreshold) ? 'small' : 'large';
-    this._aspectRatio = window.innerHeight / window.innerWidth;
+  onResize() {
+    const {width, height} = this.viewportRuler.getViewportSize();
+    this._screenWidth = width;
+    this._screenHeight = height;
+    this._deviceOrientation = (height / width) > 1.4 ? 'portrait' : 'landscape';
+    this._widthDescriptor = (width < this._widthThreshold) ? 'small' : 'large';
+    this._aspectRatio = height / width;
   }
 
   get deviceOrientation(): DeviceOrientation {
@@ -37,7 +45,6 @@ export class ScreenService {
   }
 
   get width() {
-    console.log(window.innerWidth);
     return this._screenWidth;
   }
 
@@ -48,5 +55,12 @@ export class ScreenService {
   get aspectRatio() {
     return this._aspectRatio;
   }
+
+  ngOnDestroy(): void {
+    this.viewportChangeSubs?.unsubscribe();
+  }
+
 }
+
+
 

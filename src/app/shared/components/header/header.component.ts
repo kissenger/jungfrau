@@ -1,50 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
+import { Component, HostListener } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { NavigationEnd, Router } from '@angular/router';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
-
+import { UICardDataService } from '../../services/ui-card-data.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
 
-  public enableMenu: boolean = false;
+export class HeaderComponent {
+  @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
+
+  public enableMenu: boolean = true;
   public showDropdownMenu: boolean = false;
   public activeAnchor: string = 'home';
 
   constructor(
-    public data: DataService,
+    public uiCard: UICardDataService,
     public auth: AuthService,
-    private router: Router,
     public navigate: NavService,
     public scrollSpy: ScrollspyService,
     private screen: ScreenService
   ) {
-    router.events.subscribe( e => {
-      if (e instanceof NavigationEnd) {
-        this.enableMenu = !this.router.url.includes('privacy-policy');
-      }
-    })
     this.scrollSpy.anchorChange.subscribe( (anchorChange) => {
       if (anchorChange.active) {
         this.activeAnchor = anchorChange.id;
       }
     });
-    window.addEventListener('resize', (event) => {
-      if (this.screen.widthDescriptor === 'large') {
-        this.showDropdownMenu = false;
-      }
-    });
-
   }
 
-  ngOnInit() {
+  onLoad() {
+    if (this.screen.widthDescriptor === 'large') {
+      this.showDropdownMenu = false;
+    }
   }
 
   onHamburgerClick() {

@@ -10,17 +10,16 @@ import { AppComponent } from 'src/app/app.component';
 import { MainComponent } from 'src/app/pages/main/main.component';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
-import { CarouselComponent } from 'src/app/pages/main/slideshow/slideshow.component';
+import { SlideshowComponent } from 'src/app/pages/main/slideshow/slideshow.component';
 import { AboutUsComponent } from 'src/app/pages/main/about/about.component';
 import { BookComponent } from 'src/app/pages/main/book/book.component';
 import { PartnersComponent } from 'src/app/pages/main/partners/partners.component';
-import { FaqComponent } from 'src/app/pages/main/faq/faq.component';
+import { ExploreComponent } from 'src/app/pages/main/explore/explore.component';
 import { FeedComponent } from 'src/app/pages/main/feed/feed.component';
 import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
-import { ExternalLinkComponent } from 'src/app/shared/components/external-link/external-link.component';
-import { CanYouSnorkelInBritainComponent } from 'src/app/pages/content/can-you-snorkel-in-britain/can-you-snorkel-in-britain.component';
+import { BeginnersGuideComponent } from 'src/app/pages/content/beginners-guide/beginners-guide.component';
 
 import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
@@ -29,6 +28,9 @@ import { DataService } from 'src/app/shared/services/data.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy';
 import { ScrollspyService } from './shared/services/scrollspy.service';
+import { UICardComponent } from './shared/components/ui-card/ui-card.component';
+import { UICardDataService } from './shared/services/ui-card-data.service';
+import { ExtLinkComponent } from './shared/components/ext-link/ext-link.component';
 
 @NgModule({
   declarations: [
@@ -36,16 +38,17 @@ import { ScrollspyService } from './shared/services/scrollspy.service';
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    CarouselComponent,
+    SlideshowComponent,
     AboutUsComponent,
     BookComponent,
     PartnersComponent,
-    FaqComponent,
+    ExploreComponent,
     FeedComponent,
     PrivacyComponent,
     SubscribeComponent,
-    ExternalLinkComponent,
-    CanYouSnorkelInBritainComponent
+    ExtLinkComponent,
+    BeginnersGuideComponent,
+    UICardComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { ScrollspyService } from './shared/services/scrollspy.service';
     AuthService,
     ScrollspyService,
     SubscribeComponent,
+    UICardDataService,
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,

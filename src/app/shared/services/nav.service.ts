@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Injectable()
 
@@ -20,9 +21,12 @@ export class NavService {
 
   /* Navigate to external website if http is included in link, otherwise route internally */
   to(link: string) {
+    console.log(window)
 
     if (link.includes('http')) {
-      window.location.href = link;
+      console.log(window)
+        window.location.href = link;
+
     } else {
 
       // if routing internally, wait for nav to complete and then scroll to top of screen

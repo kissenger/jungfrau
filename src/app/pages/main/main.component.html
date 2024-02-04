@@ -50,7 +50,7 @@
   <!-- Instagram section -->
   <!-- ----------------- -->
 
-  <div class="anchor" id="feed" *ngIf="this.data.instaLoadSuccess">
+  <div class="anchor" id="feed" *ngIf="this.uiCard.instaLoadSuccess">
 
     <app-feed></app-feed>
 
@@ -79,6 +79,7 @@
   <div class="anchor" id="book">
 
     <app-book></app-book>
+  </div>
 
     <div class="parallax-window" id="windowThree">
       <div class="parallax-layer"
@@ -97,15 +98,14 @@
       </div>
     </div>
 
-  </div>
-
   <!-- ----------------- -->
   <!-- FAQs Section      -->
   <!-- ----------------- -->
 
-  <div class="anchor" id="faq">
+  <div class="anchor" id="explore">
 
-    <app-faq></app-faq>
+    <app-explore></app-explore>
+  </div>
 
     <div class="parallax-window" id="windowFour">
       <div class="parallax-layer"
@@ -123,7 +123,7 @@
           />
       </div>
     </div>
-  </div>
+
 
   <!-- ----------------- -->
   <!-- Partners Section  -->

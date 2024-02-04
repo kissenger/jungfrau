@@ -1,42 +1,38 @@
-<div *ngIf="this.data.instaLoadSuccess" class="feed-container">
+<div *ngIf="this.uiCard.instaLoadSuccess" class="dynamic-container">
 
-  <div class="feed-padding">
-    <h2>Latest Happenings</h2>
+  <!-- <div class="feed-padding"> -->
+    <h2>Find out more</h2>
     <p>
-      Our instagram feed allows us to share our progress as we explore the British coastline for snorkelling opportunities,
+      Our <app-ext-link link="https://www.instagram.com/snorkelology/" text="instagram feed"></app-ext-link>allows us to share our progress as we explore the British coastline for snorkelling opportunities,
       why not follow along?
     </p>
+  <!-- </div> -->
+
+  <div class="ckbtn-group">
+    <span>Filter:</span>
+      <div class="ckbtn">
+        <input id="ckbtn-insta" type="checkbox" checked (click)="onFilterClick('insta')">
+        <label for="ckbtn-insta">Instagram</label>
+      </div>
+      <div class="ckbtn">
+        <input id="ckbtn-article" type="checkbox" checked (click)="onFilterClick('article')">
+        <label for="ckbtn-article">Article</label>
+    </div>
   </div>
 
-  <div #feedContainer class="feed-padding insta-feed">
+  <div [ngClass]="screen.widthDescriptor === 'small' ? 'insta-feed-small' : ''" class="insta-feed">
 
-    <div class="insta-post" *ngFor="let item of instaFeed" (click)="navigate.to(item.permalink)" role="link">
-      <div class="insta-photo">
-        <img
-          ngSrc="{{item.media_url}}"
-          alt="{{item.caption}}"
-          fill
-        />
-      </div>
-
-      <span class="insta-caption-box" #captionBox>{{item.caption}}</span>
-      <span class="insta-footer">
-        <app-external-link link="{{item.permalink}}" text="View the full post on Instagram"></app-external-link>
-      </span>
-    </div>
-
-    <div class="insta-post">
-      <div class="insta-more" (click)="navigate.to('https://www.instagram.com/snorkelology/')" role="link">
-        <img
-          ngSrc="../assets/logos/instagram.webp"
-          class="image"
-          height="45"
-          width="45"
-          alt="Instagram logo"
-        />
-        <app-external-link link="https://www.instagram.com/snorkelology/" text="See more on Instagram"></app-external-link>
-      </div>
-    </div>
+    <app-ui-card *ngFor="let card of cards"
+      link="{{card.permalink}}"
+      image="{{card.media_url}}"
+      text="{{card.caption}}"
+      header="{{card.header}}"
+      category="{{card.category}}"
+      timestamp="{{card.timestamp}}"
+      >
+    </app-ui-card>
 
   </div>
+
+  See all posts and articles ....
 </div>

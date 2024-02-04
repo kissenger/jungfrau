@@ -1,0 +1,110 @@
+
+.ui-card {
+  box-shadow: var(--box-shadow-no-hover);
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  /* width: 25vw; */
+  min-width: 300px;
+  max-width: 300px;
+  overflow: hidden;
+  margin: 1rem 0 1rem 0;
+  /* height: 100%; */
+  /* border: var(--border-colour) 1px solid; */
+  border-radius: 5px;
+}
+
+.ui-card:hover {
+  box-shadow: var(--box-shadow-hover);
+  cursor: pointer;
+}
+
+
+.ui-card-photo {
+  /* height: 300px;
+  width: 300px; */
+  /* object-fit: cover; */
+  /* position: absolute; */
+  /* transform: translateY(-50px); */
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  /* border: 1px solid red; */
+  height: 200px;
+  overflow: hidden;
+}
+.ui-card-category-overlay {
+  /* display: flex;; */
+  position: absolute;
+  /* background-color: black; */
+  /* opacity: 0.7; */
+  bottom: 0;
+  left: 0;
+  color: white;
+  /* padding-inline: 0.5em; */
+  margin-bottom: 0.5em;
+  padding-inline: 0.5em;
+  /* border: blue 1px solid; */
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* line-height: 1.5em; */
+  font-size: smaller;
+
+  /* text-justify: ; */
+}
+
+.ui-card-header-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  padding-inline: 0.5em;
+  margin-top: 10px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.Instagram {
+  background-color: green;
+}
+
+.Article {
+  background-color: navy;
+}
+
+.ui-card-date {
+  position: relative;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  font-size: small;
+  font-weight: 400;
+  /* text-align: center; */
+
+}
+
+.ui-card-text {
+  /* margin-inline: 0.5rem; */
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--insta-box-lines);
+  /* border: 1px solid blue; */
+  display: -webkit-box;
+  height: calc( 1em * var(--line-height) * var(--insta-box-lines));
+  font-size: smaller;
+  margin-bottom: auto;
+  margin-inline: 0.7rem;
+  /* border: 1px green solid; */
+}
+
+/* .insta-post > p {
+  margin: 0.5rem;
+} */
+
+.ui-card-footer {
+  font-size: smaller;
+  /* justify-content: self-end; */
+  margin: 0rem 0.7rem 0.7rem 0.7rem;
+  padding: 0;
+
+}

@@ -8,30 +8,6 @@ import { ImageDB, ImageDescriptor } from '../types';
 
 export class DataService {
 
-/* ===================================================
-                Instagram
- Should this be in a separate service?
- ===================================================*/
-
-  private _instLoadSuccess = true;
-  private _instTimestamp: string = '';
-
-  get instaLoadSuccess() {
-    return this._instLoadSuccess;
-  }
-
-  set instaLoadSuccess(value: boolean) {
-    this._instLoadSuccess = value;
-  }
-
-  get instaTimestamp() {
-    return this._instTimestamp;
-  }
-
-  set instaTimestamp(value:string) {
-    this._instTimestamp = value;
-  }
-
  /* ===================================================
                   Partner Cards
  ===================================================*/
@@ -48,40 +24,49 @@ export class DataService {
     fname: 'assets/logos/christaylorphoto.webp',
     height: 100,
     width: 100,
-    altText: 'Chris Taylor Photo Logo',
-    caption: 'Chris has been wildly supportive of our project since we got in touch, and is doing great work promoting marine conservation in Norfolk.'
+    altText: 'Chris Taylor Photo Logo'
   },
   {
     href: 'https://www.alphamarinephoto.com',
     fname: 'assets/logos/alphamarine.webp',
     height: 100,
     width: 133,
-    altText: 'Alphamarine Logo',
-    caption: 'Alphamarine supplied our u/w camera housing, and supported our developing underwater skills with guidance and advice.'
+    altText: 'Alphamarine Logo'
   },
   {
     href: 'https://www.wildlifetrusts.org',
     fname: 'assets/logos/wildlifetrusts.webp',
     height: 101,
     width: 250,
-    altText: 'Wildlife Trusts Logo',
-    caption: 'The Wildlife Trusts are a federation of 46 regional charities doing super work promoting the prection of our wild spaces.'
+    altText: 'Wildlife Trusts Logo'
   },
   {
     href: 'https://jenandsimbenson.co.uk/',
     fname: 'assets/logos/wild-running-jacket-cover.webp',
     height: 100,
     width: 82,
-    altText: 'Wild Running by Sim and Jen Benson',
-    caption: 'Jen and Sim write award-winning guide-books complimented with beautiful photography, and are super lovely people to boot!'
+    altText: 'Wild Running by Sim and Jen Benson'
   },
   {
     href: 'https://wildthingspublishing.com',
     fname: 'assets/logos/wild-things-publishing.webp',
     height: 104,
     width: 100,
-    altText: 'Wild Things Publishing Logo',
-    caption: 'Wild Things Publishing publish inspiring and beautiful guide books for explorers of all kinds.'
+    altText: 'Wild Things Publishing Logo'
+  },
+  {
+    href: 'https://www.jethrophoto.com/',
+    fname: 'assets/logos/jethro-haynes.png',
+    height: 104,
+    width: 100,
+    altText: 'Jethro Haynes Photography'
+  },
+  {
+    href: 'https://www.stmartinswatersports.co.uk/',
+    fname: 'assets/logos/St Martins Watersports Logo Navy.webp',
+    height: 89,
+    width: 196,
+    altText: 'St Martin\'s Watersports'
   }
 ]
 
@@ -193,6 +178,34 @@ export class DataService {
       portrait: {height: 740, width: 400 },
       landscape: {height: 1333, width: 2000}
     },
+    "drone-rocks": {
+      basePath: "assets/photos/content/",
+      fname: "drone-view-snorkelling-reef-rocks-uk-britain",
+      extension: "webp",
+      altText: "Drone view of rocky snorkelling reef, Devon",
+      height: 400,
+      width: 600
+    },
+    "drone-rocks-sq": {
+      basePath: "assets/photos/content/",
+      fname: "drone-view-snorkelling-reef-rocks-uk-britain-square",
+      extension: "webp",
+      altText: "Drone view of rocky snorkelling reef, Devon",
+      height: 1000,
+      width: 1000,
+      href: 'snorkelling/beginners-guide-to-snorkelling-in-britain',
+
+    },
+    "snorkpooling-sq": {
+      basePath: "assets/photos/content/",
+      fname: "snorkpooling-sq",
+      extension: "webp",
+      altText: "Drone view of rocky snorkelling reef, Devon",
+      height: 1000,
+      width: 1000,
+      href: 'snorkelling/beginners-guide-to-snorkelling-in-britain',
+
+    }
   }
 
 

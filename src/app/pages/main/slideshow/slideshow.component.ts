@@ -1,41 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, HostListener } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from 'src/app/shared/services/nav.service';
+
 
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
   styleUrls: ['./slideshow.component.css']
 })
-export class CarouselComponent implements OnInit {
+export class SlideshowComponent {
+
+  @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
 
   private delta = 0;
   private slideshowElement?: HTMLElement;
-  private overlayElement?: HTMLElement;
   private mouseOver: boolean = false;
 
   constructor(
     public images: ImageService,
     public navigate: NavService
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
+  onLoad() {
 
-    window.addEventListener( "load", (event) => {
+    this.slideshowElement = document.getElementById('slideshow')!;
 
-      this.slideshowElement = document.getElementById('slideshow')!;
+    // duplicate slide 1 and add as a child of slideshow
+    let slide1 = document.getElementById("slide1")!.cloneNode(true);
+    this.slideshowElement.appendChild(slide1);
 
-      // duplicate slide 1 and add as a child of slideshow
-      let slide1 = document.getElementById("slide1")!.cloneNode(true);
-      this.slideshowElement.appendChild(slide1);
-
-      // inhibit autoscrill if mouse is over the slideshow (or arrow) element(s)
-      Array.from(document.getElementsByClassName('overlay')).forEach( (elem) => {
-        elem.addEventListener('mousemove', (e) => { this.mouseOver = true;  });
-        elem.addEventListener('mouseout', (e) =>  { this.mouseOver = false; });
-      })
-
-    }, false );
+    // inhibit autoscrill if mouse is over the slideshow (or arrow) element(s)
+    Array.from(document.getElementsByClassName('overlay')).forEach( (elem) => {
+      elem.addEventListener('mousemove', (e) => { this.mouseOver = true;  });
+      elem.addEventListener('mouseout', (e) =>  { this.mouseOver = false; });
+    })
 
     setInterval( () => {
       if (!this.mouseOver) {

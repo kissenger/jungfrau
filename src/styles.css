@@ -4,14 +4,14 @@
   --scaleRatioImg: 1;
   --scaleRatioWindow: 1;
   --line-height: 1.7;
-  --insta-box-lines: 4;
+  --insta-box-lines: 8;
 
   --text-colour: #566F70;
   --link-colour: #009AF7;
   --border-colour: #DEE2E6;
 
-  --box-shadow-no-hover: 0 3px 6px lightgrey;
-  --box-shadow-hover: 0 6px 12px lightgrey;
+  --box-shadow-no-hover: 6px 6px 18px grey;
+  --box-shadow-hover: 6px 6px 18px rgb(51, 51, 51);
   --box-shadow-bottom-only: 0 3px 6px -6px grey, 0 3px 6px -6px grey;
 
 }
@@ -176,6 +176,14 @@ p {
   padding-bottom: 1rem;
 }
 
+
+.feed-container {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 1rem; */
+}
 
 .feed-padding {
   padding-inline: calc( (100vw - var(--container-width) ) / 2 );
