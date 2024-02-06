@@ -1,0 +1,31 @@
+
+form > input {
+  width: 50%;
+  margin: 0.5rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: var(--border-colour);
+  padding-inline: 1rem;
+  box-shadow: none;
+}
+
+form > input:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--link-colour);
+  /* box-shadow: 0 0 2px 3px; */
+  /* border: 1px var(--link-colour) solid; */
+}
+
+form > button {
+  font-size: 1rem;
+
+}
+
+.invalid-email {
+  /* border-color: red; */
+  border-radius: 5px;
+  box-shadow: 0 0 8px red;
+}
+

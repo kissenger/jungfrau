@@ -6,6 +6,7 @@ import { NavService } from 'src/app/shared/services/nav.service';
   templateUrl: './privacy-policy.component.html',
   styleUrls: ['./privacy-policy.component.css']
 })
+
 export class PrivacyComponent implements OnInit {
 
 

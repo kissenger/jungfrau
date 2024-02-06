@@ -17,7 +17,7 @@ import { PartnersComponent } from 'src/app/pages/main/partners/partners.componen
 import { FAQComponent } from 'src/app/pages/main/faq/faq.component';
 import { ExploreComponent } from 'src/app/pages/main/explore/explore.component';
 import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
-import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
+import { SubscribeComponent } from 'src/app/pages/subscribe/subscribe.component';
 import { BeginnersGuideComponent } from 'src/app/pages/content/beginners-guide/beginners-guide.component';
 
 import { HttpService } from 'src/app/shared/services/http.service';
@@ -72,7 +72,6 @@ import { ContentComponent } from './pages/content/content.component';
     ImageService,
     DataService,
     ScrollspyService,
-    SubscribeComponent,
     UICardDataService,
     provideClientHydration(
       withHttpTransferCacheOptions({
