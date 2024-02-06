@@ -17,12 +17,14 @@ import { ImageService } from '../../services/image.service';
         <div class="ui-card-header-overlay">{{header}}</div>
       </div>
 
-      <span *ngIf="timestamp!=''" class="ui-card-date">{{timestamp | date: "dd MMMM YYYY"}}</span>
-      <span *ngIf="timestamp===''" class="ui-card-date">Snorkelology</span>
-      <div class="ui-card-text">{{text}}</div>
-      <div class="ui-card-footer">
-        <a *ngIf="category!='Instagram'" class="ext-link html-link" (click)="navigate.to(link)" role="link">Read more...</a>
-        <app-ext-link *ngIf="category==='Instagram'" link="{{link}}" text="Read more on Instagram"></app-ext-link>
+      <div class="ui-card-bottom">
+        <span *ngIf="timestamp!=''" class="ui-card-date">{{timestamp | date: "dd MMMM YYYY"}}</span>
+        <span *ngIf="timestamp===''" class="ui-card-date">Snorkelology</span>
+        <div class="ui-card-text">{{text}}</div>
+        <div class="ui-card-footer">
+          <a *ngIf="category!='Instagram'" class="ext-link html-link" (click)="navigate.to(link)" role="link">Read more...</a>
+          <app-ext-link *ngIf="category==='Instagram'" link="{{link}}" text="Read more on Instagram"></app-ext-link>
+        </div>
       </div>
     </div>
   `,

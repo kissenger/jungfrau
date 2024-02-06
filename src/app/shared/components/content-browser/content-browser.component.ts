@@ -1,4 +1,5 @@
-import { Component, OnDestroy, HostListener} from '@angular/core';
+
+import { Component, OnDestroy, HostListener, Input} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { HttpService } from 'src/app/shared/services/http.service';
@@ -8,16 +9,17 @@ import { UIPost } from 'src/app/shared/types';
 import { UICardDataService } from 'src/app/shared/services/ui-card-data.service';
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css'],
+  selector: 'app-content-browser',
+  templateUrl: './content-browser.component.html',
+  styleUrls: ['./content-browser.component.css'],
 })
 
-export class FeedComponent implements OnDestroy {
+export class ContentBrowserComponent implements OnDestroy {
+  @Input() contentType: 'limited' | 'all' = 'all';
   @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
 
   private httpSubs: Subscription | undefined;
-  private maxPosts: number = 12;
+  private maxPosts: number = this.contentType === 'all' ? 99 : 12;
   public cards: Array<UIPost> = [];
   private instaFeed: Array<UIPost> = [];
   private articles: Array<UIPost> = [];
@@ -61,7 +63,6 @@ export class FeedComponent implements OnDestroy {
         this.ckbtnArticle!.checked = true;
       }
     } else {
-      console.log('hello');
       this.updateFeed();
     }
   }
@@ -69,6 +70,7 @@ export class FeedComponent implements OnDestroy {
   // TODO: this woul dbe better managed using 'hidden' CSS to simply hide the elemts we dont want to show,
   // instead of recalculating the array each time
   updateFeed() {
+
     if (this.ckbtnInsta?.checked && !this.ckbtnArticle?.checked) {
       this.cards = [...this.instaFeed].slice(0, this.maxPosts);
     } else if (this.ckbtnArticle?.checked && !this.ckbtnInsta?.checked) {
@@ -78,7 +80,7 @@ export class FeedComponent implements OnDestroy {
       let index = 0;
       this.articles.forEach( (article) => {
         this.cards.splice(index,0,article);
-        index+=3
+        index+=2
       })
       this.cards = this.cards.slice(0, this.maxPosts);
     }

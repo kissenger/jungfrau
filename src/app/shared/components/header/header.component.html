@@ -44,13 +44,13 @@
       <li [ngClass]="activeAnchor === 'about' ? 'active' : ''" (click)="onMenuItemClick('about')" role="link">About</li>
 
       <span *ngIf="this.uiCard.instaLoadSuccess" class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'feed' ? 'active' : ''" *ngIf="this.uiCard.instaLoadSuccess" (click)="onMenuItemClick('feed')" role="link">Feed</li>
+      <li [ngClass]="activeAnchor === 'explore' ? 'active' : ''" *ngIf="this.uiCard.instaLoadSuccess" (click)="onMenuItemClick('explore')" role="link">Explore</li>
 
       <span class="middot">&middot;</span>
       <li [ngClass]="activeAnchor === 'book' ? 'active' : ''" (click)="onMenuItemClick('book')" role="link">Book</li>
 
       <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'explore' ? 'active' : ''" (click)="onMenuItemClick('explore')" role="link">Explore</li>
+      <li [ngClass]="activeAnchor === 'faq' ? 'active' : ''" (click)="onMenuItemClick('faq')" role="link">FAQs</li>
 
       <span class="middot">&middot;</span>
       <li [ngClass]="activeAnchor === 'partners' ? 'active' : ''" (click)="onMenuItemClick('partners')" role="link">Friends</li>

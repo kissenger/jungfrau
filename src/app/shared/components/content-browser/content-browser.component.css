@@ -1,39 +1,23 @@
 
 
 .insta-feed {
-  /* display: flex;
-  flex-wrap: wrap;
-  padding-top: 1em;
-  flex-direction: row;
-  justify-content: space-around; */
   margin-top: 2rem;
   margin-bottom: 2rem;
   display: grid;
-  /* border: 1px red solid; */
   width: 100%;
-  /* gap: 5px; */
-  /* grid-auto-flow: column; */
-  /* grid-auto-columns: fit-content; */
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-  grid-template-rows: auto auto;
-  grid-auto-rows: 0px;
-  /* grid-auto-columns: auto; */
+  grid-template-rows: repeat(2, auto);
   overflow: hidden;
   justify-content: space-around;
-  /* place-items: center; */
-  /* align-content: space-around; */
+}
+
+.limited-rows {
+  grid-auto-rows: 0px;
 }
 
 .insta-feed-small {
   grid-template-rows: auto auto auto auto;
-
 }
-/*
-.hidden {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-} */
 
 .ckbtn-group {
   display: flex;
@@ -44,11 +28,9 @@
 }
 
 .ckbtn {
-  /* margin:4px; */
   border-radius: 15px;
   border:1px solid var(--border-colour);
   overflow: hidden;
-  /* float:left; */
   margin-inline: 0.2rem;
   width: 90px;
   font-size: smaller;
@@ -65,17 +47,14 @@
   display:block;
   cursor: pointer;
   height: 100%;
-  /* background-color: rgba(0,0,0,0); */
 }
 
 #ckbtn-insta:checked + label {
   background-color:green;
   color:#fff;
-  /* box-shadow: var(--box-shadow-no-hover); */
 }
 
 #ckbtn-article:checked + label {
   background-color:navy;
   color:#fff;
-  /* box-shadow: var(--box-shadow-no-hover); */
 }

@@ -14,10 +14,9 @@ import { SlideshowComponent } from 'src/app/pages/main/slideshow/slideshow.compo
 import { AboutUsComponent } from 'src/app/pages/main/about/about.component';
 import { BookComponent } from 'src/app/pages/main/book/book.component';
 import { PartnersComponent } from 'src/app/pages/main/partners/partners.component';
+import { FAQComponent } from 'src/app/pages/main/faq/faq.component';
 import { ExploreComponent } from 'src/app/pages/main/explore/explore.component';
-import { FeedComponent } from 'src/app/pages/main/feed/feed.component';
 import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.component';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { SubscribeComponent } from 'src/app/shared/components/subscribe/subscribe.component';
 import { BeginnersGuideComponent } from 'src/app/pages/content/beginners-guide/beginners-guide.component';
 
@@ -31,6 +30,8 @@ import { ScrollspyService } from './shared/services/scrollspy.service';
 import { UICardComponent } from './shared/components/ui-card/ui-card.component';
 import { UICardDataService } from './shared/services/ui-card-data.service';
 import { ExtLinkComponent } from './shared/components/ext-link/ext-link.component';
+import { ContentBrowserComponent } from './shared/components/content-browser/content-browser.component';
+import { ContentComponent } from './pages/content/content.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +43,15 @@ import { ExtLinkComponent } from './shared/components/ext-link/ext-link.componen
     AboutUsComponent,
     BookComponent,
     PartnersComponent,
+    FAQComponent,
     ExploreComponent,
-    FeedComponent,
     PrivacyComponent,
     SubscribeComponent,
     ExtLinkComponent,
     BeginnersGuideComponent,
     UICardComponent,
+    ContentBrowserComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,6 @@ import { ExtLinkComponent } from './shared/components/ext-link/ext-link.componen
     NavService,
     ImageService,
     DataService,
-    AuthService,
     ScrollspyService,
     SubscribeComponent,
     UICardDataService,

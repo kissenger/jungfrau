@@ -1,43 +1,14 @@
 <div class="dynamic-container">
 
-  <!-- <div class="feed-padding"> -->
-    <h2>Our Friends and Partners</h2>
-    <p>
-      We have made some fabulous contacts on our book-writing journey, and as a way of saying thanks we have featured many of
-      them below...  Please support them by clicking on the links and exploring.
-    </p>
-  <!-- </div> -->
+  <h2>Our Friends and Partners</h2>
+  <p>
+    We have made some fabulous contacts on our book-writing journey, and as a way of saying thanks we have featured many of
+    them below...  Please support them by clicking on the links and exploring.
+  </p>
 
   <div #feedContainer class="logo-roller">
-
-
-    <!-- <div class="partner-card-container"> -->
-
-      <div class="logo-holder" *ngFor="let card of partnerCards" (click)="navigate.to(card.href!)" role="link">
-
-          <!-- <div class="external-link-overlay">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              aria-hidden="true"
-              role="img"
-              width="1em"
-              height="1em"
-              preserveAspectRatio="xMidYMid meet"
-              viewBox="0 0 20 20">
-              <path d="M9 3h8v8l-2-1V6.92l-5.6 5.59l-1.41-1.41L14.08 5H10zm3 12v-3l2-2v7H3V6h8L9 8H5v7h7z" fill="#566F70"/>
-            </svg>
-          </div> -->
-
-          <img [ngSrc]="card.fname" [height]="card.height" [width]="card.width" class="partner-card-img" [alt]="card.altText" />
-
-          <!-- <div class="partner-card-text">
-            {{card.caption}}
-          </div> -->
-
-        <!-- </div> -->
-      <!-- </div> -->
-
+    <div class="logo-holder" *ngFor="let card of partnerCards" (click)="navigate.to(card.href!)" role="link">
+      <img [ngSrc]="card.fname" [height]="card.height" [width]="card.width" class="partner-card-img" [alt]="card.altText" />
     </div>
-
+  </div>
 </div>

@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
@@ -20,7 +19,6 @@ export class HeaderComponent {
 
   constructor(
     public uiCard: UICardDataService,
-    public auth: AuthService,
     public navigate: NavService,
     public scrollSpy: ScrollspyService,
     private screen: ScreenService

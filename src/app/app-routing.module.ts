@@ -3,12 +3,13 @@ import { PrivacyComponent } from 'src/app/pages/privacy-policy/privacy-policy.co
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BeginnersGuideComponent } from './pages/content/beginners-guide/beginners-guide.component';
+import { ContentComponent } from './pages/content/content.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent, data: {enableMenu: 'true'}},
-  { path: 'privacy-policy', component: PrivacyComponent, data: {enableMenu: 'true'} },
-  // { path: 'snorkelling', redirectTo: 'snorkelling/can-you-snorkel-in-britain', pathMatch: 'full', data: {shouldReuse: false}},
+  { path: 'snorkelling-in-britain', component: ContentComponent, data: {enableMenu: 'false'}},
   { path: 'snorkelling-in-britain/beginners-guide', component: BeginnersGuideComponent, data: {enableMenu: 'false'}},
+  { path: 'privacy-policy', component: PrivacyComponent, data: {enableMenu: 'true'} },
   // { path: '**', redirectTo: '', pathMatch: 'full'}
 
 ];

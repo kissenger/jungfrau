@@ -9,7 +9,7 @@ header {
   padding: 0;
   height: var(--navbar-height);
   background-color: white;
-  box-shadow: var(--box-shadow-bottom-only);
+  box-shadow: var(--box-shadow-header);
   /* border: 1px red solid; */
 }
 

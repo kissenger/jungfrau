@@ -1,0 +1,29 @@
+<div class="ckbtn-group">
+  <span>Filter:</span>
+    <div class="ckbtn">
+      <input id="ckbtn-insta" type="checkbox" checked (click)="onFilterClick('insta')">
+      <label for="ckbtn-insta">Instagram</label>
+    </div>
+    <div class="ckbtn">
+      <input id="ckbtn-article" type="checkbox" checked (click)="onFilterClick('article')">
+      <label for="ckbtn-article">Article</label>
+  </div>
+</div>
+
+<div
+  [ngClass]="{
+    'insta-feed-small': screen.widthDescriptor == 'small',
+    'limited-rows': contentType=='limited'
+    }" class="insta-feed">
+
+  <app-ui-card *ngFor="let card of cards"
+    link="{{card.permalink}}"
+    image="{{card.media_url}}"
+    text="{{card.caption}}"
+    header="{{card.header}}"
+    category="{{card.category}}"
+    timestamp="{{card.timestamp}}"
+    >
+  </app-ui-card>
+
+</div>

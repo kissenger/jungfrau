@@ -1,23 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
-import { ImageService } from 'src/app/shared/services/image.service';
+import { Component} from '@angular/core';
 import { NavService } from 'src/app/shared/services/nav.service';
 
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.css']
+  styleUrls: ['../main.component.css'],
 })
-export class ExploreComponent implements OnInit {
+
+export class ExploreComponent {
 
   constructor(
-    public data: DataService,
-    public images: ImageService,
     public navigate: NavService
-
-  ) { }
-
-  ngOnInit(): void {
-  }
+  ) {}
 
 }

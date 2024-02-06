@@ -67,6 +67,13 @@ export class DataService {
     height: 89,
     width: 196,
     altText: 'St Martin\'s Watersports'
+  },
+  {
+    href: 'https://www.snorkelwild.com/',
+    fname: 'assets/logos/Snorkel Wild logo v2.webp',
+    height: 100,
+    width: 100,
+    altText: 'St Martin\'s Watersports'
   }
 ]
 
