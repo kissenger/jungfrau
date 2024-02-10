@@ -15,16 +15,16 @@
 
   <form>
     <input
-      type="email"
+      type="pattern"
+      pattern="^$|^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"
       name="email"
-      [ngClass]="{'invalid-email': notValidEmail()}"
       id="emailInput"
-      aria-describedby="emailHelp"
       [(ngModel)]="email"
+      aria-describedby="emailHelp"
       placeholder="Email address"
       required
     >
-    <button type="submit">Subscribe</button>
+    <button type="submit" (click)="onSubmit()">Subscribe</button>
 
   </form>
 </div>

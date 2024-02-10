@@ -1,9 +1,12 @@
-
+form {
+  width: 100%;
+  text-align: center;
+}
 form > input {
   width: 50%;
-  margin: 0.5rem;
+  margin: 1rem;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: var(--line-height);
   border-radius: 5px;
   border-width: 1px;
   border-color: var(--border-colour);
@@ -13,19 +16,36 @@ form > input {
 
 form > input:focus {
   outline: none;
-  box-shadow: 0 0 8px var(--link-colour);
-  /* box-shadow: 0 0 2px 3px; */
-  /* border: 1px var(--link-colour) solid; */
+}
+
+form > input:invalid {
+  border-radius: 5px;
+  border: red solid 1px;
+}
+
+form > input {
+  outline: none;
 }
 
 form > button {
+  color: var(--text-colour);
   font-size: 1rem;
-
-}
-
-.invalid-email {
-  /* border-color: red; */
+  line-height: var(--line-height);
+  cursor: pointer;
   border-radius: 5px;
-  box-shadow: 0 0 8px red;
+  border-width: 1px;
+  border-color: var(--text-colour);
 }
+
+form > button:hover {
+  background-color: lightgrey;
+}
+
+form:invalid > button {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+
+
 

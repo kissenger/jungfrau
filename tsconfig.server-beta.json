@@ -2,6 +2,8 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "outDir": "./out-tsc/server",
     "types": [
@@ -10,6 +12,7 @@
   },
   "files": [
     "src/main.server.ts",
-    "server-beta.ts"
+    "server-beta.ts",
+    "schema/contact.ts"
   ]
 }

@@ -7,8 +7,8 @@
 /bazel-out
 
 # GST
-/nodejs/node_modules
-/nodejs/.env
+# /nodejs/node_modules
+.env
 /src/environments/
 
 # Node

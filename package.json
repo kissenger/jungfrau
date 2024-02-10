@@ -29,10 +29,10 @@
     "@angular/platform-server": "^17.0.8",
     "@angular/router": "^17.0.8",
     "@angular/ssr": "^17.0.8",
-    "bootstrap-icons": "^1.11.2",
-    "domino": "^2.1.6",
+    "domino": "https://github.com/angular/domino.git#9e7881d2ac1e5977cefbc557f935931ec23f6658",
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
-    "html-loader": "^4.2.0",
+    "mongoose": "^8.1.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.2"

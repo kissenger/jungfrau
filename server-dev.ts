@@ -1,16 +1,35 @@
 import 'zone.js/node';
-
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import * as express from 'express';
-import { existsSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import AppServerModule from './src/main.server';
-
 import { createWindow } from 'domino';
+
+// **** API setup - added gst
+import mongoose from 'mongoose';
+import ContactsModel from './schema/contact';
+
+const dotenv = require('dotenv').config();
+if (dotenv.error) {
+  console.log(`ERROR from app.js: ${dotenv.error}`);
+  process.exit(0);
+}
+
+const pwd = process.env['MONGODB_PASSWORD'];
+const db = process.env['MONGODB_DBNAME'];
+mongoose.connect(`mongodb+srv://root:${pwd}@cluster0-5h6di.gcp.mongodb.net/${db}?retryWrites=true&w=majority`);
+mongoose.connection
+  .on('error', console.error.bind(console, 'connection error:'))
+  .on('close', () => console.log('MongoDB disconnected'))
+  .once('open', () => console.log('MongoDB connected') );
+// **** End of API setup
+
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
+
   const server = express();
   const distFolder = join(process.cwd(), 'dist/beta/browser');
   const indexHtml =  join(distFolder, 'index.html');
@@ -26,8 +45,23 @@ export function app(): express.Express {
   server.set('views', distFolder);
 
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
+  // *** API Endpoints
+  server.use(express.json());
+  server.get('/api/ping/', (req, res) => {
+    res.status(201).json({hello: 'world'});
+  })
+
+  server.post('/api/store-email', async (req, res) => {
+    try {
+      const newDocument = await ContactsModel.create( {email: req.body.email} );
+      res.status(201).json({_id: newDocument});
+    } catch (error: any) {
+      res.status(500).send(error.message);
+    }
+  });
+
+  // *** End of API Endpoints
+
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'

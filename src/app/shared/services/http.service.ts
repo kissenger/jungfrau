@@ -8,18 +8,20 @@ import { environment } from 'src/environments/environment';
 
 export class HttpService {
 
-  // private backendURL = `${environment.PROTOCOL}://${environment.BACKEND_URL}`;
+  private backendURL = `${environment.PROTOCOL}://${environment.BACKEND_URL}`;
 
   constructor(
     private http: HttpClient
     ) {
   }
 
-
   getInstaPosts() {
     return this.http
       .get<any>(`https://graph.instagram.com/v18.0/me/media?fields=media_url,media_type,caption,timestamp,permalink&access_token=${environment.INSTA_TESTER_TOKEN}`)
   }
 
+  storeEmail(contact: {email: string}) {
+    return this.http.post<any>(`${this.backendURL}/store-email/`, contact);
+  }
 
 }
