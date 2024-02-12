@@ -2,9 +2,8 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
-import { UICardDataService } from '../../services/ui-card-data.service';
+import { UICardDataService } from 'src/app/shared/services/ui-card-data.service';
 import { Subscription } from 'rxjs';
-import { Event, ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,8 +14,8 @@ import { Event, ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 export class HeaderComponent implements OnDestroy {
   @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
 
-  private scrollspySubs: Subscription | undefined;
-  private routerSubs: Subscription | undefined;
+  private scrollspySubs: Subscription;
+  private navSubs: Subscription;
 
   public enableMenu: boolean = true;
   public showDropdownMenu: boolean = false;
@@ -27,7 +26,6 @@ export class HeaderComponent implements OnDestroy {
     public navigate: NavService,
     public scrollSpy: ScrollspyService,
     private screen: ScreenService,
-    private router: Router
   ) {
 
     this.scrollspySubs = this.scrollSpy.anchorChange.subscribe( (anchorChange) => {
@@ -36,11 +34,9 @@ export class HeaderComponent implements OnDestroy {
       }
     });
 
-    this.routerSubs = this.router.events.subscribe( (event: Event) => {
-      if (event instanceof NavigationEnd) {
-        this.enableMenu = window.location.pathname === '/';
-      }
-    });
+    this.navSubs = this.navigate.end.subscribe( (url) => {
+      this.enableMenu = url === '/';
+    })
 
   }
 
@@ -75,7 +71,7 @@ export class HeaderComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.scrollspySubs?.unsubscribe();
-    this.routerSubs?.unsubscribe();
+    this.navSubs?.unsubscribe();
   }
 
 }

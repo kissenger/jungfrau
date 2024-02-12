@@ -1,4 +1,3 @@
-import { Router, Event, NavigationEnd } from '@angular/router';
 import { Component, OnDestroy, HostListener} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -22,7 +21,8 @@ export class ContentBrowserComponent implements OnDestroy {
 
   private httpSubs: Subscription | undefined;
   private screenSubs: Subscription | undefined;
-  private routerSubs: Subscription | undefined;
+  private navSubs: Subscription;
+
   public cards: Array<UIPost> = [];
   public instas: Array<UIPost> = [];
   private articles: Array<UIPost> = [];
@@ -36,7 +36,6 @@ export class ContentBrowserComponent implements OnDestroy {
     public screen: ScreenService,
     public navigate: NavService,
     public uiCard: UICardDataService,
-    private router: Router
   ) {
 
     this.articles = this.uiCard.articles;
@@ -58,11 +57,9 @@ export class ContentBrowserComponent implements OnDestroy {
       this.updateFeed();
     });
 
-    this.routerSubs = this.router.events.subscribe( (event: Event) => {
-      if (event instanceof NavigationEnd) {
-        this.limitPosts = window.location.pathname === '/';
-        this.updateFeed();
-      }
+    this.navSubs = this.navigate.end.subscribe( (url) => {
+      this.limitPosts = url === '/';
+      this.updateFeed();
     })
 
   }
@@ -114,7 +111,7 @@ export class ContentBrowserComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.httpSubs?.unsubscribe();
     this.screenSubs?.unsubscribe();
-    this.routerSubs?.unsubscribe();
+    this.navSubs?.unsubscribe();
   }
 
 }

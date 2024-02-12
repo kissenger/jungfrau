@@ -1,16 +1,25 @@
 import { Location } from '@angular/common';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Router, NavigationEnd, Event } from '@angular/router';
+import { Subscribable, Subscription } from 'rxjs';
 
 
 @Injectable()
 
 export class NavService {
 
+  public end = new EventEmitter<string>();
+
   constructor(
     private router: Router,
     private location: Location
-  ) {}
+  ) {
+    this.router.events.subscribe( (event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.end.emit(window.location.pathname);
+      }
+    });
+  }
 
   scrollTo(element: string) {
     document.getElementById(element)!.scrollIntoView({
