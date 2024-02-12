@@ -12,8 +12,8 @@ import { isPlatformBrowser } from '@angular/common';
 
 export class ScrollspyService {
 
-  @Output() public anchorChange = new EventEmitter<{id: string, active: boolean}>();
-  @Output() public windowChange = new EventEmitter<{id: string, active: boolean}>();
+  public anchorChange = new EventEmitter<{id: string, active: boolean}>();
+  public windowChange = new EventEmitter<{id: string, active: boolean}>();
   private observer: any;
 
 

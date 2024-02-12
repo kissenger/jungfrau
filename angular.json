@@ -152,10 +152,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "jungfrau:build:production"
+              "buildTarget": "jungfrau:build:production"
             },
             "development": {
-              "browserTarget": "jungfrau:build:development"
+              "buildTarget": "jungfrau:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -164,7 +164,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "jungfrau:build"
+            "buildTarget": "jungfrau:build"
           }
         },
         "test": {

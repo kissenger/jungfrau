@@ -22,7 +22,7 @@ export class MainComponent implements OnInit, OnDestroy {
     private scrollSpy: ScrollspyService,
     public uiCard: UICardDataService
   ) {
-    this.scrollSpy.windowChange.subscribe( (changedWindow) => {
+    this.scrollspySubs = this.scrollSpy.windowChange.subscribe( (changedWindow) => {
       document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
     })
   }

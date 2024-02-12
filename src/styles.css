@@ -169,6 +169,7 @@ p {
 }
 
 .dynamic-container {
+  display: block;
   background-color: white;
   padding-inline: calc( (100vw - var(--container-width) ) / 2 );
   /* Adding a small padding prevents margin collapse */
@@ -238,7 +239,6 @@ router-outlet + * {
   /* transform-style: preserve-3d; */
   position: relative;
 }
-
 
 .parallax {
   perspective: 300px;

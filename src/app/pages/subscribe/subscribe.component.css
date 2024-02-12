@@ -1,16 +1,26 @@
+.subscribe {
+  min-height: calc( 100vh - 150px - var(--navbar-height) - 10px);
+  margin: 0;
+  padding-bottom: 0;
+  overflow-y: hidden;
+  /* padding: 0; */
+}
+
 form {
   width: 100%;
-  text-align: center;
+  /* border: 1px orange solid; */
+  /* text-align: center; */
 }
+
 form > input {
   width: 50%;
-  margin: 1rem;
+  margin: 1rem 0 0 0;
   font-size: 1rem;
   line-height: var(--line-height);
   border-radius: 5px;
   border-width: 1px;
   border-color: var(--border-colour);
-  padding-inline: 1rem;
+  padding-inline: 0;
   box-shadow: none;
 }
 
@@ -41,11 +51,30 @@ form > button:hover {
   background-color: lightgrey;
 }
 
+@media (max-width: 767px) {
+  form > input, form > button {
+    width: 100%;
+  }
+}
+
 form:invalid > button {
   opacity: 0.3;
   pointer-events: none;
 }
 
+form > div {
+  color: red;
+  /* border: red solid 1px; */
+  font-size: smaller;
+  /* margin-top: 0.1rem; */
+}
+form:invalid > div {
+  visibility: visible;
+}
+
+form:valid > div {
+  visibility: hidden;
+}
 
 
 

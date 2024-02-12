@@ -14,7 +14,7 @@ export class AppComponent {
 
   title = 'Snorkelology';
 
-  @ViewChild('container', { read: ViewContainerRef, static: true  }) container!: ViewContainerRef;
+  // @ViewChild('container', { read: ViewContainerRef, static: true  }) container!: ViewContainerRef;
 
   constructor(
     private injector: Injector,

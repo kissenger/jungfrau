@@ -2,7 +2,7 @@
 .slideshow-container {
   width: 100%;
   overflow: hidden;
-  /* z-index: 99; */
+  z-index: 99999;
 }
 
 .slideshow {

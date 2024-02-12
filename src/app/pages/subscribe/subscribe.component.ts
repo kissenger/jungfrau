@@ -22,10 +22,20 @@ export class SubscribeComponent implements OnInit {
   }
 
   onSubmit() {
+    document.body.style.cursor = "wait";
     let data = {email: this.email};
-    console.log(data);
-    this.httpSubs = this.http.storeEmail(data).subscribe( (result) => {
-      console.log(result)
+    this.httpSubs = this.http.storeEmail(data).subscribe( {
+      next: (result) => {
+        window.alert("Success! Your email address was saved ... We'll be in touch.");
+        document.body.style.cursor = "default";
+        this.email = "";
+        console.log(result);
+      },
+      error: (error) => {
+        window.alert("Oops, something didn't work out.  Please try again.");
+        document.body.style.cursor = "default";
+        console.log(error);
+      }
     });
 
   }
@@ -33,9 +43,6 @@ export class SubscribeComponent implements OnInit {
   ngOnDestroy() {
     this.httpSubs?.unsubscribe();
   }
-  // notValidEmail() {
-  //   return !(this.email === "" || this.email.match(/[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}/));
-  // }
 
 
 }

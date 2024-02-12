@@ -3,6 +3,7 @@ import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { UICardDataService } from '../../services/ui-card-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { UICardDataService } from '../../services/ui-card-data.service';
 export class HeaderComponent {
   @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
 
+  private scrollspySubs: Subscription | undefined;
   public enableMenu: boolean = true;
   public showDropdownMenu: boolean = false;
   public activeAnchor: string = 'home';
@@ -23,7 +25,7 @@ export class HeaderComponent {
     public scrollSpy: ScrollspyService,
     private screen: ScreenService
   ) {
-    this.scrollSpy.anchorChange.subscribe( (anchorChange) => {
+    this.scrollspySubs = this.scrollSpy.anchorChange.subscribe( (anchorChange) => {
       if (anchorChange.active) {
         this.activeAnchor = anchorChange.id;
       }
@@ -57,6 +59,10 @@ export class HeaderComponent {
       anim.setAttribute('from', to!);
       anim.setAttribute('to', from!);
     });
+  }
+
+  ngOnDestroy() {
+    this.scrollspySubs?.unsubscribe();
   }
 
 }

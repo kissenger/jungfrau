@@ -15,13 +15,15 @@ import { UICardDataService } from 'src/app/shared/services/ui-card-data.service'
 })
 
 export class ContentBrowserComponent implements OnDestroy {
-  @Input() contentType: 'limited' | 'all' = 'all';
-  @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
+
+  @HostListener('window:load', ['$event']) onLoadEvent() {
+    this.onLoad();
+  };
 
   private httpSubs: Subscription | undefined;
-  private maxPosts: number = this.contentType === 'all' ? 99 : 12;
+  private screenSubs: Subscription | undefined;
   public cards: Array<UIPost> = [];
-  private instaFeed: Array<UIPost> = [];
+  public instas: Array<UIPost> = [];
   private articles: Array<UIPost> = [];
   private ckbtnInsta: HTMLInputElement | undefined;
   private ckbtnArticle: HTMLInputElement | undefined;
@@ -33,21 +35,27 @@ export class ContentBrowserComponent implements OnDestroy {
     public navigate: NavService,
     public uiCard: UICardDataService
   ) {
+
     this.articles = this.uiCard.articles;
 
     this.httpSubs = this.http.getInstaPosts().subscribe({
       next: (result: {data: Array<UIPost>}) => {
-        this.instaFeed = result.data
+        this.instas = result.data
           .filter( (m: UIPost) => m.media_type != "VIDEO")
           .map( (m: UIPost) => { m.category = 'Instagram'; m.header = ''; return m; })
         this.updateFeed();
-        this.uiCard.instaLoadSuccess = true;
       },
       error: (error: any) => {
-        this.uiCard.instaLoadSuccess = false;
-        console.log(`Fetch instagram posts failed with code ${error.status} and error: '${error.error.error}'`);
+        console.log(`Fetch instagram posts failed`);
         console.log(error);
-      }});
+      }
+    });
+
+    this.screenSubs = this.screen.resize.subscribe( () => {
+      this.updateFeed();
+    });
+
+
   }
 
   onLoad() {
@@ -67,27 +75,33 @@ export class ContentBrowserComponent implements OnDestroy {
     }
   }
 
-  // TODO: this woul dbe better managed using 'hidden' CSS to simply hide the elemts we dont want to show,
-  // instead of recalculating the array each time
   updateFeed() {
 
-    if (this.ckbtnInsta?.checked && !this.ckbtnArticle?.checked) {
-      this.cards = [...this.instaFeed].slice(0, this.maxPosts);
-    } else if (this.ckbtnArticle?.checked && !this.ckbtnInsta?.checked) {
-      this.cards = [...this.articles].slice(0, this.maxPosts);
-    } else {
-      this.cards = [...this.instaFeed];
+    // if there are no instas or theyve been filtered out, the only show articles
+    if ( this.instas.length === 0  || this.ckbtnArticle?.checked && !this.ckbtnInsta?.checked) {
+      this.cards = [...this.articles].slice(0, this.screen.numberUIPosts);
+    }
+
+    // if there are instas and articles are filtered out, only show instas
+    else if (this.ckbtnInsta?.checked && !this.ckbtnArticle?.checked) {
+      this.cards = [...this.instas].slice(0, this.screen.numberUIPosts);
+    }
+
+    // if there are instas and nothing is filtered, combine the two
+    else {
+      this.cards = [...this.instas];
       let index = 0;
       this.articles.forEach( (article) => {
         this.cards.splice(index,0,article);
         index+=2
       })
-      this.cards = this.cards.slice(0, this.maxPosts);
+      this.cards = this.cards.slice(0, this.screen.numberUIPosts);
     }
   }
 
   ngOnDestroy(): void {
     this.httpSubs?.unsubscribe();
+    this.screenSubs?.unsubscribe();
   }
 
 }

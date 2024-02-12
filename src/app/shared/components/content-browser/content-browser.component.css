@@ -6,13 +6,9 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-  grid-template-rows: repeat(2, auto);
-  overflow: hidden;
+  grid-template-rows: repeat(4, auto);
+  /* overflow: hidden; */
   justify-content: space-around;
-}
-
-.limited-rows {
-  grid-auto-rows: 0px;
 }
 
 .insta-feed-small {
