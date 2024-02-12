@@ -27,15 +27,23 @@ export class MainComponent implements OnDestroy {
     private navigate: NavService
   ) {
 
+    // const windows = {
+    //   windowOne: document.getElementById(`windowOneImage`),
+    //   windowTwo: document.getElementById(`windowTwoImage`),
+    //   windowThree: document.getElementById(`windowThreeImage`),
+    //   windowFour: document.getElementById(`windowFourImage`)
+    // }
     this.scrollspySubs = this.scrollSpy.windowChange.subscribe( (changedWindow) => {
       document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
     })
 
     this.navSubs = this.navigate.end.subscribe( () => {
-      document.getElementById(`windowOneImage`)!.style.visibility = "hidden";
-      document.getElementById(`windowTwoImage`)!.style.visibility = "hidden";
-      document.getElementById(`windowThreeImage`)!.style.visibility = "hidden";
-      document.getElementById(`windowFourImage`)!.style.visibility = "hidden";
+      try {
+        document.getElementById('windowOneImage')!.style.visibility = "hidden";
+        document.getElementById(`windowTwoImage`)!.style.visibility = "hidden";
+        document.getElementById(`windowThreeImage`)!.style.visibility = "hidden";
+        document.getElementById(`windowFourImage`)!.style.visibility = "hidden";
+      } catch {}
     })
 
   }
@@ -45,6 +53,7 @@ export class MainComponent implements OnDestroy {
       { className: 'anchor'         , intersectRatio: 0.2 },
       { className: 'parallax-window', intersectRatio: 0 }
     ]);
+    // this.windowOne document.getElementById(`windowOneImage`)
   }
 
   ngOnDestroy(): void {
