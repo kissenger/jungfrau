@@ -20,8 +20,9 @@ form > input {
   border-radius: 5px;
   border-width: 1px;
   border-color: var(--border-colour);
-  padding-inline: 0;
+  padding-inline: 0.5em;
   box-shadow: none;
+  box-sizing: border-box;
 }
 
 form > input:focus {
@@ -44,7 +45,9 @@ form > button {
   cursor: pointer;
   border-radius: 5px;
   border-width: 1px;
+  padding-inline: 0.5rem;
   border-color: var(--text-colour);
+  margin-bottom: 2rem;
 }
 
 form > button:hover {
@@ -64,6 +67,7 @@ form:invalid > button {
 
 form > div {
   color: red;
+  /* padding-inline: 0.5em; */
   /* border: red solid 1px; */
   font-size: smaller;
   /* margin-top: 0.1rem; */

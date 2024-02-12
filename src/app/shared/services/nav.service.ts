@@ -21,11 +21,10 @@ export class NavService {
 
   /* Navigate to external website if http is included in link, otherwise route internally */
   to(link: string) {
-    console.log(window)
 
     if (link.includes('http')) {
-      console.log(window)
-        window.location.href = link;
+      // console.log(window)
+      window.location.href = link;
 
     } else {
 

@@ -41,9 +41,9 @@ export class ScrollspyService {
   intersectHandler(element: Array<IntersectionObserverEntry>) {
     element.forEach( (elem) => {
       if ( elem.target.className === 'anchor') {
-        this.anchorChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0.2})
+        this.anchorChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0.2});
       } else if ( elem.target.className === 'parallax-window') {
-        this.windowChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0})
+        this.windowChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0});
       }
     })
   }

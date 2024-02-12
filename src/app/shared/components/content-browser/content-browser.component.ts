@@ -1,5 +1,5 @@
-
-import { Component, OnDestroy, HostListener, Input} from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
+import { Component, OnDestroy, HostListener} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/shared/services/data.service';
 import { HttpService } from 'src/app/shared/services/http.service';
@@ -22,18 +22,21 @@ export class ContentBrowserComponent implements OnDestroy {
 
   private httpSubs: Subscription | undefined;
   private screenSubs: Subscription | undefined;
+  private routerSubs: Subscription | undefined;
   public cards: Array<UIPost> = [];
   public instas: Array<UIPost> = [];
   private articles: Array<UIPost> = [];
   private ckbtnInsta: HTMLInputElement | undefined;
   private ckbtnArticle: HTMLInputElement | undefined;
+  private limitPosts: boolean = false;
 
   constructor(
     private http: HttpService,
     public data: DataService,
     public screen: ScreenService,
     public navigate: NavService,
-    public uiCard: UICardDataService
+    public uiCard: UICardDataService,
+    private router: Router
   ) {
 
     this.articles = this.uiCard.articles;
@@ -55,6 +58,12 @@ export class ContentBrowserComponent implements OnDestroy {
       this.updateFeed();
     });
 
+    this.routerSubs = this.router.events.subscribe( (event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.limitPosts = window.location.pathname === '/';
+        this.updateFeed();
+      }
+    })
 
   }
 
@@ -77,14 +86,16 @@ export class ContentBrowserComponent implements OnDestroy {
 
   updateFeed() {
 
+    const nPosts = this.limitPosts ? this.screen.numberUIPosts : 99;
+
     // if there are no instas or theyve been filtered out, the only show articles
     if ( this.instas.length === 0  || this.ckbtnArticle?.checked && !this.ckbtnInsta?.checked) {
-      this.cards = [...this.articles].slice(0, this.screen.numberUIPosts);
+      this.cards = [...this.articles];
     }
 
     // if there are instas and articles are filtered out, only show instas
     else if (this.ckbtnInsta?.checked && !this.ckbtnArticle?.checked) {
-      this.cards = [...this.instas].slice(0, this.screen.numberUIPosts);
+      this.cards = [...this.instas];
     }
 
     // if there are instas and nothing is filtered, combine the two
@@ -95,13 +106,15 @@ export class ContentBrowserComponent implements OnDestroy {
         this.cards.splice(index,0,article);
         index+=2
       })
-      this.cards = this.cards.slice(0, this.screen.numberUIPosts);
     }
+
+    this.cards = this.cards.slice(0, nPosts);
   }
 
   ngOnDestroy(): void {
     this.httpSubs?.unsubscribe();
     this.screenSubs?.unsubscribe();
+    this.routerSubs?.unsubscribe();
   }
 
 }

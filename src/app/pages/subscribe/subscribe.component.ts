@@ -29,7 +29,7 @@ export class SubscribeComponent implements OnInit {
         window.alert("Success! Your email address was saved ... We'll be in touch.");
         document.body.style.cursor = "default";
         this.email = "";
-        console.log(result);
+        // console.log(result);
       },
       error: (error) => {
         window.alert("Oops, something didn't work out.  Please try again.");

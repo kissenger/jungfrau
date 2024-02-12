@@ -53,6 +53,7 @@ export class ScreenService implements OnDestroy{
     else if (this._containerWidth < 900 ) this._numberUIPosts = 4;  // 2 rows of 2
     else if (this._containerWidth < 1200 ) this._numberUIPosts = 6; // 2 rows of 3
     else this._numberUIPosts = 8;                                   // 2 rows of 4
+
   }
 
   get numberUIPosts() {
