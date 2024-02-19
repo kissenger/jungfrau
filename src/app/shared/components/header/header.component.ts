@@ -2,7 +2,6 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
-import { UICardDataService } from 'src/app/shared/services/ui-card-data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,7 +21,6 @@ export class HeaderComponent implements OnDestroy {
   public activeAnchor: string = 'home';
 
   constructor(
-    public uiCard: UICardDataService,
     public navigate: NavService,
     public scrollSpy: ScrollspyService,
     private screen: ScreenService,

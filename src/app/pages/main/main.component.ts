@@ -1,10 +1,8 @@
 import { Component, HostListener, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from 'src/app/shared/services/data.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
-import { UICardDataService } from 'src/app/shared/services/ui-card-data.service';
 
 @Component({
   selector: 'app-main',
@@ -20,21 +18,15 @@ export class MainComponent implements OnDestroy {
   private navSubs: Subscription;
 
   constructor(
-    public data: DataService,
     public images: ImageService,
     private scrollSpy: ScrollspyService,
-    public uiCard: UICardDataService,
     private navigate: NavService
   ) {
 
-    // const windows = {
-    //   windowOne: document.getElementById(`windowOneImage`),
-    //   windowTwo: document.getElementById(`windowTwoImage`),
-    //   windowThree: document.getElementById(`windowThreeImage`),
-    //   windowFour: document.getElementById(`windowFourImage`)
-    // }
     this.scrollspySubs = this.scrollSpy.windowChange.subscribe( (changedWindow) => {
-      document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
+      try {
+        document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
+      } catch {}
     })
 
     this.navSubs = this.navigate.end.subscribe( () => {
@@ -53,7 +45,6 @@ export class MainComponent implements OnDestroy {
       { className: 'anchor'         , intersectRatio: 0.2 },
       { className: 'parallax-window', intersectRatio: 0 }
     ]);
-    // this.windowOne document.getElementById(`windowOneImage`)
   }
 
   ngOnDestroy(): void {

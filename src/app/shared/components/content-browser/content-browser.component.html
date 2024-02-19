@@ -11,14 +11,21 @@
 </div>
 
 <div class="insta-feed">
-  <app-ui-card *ngFor="let card of cards"
-    link="{{card.permalink}}"
-    image="{{card.media_url}}"
-    text="{{card.caption}}"
-    header="{{card.header}}"
-    category="{{card.category}}"
-    timestamp="{{card.timestamp}}"
+
+    <app-ui-card *ngFor="let card of cards"
+      imageURL="{{card.media_url}}"
+      link="{{card.permalink }}"
+      text="{{card.caption}}"
+      header="{{card.header}}"
+      category="{{card.category}}"
+      timestamp="{{card.timestamp}}"
     >
   </app-ui-card>
 
 </div>
+  <!-- link="{{let x = (typeof y === 'undefined') ? def_val : y;card.href}}" -->
+  <!-- image="{{card.media_url}}"
+  text="{{card.caption}}"
+  header="{{card.header}}"
+  category="{{card.category}}"
+  timestamp="{{card.timestamp}}" -->

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ScreenService } from './screen.service';
-import { DataService } from './data.service';
-import { DeviceOrientation } from '../types';
+import { DeviceOrientation, ImageCollection, OrientedImage, WidthDescriptor } from '../types';
+import { imageCollection } from '../db-images';
 
 @Injectable({
   providedIn: 'root'
@@ -9,42 +9,67 @@ import { DeviceOrientation } from '../types';
 
 export class ImageService {
 
+  private _images: ImageCollection = imageCollection;
+
   constructor(
-    private screen: ScreenService,
-    private data: DataService
+    private screen: ScreenService
   ) {}
 
-// sn = img shortname
-// return info required for given image
-  img(sn: string) {
-    let img = this.data.staticImages[sn];
-    let dor: DeviceOrientation = this.screen.deviceOrientation;
+  get collection() {
+    return this._images;
+  }
+
+
+  // return an object containing the properties for the desired image
+  image(shortName: string, size?: string) {
+
+    let img = this._images[shortName];
+    let _height: number = 0;
+    let _width: number = 0;
+
+    if (size) {
+      if ('landscape' in img) {
+        _height = img[<DeviceOrientation>size].height;
+        _width = img[<DeviceOrientation>size].width;
+      } else
+      if ('sizes' in img) {
+        _height = img.sizes[<WidthDescriptor>size].height;
+        _width = img.sizes[<WidthDescriptor>size].width;
+      }
+    } else {
+      if ('height' in img) {
+        _height = img.height;
+        _width = img.width;
+      }
+    }
+
     return {
-      path: img[dor] ? `${img.basePath}${img.fname}-${dor}.${img.extension}` : `${img.basePath}${img.fname}.${img.extension}`,
-      altText: img.altText,
-      width: img[dor] ? img[dor]!.width : img.width,
-      height: img[dor] ? img[dor]!.height : img.height,
-      href: img.href ? img.href : '',
+      url: size ? `${img.url}-${size}.${img.ext}` : `${img.url}.${img.ext}`,
+      alt: img.altText,
+      href: 'href' in img ? img.href : '',
+      width: _width,
+      height: _height
     }
   }
 
-  imgScaleRatio(sn: string) {
-    // sets the scale ratio of the image to fit the screen with zero transforZ applied
-    // outside the threshold range, this is just ratio of window width to image width
-    // inside threshold range, and additional factor is applied to oversize image
-    // this mitigates blanks spaces and overlaps for middling aspect ratios
-    let img = this.data.staticImages[sn];
-    let ar = this.screen.aspectRatio;
-    let factor = 1;
-
-    //IMPORTANT - upper threshold should portrait/landscape threshold in screen.service.ts
-    if (ar > 0.7 && ar < 1.4) { factor = 1.4 };
+  // auto select image object depending on screen orientation
+  orientedImage(shortName: string) {
     let dor: DeviceOrientation = this.screen.deviceOrientation;
-    return this.screen.width / img[dor]!.width * factor ;
+    let img = this.image(shortName, dor);
+    return {
+      ...img,
+    }
   }
 
-
-
-
+  // return an object containing the properties for the desired parallax image
+  parallaxImage(shortName: string) {
+    let dor: DeviceOrientation = this.screen.deviceOrientation;
+    let img = this.image(shortName, dor);
+    let ar = this.screen.aspectRatio;
+    let factor = ar > 0.7 && ar < 1.4 ? 1.4 : 1;
+    return {
+      ...img,
+      scaleFactor: this.screen.width / img.width * factor
+    };
+  }
 }
-

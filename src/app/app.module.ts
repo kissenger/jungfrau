@@ -1,3 +1,4 @@
+
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -23,35 +24,35 @@ import { BeginnersGuideComponent } from 'src/app/pages/content/beginners-guide/b
 import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
-import { DataService } from 'src/app/shared/services/data.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy';
 import { ScrollspyService } from './shared/services/scrollspy.service';
 import { UICardComponent } from './shared/components/ui-card/ui-card.component';
-import { UICardDataService } from './shared/services/ui-card-data.service';
 import { ExtLinkComponent } from './shared/components/ext-link/ext-link.component';
 import { ContentBrowserComponent } from './shared/components/content-browser/content-browser.component';
 import { ContentComponent } from './pages/content/content.component';
+import { SciencePartOneComponent } from './pages/content/science-part-one/science-part-one.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
     HeaderComponent,
     FooterComponent,
     SlideshowComponent,
     AboutUsComponent,
     BookComponent,
     PartnersComponent,
-    FAQComponent,
     ExploreComponent,
+    FAQComponent,
+    MainComponent,
     PrivacyComponent,
     SubscribeComponent,
     ExtLinkComponent,
     BeginnersGuideComponent,
     UICardComponent,
     ContentBrowserComponent,
-    ContentComponent
+    ContentComponent,
+    SciencePartOneComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +71,7 @@ import { ContentComponent } from './pages/content/content.component';
     ScreenService,
     NavService,
     ImageService,
-    DataService,
     ScrollspyService,
-    UICardDataService,
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,

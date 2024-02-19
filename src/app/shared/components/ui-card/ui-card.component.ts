@@ -8,7 +8,7 @@ import { ImageService } from '../../services/image.service';
     <div class="ui-card" (click)="navigate.to(link)">
       <div class="ui-card-photo">
         <img
-          ngSrc="{{image}}"
+          ngSrc="{{imageURL}}"
           alt="{{text}}"
           height="300"
           width="300"
@@ -34,7 +34,7 @@ import { ImageService } from '../../services/image.service';
 
 export class UICardComponent {
   @Input() public link = '';
-  @Input() public image = '';
+  @Input() public imageURL = '';
   @Input() public text = '';
   @Input() public category = '';
   @Input() public timestamp = '';

@@ -1,11 +1,12 @@
 import { Component, OnDestroy, HostListener} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from 'src/app/shared/services/data.service';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
-import { UIPost } from 'src/app/shared/types';
-import { UICardDataService } from 'src/app/shared/services/ui-card-data.service';
+import { Article, ArticlePreview, InstaPost } from '../../types';
+
+import { _articles } from '../../db-articles';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-content-browser',
@@ -19,32 +20,30 @@ export class ContentBrowserComponent implements OnDestroy {
     this.onLoad();
   };
 
-  private httpSubs: Subscription | undefined;
-  private screenSubs: Subscription | undefined;
-  private navSubs: Subscription;
+  private _httpSubs: Subscription | undefined;
+  private _screenSubs: Subscription | undefined;
+  private _navSubs: Subscription;
+  private _ckbtnInsta: HTMLInputElement | undefined;
+  private _ckbtnArticle: HTMLInputElement | undefined;
+  private _limitPosts: boolean = false;
+  private _previews: Array<ArticlePreview> = [];
 
-  public cards: Array<UIPost> = [];
-  public instas: Array<UIPost> = [];
-  private articles: Array<UIPost> = [];
-  private ckbtnInsta: HTMLInputElement | undefined;
-  private ckbtnArticle: HTMLInputElement | undefined;
-  private limitPosts: boolean = false;
+  public cards: Array<InstaPost | ArticlePreview> = [];
+  public instas: Array<InstaPost> = [];
 
   constructor(
+    private screen: ScreenService,
     private http: HttpService,
-    public data: DataService,
-    public screen: ScreenService,
-    public navigate: NavService,
-    public uiCard: UICardDataService,
+    private navigate: NavService,
+    private images: ImageService
   ) {
 
-    this.articles = this.uiCard.articles;
-
-    this.httpSubs = this.http.getInstaPosts().subscribe({
-      next: (result: {data: Array<UIPost>}) => {
+    // get instgram posts
+    this._httpSubs = this.http.getInstaPosts().subscribe({
+      next: (result: {data: Array<InstaPost>}) => {
         this.instas = result.data
-          .filter( (m: UIPost) => m.media_type != "VIDEO")
-          .map( (m: UIPost) => { m.category = 'Instagram'; m.header = ''; return m; })
+          .filter( (m: InstaPost) => m.media_type != "VIDEO")
+          .map( (m: InstaPost) => { m.category = 'Instagram'; return m; })
         this.updateFeed();
       },
       error: (error: any) => {
@@ -53,28 +52,44 @@ export class ContentBrowserComponent implements OnDestroy {
       }
     });
 
-    this.screenSubs = this.screen.resize.subscribe( () => {
+    // construct article previews
+    this._previews = _articles.map( (article: Article) => {
+
+      // const img = this.images.collection[article.imageShortName];
+      const img = this.images.image(article.imageShortName, 'small');
+      return {
+        caption: article.caption,
+        header: article.header,
+        category: 'Article',
+        media_url: img.url,
+        permalink: article.href,
+        timestamp: '',
+        media_type: ''
+      }
+    })
+
+    this._screenSubs = this.screen.resize.subscribe( () => {
       this.updateFeed();
     });
 
-    this.navSubs = this.navigate.end.subscribe( (url) => {
-      this.limitPosts = url === '/';
+    this._navSubs = this.navigate.end.subscribe( (url) => {
+      this._limitPosts = url === '/';
       this.updateFeed();
     })
 
   }
 
   onLoad() {
-    this.ckbtnInsta = <HTMLInputElement>document.querySelector('input#ckbtn-insta');
-    this.ckbtnArticle = <HTMLInputElement>document.querySelector('input#ckbtn-article');
+    this._ckbtnInsta = <HTMLInputElement>document.querySelector('input#ckbtn-insta');
+    this._ckbtnArticle = <HTMLInputElement>document.querySelector('input#ckbtn-article');
 }
 
   onFilterClick(type: string) {
-    if (!this.ckbtnInsta?.checked && !this.ckbtnArticle?.checked) {
+    if (!this._ckbtnInsta?.checked && !this._ckbtnArticle?.checked) {
       if (type === 'insta') {
-        this.ckbtnInsta!.checked = true;
+        this._ckbtnInsta!.checked = true;
       } else {
-        this.ckbtnArticle!.checked = true;
+        this._ckbtnArticle!.checked = true;
       }
     } else {
       this.updateFeed();
@@ -82,16 +97,16 @@ export class ContentBrowserComponent implements OnDestroy {
   }
 
   updateFeed() {
-
-    const nPosts = this.limitPosts ? this.screen.numberUIPosts : 99;
+console.log(this._previews)
+    const nPosts = this._limitPosts ? this.screen.numberUIPosts : 99;
 
     // if there are no instas or theyve been filtered out, the only show articles
-    if ( this.instas.length === 0  || this.ckbtnArticle?.checked && !this.ckbtnInsta?.checked) {
-      this.cards = [...this.articles];
+    if ( this.instas.length === 0  || this._ckbtnArticle?.checked && !this._ckbtnInsta?.checked) {
+      this.cards = [...this._previews];
     }
 
     // if there are instas and articles are filtered out, only show instas
-    else if (this.ckbtnInsta?.checked && !this.ckbtnArticle?.checked) {
+    else if (this._ckbtnInsta?.checked && !this._ckbtnArticle?.checked) {
       this.cards = [...this.instas];
     }
 
@@ -99,7 +114,7 @@ export class ContentBrowserComponent implements OnDestroy {
     else {
       this.cards = [...this.instas];
       let index = 0;
-      this.articles.forEach( (article) => {
+      this._previews.forEach( (article) => {
         this.cards.splice(index,0,article);
         index+=2
       })
@@ -109,9 +124,9 @@ export class ContentBrowserComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.httpSubs?.unsubscribe();
-    this.screenSubs?.unsubscribe();
-    this.navSubs?.unsubscribe();
+    this._httpSubs?.unsubscribe();
+    this._screenSubs?.unsubscribe();
+    this._navSubs?.unsubscribe();
   }
 
 }

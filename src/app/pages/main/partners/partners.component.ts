@@ -1,25 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
+import { Component } from '@angular/core';
 import { NavService } from 'src/app/shared/services/nav.service';
-import { ImageDescriptor } from 'src/app/shared/types';
+import { partners } from 'src/app/shared/db-images';
+import { Image } from 'src/app/shared/types';
 
 @Component({
   selector: 'app-partners',
   templateUrl: './partners.component.html',
   styleUrls: ['./partners.component.css']
 })
-export class PartnersComponent implements OnInit {
+export class PartnersComponent {
 
-  public partnerCards?: Array<ImageDescriptor>;
-
+  public partnerImages: Array<Image>
   constructor(
-    public navigate: NavService,
-    public data: DataService
-  ) { }
+    public navigate: NavService
+  ) {
 
-  ngOnInit(): void {
-    this.partnerCards = this.data.partnerCardsRandomised;
-    // console.log(this.partnerCards);
+    this.partnerImages = partners
+      .map( value => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value)
   }
 
 }

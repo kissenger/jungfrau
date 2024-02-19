@@ -7,8 +7,14 @@
   </p>
 
   <div #feedContainer class="logo-roller">
-    <div class="logo-holder" *ngFor="let card of partnerCards" (click)="navigate.to(card.href!)" role="link">
-      <img [ngSrc]="card.fname" [height]="card.height" [width]="card.width" class="partner-card-img" [alt]="card.altText" />
+    <div class="logo-holder" *ngFor="let image of partnerImages" (click)="navigate.to(image.href)" role="link">
+      <img
+        [ngSrc]="image.url+'.'+image.ext"
+        [height]="image.height"
+        [width]="image.width"
+        [alt]="image.altText"
+        />
+
     </div>
   </div>
 </div>

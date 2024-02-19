@@ -30,15 +30,15 @@
       <div
         class="parallax-layer"
         [ngStyle]="{
-          'height': images.img('scorpionfish').height+'px',
-          'width': images.img('scorpionfish').width+'px',
-          'transform': 'translateZ(-800px) scale( calc( '+images.imgScaleRatio('scorpionfish')+' * 1100 / 300))' }"
+          'height': images.parallaxImage('scorpionfish').height+'px',
+          'width': images.parallaxImage('scorpionfish').width+'px',
+          'transform': 'translateZ(-800px) scale( calc( '+images.parallaxImage('scorpionfish').scaleFactor+' * 1100 / 300))' }"
         >
           <img
             id="windowOneImage"
             class="parallax-layer"
-            [ngSrc]="images.img('scorpionfish').path"
-            [alt]="images.img('scorpionfish').altText"
+            [ngSrc]="images.parallaxImage('scorpionfish').url"
+            [alt]="images.parallaxImage('scorpionfish').alt"
             fill
           />
       </div>
@@ -57,15 +57,15 @@
     <div class="parallax-window" id="windowTwo">
       <div class="parallax-layer"
         [ngStyle]="{
-          'height': images.img('cuddlingcrabs').height+'px',
-          'width': images.img('cuddlingcrabs').width+'px',
-          'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('cuddlingcrabs')+' * 500 / 300))' }"
+          'height': images.parallaxImage('cuddlingcrabs').height+'px',
+          'width': images.parallaxImage('cuddlingcrabs').width+'px',
+          'transform': 'translateZ(-200px) scale( calc( '+images.parallaxImage('cuddlingcrabs').scaleFactor+' * 500/300))' }"
         >
           <img
             id="windowTwoImage"
             class="parallax-layer"
-            [ngSrc]="images.img('cuddlingcrabs').path"
-            [alt]="images.img('cuddlingcrabs').altText"
+            [ngSrc]="images.parallaxImage('cuddlingcrabs').url"
+            [alt]="images.parallaxImage('cuddlingcrabs').alt"
             fill
           />
       </div>
@@ -84,15 +84,15 @@
     <div class="parallax-window" id="windowThree">
       <div class="parallax-layer"
         [ngStyle]="{
-          'height': images.img('sittingchild').height+'px',
-          'width': images.img('sittingchild').width+'px',
-          'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('sittingchild')+' * 500 / 300))' }"
+          'height': images.parallaxImage('sittingchild').height+'px',
+          'width': images.parallaxImage('sittingchild').width+'px',
+          'transform': 'translateZ(-200px) scale( calc( '+images.parallaxImage('sittingchild').scaleFactor+' * 500 / 300))' }"
         >
           <img
             id="windowThreeImage"
             class="parallax-layer"
-            [ngSrc]="images.img('sittingchild').path"
-            [alt]="images.img('sittingchild').altText"
+            [ngSrc]="images.parallaxImage('sittingchild').url"
+            [alt]="images.parallaxImage('sittingchild').alt"
             fill
           />
       </div>
@@ -110,15 +110,15 @@
     <div class="parallax-window" id="windowFour">
       <div class="parallax-layer"
         [ngStyle]="{
-          'height': images.img('anemone').height+'px',
-          'width': images.img('anemone').width+'px',
-          'transform': 'translateZ(-200px) scale( calc( '+images.imgScaleRatio('anemone')+' * 500 / 300))' }"
+          'height': images.parallaxImage('anemone').height+'px',
+          'width': images.parallaxImage('anemone').width+'px',
+          'transform': 'translateZ(-200px) scale( calc( '+images.parallaxImage('anemone').scaleFactor+' * 500 / 300))' }"
         >
           <img
             id="windowFourImage"
             class="parallax-layer"
-            [ngSrc]="images.img('anemone').path"
-            [alt]="images.img('anemone').altText"
+            [ngSrc]="images.parallaxImage('anemone').url"
+            [alt]="images.parallaxImage('anemone').alt"
             fill
           />
       </div>

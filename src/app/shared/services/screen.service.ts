@@ -19,14 +19,14 @@ export class ScreenService implements OnDestroy{
   private _aspectRatio = 0;
   private _containerWidth: number = 0;
   private _numberUIPosts: number = 0;
-  private viewportChangeSubs: Subscription | undefined;
+  private _viewportChangeSubs: Subscription | undefined;
 
   constructor(
     private viewportRuler: ViewportRuler,
     private ngZone: NgZone
   ) {
     this.onResize();
-    this.viewportChangeSubs = this.viewportRuler.change(200).subscribe(() => {
+    this._viewportChangeSubs = this.viewportRuler.change(200).subscribe(() => {
       this.ngZone.run(() => {
         this.onResize();
         this.resize.emit();
@@ -85,7 +85,7 @@ export class ScreenService implements OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.viewportChangeSubs?.unsubscribe();
+    this._viewportChangeSubs?.unsubscribe();
   }
 
 }

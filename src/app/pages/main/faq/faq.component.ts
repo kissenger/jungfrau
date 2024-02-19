@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 
@@ -11,7 +10,6 @@ import { NavService } from 'src/app/shared/services/nav.service';
 export class FAQComponent implements OnInit {
 
   constructor(
-    public data: DataService,
     public images: ImageService,
     public navigate: NavService
 

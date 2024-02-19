@@ -1,21 +1,36 @@
-export type PartnerCards = Array<{
+
+export type Partners = Array<{
   link: string,
-  imgPath: string,
-  height: string,
-  width: string,
-  alt: string,
+  imageShortName: string,
   caption: string
 }>
 
-export type UIPost = {
+
+export type InstaPost = {
   caption: string,
   media_url: string,
-  media_type?: string,
   permalink: string,
+  media_type: string,
   timestamp: string,
-  header?: string,
-  category: 'Article' | 'Instagram'
+  category: 'Instagram',
+  header: ''
+}
 
+export type ArticlePreview = {
+  caption: string,
+  media_url: string,
+  permalink: string,
+  category: 'Article',
+  header: string,
+  timestamp: '',
+  media_type: '',
+}
+
+export type Article = {
+  imageShortName: string,
+  header: string,
+  caption: string,
+  href: string
 }
 
 // export type ArticlePost = {
@@ -36,22 +51,44 @@ export type UIPost = {
 // }
 
 
-export type ImageDB = {
-  [shortName: string]: ImageDescriptor
+type BasicImage = {
+  url: string,
+  ext: string,
+  altText: string,
 }
 
-export type ImageDescriptor = {
-    basePath?: string,
-    fname: string,
-    extension?: string,
-    altText: string,
-    href?: string,
-    caption?: string,
-    height?: number,
-    width?: number,
-    landscape?: { height: number, width: number},
-    portrait?: { height: number, width: number},
+export type Image = {
+  height: number,
+  width: number,
+  href: string,
+} & BasicImage
+
+export type ImageCollection = {
+  [shortName: string]: Image | OrientedImage | MultisizeImage
 }
+
+// export type OrientedImageCollection = {
+//   [shortName: string]: OrientedImage
+// }
+
+export type OrientedImage = {
+  portrait: {height: number, width: number},
+  landscape: {height: number, width: number}
+} & BasicImage
+
+// export type MultisizeImageCollection = {
+//   [shortName: string]: MultisizeImage
+// }
+
+export type MultisizeImage = {
+  sizes: ImageSizes
+} & BasicImage
+
+type ImageSizes = {
+  [sizeDescriptor: string]:
+    {height: number, width: number}
+}
+
 
 export type DeviceOrientation = 'landscape' | 'portrait';
 export type WidthDescriptor = 'large' | 'small';
