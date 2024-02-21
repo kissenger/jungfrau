@@ -40,10 +40,10 @@
     </div>
 
     <img class="main-content-image grid-position-right"
-      [ngSrc]="images.image('content-woman', 'small').url"
-      [alt]="images.image('content-woman', 'small').alt"
-      [width]="images.image('content-woman', 'small').width"
-      [height]="images.image('content-woman', 'small').height"
+      [ngSrc]  = "images.sizedImage('content-woman', 'small').url"
+      [alt]    = "images.sizedImage('content-woman', 'small').alt"
+      [width]  = "images.sizedImage('content-woman', 'small').width"
+      [height] = "images.sizedImage('content-woman', 'small').height"
       priority
     />
 

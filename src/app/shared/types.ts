@@ -1,10 +1,4 @@
 
-export type Partners = Array<{
-  link: string,
-  imageShortName: string,
-  caption: string
-}>
-
 
 export type InstaPost = {
   caption: string,
@@ -33,62 +27,31 @@ export type Article = {
   href: string
 }
 
-// export type ArticlePost = {
-//   text: string,
-//   link: string,
-//   timestamp: string,
-//   header: string,
-//   category: 'Article'
-// }
-
-
-
-// type Image = {
-//     fname: "xxxxxxx",
-//     extension: "webp"
-//     path: "/assets/photos/static/"
-//     altText: "blah",
-// }
-
-
-type BasicImage = {
-  url: string,
-  ext: string,
-  altText: string,
-}
+export type ImageType = 'partner' | 'social' | 'article' | 'slideshow' | 'content' | 'parallax';
 
 export type Image = {
-  height: number,
-  width: number,
-  href: string,
-} & BasicImage
+  type: ImageType,
+  url: string,
+  ext: string,
+  alt: string,  
+  orientation?: {
+    portrait: {height: number, width: number},
+    landscape: {height: number, width: number},
+  },
+  size?: {
+    large?: {height: number, width: number},
+    small: {height: number, width: number},
+  }
+}
+
+export type LinkImage = {
+  href: string
+} & Image
 
 export type ImageCollection = {
-  [shortName: string]: Image | OrientedImage | MultisizeImage
+  [shortName: string]: Image | LinkImage
 }
-
-// export type OrientedImageCollection = {
-//   [shortName: string]: OrientedImage
-// }
-
-export type OrientedImage = {
-  portrait: {height: number, width: number},
-  landscape: {height: number, width: number}
-} & BasicImage
-
-// export type MultisizeImageCollection = {
-//   [shortName: string]: MultisizeImage
-// }
-
-export type MultisizeImage = {
-  sizes: ImageSizes
-} & BasicImage
-
-type ImageSizes = {
-  [sizeDescriptor: string]:
-    {height: number, width: number}
-}
-
 
 export type DeviceOrientation = 'landscape' | 'portrait';
+
 export type WidthDescriptor = 'large' | 'small';

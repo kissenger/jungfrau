@@ -29,4 +29,16 @@ footer {
   font-size: smaller;
 }
 
+@media (max-width: 767px) {
+  .footer-wide {
+    display: none;
+  }
+}
+@media (min-width: 766px) {
+  .footer-narrow {
+    display: none;
+  }
+}
+
+
 

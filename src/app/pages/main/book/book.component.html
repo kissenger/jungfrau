@@ -28,10 +28,10 @@
     </div>
 
     <img class="main-content-image grid-position-left"
-      [ngSrc]="images.image('content-kids', 'small').url"
-      [alt]="images.image('content-kids', 'small').alt"
-      [width]="images.image('content-kids', 'small').width"
-      [height]="images.image('content-kids', 'small').height"
+      [ngSrc]  = "images.sizedImage('content-kids', 'small').url"
+      [alt]    = "images.sizedImage('content-kids', 'small').alt"
+      [width]  = "images.sizedImage('content-kids', 'small').width"
+      [height] = "images.sizedImage('content-kids', 'small').height"
     />
 
 

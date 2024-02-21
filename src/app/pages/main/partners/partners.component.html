@@ -9,12 +9,11 @@
   <div #feedContainer class="logo-roller">
     <div class="logo-holder" *ngFor="let image of partnerImages" (click)="navigate.to(image.href)" role="link">
       <img
-        [ngSrc]="image.url+'.'+image.ext"
+        [ngSrc]="image.url"
         [height]="image.height"
         [width]="image.width"
-        [alt]="image.altText"
+        [alt]="image.alt"
         />
-
     </div>
   </div>
 </div>

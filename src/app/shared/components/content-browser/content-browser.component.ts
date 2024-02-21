@@ -39,29 +39,26 @@ export class ContentBrowserComponent implements OnDestroy {
   ) {
 
     // get instgram posts
-    this._httpSubs = this.http.getInstaPosts().subscribe({
-      next: (result: {data: Array<InstaPost>}) => {
-        this.instas = result.data
-          .filter( (m: InstaPost) => m.media_type != "VIDEO")
-          .map( (m: InstaPost) => { m.category = 'Instagram'; return m; })
-        this.updateFeed();
-      },
-      error: (error: any) => {
-        console.log(`Fetch instagram posts failed`);
-        console.log(error);
-      }
-    });
+    this._httpSubs = this.http.getInstaPosts()
+      .subscribe({
+        next: (result: {data: Array<InstaPost>}) => {
+          this.instas = result.data
+            .filter( (m: InstaPost) => m.media_type != "VIDEO")
+            .map( (m: InstaPost) => { m.category = 'Instagram'; return m; })
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })  
+  
 
     // construct article previews
     this._previews = _articles.map( (article: Article) => {
-
-      // const img = this.images.collection[article.imageShortName];
-      const img = this.images.image(article.imageShortName, 'small');
       return {
         caption: article.caption,
         header: article.header,
         category: 'Article',
-        media_url: img.url,
+        media_url: this.images.sizedImage(article.imageShortName, 'small').url,
         permalink: article.href,
         timestamp: '',
         media_type: ''
@@ -82,7 +79,7 @@ export class ContentBrowserComponent implements OnDestroy {
   onLoad() {
     this._ckbtnInsta = <HTMLInputElement>document.querySelector('input#ckbtn-insta');
     this._ckbtnArticle = <HTMLInputElement>document.querySelector('input#ckbtn-article');
-}
+  }
 
   onFilterClick(type: string) {
     if (!this._ckbtnInsta?.checked && !this._ckbtnArticle?.checked) {
@@ -97,7 +94,7 @@ export class ContentBrowserComponent implements OnDestroy {
   }
 
   updateFeed() {
-console.log(this._previews)
+    
     const nPosts = this._limitPosts ? this.screen.numberUIPosts : 99;
 
     // if there are no instas or theyve been filtered out, the only show articles
@@ -121,6 +118,7 @@ console.log(this._previews)
     }
 
     this.cards = this.cards.slice(0, nPosts);
+
   }
 
   ngOnDestroy(): void {

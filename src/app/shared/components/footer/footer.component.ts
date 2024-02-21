@@ -9,18 +9,21 @@ import { NavService } from '../../services/nav.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
   public fullYear?: number;
+  public logos;
+  private _logoNames = ['youtube', 'instagram', 'email'];
 
   constructor(
     public images: ImageService,
     public navigate: NavService,
     public screen: ScreenService
-  ) { }
-
-  ngOnInit(): void {
+  ) { 
     this.fullYear = new Date().getFullYear();
+    this.logos = this._logoNames.map( (ln: string) => {
+      return this.images.sizedImage(ln, 'small')
+    })
   }
 
 }

@@ -17,6 +17,8 @@
 
 .logo-holder > img {
   transition: all 0.25s;
+  height: auto;
+  width: auto;
 }
 
 .logo-holder > img:hover {

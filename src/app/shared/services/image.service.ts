@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ScreenService } from './screen.service';
-import { DeviceOrientation, ImageCollection, OrientedImage, WidthDescriptor } from '../types';
+import { DeviceOrientation, ImageCollection, WidthDescriptor, Image } from '../types';
 import { imageCollection } from '../db-images';
 
 @Injectable({
@@ -15,61 +15,66 @@ export class ImageService {
     private screen: ScreenService
   ) {}
 
-  get collection() {
-    return this._images;
+  orientedImage(_shortName: string) {
+    let _img: Image = this._images[_shortName];
+    let _dor: DeviceOrientation = this.screen.deviceOrientation;
+    let _height: number = 0;
+    let _width: number = 0;    
+
+    if (_img.orientation) {
+      _height = _img.orientation[_dor].height;
+      _width = _img.orientation[_dor].width;
+    } else {
+      console.log('Requested image orientation not found')
+    }
+
+    return {
+      url: `${_img.url}-${_dor}.${_img.ext}`,
+      alt: _img.alt,
+      width: _width,
+      height: _height
+    }
+
   }
 
-
   // return an object containing the properties for the desired image
-  image(shortName: string, size?: string) {
+  sizedImage(_shortName: string, _size: WidthDescriptor) {
 
-    let img = this._images[shortName];
+    let _img = this._images[_shortName];
     let _height: number = 0;
     let _width: number = 0;
 
-    if (size) {
-      if ('landscape' in img) {
-        _height = img[<DeviceOrientation>size].height;
-        _width = img[<DeviceOrientation>size].width;
-      } else
-      if ('sizes' in img) {
-        _height = img.sizes[<WidthDescriptor>size].height;
-        _width = img.sizes[<WidthDescriptor>size].width;
-      }
-    } else {
-      if ('height' in img) {
-        _height = img.height;
-        _width = img.width;
+    if (_size) {
+      if (_img.size) {
+        if ( _size in _img.size ) {
+        _height = _img.size[_size]!.height;
+        _width = _img.size[_size]!.width;
+        }
+      } else {
+        console.log('Requested image size not found')
       }
     }
 
     return {
-      url: size ? `${img.url}-${size}.${img.ext}` : `${img.url}.${img.ext}`,
-      alt: img.altText,
-      href: 'href' in img ? img.href : '',
+      url: `${_img.url}-${_size}.${_img.ext}`,
+      alt: _img.alt,
+      href: 'href' in _img ? _img.href : '',
       width: _width,
       height: _height
     }
   }
 
-  // auto select image object depending on screen orientation
-  orientedImage(shortName: string) {
-    let dor: DeviceOrientation = this.screen.deviceOrientation;
-    let img = this.image(shortName, dor);
-    return {
-      ...img,
-    }
-  }
-
   // return an object containing the properties for the desired parallax image
-  parallaxImage(shortName: string) {
-    let dor: DeviceOrientation = this.screen.deviceOrientation;
-    let img = this.image(shortName, dor);
-    let ar = this.screen.aspectRatio;
-    let factor = ar > 0.7 && ar < 1.4 ? 1.4 : 1;
+  parallaxImage(_shortName: string) {
+
+    let _img = this.orientedImage(_shortName);
+    let _ar = this.screen.aspectRatio;
+    let factor = _ar > 0.7 && _ar < 1.4 ? 1.4 : 1;
+
     return {
-      ...img,
-      scaleFactor: this.screen.width / img.width * factor
+      ..._img,
+      scaleFactor: this.screen.width / _img.width * factor
     };
+
   }
 }

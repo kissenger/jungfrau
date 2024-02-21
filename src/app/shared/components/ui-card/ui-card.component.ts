@@ -13,7 +13,7 @@ import { ImageService } from '../../services/image.service';
           height="300"
           width="300"
         />
-        <div class="ui-card-category-overlay {{category}}">{{category}}</div>
+        <div class="ui-card-category-overlay" [ngClass]="{'instagram': category=='Instagram', 'article': category=='Article'}">{{category}}</div>
         <div class="ui-card-header-overlay">{{header}}</div>
       </div>
 

@@ -16,6 +16,6 @@ export class BeginnersGuideComponent  {
     public navigate: NavService,
     public images: ImageService
   ) {
-    this.img = this.images.image('snorkpooling', 'large');
+    this.img = this.images.sizedImage('snorkpooling', 'large');
   }
 }
