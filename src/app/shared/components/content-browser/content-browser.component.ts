@@ -28,23 +28,26 @@ export class ContentBrowserComponent implements OnDestroy {
   private _limitPosts: boolean = false;
   private _previews: Array<ArticlePreview> = [];
 
+  public ckbtnArticleId = '';
+  public ckbtnInstaId = '';
   public cards: Array<InstaPost | ArticlePreview> = [];
   public instas: Array<InstaPost> = [];
 
   constructor(
-    private screen: ScreenService,
-    private http: HttpService,
-    private navigate: NavService,
-    private images: ImageService
+    private _screen: ScreenService,
+    private _http: HttpService,
+    private _navigate: NavService,
+    private _images: ImageService
   ) {
 
     // get instgram posts
-    this._httpSubs = this.http.getInstaPosts()
+    this._httpSubs = this._http.getInstaPosts()
       .subscribe({
         next: (result: {data: Array<InstaPost>}) => {
           this.instas = result.data
             .filter( (m: InstaPost) => m.media_type != "VIDEO")
             .map( (m: InstaPost) => { m.category = 'Instagram'; return m; })
+          this.updateFeed();
         },
         error: (error) => {
           console.log(error);
@@ -58,27 +61,35 @@ export class ContentBrowserComponent implements OnDestroy {
         caption: article.caption,
         header: article.header,
         category: 'Article',
-        media_url: this.images.sizedImage(article.imageShortName, 'small').url,
+        media_url: this._images.sizedImage(article.imageShortName, 'small').url,
         permalink: article.href,
         timestamp: '',
         media_type: ''
       }
     })
 
-    this._screenSubs = this.screen.resize.subscribe( () => {
+    this._screenSubs = this._screen.resize.subscribe( () => {
       this.updateFeed();
     });
 
-    this._navSubs = this.navigate.end.subscribe( (url) => {
+    this._navSubs = this._navigate.end.subscribe( (url) => {
       this._limitPosts = url === '/';
       this.updateFeed();
     })
 
+    this.ckbtnArticleId = 'ckbtn-article-' + Math.round(Math.random()*1000);
+    this.ckbtnInstaId = 'ckbtn-insta-' + Math.round(Math.random()*1000);
+    this.onLoad();
+
   }
 
   onLoad() {
-    this._ckbtnInsta = <HTMLInputElement>document.querySelector('input#ckbtn-insta');
-    this._ckbtnArticle = <HTMLInputElement>document.querySelector('input#ckbtn-article');
+    this._ckbtnInsta = <HTMLInputElement>document.querySelector('input#'+this.ckbtnInstaId);
+    this._ckbtnArticle = <HTMLInputElement>document.querySelector('input#'+this.ckbtnArticleId);
+    console.log(this.ckbtnArticleId)
+    console.log(this.ckbtnInstaId)    
+    console.log(this._ckbtnArticle)
+    console.log(this._ckbtnInsta)
   }
 
   onFilterClick(type: string) {
@@ -95,7 +106,7 @@ export class ContentBrowserComponent implements OnDestroy {
 
   updateFeed() {
     
-    const nPosts = this._limitPosts ? this.screen.numberUIPosts : 99;
+    const nPosts = this._limitPosts ? this._screen.numberUIPosts : 99;
 
     // if there are no instas or theyve been filtered out, the only show articles
     if ( this.instas.length === 0  || this._ckbtnArticle?.checked && !this._ckbtnInsta?.checked) {

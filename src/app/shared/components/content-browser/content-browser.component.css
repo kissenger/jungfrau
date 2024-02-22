@@ -1,14 +1,17 @@
 
 
 .insta-feed {
+  scroll-margin-top: var(--navbar-height);
   margin-top: 2rem;
   margin-bottom: 2rem;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  /* grid-template-rows: repeat(4, minmax(1200px, 1200px)); */
   grid-template-rows: repeat(4, auto);
   /* overflow: hidden; */
   justify-content: space-around;
+  /* border: 1px red solid; */
 }
 
 .insta-feed-small {
@@ -45,12 +48,12 @@
   height: 100%;
 }
 
-#ckbtn-insta:checked + label {
+.insta:checked + label {
   background-color:green;
   color:#fff;
 }
 
-#ckbtn-article:checked + label {
+.article:checked + label {
   background-color:navy;
   color:#fff;
 }

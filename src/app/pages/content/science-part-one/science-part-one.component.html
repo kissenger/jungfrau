@@ -1,23 +1,16 @@
 
-
-  <div class="article-image-container">
-
-    <img
-      class="article-image"
-      src="../../../../assets/photos/content/snorkelling-gear-on-a-pebble-beach-norfolk-britain-large.webp"
-      alt="Snokelling gear on a pebble beach in Norfolk Britain"
-      />
-
-      <!-- <img class="article-image"
-        [ngSrc]="image.altText"
-        [width]="images.img('content-kids').width"
-        [height]="images.img('content-kids').width"
-      /> -->
-  </div>
+<div class="article-image-container">
+  <img
+    [ngSrc]="images.orientedImage('snorkelling-gear').url"
+    [alt]="images.orientedImage('snorkelling-gear').alt"
+    fill
+    />
+    <div> 
+      <h1>The Science of Snorkelling: Part 1</h1>
+    </div>
+</div>
 
   <div class="dynamic-container">
-
-    <h2>Beginner's guide to snorkelling in Britain</h2>
 
     <p>
       Snorkelling is defined by the oxford english dictionary as “the sport or activity of swimming underwater with a snorkel”.
@@ -37,12 +30,12 @@
     </p>
 
     <ul>
-      <li><span class="html-link" (click)="navigate.scrollTo('training')" role="link">Do I need training to snorkel in Britain?</span></li>
-      <li><span class="html-link" (click)="navigate.scrollTo('kit')" role="link">What kit do I need to start snorkelling?</span></li>
-      <li><span class="html-link" (click)="navigate.scrollTo('safe')" role="link">Is it safe to snorkel in Britain?</span></li>
-      <li><span class="html-link" (click)="navigate.scrollTo('sites')" role="link">How do I find a safe snorkelling site?</span></li>
-      <li><span class="html-link" (click)="navigate.scrollTo('life')" role="link">What marine-life will I see?</span></li>
-      <li><span class="html-link" (click)="navigate.scrollTo('more')" role="link">How can I find out more about snorkelling in Britain?</span></li>
+      <li><span class="html-link" (click)="navigate.to('training')" role="link">Do I need training to snorkel in Britain?</span></li>
+      <li><span class="html-link" (click)="navigate.to('kit')" role="link">What kit do I need to start snorkelling?</span></li>
+      <li><span class="html-link" (click)="navigate.to('safe')" role="link">Is it safe to snorkel in Britain?</span></li>
+      <li><span class="html-link" (click)="navigate.to('sites')" role="link">How do I find a safe snorkelling site?</span></li>
+      <li><span class="html-link" (click)="navigate.to('life')" role="link">What marine-life will I see?</span></li>
+      <li><span class="html-link" (click)="navigate.to('more')" role="link">How can I find out more about snorkelling in Britain?</span></li>
     </ul>
 
   </section>
@@ -78,7 +71,7 @@
 
         </div>
       </div>
-      <span class="html-link" (click)="navigate.scrollTo('contents')" role="link">Back to contents</span>
+      <span class="html-link" (click)="navigate.to('contents')" role="link">Back to contents</span>
     </div>
 
 <!-- FAQ BLOCK -->
@@ -98,7 +91,7 @@
           </p>
         </div>
       </div>
-      <span class="html-link" (click)="navigate.scrollTo('contents')" role="link">Back to contents</span>
+      <span class="html-link" (click)="navigate.to('contents')" role="link">Back to contents</span>
     </div>
 
 <a class="anchor" id="safe"></a>
@@ -118,7 +111,7 @@
           </p>
         </div>
       </div>
-      <span class="html-link" (click)="navigate.scrollTo('contents')" role="link">Back to contents</span>
+      <span class="html-link" (click)="navigate.to('contents')" role="link">Back to contents</span>
     </div>
 
 <a class="anchor" id="sites"></a>
@@ -140,7 +133,7 @@
           </p>
         </div>
       </div>
-      <span class="html-link" (click)="navigate.scrollTo('contents')" role="link">Back to contents</span>
+      <span class="html-link" (click)="navigate.to('contents')" role="link">Back to contents</span>
     </div>
 
 <a class="anchor" id="life"></a>
@@ -162,7 +155,7 @@
           </p>
         </div>
       </div>
-      <span class="html-link" (click)="navigate.scrollTo('contents')" role="link">Back to contents</span>
+      <span class="html-link" (click)="navigate.to('contents')" role="link">Back to contents</span>
     </div>
 
 
@@ -178,7 +171,7 @@
     </div>
   </div>
   <!-- <a routerLink="./" fragment="contents" skipLocationChange>Back to contents</a> -->
-  <span class="html-link" (click)="navigate.scrollTo('contents')" role="link">Back to contents</span>
+  <span class="html-link" (click)="navigate.to('contents')" role="link">Back to contents</span>
 </div>
 
 <!-- ADS BLOCK -->

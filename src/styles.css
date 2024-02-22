@@ -6,10 +6,16 @@
   --line-height: 1.7;
   --insta-box-lines: 8;
 
-  --text-colour: #566F70;
+  /* --text-colour: #566F70; */
+  --text-colour: #274146;
   --link-colour: #009AF7;
   --border-colour: #DEE2E6;
-
+  --sn-colour: #274146;
+  --sn-colour-opaque: #274146BB;
+  /* --sn-colour: #154474; */
+  /* --sn-colour: #105560; */
+  /* --sn-colour: #0C3957; */
+  
   --box-shadow-hover: 3px 3px 3px 0px lightgrey;
   /* --box-shadow-hover: 3px 3px 3px 0px grey; */
 

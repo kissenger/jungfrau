@@ -10,12 +10,9 @@ import { ImageService } from 'src/app/shared/services/image.service';
 
 export class BeginnersGuideComponent  {
 
-  public img;
-
   constructor(
     public navigate: NavService,
     public images: ImageService
-  ) {
-    this.img = this.images.sizedImage('snorkpooling', 'large');
-  }
+  ) { }
+  
 }

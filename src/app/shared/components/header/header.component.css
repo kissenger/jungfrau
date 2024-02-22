@@ -8,9 +8,10 @@ header {
   margin: 0;
   padding: 0;
   height: var(--navbar-height);
-  background-color: white;
-  box-shadow: var(--box-shadow-header);
-  /* border: 1px red solid; */
+  background-color: var(--sn-colour);
+  /* box-shadow: var(--box-shadow-header); */
+  color: white;
+  /* border-bottom: 2px white solid; */
 }
 
 .menubar {
@@ -48,7 +49,7 @@ header {
 .menu > li:hover, .menu > li.active {
   cursor: pointer;
   /* border-bottom: 2px white solid; */
-  border-bottom: 2px var(--text-colour) solid;
+  border-bottom: 2px white solid;
 }
 
 .menu > span {
@@ -80,8 +81,8 @@ header {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: white;
-    border-bottom: 1px var(--border-colour) solid;
+    background-color: var(--sn-colour);
+    /* border-bottom: 1px var(--border-colour) solid; */
     border-top: none;
     border-radius: 0 0 5px 5px;
     box-shadow: var(--box-shadow-bottom-only);

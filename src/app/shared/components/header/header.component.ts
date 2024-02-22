@@ -16,7 +16,8 @@ export class HeaderComponent implements OnDestroy {
   private scrollspySubs: Subscription;
   private navSubs: Subscription;
 
-  public enableMenu: boolean = true;
+  public menuType: string = 'none';
+  // public enableMenu: boolean = false;
   public showDropdownMenu: boolean = false;
   public activeAnchor: string = 'home';
 
@@ -33,7 +34,20 @@ export class HeaderComponent implements OnDestroy {
     });
 
     this.navSubs = this.navigate.end.subscribe( (url) => {
-      this.enableMenu = url === '/';
+      let urlArr = url.split('/');
+
+
+      if ( urlArr[1] === '' ) {
+        this.menuType = 'SPA';
+      } 
+      else {
+        if ( urlArr.length === 2 ) {
+          this.menuType = 'content-browser';
+        } else {
+          this.menuType = 'article';
+        } 
+      }
+
     })
 
   }
@@ -53,7 +67,7 @@ export class HeaderComponent implements OnDestroy {
   }
 
   onMenuItemClick(elemName: string) {
-    this.navigate.scrollTo(elemName);
+    this.navigate.to(elemName);
     this.onHamburgerClick();
   }
 

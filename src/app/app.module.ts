@@ -66,7 +66,7 @@ import { SciencePartOneComponent } from './pages/content/science-part-one/scienc
   ],
   providers: [
     HttpService,
-    { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
+    // { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
     provideHttpClient(withFetch()),
     ScreenService,
     NavService,

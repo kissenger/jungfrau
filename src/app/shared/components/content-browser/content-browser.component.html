@@ -2,26 +2,25 @@
 <div *ngIf="instas.length > 0" class="ckbtn-group">
   <span>Filter:</span>
     <div class="ckbtn">
-      <input id="ckbtn-insta" type="checkbox" checked (click)="onFilterClick('insta')">
-      <label for="ckbtn-insta">Instagram</label>
+      <input class="insta" id="{{this.ckbtnInstaId}}" type="checkbox" checked (click)="onFilterClick('insta')">
+      <label for="{{this.ckbtnInstaId}}">Instagram</label>
     </div>
     <div class="ckbtn">
-      <input id="ckbtn-article" type="checkbox" checked (click)="onFilterClick('article')">
-      <label for="ckbtn-article">Article</label>
+      <input class="article" id="{{this.ckbtnArticleId}}" type="checkbox" checked (click)="onFilterClick('article')">
+      <label for="{{this.ckbtnArticleId}}">Article</label>
   </div>
 </div>
 
 <div class="insta-feed">
 
-    <app-ui-card *ngFor="let card of cards"
-      imageURL="{{card.media_url}}"
-      link="{{card.permalink }}"
-      text="{{card.caption}}"
-      header="{{card.header}}"
-      category="{{card.category}}"
-      timestamp="{{card.timestamp}}"
-    >
-  </app-ui-card>
+  <app-ui-card *ngFor="let card of cards"
+    imageURL="{{card.media_url}}"
+    link="{{card.permalink }}"
+    text="{{card.caption}}"
+    header="{{card.header}}"
+    category="{{card.category}}"
+    timestamp="{{card.timestamp}}"
+  ></app-ui-card>
 
 </div>
 

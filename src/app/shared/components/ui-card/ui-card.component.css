@@ -1,12 +1,16 @@
 
 .ui-card {
-  display: flex;
+  align-self: start;
+  /* display: flex; */
   flex-direction: column;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 275px;
+  max-width: 275px;
   overflow: hidden;
-  margin: 1rem 0 1rem 0;
+  margin: 2rem 0 2rem 0;
   border-radius: 5px;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 .ui-card:hover {
@@ -41,7 +45,8 @@
   left: 0;
   right: 0;
   color: white;
-  background-color: rgba(0,0,0,0.6);
+  background-color: var(--sn-colour-opaque);
+
   padding-inline: 0.5rem;
   margin-top: 10px;
   font-weight: 400;

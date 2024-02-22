@@ -14,22 +14,22 @@
 
     </div>
 
-    <svg *ngIf="enableMenu" id="hamburger" class="hamburger" viewBox="-55 -55 110 110" height="40px" width="40px" fill=var(--text-colour) (click)="onHamburgerClick()">
-      <rect x="-50" y="-50" width="100" height="100" fill="#FFFFFF" rx="10" stroke="var(--text-colour)" stroke-width="6">
+    <svg *ngIf="menuType != 'none'" id="hamburger" class="hamburger" viewBox="-55 -55 110 110" height="30px" width="30px" fill=var(--sn-colour) (click)="onHamburgerClick()">
+      <rect x="-50" y="-50" width="100" height="100" fill=var(--sn-colour) rx="10" stroke="#FFFFFF" stroke-width="6">
         <animate begin="click" id="startAnimation" />
       </rect>
-      <line x1="-20" y1="-20" x2="20" y2="-20" stroke=var(--text-colour) stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none">
+      <line x1="-20" y1="-20" x2="20" y2="-20" stroke="#FFFFFF" stroke-width="6" opacity="1" stroke-linecap="round" pointer-events="none">
         <animate attributeName="y2" from="20" to="-20" dur="0.5s" begin="startAnimation.begin" fill="freeze"></animate>
       </line>
-      <line x1="-20" y1="0" x2="20" y2="0" stroke=var(--text-colour) stroke-width="6" stroke-linecap="round" pointer-events="none">
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" pointer-events="none">
         <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="startAnimation.begin" fill="freeze"></animate>
       </line>
-      <line x1="-20" y1="20" x2="20" y2="20" stroke=var(--text-colour) stroke-width="6" stroke-linecap="round" pointer-events="none">
+      <line x1="-20" y1="20" x2="20" y2="20" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" pointer-events="none">
         <animate attributeName="y2" from="-20" to="20" dur="0.5s" begin="startAnimation.begin" fill="freeze"></animate>
       </line>
     </svg>
 
-    <ul *ngIf="enableMenu" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
+    <ul *ngIf="menuType=='SPA'" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
 
       <li [ngClass]="activeAnchor === 'about' ? 'active' : ''" (click)="onMenuItemClick('about')" role="link">About</li>
 
@@ -45,6 +45,19 @@
       <span class="middot">&middot;</span>
       <li [ngClass]="activeAnchor === 'partners' ? 'active' : ''" (click)="onMenuItemClick('partners')" role="link">Friends</li>
 
+      <span class="middot">&middot;</span>
+      <li (click)="onMenuItemClick('snorkelling-in-britain')" role="link">Articles</li>
+
     </ul>
+
+    <ul *ngIf="menuType=='article'" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
+
+      <li (click)="onMenuItemClick('')" role="link">Home</li>
+
+      <span class="middot">&middot;</span>
+      <li (click)="onMenuItemClick('snorkelling-in-britain')" role="link">All Articles</li>
+
+    </ul>
+
   </nav>
 </header>

@@ -21,32 +21,30 @@ export class NavService {
     });
   }
 
-  scrollTo(element: string) {
-    document.getElementById(element)!.scrollIntoView({
-      behavior: 'smooth'
-    });
+  to(destination: string) {
 
-  }
+    // If destination is an element on the current page, the scroll to it
+    if (document.getElementById(destination)) {
+      document.getElementById(destination)?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
 
-  /* Navigate to external website if http is included in link, otherwise route internally */
-  to(link: string) {
+    // If destination is an external link, navigate to it 
+    else if (destination.includes('http')) {
+      window.location.href = destination;
+    } 
 
-    if (link.includes('http')) {
-      // console.log(window)
-      window.location.href = link;
-
-    } else {
-
-      // if routing internally, wait for nav to complete and then scroll to top of screen
-      this.router.navigate([link]).then( () => {
-        // console.log(this.router.lastSuccessfulNavigation);
+    // Else wait route internally and scroll to top of screen when complete
+    else {
+      this.router.navigate([destination]).then( () => {
         document.getElementById('container')?.scrollTo({
           top: 0,
           left: 0,
-          behavior: 'smooth'
         });
       })
     }
+  
   }
 
   back() {
