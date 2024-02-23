@@ -2,11 +2,10 @@ import { Component, OnDestroy, HostListener} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NavService } from 'src/app/shared/services/nav.service';
+import { ImageService } from '../../services/image.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { Article, ArticlePreview, InstaPost } from '../../types';
-
 import { _articles } from '../../db-articles';
-import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-content-browser',
@@ -23,21 +22,22 @@ export class ContentBrowserComponent implements OnDestroy {
   private _httpSubs: Subscription | undefined;
   private _screenSubs: Subscription | undefined;
   private _navSubs: Subscription;
-  private _ckbtnInsta: HTMLInputElement | undefined;
-  private _ckbtnArticle: HTMLInputElement | undefined;
   private _limitPosts: boolean = false;
   private _previews: Array<ArticlePreview> = [];
 
-  public ckbtnArticleId = '';
-  public ckbtnInstaId = '';
   public cards: Array<InstaPost | ArticlePreview> = [];
   public instas: Array<InstaPost> = [];
+  public ckbtns: { [name: string]: { clicked: boolean, handle: HTMLElement | undefined } } = {
+    article: { clicked: true, handle: undefined },
+    insta:   { clicked: true, handle: undefined }
+  } 
 
   constructor(
     private _screen: ScreenService,
     private _http: HttpService,
     private _navigate: NavService,
     private _images: ImageService
+    
   ) {
 
     // get instgram posts
@@ -77,28 +77,21 @@ export class ContentBrowserComponent implements OnDestroy {
       this.updateFeed();
     })
 
-    this.ckbtnArticleId = 'ckbtn-article-' + Math.round(Math.random()*1000);
-    this.ckbtnInstaId = 'ckbtn-insta-' + Math.round(Math.random()*1000);
-    this.onLoad();
-
   }
 
   onLoad() {
-    this._ckbtnInsta = <HTMLInputElement>document.querySelector('input#'+this.ckbtnInstaId);
-    this._ckbtnArticle = <HTMLInputElement>document.querySelector('input#'+this.ckbtnArticleId);
-    console.log(this.ckbtnArticleId)
-    console.log(this.ckbtnInstaId)    
-    console.log(this._ckbtnArticle)
-    console.log(this._ckbtnInsta)
+    this.ckbtns['article'].handle = <HTMLInputElement>document.querySelector('input#ckbtnArticle');
+    this.ckbtns['insta'].handle = <HTMLInputElement>document.querySelector('input#ckbtnInsta');
   }
 
   onFilterClick(type: string) {
-    if (!this._ckbtnInsta?.checked && !this._ckbtnArticle?.checked) {
-      if (type === 'insta') {
-        this._ckbtnInsta!.checked = true;
-      } else {
-        this._ckbtnArticle!.checked = true;
-      }
+
+    // reverse click on relevent btn
+    this.ckbtns[type].clicked = !this.ckbtns[type].clicked;
+
+    // if both btns are now unclicked, reclick what we just unclicked, otherwise update
+    if ( !this.ckbtns['insta'].clicked && !this.ckbtns['article'].clicked ) {
+      this.ckbtns[type].clicked = !this.ckbtns[type].clicked;
     } else {
       this.updateFeed();
     }
@@ -109,12 +102,12 @@ export class ContentBrowserComponent implements OnDestroy {
     const nPosts = this._limitPosts ? this._screen.numberUIPosts : 99;
 
     // if there are no instas or theyve been filtered out, the only show articles
-    if ( this.instas.length === 0  || this._ckbtnArticle?.checked && !this._ckbtnInsta?.checked) {
+    if ( this.instas.length === 0  || this.ckbtns['article'].clicked && !this.ckbtns['insta'].clicked) {
       this.cards = [...this._previews];
     }
 
     // if there are instas and articles are filtered out, only show instas
-    else if (this._ckbtnInsta?.checked && !this._ckbtnArticle?.checked) {
+    else if (this.ckbtns['insta'].clicked && !this.ckbtns['article'].clicked) {
       this.cards = [...this.instas];
     }
 

@@ -1,14 +1,12 @@
 
 <div *ngIf="instas.length > 0" class="ckbtn-group">
   <span>Filter:</span>
-    <div class="ckbtn">
-      <input class="insta" id="{{this.ckbtnInstaId}}" type="checkbox" checked (click)="onFilterClick('insta')">
-      <label for="{{this.ckbtnInstaId}}">Instagram</label>
-    </div>
-    <div class="ckbtn">
-      <input class="article" id="{{this.ckbtnArticleId}}" type="checkbox" checked (click)="onFilterClick('article')">
-      <label for="{{this.ckbtnArticleId}}">Article</label>
-  </div>
+      <div class="ckbtn insta" [ngClass]="ckbtns['insta'].clicked ? 'clicked' : '' " (click)="onFilterClick('insta')">
+        <label for="ckbtnInsta">Instagram</label>
+      </div>
+      <div class="ckbtn article" [ngClass]="ckbtns['article'].clicked ? 'clicked' : '' "  (click)="onFilterClick('article')"> 
+        <label for="ckbtnArticle">Article</label>
+      </div>
 </div>
 
 <div class="insta-feed">
