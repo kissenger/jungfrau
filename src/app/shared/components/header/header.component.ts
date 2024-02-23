@@ -17,7 +17,6 @@ export class HeaderComponent implements OnDestroy {
   private navSubs: Subscription;
 
   public menuType: string = 'none';
-  // public enableMenu: boolean = false;
   public showDropdownMenu: boolean = false;
   public activeAnchor: string = 'home';
 

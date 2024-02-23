@@ -31,36 +31,23 @@
 }
 
 .ckbtn {
-  /* border-radius: 15px; */
-  /* border:1px solid var(--border-colour); */
-  /* display: inline-block; */
   overflow: hidden;
-  /* margin-inline: 0.2rem; */
   width: 90px;
   font-size: smaller;
   position: relative;
-}
-
-
-
-.ckbtn > input {
-  display: none;
-}
-
-.ckbtn label {
-  text-align:center;
+  text-align: center;
   background-color:#DDDDDD;
   display:block;
   cursor: pointer;
   height: 120%;
 }
 
-.insta.clicked label {
+.insta.clicked {
   background-color:green;
   color:#fff;
 }
 
-.article.clicked label {
+.article.clicked {
   background-color:navy;
   color:#fff;
 }

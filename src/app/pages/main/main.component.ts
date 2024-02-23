@@ -30,12 +30,14 @@ export class MainComponent implements OnDestroy {
     })
 
     this.navSubs = this.navigate.end.subscribe( () => {
-      try {
-        document.getElementById('windowOneImage')!.style.visibility = "hidden";
-        document.getElementById(`windowTwoImage`)!.style.visibility = "hidden";
-        document.getElementById(`windowThreeImage`)!.style.visibility = "hidden";
-        document.getElementById(`windowFourImage`)!.style.visibility = "hidden";
-      } catch {}
+
+      document.getElementById('windowOneImage')!.style.visibility = "hidden";
+      document.getElementById(`windowTwoImage`)!.style.visibility = "hidden";
+      document.getElementById(`windowThreeImage`)!.style.visibility = "hidden";
+      document.getElementById(`windowFourImage`)!.style.visibility = "hidden";
+
+      this.onLoad();
+      
     })
 
   }
@@ -49,6 +51,7 @@ export class MainComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.scrollspySubs?.unsubscribe();
+    this.navSubs?.unsubscribe();
   }
 }
 
