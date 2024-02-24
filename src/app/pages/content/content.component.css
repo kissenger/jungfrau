@@ -1,13 +1,14 @@
 
+.blockquote {
+  margin-bottom: 1rem;;
+}
 .article-image-container {
-
   overflow: hidden;
   max-width: 100%;
   width: 100%;
   height: 500px;
   position: relative;
   display: block;
-
 }
 
 .article-image-container > img {
@@ -18,22 +19,15 @@
 }
 
 .article-image-container > div {
-  /* width: 100%; */
-  /* height: 25%; */
   padding: 2rem;
   position: absolute;
   bottom: 10%;
   left: 0;
-  /* background-color: rgba(0,0,0,0.7); */
   background-color: var(--banner-colour);
   color: white;
-  /* border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; */
-  /* opacity: 0.7; */
 }
 
 .article-image-container > div > h2 {
-  /* border: 1px red solid; */
   margin: 0px;
 }
 
@@ -42,7 +36,6 @@
     text-align: center;
     padding: 1rem;
     width: 100%;
-
   }
 
 }

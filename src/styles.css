@@ -5,11 +5,11 @@
   --footer-height: 0;    /* this gets updated in the footer component */
 
   /* Dark Theme */
-  --sn-colour: #273c46;
+  --sn-colour: #1b3d59;
   --text-colour: var(--sn-colour);
   --text-colour-header: #FFFF;
   --text-colour-link: #009AF7;
-  --banner-colour: #000000AA;
+  --banner-colour: #00000066;
   --border-colour: #DEE2E6;
 
   /*  */

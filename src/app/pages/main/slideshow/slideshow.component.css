@@ -62,8 +62,8 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   /* border: red 1px solid; */
-  background-color: rgba(0,0,0,0.4);
-  /* background-color: var(--banner-colour); */
+  /* background-color: rgba(0,0,0,0.4); */
+  background-color: var(--banner-colour);
 
   pointer-events: none;
 }
