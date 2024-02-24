@@ -13,38 +13,61 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnDestroy {
   @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
 
-  private scrollspySubs: Subscription;
-  private navSubs: Subscription;
+  private _ssSubs: Subscription;
+  private _nvSubs: Subscription;
 
-  public menuType: string = 'none';
+  public menuItems: Array<{text: string, link: string}> | undefined;
   public showDropdownMenu: boolean = false;
   public activeAnchor: string = 'home';
 
   constructor(
-    public navigate: NavService,
-    public scrollSpy: ScrollspyService,
-    private screen: ScreenService,
+    private _navigate: NavService,
+    private _scrollSpy: ScrollspyService,
+    private _screen: ScreenService,
   ) {
 
-    this.scrollspySubs = this.scrollSpy.anchorChange.subscribe( (anchorChange) => {
-      if (anchorChange.active) {
-        this.activeAnchor = anchorChange.id;
+    this._ssSubs = this._scrollSpy.anchorChange.subscribe( (a) => {
+      if (a.active) {
+        this.activeAnchor = a.id;
       }
     });
 
-    this.navSubs = this.navigate.end.subscribe( (url) => {
-      let urlArr = url.split('/');
+    // update menu items on route change
+    this._nvSubs = this._navigate.end.subscribe( (url) => {
+      let urlSplit = url.split('/');
 
-
-      if ( urlArr[1] === '' ) {
-        this.menuType = 'SPA';
+      if ( urlSplit[1] === '' ) {   // main page
+        this.menuItems = [
+          {text: 'About',    link: 'about'},
+          {text: 'Explore',  link: 'explore'},
+          {text: 'Book',     link: 'book'},
+          {text: 'FAQs',     link: 'faqs'},
+          {text: 'Friends',  link: 'friends'},
+          {text: 'Articles', link: 'snorkelling-in-britain'}
+        ]
       } 
-      else {
-        if ( urlArr.length === 2 ) {
-          this.menuType = 'content-browser';
-        } else {
-          this.menuType = 'article';
-        } 
+      else if ( urlSplit[1] === 'subscribe' ) {
+        this.menuItems = [
+          {text: 'Home',    link: '/'},
+        ]
+      }
+      else if ( urlSplit[1] === 'privacy-policy' ) {
+        this.menuItems = [
+          {text: 'Home',    link: '/'},
+        ]
+      }
+      else if ( urlSplit[1] === 'snorkelling-in-britain' ) {
+        if ( urlSplit.length === 2 ) {
+          this.menuItems = [
+            {text: 'Home',    link: '/'},
+          ]
+        }
+        else {
+          this.menuItems = [
+            {text: 'Home',     link: '/'},
+            {text: 'Articles', link: 'snorkelling-in-britain'}
+          ]
+        }
       }
 
     })
@@ -52,22 +75,29 @@ export class HeaderComponent implements OnDestroy {
   }
 
   onLoad() {
-    if (this.screen.widthDescriptor === 'large') {
+    if (this._screen.widthDescriptor === 'large') {
       this.showDropdownMenu = false;
     }
   }
 
   onHamburgerClick() {
     this.showDropdownMenu = !this.showDropdownMenu;
+    this.animateHamburger();
+  }
+
+  onMenuItemClick(elemName: string) {
+    this._navigate.to(elemName);
+    if (this.showDropdownMenu) {
+      this.showDropdownMenu = false;
+      this.animateHamburger();
+    }
+  }
+
+  animateHamburger() {
     document.querySelectorAll("animate").forEach( anim => {
       anim.beginElement();
     });
     this.toggleAnimationDirection();
-  }
-
-  onMenuItemClick(elemName: string) {
-    this.navigate.to(elemName);
-    this.onHamburgerClick();
   }
 
   // Reverse svg animation using js - makes svg definition more simple
@@ -81,8 +111,8 @@ export class HeaderComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.scrollspySubs?.unsubscribe();
-    this.navSubs?.unsubscribe();
+    this._ssSubs?.unsubscribe();
+    this._nvSubs?.unsubscribe();
   }
 
 }
