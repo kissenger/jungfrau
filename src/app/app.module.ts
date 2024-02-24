@@ -32,7 +32,6 @@ import { ExtLinkComponent } from './shared/components/ext-link/ext-link.componen
 import { ContentBrowserComponent } from './shared/components/content-browser/content-browser.component';
 import { ContentComponent } from './pages/content/content.component';
 import { SciencePartOneComponent } from './pages/content/science-part-one/science-part-one.component';
-import { DataService } from './shared/services/data.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +72,6 @@ import { DataService } from './shared/services/data.service';
     NavService,
     ImageService,
     ScrollspyService,
-    DataService,
     provideClientHydration(
       withHttpTransferCacheOptions({
         includePostRequests: true,

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from 'src/app/shared/services/data.service';
+// import { DataService } from 'src/app/shared/services/data.service';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NavService } from 'src/app/shared/services/nav.service';
 
@@ -13,21 +13,21 @@ export class SubscribeComponent implements OnDestroy {
 
   public email: string = '';
   public footerHeight: number | undefined;
-  private _dataSubs: Subscription;
+  // private _dataSubs: Subscription;
   private _httpSubs: Subscription | undefined;
 
   constructor(
     public navigate: NavService,
     private _http: HttpService,
-    private _data: DataService,
-    private elementRef: ElementRef
+    // private _data: DataService,
+    // private elementRef: ElementRef
   ) {
-    this._dataSubs = this._data.footerHeight.subscribe( (h: number) => {
-      console.log(h);
-      this.footerHeight = h;
-      // document.documentElement.style.setProperty('--footer-height', `${h}`);
-      this.elementRef.nativeElement.style.setProperty('--footer-height', `${h}px`);
-    })
+    // this._dataSubs = this._data.footerHeight.subscribe( (h: number) => {
+    //   console.log(h);
+    //   this.footerHeight = h;
+    //   // document.documentElement.style.setProperty('--footer-height', `${h}`);
+    //   this.elementRef.nativeElement.style.setProperty('--footer-height', `${h}px`);
+    // })
 
    }
 
@@ -52,7 +52,7 @@ export class SubscribeComponent implements OnDestroy {
 
   ngOnDestroy() {
     this._httpSubs?.unsubscribe();
-    this._dataSubs?.unsubscribe();
+    // this._dataSubs?.unsubscribe();
   }
 
 

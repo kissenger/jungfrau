@@ -6,7 +6,7 @@
   --line-height: 1.7;
   --insta-box-lines: 8;
 
-  /* this gets updated in the data service */
+  /* this gets updated in the footer component */
   --footer-height: 0;
 
   /* --text-colour: #566F70; */

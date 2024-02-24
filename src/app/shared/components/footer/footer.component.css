@@ -9,12 +9,14 @@ footer {
   padding: 1.5rem 0 0.5rem 0;
     /* height: 150px; */
   display: flex;
+  opacity: 0;
   flex-direction: column;
   width: 100%;
   /* border-top: 1px var(--border-colour) solid; */
   justify-content: center;
   background-color: var(--sn-colour);
   color: var(--header-text-colour);
+
   /* border-top: 2px white solid; */
 
   /* align-content: center; */

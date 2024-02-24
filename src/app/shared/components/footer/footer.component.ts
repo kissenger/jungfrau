@@ -1,9 +1,7 @@
 import { ScreenService } from 'src/app/shared/services/screen.service';
-import { Component, EventEmitter, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from '../../services/nav.service';
-import { DataService } from '../../services/data.service';
-// import { MailingListComponent } from '../shared/components/mailing-list.component';
 
 @Component({
   selector: 'app-footer',
@@ -12,10 +10,11 @@ import { DataService } from '../../services/data.service';
 })
 export class FooterComponent {
 
-  // when we know the footer height, send it to service 
-  // used for components that are smaller than screen hgight, to push footer to bottom, eg subscription
+  // when we know the footer height, set the root css variable then make the footer visible
   @HostListener('window:load', ['$event']) onLoadEvent() {
-    this._data.footer(document.getElementById("footer")!.offsetHeight);
+    let h = document.getElementById("footer")!.offsetHeight;
+    document.documentElement.style.setProperty('--footer-height', `${h}px`);
+    document.getElementById("footer")!.style.opacity = '1';
   };
 
   public fullYear?: number;
@@ -25,9 +24,9 @@ export class FooterComponent {
   constructor(
     public images: ImageService,
     public navigate: NavService,
-    public screen: ScreenService,
-    private _data: DataService
+    public screen: ScreenService
   ) { 
+
     this.fullYear = new Date().getFullYear();
     this.logos = this._logoNames.map( (ln: string) => {
       return this.images.sizedImage(ln, 'small')
