@@ -1,40 +1,25 @@
 
 <footer id="footer">
 
-  <div class="footer-container">
+    <div class="footer-logos">
 
-    <div *ngFor="let img of logos">
-
-      <a class="footer-logo" (click)="navigate.to(img.href)" aria-label="img.alt" >
-        <img
-          [ngSrc]  = "img.url"
-          [alt]    = "img.alt"
-          [width]  = "img.width"
-          [height] = "img.height"
-        />
-      </a>
+      <img *ngFor="let img of logos"
+        [ngSrc]  = "img.url"
+        [alt]    = "img.alt"
+        [width]  = "img.width"
+        [height] = "img.height"
+        (click)="navigate.to(img.href)"
+        aria-label="img.alt"
+      />
       
     </div>
-  </div>
-
-  <div>
 
     <div class="footer-text">
-
-      <div class="footer-wide">
-        &copy; Snorkelology 2022-{{fullYear}} &middot; All Rights Reserved  &middot;
-        <a class="html-link" (click)="navigate.to('privacy-policy')" role="link">Privacy Policy</a> <br />
-      </div>
-
-      <div class="footer-narrow">
-        &copy; Snorkelology 2022-{{fullYear}} <br />
-        All Rights Reserved <br />
-        <a class="html-link" (click)="navigate.to('privacy-policy')" role="link">Privacy Policy</a>
-      </div>
-
+      &copy; Snorkelology 2022-{{fullYear}} 
+      <br *ngIf="screen.widthDescriptor === 'small'"/>
+      <span *ngIf="screen.widthDescriptor === 'large'">&middot;</span>
+      All Rights Reserved <br />
+      <a class="html-link" (click)="navigate.to('privacy-policy')" role="link">Privacy Policy</a>
     </div>
 
-
-  </div>
-
-</footer>
+  </footer>
