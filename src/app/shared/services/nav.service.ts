@@ -35,7 +35,7 @@ export class NavService {
       window.location.href = destination;
     } 
 
-    // Else wait route internally and scroll to top of screen when complete
+    // Else route internally and scroll to top of screen when complete
     else {
       this.router.navigate([destination]).then( () => {
         document.getElementById('container')?.scrollTo({

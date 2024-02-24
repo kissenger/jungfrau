@@ -38,7 +38,7 @@ export class ScrollspyService {
 
   // TODO: this should be defined using the data provided in obsElem, all ths info is available
   intersectHandler(element: Array<IntersectionObserverEntry>) {
-    console.log(element)
+    // console.log(element)
     element.forEach( (elem) => {
       if ( elem.target.className === 'anchor') {
         this.anchorChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0.2});

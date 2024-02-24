@@ -10,8 +10,8 @@ header {
   height: var(--navbar-height);
   background-color: var(--sn-colour);
   /* box-shadow: var(--box-shadow-header); */
-  color: white;
-  /* border-bottom: 2px white solid; */
+  color: var(--header-text-colour);
+  border-bottom: 2px white solid;
 }
 
 .menubar {
