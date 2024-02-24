@@ -25,7 +25,7 @@
   bottom: 10%;
   left: 0;
   /* background-color: rgba(0,0,0,0.7); */
-  background-color: var(--sn-colour-opaque);
+  background-color: var(--banner-colour);
   color: white;
   /* border-top-right-radius: 10px;
   border-bottom-right-radius: 10px; */

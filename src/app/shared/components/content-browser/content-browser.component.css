@@ -1,17 +1,14 @@
 
 
 .insta-feed {
-  scroll-margin-top: var(--navbar-height);
+  scroll-margin-top: var(--header-height);
   margin-top: 2rem;
   margin-bottom: 2rem;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-  /* grid-template-rows: repeat(4, minmax(1200px, 1200px)); */
   grid-template-rows: repeat(4, auto);
-  /* overflow: hidden; */
   justify-content: space-around;
-  /* border: 1px red solid; */
 }
 
 .insta-feed-small {
@@ -20,11 +17,9 @@
 
 .ckbtn-group {
   display: flex;
-  /* display: inline-block; */
   flex-direction: row;
   width: 100%;
   line-height: 1.6rem;
-  /* border: 1px red solid; */
 }
 .ckbtn-group > span {
   margin-right: 1rem;
@@ -42,12 +37,24 @@
   height: 120%;
 }
 
+.insta:hover {
+  color:#fff;
+}
 .insta.clicked {
   background-color:green;
   color:#fff;
 }
+.insta.clicked:hover {
+  color: var(--text-colour);
+}
 
+.article:hover {
+  color:#fff;
+}
 .article.clicked {
   background-color:navy;
   color:#fff;
+}
+.article.clicked:hover {
+  color: var(--text-colour);
 }

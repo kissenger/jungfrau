@@ -7,10 +7,10 @@ header {
   z-index: 99;
   margin: 0;
   padding: 0;
-  height: var(--navbar-height);
+  height: var(--header-height);
   background-color: var(--sn-colour);
   /* box-shadow: var(--box-shadow-header); */
-  color: var(--header-text-colour);
+  color: var(--text-colour-header);
   border-bottom: 2px white solid;
 }
 

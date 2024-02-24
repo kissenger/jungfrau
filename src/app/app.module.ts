@@ -25,7 +25,6 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from 'src/app/shared/services/nav.service';
-import { CustomRouteReuseStrategy } from 'src/app/shared/custom-reroute-strategy';
 import { ScrollspyService } from './shared/services/scrollspy.service';
 import { UICardComponent } from './shared/components/ui-card/ui-card.component';
 import { ExtLinkComponent } from './shared/components/ext-link/ext-link.component';
@@ -66,7 +65,6 @@ import { SciencePartOneComponent } from './pages/content/science-part-one/scienc
   ],
   providers: [
     HttpService,
-    // { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
     provideHttpClient(withFetch()),
     ScreenService,
     NavService,
