@@ -1,19 +1,20 @@
-import { Component, Inject, HostListener } from '@angular/core';
+import { Component,  AfterViewInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from 'src/app/shared/services/nav.service';
-
 
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
   styleUrls: ['./slideshow.component.css']
 })
-export class SlideshowComponent {
+export class SlideshowComponent implements AfterViewInit{
 
-  @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
-
+  @ViewChild('slideshow') slideshowElement!: ElementRef; 
+  @ViewChild('firstSlide') firstSlide!: ElementRef; 
+  @ViewChildren('overlay') overlayElements!: QueryList<ElementRef>;
+  
   private delta = 0;
-  private slideshowElement?: HTMLElement;
+  // private slideshowElement?: HTMLElement;
   private mouseOver: boolean = false;
 
   constructor(
@@ -21,18 +22,20 @@ export class SlideshowComponent {
     public navigate: NavService
   ) {}
 
-  onLoad() {
-
-    this.slideshowElement = document.getElementById('slideshow')!;
+  ngAfterViewInit() {
+    
+    // console.log(this.overlay)
+    console.log(this.firstSlide)
 
     // duplicate slide 1 and add as a child of slideshow
-    let slide1 = document.getElementById("slide1")!.cloneNode(true);
-    this.slideshowElement.appendChild(slide1);
+      this.slideshowElement.nativeElement.appendChild(
+        this.firstSlide.nativeElement.cloneNode(true)
+      );
 
-    // inhibit autoscrill if mouse is over the slideshow (or arrow) element(s)
-    Array.from(document.getElementsByClassName('overlay')).forEach( (elem) => {
-      elem.addEventListener('mousemove', (e) => { this.mouseOver = true;  });
-      elem.addEventListener('mouseout', (e) =>  { this.mouseOver = false; });
+    // inhibit autoscroll if mouse is over the slideshow (or arrow) element(s)
+    this.overlayElements.toArray().forEach( (elem) => {
+      elem.nativeElement.addEventListener('mousemove', () => { this.mouseOver = true;  });
+      elem.nativeElement.addEventListener('mouseout', () =>  { this.mouseOver = false; });
     })
 
     setInterval( () => {
@@ -42,19 +45,20 @@ export class SlideshowComponent {
       }, 8000)
   }
 
+
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 
   slideshowReset() {
-    this.slideshowElement!.style.transitionProperty = `none`;
-    this.slideshowElement!.style.transform = `translateX(-${this.delta}%)`;
+    this.slideshowElement.nativeElement.style.transitionProperty = `none`;
+    this.slideshowElement.nativeElement.style.transform = `translateX(-${this.delta}%)`;
   }
 
   slideshowNext() {
-    this.slideshowElement!.style.transitionProperty = `all`;
-    this.slideshowElement!.style.transform = `translateX(-${this.delta}%)`;
+    this.slideshowElement.nativeElement.style.transitionProperty = `all`;
+    this.slideshowElement.nativeElement.style.transform = `translateX(-${this.delta}%)`;
   }
 
   onClick(advance: boolean) {
