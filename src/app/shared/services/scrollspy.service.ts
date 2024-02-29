@@ -1,19 +1,14 @@
 
-import { EventEmitter, Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { ElementRef, EventEmitter, Inject, Injectable, PLATFORM_ID, QueryList } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 
-/*
-  Watches the intersections of divs with screen in order to enable menu scrollspy, and parallax window image fix
-*/
-
 export class ScrollspyService {
 
-  public anchorChange = new EventEmitter<{id: string, active: boolean}>();
-  public windowChange = new EventEmitter<{id: string, active: boolean}>();
+  public intersectionEmitter = new EventEmitter<{id: string, class: string, ratio: number}>();
   private _ob$: any;
 
   constructor(
@@ -21,31 +16,28 @@ export class ScrollspyService {
   ) {
     if(isPlatformBrowser(this.platformId)) {
       this._ob$ = new IntersectionObserver( (io: Array<IntersectionObserverEntry>) => {
-        this.intersectHandler(io)
+        this.intersectHandler(io);
       }, {
         root: null, threshold: [0, 0.2]
       });
     }
   }
 
-  observeElements(obsElems: Array<{className: string, intersectRatio: number}>) {
-    obsElems.forEach( (elem: {className: string, intersectRatio: number}) => {
-      document.querySelectorAll(`.${elem.className}`).forEach( (elem: Element) => {
-        this._ob$.observe(elem);
-      })
+  observeChildren(children: QueryList<ElementRef>) {
+    children.toArray().forEach( (child) => {
+      this._ob$.observe(child.nativeElement);
+      console.log(child)
+    })
+  };
+
+  intersectHandler(el: Array<IntersectionObserverEntry>) {
+    console.log(el);
+    el.forEach( (el) => {
+      this.intersectionEmitter.emit({
+        id: el.target.id, 
+        class: el.target.className,
+        ratio: el.intersectionRatio
+      });
     });
   }
-
-  // TODO: this should be defined using the data provided in obsElem, all ths info is available
-  intersectHandler(element: Array<IntersectionObserverEntry>) {
-    // console.log(element)
-    element.forEach( (elem) => {
-      if ( elem.target.className === 'anchor') {
-        this.anchorChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0.2});
-      } else if ( elem.target.className === 'parallax-window') {
-        this.windowChange.emit({'id': elem.target.id, active: elem.intersectionRatio > 0});
-      }
-    })
-  }
-
 }

@@ -32,40 +32,15 @@
     <ul class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
 
       <li 
-        *ngFor="let menuItem of menuItems"
-        [ngClass]="activeAnchor === menuItem.link ? 'active' : ''"
+        *ngFor="let menuItem of menuItemsFiltered"
+        #menuItem
+        [ngClass]="{'active': activeAnchor == menuItem.link}"
         (click)="onMenuItemClick(menuItem.link)" 
         role="link">
         {{menuItem.text}}
       </li>
 
-      <!-- <li [ngClass]="activeAnchor === 'about' ? 'active' : ''" (click)="onMenuItemClick('about')" role="link">About</li>
-
-      <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'explore' ? 'active' : ''" (click)="onMenuItemClick('explore')" role="link">Explore</li>
-
-      <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'book' ? 'active' : ''" (click)="onMenuItemClick('book')" role="link">Book</li>
-
-      <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'faq' ? 'active' : ''" (click)="onMenuItemClick('faq')" role="link">FAQs</li>
-
-      <span class="middot">&middot;</span>
-      <li [ngClass]="activeAnchor === 'partners' ? 'active' : ''" (click)="onMenuItemClick('partners')" role="link">Friends</li>
-
-      <span class="middot">&middot;</span>
-      <li (click)="onMenuItemClick('snorkelling-in-britain')" role="link">Articles</li> -->
-
     </ul>
-<!-- 
-    <ul *ngIf="menuType=='article'" class="menu" [ngClass]="showDropdownMenu ? 'show' : ''" >
-
-      <li (click)="onMenuItemClick('')" role="link">Home</li>
-
-      <span class="middot">&middot;</span>
-      <li (click)="onMenuItemClick('snorkelling-in-britain')" role="link">All Articles</li>
-
-    </ul> -->
 
   </nav>
 </header>

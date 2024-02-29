@@ -1,7 +1,6 @@
-import { Component, HostListener, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ImageService } from 'src/app/shared/services/image.service';
-import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 
 @Component({
@@ -10,48 +9,30 @@ import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
   styleUrls: ['./main.component.css']
 })
 
-export class MainComponent implements OnDestroy {
+export class MainComponent implements OnDestroy, AfterViewInit {
 
-  @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
+  @ViewChildren('plxWindow') plxImages!: QueryList<ElementRef>;
+  @ViewChildren('anchor') anchors!: QueryList<ElementRef>;
 
+  public showPlxImages: {[id: string]: boolean} = {};
   private scrollspySubs: Subscription;
-  private navSubs: Subscription;
 
   constructor(
     public images: ImageService,
-    private scrollSpy: ScrollspyService,
-    private navigate: NavService
+    private scrollSpy: ScrollspyService
   ) {
-
-    this.scrollspySubs = this.scrollSpy.windowChange.subscribe( (changedWindow) => {
-      try {
-        document.getElementById(`${changedWindow.id}Image`)!.style.visibility = changedWindow.active ? "visible" : "hidden";
-      } catch {}
+    this.scrollspySubs = this.scrollSpy.intersectionEmitter.subscribe( (isect) => {
+      this.showPlxImages[isect.id] = isect.ratio > 0.2
     })
-
-    this.navSubs = this.navigate.end.subscribe( () => {
-
-      document.getElementById('windowOneImage')!.style.visibility = "hidden";
-      document.getElementById(`windowTwoImage`)!.style.visibility = "hidden";
-      document.getElementById(`windowThreeImage`)!.style.visibility = "hidden";
-      document.getElementById(`windowFourImage`)!.style.visibility = "hidden";
-
-      this.onLoad();
-      
-    })
-
   }
 
-  onLoad() {
-    this.scrollSpy.observeElements([
-      { className: 'anchor'         , intersectRatio: 0.2 },
-      { className: 'parallax-window', intersectRatio: 0 }
-    ]);
+  ngAfterViewInit() {
+    this.scrollSpy.observeChildren(this.plxImages); // subscribed to in this component
+    this.scrollSpy.observeChildren(this.anchors);   // subscribed to in header component
   }
 
   ngOnDestroy(): void {
     this.scrollspySubs?.unsubscribe();
-    this.navSubs?.unsubscribe();
   }
 }
 

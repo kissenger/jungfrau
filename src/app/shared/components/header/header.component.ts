@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NavService } from 'src/app/shared/services/nav.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 import { ScreenService } from 'src/app/shared/services/screen.service';
@@ -10,75 +10,66 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent implements OnDestroy {
-  @HostListener('window:load', ['$event']) onLoadEvent() { this.onLoad() };
+export class HeaderComponent implements AfterViewInit, OnDestroy {
 
-  private _ssSubs: Subscription;
-  private _nvSubs: Subscription;
+  @ViewChildren('menuItem') menuElements!: QueryList<ElementRef>; 
+  // @ViewChild('menu') menu!: ElementRef;
 
-  public menuItems: Array<{text: string, link: string}> | undefined;
+  private _scrSubs: Subscription;
+  private _navSubs: Subscription;
+
+  public menuItems = [
+    {text: 'Home',     link: '/',        show: false},
+    {text: 'About',    link: 'about',    show: false},
+    {text: 'Explore',  link: 'explore',  show: false},
+    {text: 'Book',     link: 'book',     show: false},
+    {text: 'FAQs',     link: 'faqs',     show: false},
+    {text: 'Friends',  link: 'friends',  show: false},
+    {text: 'Articles', link: 'snorkelling-in-britain', show: false}
+  ];
+  public menuItemsFiltered: Array<{text: string, link: string, show: boolean}> | undefined;
   public showDropdownMenu: boolean = false;
-  public activeAnchor: string = 'home';
+  public activeAnchor: string = 'about';
 
   constructor(
     private _navigate: NavService,
     private _scrollSpy: ScrollspyService,
     private _screen: ScreenService,
-  ) {
-
-    this._ssSubs = this._scrollSpy.anchorChange.subscribe( (a) => {
-      if (a.active) {
-        this.activeAnchor = a.id;
+  ) {      
+    
+    // observed elements are set in main component and tracked in scrollspy
+    this._scrSubs = this._scrollSpy.intersectionEmitter.subscribe( (isect) => {
+      if (isect.class==="anchor" && isect.ratio > 0.2) {
+        this.activeAnchor = isect.id;
       }
-    });
+    })
 
     // update menu items on route change
-    this._nvSubs = this._navigate.end.subscribe( (url) => {
+    this._navSubs = this._navigate.end.subscribe( (url) => {
       let urlSplit = url.split('/');
 
-      if ( urlSplit[1] === '' ) {   // main page
-        this.menuItems = [
-          {text: 'About',    link: 'about'},
-          {text: 'Explore',  link: 'explore'},
-          {text: 'Book',     link: 'book'},
-          {text: 'FAQs',     link: 'faqs'},
-          {text: 'Friends',  link: 'friends'},
-          {text: 'Articles', link: 'snorkelling-in-britain'}
-        ]
-      } 
-      else if ( urlSplit[1] === 'subscribe' ) {
-        this.menuItems = [
-          {text: 'Home',    link: '/'},
-        ]
-      }
-      else if ( urlSplit[1] === 'privacy-policy' ) {
-        this.menuItems = [
-          {text: 'Home',    link: '/'},
-        ]
-      }
+      if ( urlSplit[1] === '' ) { this.menuItemsFiltered = this.filterMenu(['About', 'Explore', 'Book', 'FAQs', 'Friends', 'Articles']) }
+      else if ( urlSplit[1] === 'subscribe' ) { this.menuItemsFiltered = this.filterMenu(['Home']); }
+      else if ( urlSplit[1] === 'privacy-policy' ) { this.menuItemsFiltered = this.filterMenu(['Home']); }
       else if ( urlSplit[1] === 'snorkelling-in-britain' ) {
-        if ( urlSplit.length === 2 ) {
-          this.menuItems = [
-            {text: 'Home',    link: '/'},
-          ]
-        }
-        else {
-          this.menuItems = [
-            {text: 'Home',     link: '/'},
-            {text: 'Articles', link: 'snorkelling-in-britain'}
-          ]
-        }
+        if ( urlSplit.length === 2 ) { this.menuItemsFiltered = this.filterMenu(['Home']); }
+        else  { this.menuItemsFiltered = this.filterMenu(['Home', 'Articles']); }
       }
 
     })
 
   }
 
-  onLoad() {
+  filterMenu(items: Array<string>) {
+    return this.menuItems.filter( (item) => items.includes(item.text) );
+  }
+
+  ngAfterViewInit() {
     if (this._screen.widthDescriptor === 'large') {
       this.showDropdownMenu = false;
     }
   }
+  
 
   onHamburgerClick() {
     this.showDropdownMenu = !this.showDropdownMenu;
@@ -111,8 +102,8 @@ export class HeaderComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this._ssSubs?.unsubscribe();
-    this._nvSubs?.unsubscribe();
+    this._scrSubs?.unsubscribe();
+    this._navSubs?.unsubscribe();
   }
 
 }

@@ -239,7 +239,7 @@ router-outlet + * {
 /* Width of the image is calculated by javascript in component main.component.ts */
 /* transform: translateZ(-200px) scale( calc( var(--scaleRatioImg) * 500 / 300)); */
 /* NB this is now done in the component through NgStyle */
-  visibility: hidden;
+  /* visibility: hidden; */
   z-index: -1;
 
 }

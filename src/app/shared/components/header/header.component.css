@@ -43,7 +43,23 @@ header {
   padding: 0.25rem;
   border-bottom: 2px transparent solid;
   transition: border-bottom 0.5s ease-in-out;
+  /* width: 0;
+  height: 0; */
+  /* opacity: 0; */
+  /* transition-delay: 1000ms;
+  transition-property: height, width; */
 }
+
+/* .menu > li.show { */
+  /* color: white; */
+  /* width: auto;
+  height: auto;
+  opacity: 1;
+
+  transition-delay: 1000ms;
+  transition-property: height, width;  
+} */
+
 
 .menu > li:hover, .menu > li.active {
   cursor: pointer;

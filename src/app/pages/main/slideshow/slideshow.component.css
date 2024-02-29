@@ -2,7 +2,6 @@
 .slideshow-container {
   width: 100%;
   overflow: hidden;
-  z-index: 99999;
 }
 
 .slideshow {
@@ -13,6 +12,7 @@
   /* height: 70vh; */
   /* border: 1px  blue solid; */
   transition: transform 1s ease;
+  
 }
 
 .slide {
