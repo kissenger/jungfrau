@@ -1,10 +1,10 @@
 
 <div *ngIf="instas.length > 0" class="ckbtn-group">
   <span>Filter:</span>
-    <div class="ckbtn insta" [ngClass]="ckbtns['insta'].clicked ? 'clicked' : '' " (click)="onFilterClick('insta')">
+    <div #ckInsta class="ckbtn insta" [ngClass]="ckbtns['insta'].clicked ? 'clicked' : '' " (click)="onFilterClick('insta')">
       Instagram
     </div>
-    <div class="ckbtn article" [ngClass]="ckbtns['article'].clicked ? 'clicked' : '' "  (click)="onFilterClick('article')"> 
+    <div #ckArticle class="ckbtn article" [ngClass]="ckbtns['article'].clicked ? 'clicked' : '' "  (click)="onFilterClick('article')"> 
       Article
     </div>
 </div>

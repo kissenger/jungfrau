@@ -1,4 +1,4 @@
-import { Component, OnDestroy, HostListener} from '@angular/core';
+import { Component, OnDestroy, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NavService } from 'src/app/shared/services/nav.service';
@@ -13,11 +13,10 @@ import { _articles } from '../../db-articles';
   styleUrls: ['./content-browser.component.css'],
 })
 
-export class ContentBrowserComponent implements OnDestroy {
+export class ContentBrowserComponent implements OnDestroy, AfterViewInit {
 
-  @HostListener('window:load', ['$event']) onLoadEvent() {
-    this.onLoad();
-  };
+  @ViewChild('ckInsta') ckInstaElem!: ElementRef;
+  @ViewChild('ckArticle') ckArticleElem!: ElementRef;
 
   private _httpSubs: Subscription | undefined;
   private _screenSubs: Subscription | undefined;
@@ -79,9 +78,9 @@ export class ContentBrowserComponent implements OnDestroy {
 
   }
 
-  onLoad() {
-    this.ckbtns['article'].handle = <HTMLInputElement>document.querySelector('input#ckbtnArticle');
-    this.ckbtns['insta'].handle = <HTMLInputElement>document.querySelector('input#ckbtnInsta');
+  ngAfterViewInit() {
+    this.ckbtns['article'].handle = <HTMLInputElement>this.ckArticleElem.nativeElement;
+    this.ckbtns['insta'].handle = <HTMLInputElement>this.ckInstaElem.nativeElement;
   }
 
   onFilterClick(type: string) {
