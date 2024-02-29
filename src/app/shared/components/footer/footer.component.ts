@@ -1,36 +1,37 @@
 import { ScreenService } from 'src/app/shared/services/screen.service';
-import { Component, HostListener } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { NavService } from '../../services/nav.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {
+export class FooterComponent implements AfterViewInit{
 
-  // when we know the footer height, set the root css variable then make the footer visible
-  @HostListener('window:load', ['$event']) onLoadEvent() {
-    let h = document.getElementById("footer")!.offsetHeight;
-    document.documentElement.style.setProperty('--footer-height', `${h}px`);
-    document.getElementById("footer")!.style.opacity = '1';
-  };
+  @ViewChild('footer') footerElem!: ElementRef;
 
   public fullYear?: number;
   public logos;
   private _logoNames = ['youtube', 'instagram', 'email'];
 
   constructor(
-    public images: ImageService,
     public navigate: NavService,
-    public screen: ScreenService
+    public screen: ScreenService,
+    private _images: ImageService
   ) { 
 
     this.fullYear = new Date().getFullYear();
     this.logos = this._logoNames.map( (ln: string) => {
-      return this.images.sizedImage(ln, 'small')
+      return this._images.sizedImage(ln, 'small')
     })
   }
 
+  ngAfterViewInit() {
+    let h = this.footerElem.nativeElement.offsetHeight;
+    document.documentElement.style.setProperty('--footer-height', `${h}px`);
+    document.getElementById("footer")!.style.opacity = '1';
+  }
 }
