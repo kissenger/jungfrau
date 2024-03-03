@@ -2,16 +2,14 @@
 <footer #footer id="footer">
 
     <div class="footer-logos">
-
       <img *ngFor="let img of logos"
-        [ngSrc]  = "img.url"
-        [alt]    = "img.alt"
-        [width]  = "img.width"
-        [height] = "img.height"
-        (click)="navigate.to(img.href)"
-        aria-label="img.alt"
+        [ngSrc]    = "img.url"
+        [alt]      = "img.alt"
+        [width]    = "img.width"
+        [height]   = "img.height"
+        (click)    = "navigate.to(img.href)"
+        aria-label = "img.alt"
       />
-      
     </div>
 
     <div class="footer-text">

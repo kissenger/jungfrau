@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
-import { Subscription } from 'rxjs';
+// import { Element } from '@angular/compiler';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 
@@ -9,30 +9,36 @@ import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
   styleUrls: ['./main.component.css']
 })
 
-export class MainComponent implements OnDestroy, AfterViewInit {
+export class MainComponent implements AfterViewInit {
 
-  @ViewChildren('plxWindow') plxImages!: QueryList<ElementRef>;
+  @ViewChildren('window') windows!: QueryList<ElementRef>;
   @ViewChildren('anchor') anchors!: QueryList<ElementRef>;
 
-  public showPlxImages: {[id: string]: boolean} = {};
-  private scrollspySubs: Subscription;
+  private plxImgs: {[id: string]: string} = {
+    'windowOne'  : 'scorpionfish',
+    'windowTwo'  : 'cuddlingcrabs',
+    'windowThree': 'sittingchild',
+    'windowFour' : 'anemone',
+  }
 
   constructor(
     public images: ImageService,
     private scrollSpy: ScrollspyService
-  ) {
-    this.scrollspySubs = this.scrollSpy.intersectionEmitter.subscribe( (isect) => {
-      this.showPlxImages[isect.id] = isect.ratio > 0.2
+  ) {}
+  
+  ngAfterViewInit() {
+
+    this.scrollSpy.observeChildren(this.anchors);   // subscribed to in header component
+
+    // Only once DOM is loaded allow background images to load (lazy loading)
+    this.windows.forEach( (w) => {
+      let url = this.images.parallaxImage(this.plxImgs[w.nativeElement.id]).url;
+      w.nativeElement.style.backgroundImage = `url('${url}')`;
+      w.nativeElement.style.backgroundAttachment = 'fixed';
+      w.nativeElement.style.backgroundSize = 'cover';
+      w.nativeElement.style.backgroundPosition = 'center';
     })
   }
 
-  ngAfterViewInit() {
-    this.scrollSpy.observeChildren(this.plxImages); // subscribed to in this component
-    this.scrollSpy.observeChildren(this.anchors);   // subscribed to in header component
-  }
-
-  ngOnDestroy(): void {
-    this.scrollspySubs?.unsubscribe();
-  }
 }
 

@@ -2,6 +2,7 @@
 .slideshow-container {
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .slideshow {
@@ -9,19 +10,16 @@
   display: flex;
   flex-direction: row;
   width: 400%;
-  /* height: 70vh; */
-  /* border: 1px  blue solid; */
   transition: transform 1s ease;
-  
 }
 
 .slide {
+  position: relative;
   width: 25%;
   height: 100%;
   display: inline;
-  z-index: 99;
+  z-index: 10;
   overflow: hidden;
-  /* border: 1px red solid; */
 }
 
 .slide > img {
@@ -29,7 +27,8 @@
   object-position: center;
 }
 
-.slideshow-button {
+button {
+  position: relative;
   pointer-events: all;
   font-size: 0.8rem;
   color: white;
@@ -48,10 +47,6 @@
   border: 1px solid white;
   cursor: pointer;
 }
-/*
-.clickslide {
-  animation: 1s ease-in-out forwards clickslide ;
-} */
 
 .slideshow-textbox-outer {
   position: absolute;
@@ -61,10 +56,7 @@
   margin-bottom: 3em;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  /* border: red 1px solid; */
-  /* background-color: rgba(0,0,0,0.4); */
   background-color: var(--banner-colour);
-
   pointer-events: none;
 }
 
@@ -84,16 +76,8 @@
   text-align: start;
 }
 
-/* .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-} */
-
 .arrow {
+  z-index: 20;
   position: absolute;
   top: 50%;
   cursor: pointer;

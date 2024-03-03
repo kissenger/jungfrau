@@ -39,7 +39,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     
     // observed elements are set in main component and tracked in scrollspy
     this._scrSubs = this._scrollSpy.intersectionEmitter.subscribe( (isect) => {
-      if (isect.class==="anchor" && isect.ratio > 0.2) {
+      if (isect.ratio > 0.2) {
         this.activeAnchor = isect.id;
       }
     })

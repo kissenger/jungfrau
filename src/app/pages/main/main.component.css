@@ -1,5 +1,4 @@
 
-
 .main-content-image {
   position: sticky;
   top: 75px;
@@ -10,7 +9,6 @@
   padding-bottom: 1rem;
   margin: auto;
 }
-
 .main-content-grid {
   /* border: 1px red solid; */
   grid-template-columns: auto auto;

@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="insta-feed">
+<div class="insta-feed" [ngClass]="{'show': isLoaded}">
 
   <app-ui-card *ngFor="let card of cards"
     imageURL="{{card.media_url}}"

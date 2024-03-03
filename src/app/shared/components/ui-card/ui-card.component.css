@@ -9,7 +9,6 @@
   margin: 2rem 0 2rem 0;
   border: var(--border-colour) 1px solid; 
   transition: all 0.25s;
-
 }
 
 .ui-card:hover {
@@ -20,6 +19,7 @@
 
 
 .ui-card-photo {
+  position: relative;
   display: flex;
   justify-items: center;
   align-items: center;

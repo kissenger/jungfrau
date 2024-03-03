@@ -70,7 +70,7 @@ export class ImageService {
     let _img = this.orientedImage(_shortName);
     let _ar = this.screen.aspectRatio;
     let factor = _ar > 0.7 && _ar < 1.4 ? 1.4 : 1;
-
+    
     return {
       ..._img,
       scaleFactor: this.screen.width / _img.width * factor

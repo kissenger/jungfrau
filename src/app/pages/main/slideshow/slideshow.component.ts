@@ -23,9 +23,6 @@ export class SlideshowComponent implements AfterViewInit{
   ) {}
 
   ngAfterViewInit() {
-    
-    // console.log(this.overlay)
-    console.log(this.firstSlide)
 
     // duplicate slide 1 and add as a child of slideshow
       this.slideshowElement.nativeElement.appendChild(

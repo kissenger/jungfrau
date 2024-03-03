@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, OnDestroy, ElementRef, ViewChild} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NavService } from 'src/app/shared/services/nav.service';
@@ -13,22 +13,23 @@ import { _articles } from '../../db-articles';
   styleUrls: ['./content-browser.component.css'],
 })
 
-export class ContentBrowserComponent implements OnDestroy, AfterViewInit {
+export class ContentBrowserComponent implements OnDestroy {
 
   @ViewChild('ckInsta') ckInstaElem!: ElementRef;
   @ViewChild('ckArticle') ckArticleElem!: ElementRef;
-
+  
   private _httpSubs: Subscription | undefined;
   private _screenSubs: Subscription | undefined;
   private _navSubs: Subscription;
   private _limitPosts: boolean = false;
   private _previews: Array<ArticlePreview> = [];
 
+  public isLoaded: boolean = false;
   public cards: Array<InstaPost | ArticlePreview> = [];
   public instas: Array<InstaPost> = [];
-  public ckbtns: { [name: string]: { clicked: boolean, handle: HTMLElement | undefined } } = {
-    article: { clicked: true, handle: undefined },
-    insta:   { clicked: true, handle: undefined }
+  public ckbtns: { [name: string]: { clicked: boolean } } = {
+    article: { clicked: true },
+    insta:   { clicked: true }
   } 
 
   constructor(
@@ -36,7 +37,6 @@ export class ContentBrowserComponent implements OnDestroy, AfterViewInit {
     private _http: HttpService,
     private _navigate: NavService,
     private _images: ImageService
-    
   ) {
 
     // get instgram posts
@@ -47,13 +47,14 @@ export class ContentBrowserComponent implements OnDestroy, AfterViewInit {
             .filter( (m: InstaPost) => m.media_type != "VIDEO")
             .map( (m: InstaPost) => { m.category = 'Instagram'; return m; })
           this.updateFeed();
+          this.isLoaded = true;
         },
         error: (error) => {
           console.log(error);
+          this.isLoaded = true;
         }
       })  
   
-
     // construct article previews
     this._previews = _articles.map( (article: Article) => {
       return {
@@ -76,11 +77,6 @@ export class ContentBrowserComponent implements OnDestroy, AfterViewInit {
       this.updateFeed();
     })
 
-  }
-
-  ngAfterViewInit() {
-    this.ckbtns['article'].handle = <HTMLInputElement>this.ckArticleElem.nativeElement;
-    this.ckbtns['insta'].handle = <HTMLInputElement>this.ckInstaElem.nativeElement;
   }
 
   onFilterClick(type: string) {
