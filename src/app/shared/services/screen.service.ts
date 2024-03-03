@@ -20,6 +20,7 @@ export class ScreenService implements OnDestroy{
   private _containerWidth: number = 0;
   private _numberUIPosts: number = 0;
   private _viewportChangeSubs: Subscription | undefined;
+  private _hasOrientationChanged: boolean = false;
 
   constructor(
     private viewportRuler: ViewportRuler,
@@ -29,7 +30,7 @@ export class ScreenService implements OnDestroy{
     this._viewportChangeSubs = this.viewportRuler.change(200).subscribe(() => {
       this.ngZone.run(() => {
         this.onResize();
-        this.resize.emit();
+        this.resize.emit(this._hasOrientationChanged);
       })
     });
   }
@@ -38,7 +39,9 @@ export class ScreenService implements OnDestroy{
     const {width, height} = this.viewportRuler.getViewportSize();
     this._screenWidth = width;
     this._screenHeight = height;
-    this._deviceOrientation = (height / width) > 1.4 ? 'portrait' : 'landscape';
+    let lastOrientation = this._deviceOrientation;
+    this._deviceOrientation = (height / width) > 1 ? 'portrait' : 'landscape';
+    this._hasOrientationChanged = lastOrientation != this._deviceOrientation;
     this._widthDescriptor = (width < this._widthThreshold) ? 'small' : 'large';
     this._aspectRatio = height / width;
 

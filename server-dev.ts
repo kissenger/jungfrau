@@ -46,19 +46,20 @@ export function app(): express.Express {
 
 
   // *** API Endpoints
-  server.use(express.json());
-  server.get('/api/ping/', (req, res) => {
-    res.status(201).json({hello: 'world'});
-  })
+    
+    server.use(express.json());
+    server.get('/api/ping/', (req, res) => {
+      res.status(201).json({hello: 'world'});
+    })
 
-  server.post('/api/store-email', async (req, res) => {
-    try {
-      const newDocument = await ContactsModel.create( {email: req.body.email} );
-      res.status(201).json({_id: newDocument});
-    } catch (error: any) {
-      res.status(500).send(error.message);
-    }
-  });
+    server.post('/api/store-email', async (req, res) => {
+      try {
+        const newDocument = await ContactsModel.create( {email: req.body.email} );
+        res.status(201).json({_id: newDocument});
+      } catch (error: any) {
+        res.status(500).send(error.message);
+      }
+    });
 
   // *** End of API Endpoints
 

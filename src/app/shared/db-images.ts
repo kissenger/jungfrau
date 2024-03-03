@@ -3,7 +3,7 @@ import { ImageCollection } from './types';
 export const imageCollection: ImageCollection = {
 
 // ***********
-// Parallax
+// Static Background
 // ***********
 
   "scorpionfish": {

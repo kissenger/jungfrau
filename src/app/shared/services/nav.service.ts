@@ -1,8 +1,6 @@
 import { Location } from '@angular/common';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router, NavigationEnd, Event } from '@angular/router';
-import { Subscribable, Subscription } from 'rxjs';
-
 
 @Injectable()
 
@@ -44,7 +42,6 @@ export class NavService {
         });
       })
     }
-  
   }
 
   back() {

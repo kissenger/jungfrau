@@ -8,7 +8,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 export class ScrollspyService {
 
-    public intersectionEmitter = new EventEmitter<{id: string, class: string, ratio: number}>();
+  public intersectionEmitter = new EventEmitter<{id: string, class: string, ratio: number}>();
   private _ob$: any;
 
   constructor(
@@ -26,8 +26,7 @@ export class ScrollspyService {
 
   observeChildren(children: QueryList<ElementRef>) {
     children.toArray().forEach( (child) => {
-      this._ob$.observe(child.nativeElement);
-      
+      this._ob$?.observe(child.nativeElement);
     })
   };
 

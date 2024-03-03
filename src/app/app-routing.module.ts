@@ -15,12 +15,12 @@ const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyComponent},
   { path: 'subscribe', component: SubscribeComponent},
   // { path: '**', redirectTo: '', pathMatch: 'full'}
-
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
+      // useHash: true,
       scrollPositionRestoration: 'top',
       // anchorScrolling: 'enabled',
       // scrollOffset: [0, 0],

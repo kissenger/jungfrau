@@ -1,6 +1,7 @@
 // import { Element } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { ImageService } from 'src/app/shared/services/image.service';
+import { ScreenService } from 'src/app/shared/services/screen.service';
 import { ScrollspyService } from 'src/app/shared/services/scrollspy.service';
 
 @Component({
@@ -22,17 +23,24 @@ export class MainComponent implements AfterViewInit {
   }
 
   constructor(
-    public images: ImageService,
-    private scrollSpy: ScrollspyService
+    private _images: ImageService,
+    private _scrollSpy: ScrollspyService,
+    private _screen: ScreenService
   ) {}
   
   ngAfterViewInit() {
+    this._scrollSpy.observeChildren(this.anchors);   // subscribed to in header component
+    this.loadBackgroundImages();
+    this._screen.resize.subscribe( (hasOrientationChanged) => {
+      if (hasOrientationChanged) {
+        this.loadBackgroundImages();
+      }
+    })
+  }
 
-    this.scrollSpy.observeChildren(this.anchors);   // subscribed to in header component
-
-    // Only once DOM is loaded allow background images to load (lazy loading)
+  loadBackgroundImages() {
     this.windows.forEach( (w) => {
-      let url = this.images.parallaxImage(this.plxImgs[w.nativeElement.id]).url;
+      let url = this._images.orientedImage(this.plxImgs[w.nativeElement.id]).url;
       w.nativeElement.style.backgroundImage = `url('${url}')`;
       w.nativeElement.style.backgroundAttachment = 'fixed';
       w.nativeElement.style.backgroundSize = 'cover';
