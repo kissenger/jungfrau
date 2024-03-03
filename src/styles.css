@@ -6,7 +6,6 @@
    ===================================================*/
 
   --header-height: 80px;
-  --main-container-height: 0;
 
   /* Theme */
   --sn-colour: #1b3d59;
@@ -15,10 +14,6 @@
   --text-colour-link: #009AF7;
   --banner-colour: #00000066;
   --border-colour: #DEE2E6;
-
-  /* Parallax image sizing */
-  --scaleRatioImg: 1;
-  --scaleRatioWindow: 1;
 
   /* UIcard sizing */
   --line-height: 1.7;
@@ -32,7 +27,7 @@
  * {
   /* transform-style: preserve-3d;
   position: relative; */
-  /* -webkit-touch-callout: none; */
+  -webkit-touch-callout: none;
 
   /* Dont allow user to select text */
     -webkit-user-select: none;
@@ -131,35 +126,30 @@ p {
 }
 
 @media (max-width: 575px) {
-  /* .dynamic-container { width: calc(100vw - 20px) } */
   :root{ --container-width: calc(100vw - 20px); }
   html {font-size: 14px;}
   .window{ height: 70vh; }
   .slideshow{ height: 70vh; }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-  /* .dynamic-container { width: 540px } */
   html {font-size: 14px;}
   :root{ --container-width: 540px; }
   .window { height: 50vh; }
   .slideshow{ height: 50vh; }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* .dynamic-container { width: 720px } */
   html {font-size: 16px;}
   :root{ --container-width: 720px; }
   .window { height: 70vh; }
   .slideshow{ height: 70vh; }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* .dynamic-container { width: 992px } */
   html {font-size: 16px;}
   :root{ --container-width: 960px; }
   .window { height: 70vh; }
   .slideshow{ height: 80vh; }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {
-  /* .dynamic-container { width: 1140px } */
   html {font-size: 16px;}
   :root{ --container-width: 1140px; }
   .window { height: 70vh; }

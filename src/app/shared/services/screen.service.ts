@@ -40,7 +40,7 @@ export class ScreenService implements OnDestroy{
     this._screenWidth = width;
     this._screenHeight = height;
     let lastOrientation = this._deviceOrientation;
-    this._deviceOrientation = (height / width) > 1 ? 'portrait' : 'landscape';
+    this._deviceOrientation = (height / width) > 1.4 ? 'portrait' : 'landscape';
     this._hasOrientationChanged = lastOrientation != this._deviceOrientation;
     this._widthDescriptor = (width < this._widthThreshold) ? 'small' : 'large';
     this._aspectRatio = height / width;

@@ -1,4 +1,9 @@
 
+
+/* ===================================== */
+/* styling used on some child components */
+/* ===================================== */
+
 .main-content-image {
   position: sticky;
   top: 75px;
@@ -8,9 +13,11 @@
   height: auto;
   padding-bottom: 1rem;
   margin: auto;
+  margin-top: 0;
 }
+
 .main-content-grid {
-  /* border: 1px red solid; */
+  display: block;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
   grid-gap: 1.5rem;
@@ -22,17 +29,7 @@
 }
 
 .grid-position-right {
-  /* border: 1px green solid; */
   grid-column: 2;
-}
-
-@media (max-width: 767px) {
-  .main-content-grid {
-    display: block;
-  }
-  .main-content-image {
-    margin-top: 0;
-  }
 }
 
 @media (min-width: 768px) {
