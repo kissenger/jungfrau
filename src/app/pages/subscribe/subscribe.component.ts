@@ -20,17 +20,17 @@ export class SubscribeComponent implements OnDestroy {
   ) { }
 
   onSubmit() {
-    document.body.style.cursor = "wait";
+    // document.body.style.cursor = "wait";
     let data = {email: this.email};
     this._httpSubs = this._http.storeEmail(data).subscribe( {
       next: (result) => {
-        window.alert("Success! Your email address was saved ... We'll be in touch.");
-        document.body.style.cursor = "default";
+        // window.alert("Success! Your email address was saved ... We'll be in touch.");
+        // document.body.style.cursor = "default";
         this.email = "";
       },
       error: (error) => {
-        window.alert("Oops, something didn't work out.  Please try again.");
-        document.body.style.cursor = "default";
+        // window.alert("Oops, something didn't work out.  Please try again.");
+        // document.body.style.cursor = "default";
         console.log(error);
       }
     });

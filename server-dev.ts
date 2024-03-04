@@ -33,6 +33,7 @@ export function app(): express.Express {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/beta/browser');
   const indexHtml =  join(distFolder, 'index.html');
+  console.log(indexHtml);
 
   const template = readFileSync(indexHtml).toString();
   const window = createWindow(template);
@@ -81,7 +82,10 @@ export function app(): express.Express {
         providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
       })
       .then((html) => res.send(html))
-      .catch((err) => next(err));
+      .catch((err) => {
+        console.log(err);
+        next(err); 
+      });
   });
 
   return server;

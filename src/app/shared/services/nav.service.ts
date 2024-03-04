@@ -14,7 +14,8 @@ export class NavService {
   ) {
     this.router.events.subscribe( (event: Event) => {
       if (event instanceof NavigationEnd) {
-        this.end.emit(window.location.pathname);
+        
+        // this.end.emit(window.location.pathname);
       }
     });
   }
@@ -22,26 +23,28 @@ export class NavService {
   to(destination: string) {
 
     // If destination is an element on the current page, the scroll to it
-    if (document.getElementById(destination)) {
-      document.getElementById(destination)?.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+
+
+    // if (document.getElementById(destination)) {
+    //   document.getElementById(destination)?.scrollIntoView({
+    //     behavior: 'smooth'
+    //   });
+    // }
 
     // If destination is an external link, navigate to it 
-    else if (destination.includes('http')) {
-      window.location.href = destination;
-    } 
+    // else if (destination.includes('http')) {
+    //   window.location.href = destination;
+    // } 
 
     // Else route internally and scroll to top of screen when complete
-    else {
-      this.router.navigate([destination]).then( () => {
-        document.getElementById('container')?.scrollTo({
-          top: 0,
-          left: 0,
-        });
-      })
-    }
+    // else {
+    //   this.router.navigate([destination]).then( () => {
+    //     document.getElementById('container')?.scrollTo({
+    //       top: 0,
+    //       left: 0,
+    //     });
+    //   })
+    // }
   }
 
   back() {

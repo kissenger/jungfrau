@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   @ViewChildren('menuItem') menuElements!: QueryList<ElementRef>; 
-  // @ViewChild('menu') menu!: ElementRef;
+  @ViewChildren('animate') animateElements!: QueryList<ElementRef>;
 
   private _scrSubs: Subscription;
   private _navSubs: Subscription;
@@ -85,19 +85,19 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   animateHamburger() {
-    document.querySelectorAll("animate").forEach( anim => {
-      anim.beginElement();
+    this.animateElements.toArray().forEach( (anim) => {
+      anim.nativeElement.beginElement();
     });
     this.toggleAnimationDirection();
   }
 
   // Reverse svg animation using js - makes svg definition more simple
   toggleAnimationDirection() {
-    document.querySelectorAll("animate").forEach(anim => {
-      let from = anim.getAttribute("from");
-      let to   = anim.getAttribute("to");
-      anim.setAttribute('from', to!);
-      anim.setAttribute('to', from!);
+    this.animateElements.toArray().forEach( (anim) => {
+      let from = anim.nativeElement.getAttribute("from");
+      let to   = anim.nativeElement.getAttribute("to");
+      anim.nativeElement.setAttribute('from', to!);
+      anim.nativeElement.setAttribute('to', from!);
     });
   }
 
